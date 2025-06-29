@@ -1,0 +1,14 @@
+{
+  "generators": {
+    "create-library": {
+      "description": "Create a library.",
+      "factory": "./create-library/index.ts",
+      "schema": "./create-library/schema.json"
+    },
+    "format-tsconfigs": {
+      "description": "Format TypeScript configuration files.",
+      "factory": "./format-tsconfigs/index.ts",
+      "schema": "./format-tsconfigs/schema.json"
+    }
+  }
+}

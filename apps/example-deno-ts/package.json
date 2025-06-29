@@ -1,0 +1,17 @@
+{
+  "name": "example-deno-ts",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.13.2",
+    "@modelfetch/deno": "workspace:^",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "@types/deno": "^2.3.0",
+    "create-eslint-config": "workspace:^",
+    "modelfetch": "workspace:^"
+  }
+}

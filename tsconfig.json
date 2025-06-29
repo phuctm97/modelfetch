@@ -1,0 +1,33 @@
+{
+  "include": [],
+  "references": [
+    {
+      "path": "./apps/example-bun-ts"
+    },
+    {
+      "path": "./apps/example-deno-ts"
+    },
+    {
+      "path": "./apps/example-node-ts"
+    },
+    {
+      "path": "./libs/modelfetch"
+    },
+    {
+      "path": "./libs/modelfetch-bun"
+    },
+    {
+      "path": "./libs/modelfetch-core"
+    },
+    {
+      "path": "./libs/modelfetch-deno"
+    },
+    {
+      "path": "./libs/modelfetch-node"
+    },
+    {
+      "path": "./libs/nx-10x"
+    }
+  ],
+  "extends": "./tsconfig.base.json"
+}

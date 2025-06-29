@@ -1,0 +1,19 @@
+{
+  "name": "modelfetch",
+  "version": "0.0.1",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "development": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "modelfetch": "./bin/index.js"
+  },
+  "devDependencies": {
+    "create-eslint-config": "workspace:^"
+  }
+}

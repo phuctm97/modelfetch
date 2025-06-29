@@ -1,0 +1,17 @@
+{
+  "name": "example-node-ts",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.13.2",
+    "@modelfetch/node": "workspace:^",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "create-eslint-config": "workspace:^",
+    "modelfetch": "workspace:^",
+    "tsx": "^4.20.3"
+  }
+}

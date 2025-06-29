@@ -1,0 +1,16 @@
+{
+  "name": "nx-10x",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "dependencies": {
+    "validate-npm-package-name": "^6.0.1"
+  },
+  "devDependencies": {
+    "@types/validate-npm-package-name": "^4.0.2",
+    "create-eslint-config": "workspace:^",
+    "type-fest": "^4.41.0"
+  },
+  "generators": "./src/generators/index.json"
+}

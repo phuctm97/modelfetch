@@ -1,0 +1,17 @@
+{
+  "include": ["src"],
+  "references": [
+    {
+      "path": "../../libs/modelfetch-bun/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/modelfetch/tsconfig.lib.json"
+    }
+  ],
+  "extends": "../../tsconfig.bun.json",
+  "compilerOptions": {
+    "sourceRoot": "/apps/example-bun-ts/src",
+    "rootDir": "src",
+    "outDir": "dist"
+  }
+}

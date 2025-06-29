@@ -1,0 +1,29 @@
+{
+  "nxConsole.commonNxCommands": ["run-many", "run", "reset"],
+  "nxConsole.generatorAllowlist": ["nx-10x:*"],
+  "nxConsole.projectViewingStyle": "tree",
+  "nxConsole.generateAiAgentRules": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "eslint.workingDirectories": [{ "mode": "auto" }],
+  "editor.codeActionsOnSave": { "source.fixAll": "always" },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  "files.insertFinalNewline": true,
+  "files.associations": {
+    ".nxignore": "ignore",
+    "*.template": "ejs",
+    "**/.husky/*": "shellscript"
+  },
+  "files.exclude": {
+    ".nx": true,
+    ".husky/_": true,
+    ".nvmrc": true,
+    "**/pnpm-lock.yaml": true,
+    "**/*.tsbuildinfo": true,
+    "**/node_modules": true,
+    "**/dist": true
+  }
+}

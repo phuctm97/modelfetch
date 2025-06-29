@@ -1,0 +1,15 @@
+{
+  "name": "example-bun-js",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.js",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.13.2",
+    "@modelfetch/bun": "workspace:^",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "modelfetch": "workspace:^"
+  }
+}

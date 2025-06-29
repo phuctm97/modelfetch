@@ -1,0 +1,20 @@
+{
+  "name": "@modelfetch/deno",
+  "version": "0.0.1",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "development": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "dependencies": {
+    "@modelfetch/core": "workspace:^"
+  },
+  "devDependencies": {
+    "@types/deno": "^2.3.0",
+    "create-eslint-config": "workspace:^"
+  }
+}

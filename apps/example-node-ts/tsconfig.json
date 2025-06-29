@@ -1,0 +1,17 @@
+{
+  "include": ["src"],
+  "references": [
+    {
+      "path": "../../libs/modelfetch"
+    },
+    {
+      "path": "../../libs/modelfetch-node"
+    }
+  ],
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "sourceRoot": "/apps/example-node-ts/src",
+    "rootDir": "src",
+    "outDir": "dist"
+  }
+}

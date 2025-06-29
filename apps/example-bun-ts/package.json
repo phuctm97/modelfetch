@@ -1,0 +1,17 @@
+{
+  "name": "example-bun-ts",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.13.2",
+    "@modelfetch/bun": "workspace:^",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.1.14",
+    "create-eslint-config": "workspace:^",
+    "modelfetch": "workspace:^"
+  }
+}

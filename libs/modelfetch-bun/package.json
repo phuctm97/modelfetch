@@ -1,0 +1,21 @@
+{
+  "name": "@modelfetch/bun",
+  "version": "0.0.1",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "development": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "dependencies": {
+    "@modelfetch/core": "workspace:^",
+    "type-fest": "^4.41.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.1.14",
+    "create-eslint-config": "workspace:^"
+  }
+}

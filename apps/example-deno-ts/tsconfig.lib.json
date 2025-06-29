@@ -1,0 +1,17 @@
+{
+  "include": ["src"],
+  "references": [
+    {
+      "path": "../../libs/modelfetch-deno/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/modelfetch/tsconfig.lib.json"
+    }
+  ],
+  "extends": "../../tsconfig.deno.json",
+  "compilerOptions": {
+    "sourceRoot": "/apps/example-deno-ts/src",
+    "rootDir": "src",
+    "outDir": "dist"
+  }
+}

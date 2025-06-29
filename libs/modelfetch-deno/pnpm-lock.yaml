@@ -1,0 +1,29 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      '@modelfetch/core':
+        specifier: workspace:^
+        version: link:../modelfetch-core
+    devDependencies:
+      '@types/deno':
+        specifier: ^2.3.0
+        version: 2.3.0
+      create-eslint-config:
+        specifier: workspace:^
+        version: link:../create-eslint-config
+
+packages:
+
+  '@types/deno@2.3.0':
+    resolution: {integrity: sha512-/4SyefQpKjwNKGkq9qG3Ln7MazfbWKvydyVFBnXzP5OQA4u1paoFtaOe1iHKycIWHHkhYag0lPxyheThV1ijzw==}
+
+snapshots:
+
+  '@types/deno@2.3.0': {}

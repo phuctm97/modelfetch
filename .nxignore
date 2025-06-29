@@ -1,0 +1,14 @@
+/.git
+/.nx
+/.husky
+/.vscode
+/.gitattributes
+/.nvmrc
+/.prettierignore
+/.prettierrc
+/tsconfig.json
+.mcp.json
+.cursor
+.claude
+CLAUDE.md
+eslint.config.js

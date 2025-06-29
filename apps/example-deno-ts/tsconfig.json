@@ -1,0 +1,15 @@
+{
+  "include": [],
+  "references": [
+    {
+      "path": "../../libs/modelfetch"
+    },
+    {
+      "path": "../../libs/modelfetch-deno"
+    },
+    {
+      "path": "./tsconfig.lib.json"
+    }
+  ],
+  "extends": "../../tsconfig.base.json"
+}
