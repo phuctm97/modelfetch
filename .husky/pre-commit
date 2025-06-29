@@ -1,0 +1,6 @@
+if [ -z "$CI" ]; then
+  set -ex
+  nx sync
+  nx format
+  prettier --log-level warn --write .
+fi

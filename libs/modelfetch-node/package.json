@@ -1,0 +1,21 @@
+{
+  "name": "@modelfetch/node",
+  "version": "0.0.1",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "development": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.14.4",
+    "@modelfetch/core": "workspace:^",
+    "type-fest": "^4.41.0"
+  },
+  "devDependencies": {
+    "create-eslint-config": "workspace:^"
+  }
+}
