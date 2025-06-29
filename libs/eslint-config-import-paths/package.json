@@ -1,0 +1,10 @@
+{
+  "name": "eslint-config-import-paths",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.js",
+  "dependencies": {
+    "eslint-plugin-no-relative-import-paths": "1.6.1"
+  }
+}

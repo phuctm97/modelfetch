@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "format": "sh .husky/pre-commit",
+    "prepare": "sh prepare.sh"
+  },
+  "dependencies": {
+    "tslib": "2.8.1"
+  },
+  "devDependencies": {
+    "@nx/devkit": "21.2.1",
+    "@nx/js": "21.2.1",
+    "@swc-node/register": "1.10.10",
+    "@swc/helpers": "0.5.17",
+    "@types/node": "22.15.34",
+    "eslint": "9.30.0",
+    "husky": "9.1.7",
+    "nx": "21.2.1",
+    "prettier": "3.6.2",
+    "prettier-plugin-packagejson": "2.5.17",
+    "type-fest": "4.41.0",
+    "typescript": "5.8.3"
+  },
+  "packageManager": "pnpm@10.12.4"
+}

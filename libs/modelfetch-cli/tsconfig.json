@@ -1,0 +1,12 @@
+{
+  "include": [],
+  "references": [
+    {
+      "path": "../modelfetch"
+    },
+    {
+      "path": "./tsconfig.lib.json"
+    }
+  ],
+  "extends": "../../tsconfig.base.json"
+}
