@@ -1,0 +1,12 @@
+{
+  "include": [],
+  "references": [
+    {
+      "path": "./libs/modelfetch"
+    },
+    {
+      "path": "./libs/nx-10x"
+    }
+  ],
+  "extends": "./tsconfig.base.json"
+}

@@ -1,0 +1,6 @@
+/.nx/cache
+/.nx/workspace-data
+.DS_Store
+*.tsbuildinfo
+node_modules
+dist

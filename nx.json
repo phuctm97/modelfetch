@@ -1,0 +1,21 @@
+{
+  "namedInputs": {
+    "default": [
+      "{workspaceRoot}/pnpm-lock.yaml",
+      "{workspaceRoot}/tsconfig.*.json",
+      "{projectRoot}/**/*"
+    ],
+    "production": [
+      "default",
+      "!{projectRoot}/.mcp.json",
+      "!{projectRoot}/.cursor",
+      "!{projectRoot}/.claude",
+      "!{projectRoot}/CLAUDE.md",
+      "!{projectRoot}/eslint.config.js"
+    ]
+  },
+  "plugins": [
+    { "plugin": "@nx/js/typescript", "options": { "build": {} } },
+    "nx-10x"
+  ]
+}

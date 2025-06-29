@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "customConditions": ["development"],
+    "moduleResolution": "bundler",
+    "module": "esnext",
+    "jsx": "preserve",
+    "lib": ["es2023"],
+    "target": "es2022",
+    "allowJs": false,
+    "strict": true,
+    "incremental": true,
+    "composite": true,
+    "skipLibCheck": true,
+    "importHelpers": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "verbatimModuleSyntax": true,
+    "sourceMap": true,
+    "sourceRoot": "/",
+    "inlineSources": true,
+    "declarationMap": true,
+    "tsBuildInfoFile": ".tsbuildinfo",
+    "noEmitOnError": true
+  }
+}

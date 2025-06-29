@@ -1,0 +1,9 @@
+{
+  "include": ["src"],
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "sourceRoot": "/libs/nx-10x/src",
+    "rootDir": "src",
+    "outDir": "dist"
+  }
+}
