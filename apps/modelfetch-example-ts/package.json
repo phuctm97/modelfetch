@@ -1,0 +1,14 @@
+{
+  "name": "@modelfetch/example-ts",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.13.2",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "create-eslint-config": "workspace:^"
+  }
+}

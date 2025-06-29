@@ -6,6 +6,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This workspace follows Nx best practices as outlined in @.cursor/rules/nx-rules.mdc
 
+### Repository Configurations
+
+- Node.js version: @.nvmrc
+- Workspace configurations: @package.json @pnpm-workspace.yaml
+- TypeScript configurations: @tsconfig.json @tsconfig.base.json @tsconfig.common.json
+- Only TypeScript projects have ESLint configurations
+- All JavaScript projects have no ESLint configurations
+
 ### Core Libraries
 
 - **modelfetch**: ModelFetch library (work in progress)
@@ -14,12 +22,6 @@ This workspace follows Nx best practices as outlined in @.cursor/rules/nx-rules.
 
 - **nx-10x**: Custom Nx plugin for internal Nx generators, executors, projects, targets, and configurations
 - **create-eslint-config**, **eslint-config-import-paths**, **eslint-config-react**: Shared ESLint utilities and configurations
-
-### TypeScript Configurations
-
-- Node.js version: @.nvmrc
-- Base configuration: @tsconfig.base.json
-- Common configuration: @tsconfig.common.json
 
 ## Development Commands
 
