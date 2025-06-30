@@ -4,9 +4,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
+This repository contains the source code of ModelFetch: a TypeScript/JavaScript SDK for building MCP (Model Context Protocol) servers with a delightful developer experience and deploying them anywhere TypeScript/JavaScript runs.
+
+The SDK is built as a thin wrapper on top of `hono` and `@hono/mcp`, leveraging Hono's runtime-agnostic capabilities. The SDK provides multiple packages, each optimized for specific platforms/runtimes:
+
+- `@modelfetch/node` - Node.js runtime support (work in progress)
+- `@modelfetch/deno` - Deno runtime support (planned)
+- `@modelfetch/bun` - Bun runtime support (planned)
+- `@modelfetch/cloudflare` - Cloudflare Workers support (planned)
+- `@modelfetch/vercel` - Vercel Functions support (planned)
+
+Each package acts as a thin wrapper around the equivalent Hono package, ensuring optimal performance and compatibility.
+
+The `modelfetch` CLI provides an exceptional developer experience with:
+
+- `dev` command for running MCP servers in development mode with live reload
+- Integration with the MCP inspector for a seamless testing and debugging experience
+
+**Goal**: To become the world's most popular TypeScript/JavaScript SDK for building MCP servers.
+
+## Workspace Overview
+
 This workspace follows Nx best practices as outlined in @.cursor/rules/nx-rules.mdc
 
-### Repository Configurations
+### Global Configurations
 
 - Node.js version: @.nvmrc
 - Workspace configurations: @package.json @pnpm-workspace.yaml
@@ -29,9 +50,13 @@ This workspace follows Nx best practices as outlined in @.cursor/rules/nx-rules.
 
 ### Core Libraries
 
-- `modelfetch`: ModelFetch CLI (work in progress)
+- `modelfetch`: ModelFetch CLI tools (work in progress)
 - `@modelfetch/core`: ModelFetch core utilities (work in progress)
-- `@modelfetch/node`: ModelFetch Node.js utilities (work in progress)
+- `@modelfetch/node`: Node.js runtime support (work in progress)
+- `@modelfetch/deno` - Deno runtime support (planned)
+- `@modelfetch/bun` - Bun runtime support (planned)
+- `@modelfetch/cloudflare` - Cloudflare Workers support (planned)
+- `@modelfetch/vercel` - Vercel Functions support (planned)
 
 ### Supporting Libraries
 
