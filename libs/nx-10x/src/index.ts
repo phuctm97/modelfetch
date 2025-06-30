@@ -37,27 +37,6 @@ export const createNodesV2: CreateNodesV2 = [
             syncGenerators: ["@nx/js:typescript-sync"],
           };
         }
-        if (packageJson.devDependencies?.["@modelfetch/cli"]) {
-          targets.build = {
-            cache: true,
-            command: "modelfetch build",
-            options: { cwd: "{projectRoot}" },
-            inputs: [
-              "production",
-              "^production",
-              { externalDependencies: ["typescript", "tslib"] },
-            ],
-            outputs: ["{projectRoot}/dist"],
-            dependsOn: ["^build"],
-            syncGenerators: ["@nx/js:typescript-sync"],
-          };
-          targets.start = {
-            command: "modelfetch start",
-            options: { cwd: "{projectRoot}" },
-            continuous: true,
-            dependsOn: ["build"],
-          };
-        }
         return { projects: { [projectRoot]: { projectType, targets } } };
       },
       packageJsonFilePaths,
