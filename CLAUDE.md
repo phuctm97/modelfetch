@@ -10,9 +10,13 @@ This workspace follows Nx best practices as outlined in @.cursor/rules/nx-rules.
 
 - Node.js version: @.nvmrc
 - Workspace configurations: @package.json @pnpm-workspace.yaml
-- TypeScript configurations: @tsconfig.json @tsconfig.base.json @tsconfig.common.json
+- TypeScript configurations: @tsconfig.base.json @tsconfig.common.json
+- TypeScript project references are used to improve the performance of TypeScript-related features
+  - All TypeScript projects in this repository are referenced in the root @tsconfig.json
+  - When adding or removing a TypeScript project as a local dependency to another TypeScript project, update the target project's `tsconfig.json` to add or remove the dependency project in its `references`
 - Only TypeScript projects have ESLint configurations
 - All JavaScript projects have no ESLint configurations
+- All local dependencies use `workspace:^` version specifier
 
 ### Core Libraries
 
