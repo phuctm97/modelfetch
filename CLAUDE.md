@@ -53,10 +53,10 @@ This workspace follows Nx best practices as outlined in @.cursor/rules/nx-rules.
 - `modelfetch`: ModelFetch CLI tools (work in progress)
 - `@modelfetch/core`: ModelFetch core utilities (work in progress)
 - `@modelfetch/node`: Node.js runtime support (work in progress)
-- `@modelfetch/deno` - Deno runtime support (planned)
-- `@modelfetch/bun` - Bun runtime support (planned)
-- `@modelfetch/cloudflare` - Cloudflare Workers support (planned)
-- `@modelfetch/vercel` - Vercel Functions support (planned)
+- `@modelfetch/deno`: Deno runtime support (planned)
+- `@modelfetch/bun`: Bun runtime support (planned)
+- `@modelfetch/cloudflare`: Cloudflare Workers support (planned)
+- `@modelfetch/vercel`: Vercel Functions support (planned)
 
 ### Supporting Libraries
 
