@@ -8,21 +8,24 @@ importers:
 
   .:
     dependencies:
-      '@modelcontextprotocol/sdk':
-        specifier: ^1.13.2
-        version: 1.13.2
-      zod:
-        specifier: ^3.25.67
-        version: 3.25.67
+      '@hono/mcp':
+        specifier: ^0.1.0
+        version: 0.1.0(@modelcontextprotocol/sdk@1.13.2)(hono@4.8.3)
+      hono:
+        specifier: ^4.8.3
+        version: 4.8.3
     devDependencies:
       create-eslint-config:
         specifier: workspace:^
-        version: link:../../libs/create-eslint-config
-      modelfetch:
-        specifier: workspace:^
-        version: link:../../libs/modelfetch
+        version: link:../create-eslint-config
 
 packages:
+
+  '@hono/mcp@0.1.0':
+    resolution: {integrity: sha512-IELNnKF5tjbUm+wthfToZrNxZIjs1RWLiwCx8N+m8xfJcL6hfcpj/21Gsw8HL88lbnCh191mbFwYvXnx856QZg==}
+    peerDependencies:
+      '@modelcontextprotocol/sdk': ^1.12.0
+      hono: '*'
 
   '@modelcontextprotocol/sdk@1.13.2':
     resolution: {integrity: sha512-Vx7qOcmoKkR3qhaQ9qf3GxiVKCEu+zfJddHv6x3dY/9P6+uIwJnmuAur5aB+4FDXf41rRrDnOEGkviX5oYZ67w==}
@@ -176,6 +179,10 @@ packages:
   hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
+
+  hono@4.8.3:
+    resolution: {integrity: sha512-jYZ6ZtfWjzBdh8H/0CIFfCBHaFL75k+KMzaM177hrWWm2TWL39YMYaJgB74uK/niRc866NMlH9B8uCvIo284WQ==}
+    engines: {node: '>=16.9.0'}
 
   http-errors@2.0.0:
     resolution: {integrity: sha512-FtwrG/euBzaEjYeRqOgly7G0qviiXoJWnvEH2Z1plBdXgbyjv34pHTSb9zoeHMyDy33+DWy5Wt9Wo+TURtOYSQ==}
@@ -369,6 +376,11 @@ packages:
 
 snapshots:
 
+  '@hono/mcp@0.1.0(@modelcontextprotocol/sdk@1.13.2)(hono@4.8.3)':
+    dependencies:
+      '@modelcontextprotocol/sdk': 1.13.2
+      hono: 4.8.3
+
   '@modelcontextprotocol/sdk@1.13.2':
     dependencies:
       ajv: 6.12.6
@@ -560,6 +572,8 @@ snapshots:
   hasown@2.0.2:
     dependencies:
       function-bind: 1.1.2
+
+  hono@4.8.3: {}
 
   http-errors@2.0.0:
     dependencies:

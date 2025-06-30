@@ -8,6 +8,9 @@
       "path": "./libs/modelfetch"
     },
     {
+      "path": "./libs/modelfetch-hono"
+    },
+    {
       "path": "./libs/nx-10x"
     }
   ],

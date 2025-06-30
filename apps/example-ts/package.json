@@ -6,10 +6,10 @@
   "main": "./src/index.ts",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.13.2",
-    "modelfetch": "workspace:^",
     "zod": "^3.25.67"
   },
   "devDependencies": {
-    "create-eslint-config": "workspace:^"
+    "create-eslint-config": "workspace:^",
+    "modelfetch": "workspace:^"
   }
 }

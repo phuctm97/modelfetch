@@ -24,12 +24,13 @@ This workspace follows Nx best practices as outlined in @.cursor/rules/nx-rules.
 
 ### Example Applications
 
-- **example-ts**: Example TypeScript application powered by ModelFetch SDK
-- **example-js**: Example JavaScript application powered by ModelFetch SDK
+- **example-ts**: Example TypeScript application (powered by ModelFetch)
+- **example-js**: Example JavaScript application (powered by ModelFetch)
 
 ### Core Libraries
 
-- **modelfetch**: ModelFetch library (work in progress)
+- **modelfetch**: ModelFetch CLI (work in progress)
+- **modelfetch-hono**: ModelFetch Hono library (work in progress)
 
 ### Supporting Libraries
 

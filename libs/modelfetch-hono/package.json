@@ -1,5 +1,5 @@
 {
-  "name": "modelfetch",
+  "name": "@modelfetch/hono",
   "version": "0.0.1",
   "license": "MIT",
   "type": "module",
@@ -10,8 +10,9 @@
       "import": "./dist/index.js"
     }
   },
-  "bin": {
-    "modelfetch": "./bin/index.js"
+  "dependencies": {
+    "@hono/mcp": "^0.1.0",
+    "hono": "^4.8.3"
   },
   "devDependencies": {
     "create-eslint-config": "workspace:^"
