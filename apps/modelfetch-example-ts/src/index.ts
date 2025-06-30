@@ -6,7 +6,10 @@ import path from "node:path";
 import { z } from "zod";
 
 const packageJson = JSON.parse(
-  await fs.readFile(path.join(import.meta.dirname, "package.json"), "utf8"),
+  await fs.readFile(
+    path.resolve(import.meta.dirname, "..", "package.json"),
+    "utf8",
+  ),
 ) as PackageJson;
 
 const mcpServer = new McpServer({

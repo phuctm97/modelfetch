@@ -11,9 +11,6 @@ importers:
       '@hono/mcp':
         specifier: ^0.1.0
         version: 0.1.0(@modelcontextprotocol/sdk@1.13.2)(hono@4.8.3)
-      '@modelcontextprotocol/sdk':
-        specifier: ^1.13.2
-        version: 1.13.2
       hono:
         specifier: ^4.8.3
         version: 4.8.3

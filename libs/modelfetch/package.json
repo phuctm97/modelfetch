@@ -16,8 +16,5 @@
   },
   "devDependencies": {
     "create-eslint-config": "workspace:^"
-  },
-  "peerDependencies": {
-    "@modelcontextprotocol/sdk": "^1.13.2"
   }
 }

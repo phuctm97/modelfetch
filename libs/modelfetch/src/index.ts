@@ -1,10 +1,22 @@
 import { StreamableHTTPTransport } from "@hono/mcp";
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { Hono } from "hono";
 import fs from "node:fs";
 import path from "node:path";
 
-async function importServer(param?: string): Promise<McpServer> {
+interface Server {
+  connect: (transport: StreamableHTTPTransport) => Promise<void>;
+}
+
+function isServer(obj: unknown): obj is Server {
+  return (
+    obj !== null &&
+    typeof obj === "object" &&
+    "connect" in obj &&
+    typeof obj.connect === "function"
+  );
+}
+
+async function importServer(param?: string): Promise<Server> {
   let modulePath: string;
   if (param) {
     modulePath = param;
@@ -17,24 +29,22 @@ async function importServer(param?: string): Promise<McpServer> {
       modulePath = srcPath;
     } else {
       throw new Error(
-        "Failed to load MCP server. Please provide mcpServer parameter or ensure dist/index.js or src/index.js exports a default MCP server instance.",
+        "No entry point found - Expected dist/index.js or src/index.js",
       );
     }
   }
-  const module = (await import(modulePath)) as { default: unknown };
-  if (module.default instanceof McpServer) return module.default;
+  const module = (await import(modulePath)) as Record<string, unknown>;
+  if (isServer(module.default)) return module.default;
   throw new Error(
-    `Default export from ${modulePath} is not an instance of McpServer`,
+    `The default export of ${modulePath} is not an McpServer instance`,
   );
 }
 
-async function loadServer(param?: McpServer | string): Promise<McpServer> {
-  if (param instanceof McpServer) return param;
-  if (typeof param === "string") return importServer(param);
-  return importServer();
+async function loadServer(param?: Server | string): Promise<Server> {
+  return isServer(param) ? param : importServer(param);
 }
 
-export async function createApp(param?: McpServer | string): Promise<Hono> {
+export async function createApp(param?: Server | string): Promise<Hono> {
   const server = await loadServer(param);
   const app = new Hono();
   app.all("/mcp", async (c) => {

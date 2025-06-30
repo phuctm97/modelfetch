@@ -1,21 +1,14 @@
 import type { PackageJson } from "type-fest";
 
+import { serve } from "@hono/node-server";
 import { Command } from "commander";
 import { createConsola } from "consola";
 import esbuild from "esbuild";
 import { nodeExternalsPlugin } from "esbuild-node-externals";
+import { createApp } from "modelfetch";
 import fsPromises from "node:fs/promises";
 import path from "node:path";
 import perfHooks from "node:perf_hooks";
-
-const packageJson = JSON.parse(
-  await fsPromises.readFile(
-    path.resolve(import.meta.dirname, "..", "package.json"),
-    "utf8",
-  ),
-) as PackageJson;
-
-const consola = createConsola({ defaults: { tag: packageJson.name } });
 
 function formatBytes(bytes: number): string {
   if (bytes === 0) return "0 B";
@@ -30,13 +23,22 @@ function formatTime(ms: number): string {
   return `${(ms / 1000).toFixed(2)}s`;
 }
 
+const packageJson = JSON.parse(
+  await fsPromises.readFile(
+    path.resolve(import.meta.dirname, "..", "package.json"),
+    "utf8",
+  ),
+) as PackageJson;
+
+const consola = createConsola({ defaults: { tag: packageJson.name } });
+
 const program = new Command();
 
 program
   .name(
     Object.keys(packageJson.bin ?? {}).find(Boolean) ?? packageJson.name ?? "",
   )
-  .description("CLI to build ModelFetch applications")
+  .description("CLI for developing ModelFetch applications")
   .version(packageJson.version ?? "");
 
 program
@@ -114,6 +116,23 @@ program
         style: { borderColor: "green" },
       });
     }
+  });
+
+program
+  .command("start")
+  .description("Start a ModelFetch application")
+  .option("-h [hostname]", "custom hostname", "localhost")
+  .option("-p [port]", "custom port", "33333")
+  .action(async (options: { hostname: string; port: string }) => {
+    const app = await createApp();
+    serve({
+      hostname: options.hostname,
+      port: Number.parseInt(options.port),
+      fetch: app.fetch,
+    });
+    consola.success(
+      `The ModelFetch application is running on http://${options.hostname}:${options.port}/mcp`,
+    );
   });
 
 await program.parseAsync();

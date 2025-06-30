@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@hono/node-server':
+        specifier: ^1.14.4
+        version: 1.14.4(hono@4.8.3)
       commander:
         specifier: ^14.0.0
         version: 14.0.0
@@ -20,6 +23,9 @@ importers:
       esbuild-node-externals:
         specifier: ^1.18.0
         version: 1.18.0(esbuild@0.25.5)
+      modelfetch:
+        specifier: workspace:^
+        version: link:../modelfetch
     devDependencies:
       create-eslint-config:
         specifier: workspace:^
@@ -177,6 +183,12 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@hono/node-server@1.14.4':
+    resolution: {integrity: sha512-DnxpshhYewr2q9ZN8ez/M5mmc3sucr8CT1sIgIy1bkeUXut9XWDkqHoFHRhWIQgkYnKpVRxunyhK7WzpJeJ6qQ==}
+    engines: {node: '>=18.14.1'}
+    peerDependencies:
+      hono: ^4
+
   commander@14.0.0:
     resolution: {integrity: sha512-2uM9rYjPvyq39NwLRqaiLtWHyDC1FvryJDa2ATTVims5YAS4PupsEQsDvP14FqhFr0P49CYDugi59xaxJlTXRA==}
     engines: {node: '>=20'}
@@ -199,6 +211,10 @@ packages:
   find-up@5.0.0:
     resolution: {integrity: sha512-78/PXT1wlLLDgTzDs7sjq9hzz0vXD+zn+7wypEe4fXQxCmdmqfGsEPQxmiCSQI3ajFV91bVSsvNtrJRiW6nGng==}
     engines: {node: '>=10'}
+
+  hono@4.8.3:
+    resolution: {integrity: sha512-jYZ6ZtfWjzBdh8H/0CIFfCBHaFL75k+KMzaM177hrWWm2TWL39YMYaJgB74uK/niRc866NMlH9B8uCvIo284WQ==}
+    engines: {node: '>=16.9.0'}
 
   locate-path@6.0.0:
     resolution: {integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==}
@@ -297,6 +313,10 @@ snapshots:
   '@esbuild/win32-x64@0.25.5':
     optional: true
 
+  '@hono/node-server@1.14.4(hono@4.8.3)':
+    dependencies:
+      hono: 4.8.3
+
   commander@14.0.0: {}
 
   consola@3.4.2: {}
@@ -338,6 +358,8 @@ snapshots:
     dependencies:
       locate-path: 6.0.0
       path-exists: 4.0.0
+
+  hono@4.8.3: {}
 
   locate-path@6.0.0:
     dependencies:

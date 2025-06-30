@@ -51,6 +51,12 @@ export const createNodesV2: CreateNodesV2 = [
             dependsOn: ["^build"],
             syncGenerators: ["@nx/js:typescript-sync"],
           };
+          targets.start = {
+            command: "modelfetch start",
+            options: { cwd: "{projectRoot}" },
+            continuous: true,
+            dependsOn: ["build"],
+          };
         }
         return { projects: { [projectRoot]: { projectType, targets } } };
       },
