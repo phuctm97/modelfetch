@@ -18,6 +18,15 @@ This workspace follows Nx best practices as outlined in @.cursor/rules/nx-rules.
 - All JavaScript projects have no ESLint configurations
 - All local dependencies use `workspace:^` version specifier
 
+### Core Applications
+
+- **modelfetch-website**: ModelFetch website (work in progress)
+
+### Example Applications
+
+- **example-ts**: Example TypeScript application powered by ModelFetch SDK
+- **example-js**: Example JavaScript application powered by ModelFetch SDK
+
 ### Core Libraries
 
 - **modelfetch**: ModelFetch library (work in progress)
