@@ -37,6 +37,32 @@ export const createNodesV2: CreateNodesV2 = [
             syncGenerators: ["@nx/js:typescript-sync"],
           };
         }
+        if (
+          packageJson.main?.endsWith(".js") ||
+          packageJson.main?.endsWith(".jsx") ||
+          packageJson.main?.endsWith(".cjs") ||
+          packageJson.main?.endsWith(".mjs")
+        ) {
+          targets.start = {
+            command: "node .",
+            options: { cwd: "{projectRoot}" },
+            continuous: true,
+            dependsOn: ["^build"],
+          };
+        }
+        if (
+          packageJson.main?.endsWith(".ts") ||
+          packageJson.main?.endsWith(".tsx") ||
+          packageJson.main?.endsWith(".cts") ||
+          packageJson.main?.endsWith(".mts")
+        ) {
+          targets.start = {
+            command: "tsx .",
+            options: { cwd: "{projectRoot}" },
+            continuous: true,
+            dependsOn: ["^build"],
+          };
+        }
         return { projects: { [projectRoot]: { projectType, targets } } };
       },
       packageJsonFilePaths,
