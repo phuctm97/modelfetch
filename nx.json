@@ -17,5 +17,8 @@
   "plugins": [
     { "plugin": "@nx/js/typescript", "options": { "build": {} } },
     "nx-10x"
-  ]
+  ],
+  "sync": {
+    "globalGenerators": ["@nx/js:typescript-sync", "nx-10x:format-tsconfigs"]
+  }
 }

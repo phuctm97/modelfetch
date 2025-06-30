@@ -6,5 +6,6 @@
   "main": "./src/index.ts",
   "devDependencies": {
     "create-eslint-config": "workspace:^"
-  }
+  },
+  "generators": "./src/generators/index.json"
 }
