@@ -2,6 +2,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "format": "sh .husky/pre-commit",
     "prepare": "sh prepare.sh"
   },
   "dependencies": {

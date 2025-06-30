@@ -51,4 +51,7 @@ pnpm exec nx lint modelfetch --args=--fix # with autofix
 # Lint all projects
 pnpm exec nx run-many -t lint
 pnpm exec nx run-many -t lint --args=--fix # with autofix
+
+# Format everything
+pnpm -w format
 ```
