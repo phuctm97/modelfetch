@@ -94,14 +94,25 @@ program
     // Log build results
     const buildTime = perfHooks.performance.now() - startTime;
     consola.success(`Build completed in ${formatTime(buildTime)}`);
+
+    // Prepare output files for display
     const outputs = Object.entries(result.metafile.outputs);
+    const outputFiles: string[] = [];
+
     for (const [outputPath, output] of outputs) {
       const relativePath = path.relative(absWorkingDir, outputPath);
       const size = formatBytes(output.bytes);
-      if (relativePath.endsWith(".js"))
-        console.log(`  ${relativePath} ${size}`);
-      else if (relativePath.endsWith(".js.map"))
-        console.log(`  ${relativePath} ${size}`);
+      if (relativePath.endsWith(".js") || relativePath.endsWith(".js.map"))
+        outputFiles.push(`${relativePath} (${size})`);
+    }
+
+    // Display output files in a consola box
+    if (outputFiles.length > 0) {
+      consola.box({
+        title: "Build output files",
+        message: outputFiles.join("\n"),
+        style: { borderColor: "green" },
+      });
     }
   });
 
