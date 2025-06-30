@@ -14,7 +14,10 @@
     "modelfetch": "./bin/index.js"
   },
   "dependencies": {
-    "commander": "^14.0.0"
+    "commander": "^14.0.0",
+    "consola": "^3.4.2",
+    "esbuild": "^0.25.5",
+    "esbuild-node-externals": "^1.18.0"
   },
   "devDependencies": {
     "create-eslint-config": "workspace:^"
