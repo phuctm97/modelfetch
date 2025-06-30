@@ -11,8 +11,8 @@ const packageJson = JSON.parse(
 );
 
 const mcpServer = new McpServer({
-  title: "ModelFetch Example (JavaScript)",
-  name: (packageJson.name ?? "") || "modelfetch-example-js",
+  title: "Example (JavaScript)",
+  name: (packageJson.name ?? "") || "example-js",
   version: (packageJson.version ?? "") || "1.0.0",
 });
 

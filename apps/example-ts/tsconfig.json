@@ -7,7 +7,7 @@
   ],
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "sourceRoot": "/apps/modelfetch-example-ts/src",
+    "sourceRoot": "/apps/example-ts/src",
     "rootDir": "src",
     "outDir": "dist"
   }

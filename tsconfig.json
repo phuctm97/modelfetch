@@ -2,7 +2,7 @@
   "include": [],
   "references": [
     {
-      "path": "./apps/modelfetch-example-ts"
+      "path": "./apps/example-ts"
     },
     {
       "path": "./libs/modelfetch"

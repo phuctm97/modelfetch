@@ -13,8 +13,8 @@ const packageJson = JSON.parse(
 ) as PackageJson;
 
 const mcpServer = new McpServer({
-  title: "ModelFetch Example (TypeScript)",
-  name: (packageJson.name ?? "") || "modelfetch-example-ts",
+  title: "Example (TypeScript)",
+  name: (packageJson.name ?? "") || "example-ts",
   version: (packageJson.version ?? "") || "1.0.0",
 });
 
