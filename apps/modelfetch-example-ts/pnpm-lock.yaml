@@ -18,6 +18,9 @@ importers:
         specifier: ^3.25.67
         version: 3.25.67
     devDependencies:
+      '@modelfetch/cli':
+        specifier: workspace:^
+        version: link:../../libs/modelfetch-cli
       create-eslint-config:
         specifier: workspace:^
         version: link:../../libs/create-eslint-config

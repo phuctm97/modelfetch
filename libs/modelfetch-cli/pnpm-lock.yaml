@@ -7,7 +7,21 @@ settings:
 importers:
 
   .:
+    dependencies:
+      commander:
+        specifier: ^14.0.0
+        version: 14.0.0
     devDependencies:
       create-eslint-config:
         specifier: workspace:^
         version: link:../create-eslint-config
+
+packages:
+
+  commander@14.0.0:
+    resolution: {integrity: sha512-2uM9rYjPvyq39NwLRqaiLtWHyDC1FvryJDa2ATTVims5YAS4PupsEQsDvP14FqhFr0P49CYDugi59xaxJlTXRA==}
+    engines: {node: '>=20'}
+
+snapshots:
+
+  commander@14.0.0: {}
