@@ -1,5 +1,10 @@
 {
   "include": ["src"],
+  "references": [
+    {
+      "path": "../../libs/modelfetch"
+    }
+  ],
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "sourceRoot": "/apps/modelfetch-example-ts/src",

@@ -11,6 +11,9 @@ importers:
       '@modelcontextprotocol/sdk':
         specifier: ^1.13.2
         version: 1.13.2
+      modelfetch:
+        specifier: workspace:^
+        version: link:../../libs/modelfetch
       zod:
         specifier: ^3.25.67
         version: 3.25.67
