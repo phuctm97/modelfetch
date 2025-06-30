@@ -8,6 +8,9 @@
       "path": "./libs/modelfetch"
     },
     {
+      "path": "./libs/modelfetch-cli"
+    },
+    {
       "path": "./libs/nx-10x"
     }
   ],
