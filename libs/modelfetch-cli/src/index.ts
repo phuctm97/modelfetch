@@ -121,13 +121,13 @@ program
 program
   .command("start")
   .description("Start a ModelFetch application")
-  .option("-h [hostname]", "custom hostname", "localhost")
-  .option("-p [port]", "custom port", "33333")
-  .action(async (options: { hostname: string; port: string }) => {
+  .option("-h [hostname]", "custom hostname")
+  .option("-p [port]", "custom port")
+  .action(async (options: { hostname?: string; port?: string }) => {
     const app = await createApp();
     serve({
-      hostname: options.hostname,
-      port: Number.parseInt(options.port),
+      hostname: (options.hostname ?? "") || "localhost",
+      port: Number.parseInt((options.port ?? "") || "33333"),
       fetch: app.fetch,
     });
     consola.success(
