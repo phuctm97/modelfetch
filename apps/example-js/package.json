@@ -1,6 +1,6 @@
 {
-  "name": "@modelfetch/example-js",
-  "version": "0.0.1",
+  "name": "example-js",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "main": "./src/index.js",
@@ -8,8 +8,5 @@
     "@modelcontextprotocol/sdk": "^1.13.2",
     "modelfetch": "workspace:^",
     "zod": "^3.25.67"
-  },
-  "devDependencies": {
-    "@modelfetch/cli": "workspace:^"
   }
 }
