@@ -121,17 +121,13 @@ program
 program
   .command("start")
   .description("Start a ModelFetch application")
-  .option("-h [hostname]", "custom hostname")
-  .option("-p [port]", "custom port")
-  .action(async (options: { hostname?: string; port?: string }) => {
+  .action(async () => {
+    const hostname = "localhost";
+    const port = 33_333;
     const app = await createApp();
-    serve({
-      hostname: (options.hostname ?? "") || "localhost",
-      port: Number.parseInt((options.port ?? "") || "33333"),
-      fetch: app.fetch,
-    });
+    serve({ hostname, port, fetch: app.fetch });
     consola.success(
-      `The ModelFetch application is running on http://${options.hostname}:${options.port}/mcp`,
+      `The ModelFetch application is running on http://${hostname}:${port}/mcp`,
     );
   });
 
