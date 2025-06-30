@@ -57,7 +57,10 @@ export const createNodesV2: CreateNodesV2 = [
           packageJson.main?.endsWith(".mts")
         ) {
           targets.start = {
-            command: "tsx .",
+            command:
+              packageJson.dependencies?.tsx || packageJson.devDependencies?.tsx
+                ? "tsx ."
+                : "node --import=@swc-node/register/esm-register .",
             options: { cwd: "{projectRoot}" },
             continuous: true,
             dependsOn: ["^build"],
