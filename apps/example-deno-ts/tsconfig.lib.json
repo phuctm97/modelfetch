@@ -2,10 +2,10 @@
   "include": ["src"],
   "references": [
     {
-      "path": "../../libs/modelfetch-deno/tsconfig.lib.json"
+      "path": "../../libs/modelfetch/tsconfig.lib.json"
     },
     {
-      "path": "../../libs/modelfetch/tsconfig.lib.json"
+      "path": "../../libs/modelfetch-deno/tsconfig.lib.json"
     }
   ],
   "extends": "../../tsconfig.deno.json",

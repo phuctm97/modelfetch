@@ -9,12 +9,14 @@ import {
   updateJson,
 } from "@nx/devkit";
 
+import { compareTsConfigReferences } from "../../compare-tsconfig-references";
+
 function formatConfigs(tree: Tree, root?: string) {
   for (const ext of ["json", "lib.json", "app.json", "build.json"]) {
     const tsConfigPath = root ? `${root}/tsconfig.${ext}` : `tsconfig.${ext}`;
     if (!tree.exists(tsConfigPath)) continue;
     updateJson<TsConfigJson, TsConfigJson>(tree, tsConfigPath, (json) => {
-      json.references?.sort((a, b) => a.path.localeCompare(b.path, "en"));
+      json.references?.sort(compareTsConfigReferences);
       if (
         (json.include && json.include.length > 0) ||
         (json.files && json.files.length > 0)

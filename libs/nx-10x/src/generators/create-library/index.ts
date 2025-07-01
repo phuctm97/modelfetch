@@ -2,7 +2,7 @@ import type { GeneratorCallback, Tree } from "@nx/devkit";
 
 import { formatFiles, generateFiles, getProjects } from "@nx/devkit";
 
-import { addTsConfigReference } from "../../add-tsconfig-reference";
+import { addTsConfigReferences } from "../../add-tsconfig-references";
 import { getPackagePath } from "../../get-package-path";
 import { installTask } from "../../install-task";
 import { validateNewProject } from "../../validate-new-project";
@@ -23,7 +23,7 @@ export default async function createLibrary(
     ...options,
     path,
   });
-  addTsConfigReference(tree, "tsconfig.json", `./${root}`);
+  addTsConfigReferences(tree, "tsconfig.json", `./${root}`);
   await formatFiles(tree);
   return () => {
     installTask(tree);

@@ -3,7 +3,9 @@ import type { TsConfigJson } from "type-fest";
 
 import { updateJson } from "@nx/devkit";
 
-export function addTsConfigReference(
+import { compareTsConfigReferences } from "./compare-tsconfig-references";
+
+export function addTsConfigReferences(
   tree: Tree,
   tsConfigPath: string,
   projectPath: string,
@@ -12,7 +14,7 @@ export function addTsConfigReference(
     if (!json.references?.some((ref) => ref.path === projectPath)) {
       json.references ??= [];
       json.references.push({ path: projectPath });
-      json.references.sort((a, b) => a.path.localeCompare(b.path, "en"));
+      json.references.sort(compareTsConfigReferences);
     }
     return json;
   });
