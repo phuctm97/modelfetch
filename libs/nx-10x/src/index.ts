@@ -14,7 +14,18 @@ function getProjectType(projectRoot: string): ProjectType | undefined {
   if (projectRoot.startsWith("libs")) return "library";
 }
 
-function getEntryPoint(
+function getUpCommand(
+  projectRoot: string,
+  packageJson: PackageJson,
+): string | undefined {
+  if (
+    packageJson.dependencies?.["fumadocs-mdx"] ||
+    packageJson.devDependencies?.["fumadocs-mdx"]
+  )
+    return "fumadocs-mdx";
+}
+
+function getDefaultStartCommand(
   projectRoot: string,
   packageJson: PackageJson,
 ): string | undefined {
@@ -65,71 +76,83 @@ export const createNodesV2: CreateNodesV2 = [
             syncGenerators: ["@nx/js:typescript-sync"],
           };
         }
-        let shouldConfigureEntryPoint = true;
-        if (
-          projectType === "application" &&
-          (packageJson.dependencies?.next || packageJson.devDependencies?.next)
-        ) {
-          shouldConfigureEntryPoint = false;
-          targets.typecheck = {
-            cache: true,
-            command: "tsc --build",
-            options: { cwd: "{projectRoot}" },
-            inputs: [
-              "{projectRoot}/package.json",
-              "{workspaceRoot}/tsconfig.next.json",
-              "{workspaceRoot}/tsconfig.base.json",
-              "{projectRoot}/tsconfig.json",
-              ...[
-                "ts",
-                "tsx",
-                "d.ts",
-                "cts",
-                "d.cts",
-                "mts",
-                "d.mts",
-                "json",
-              ].map((ext) => `{projectRoot}/**/*.${ext}`),
-              { dependentTasksOutputFiles: "**/*.d.ts" },
-              { externalDependencies: ["typescript", "tslib"] },
-            ],
-            outputs: ["{projectRoot}/*.tsbuildinfo"],
-            dependsOn: ["build", "^typecheck"],
-            syncGenerators: ["@nx/js:typescript-sync"],
-          };
-          targets.build = {
-            cache: true,
-            command: "next build",
-            options: { cwd: "{projectRoot}" },
-            inputs: [
-              "production",
-              "^production",
-              { externalDependencies: ["typescript", "tslib"] },
-            ],
-            outputs: ["{projectRoot}/.next", "!{projectRoot}/.next/cache"],
-            dependsOn: ["^build"],
-            syncGenerators: ["@nx/js:typescript-sync"],
-          };
-          targets.dev = {
-            command: "next dev",
-            options: { cwd: "{projectRoot}" },
-            continuous: true,
-          };
-          targets.start = {
-            command: "next start",
-            options: { cwd: "{projectRoot}" },
-            continuous: true,
-            dependsOn: ["build"],
-          };
-        }
-        if (shouldConfigureEntryPoint) {
-          const entryPoint = getEntryPoint(projectRoot, packageJson);
-          if (entryPoint) {
-            targets.start = {
-              command: entryPoint,
+        if (projectType === "application") {
+          let useDefaultStartCommand = true;
+          if (
+            packageJson.dependencies?.next ||
+            packageJson.devDependencies?.next
+          ) {
+            useDefaultStartCommand = false;
+            targets.typecheck = {
+              cache: true,
+              command: "tsc --build",
+              options: { cwd: "{projectRoot}" },
+              inputs: [
+                "{projectRoot}/package.json",
+                "{workspaceRoot}/tsconfig.next.json",
+                "{workspaceRoot}/tsconfig.base.json",
+                "{projectRoot}/tsconfig.json",
+                ...[
+                  "ts",
+                  "tsx",
+                  "d.ts",
+                  "cts",
+                  "d.cts",
+                  "mts",
+                  "d.mts",
+                  "json",
+                ].map((ext) => `{projectRoot}/**/*.${ext}`),
+                { dependentTasksOutputFiles: "**/*.d.ts" },
+                { externalDependencies: ["typescript", "tslib"] },
+              ],
+              outputs: ["{projectRoot}/*.tsbuildinfo"],
+              dependsOn: ["build", "^typecheck"],
+              syncGenerators: ["@nx/js:typescript-sync"],
+            };
+            targets.build = {
+              cache: true,
+              command: "next build",
+              options: { cwd: "{projectRoot}" },
+              inputs: [
+                "production",
+                "^production",
+                { externalDependencies: ["typescript", "tslib"] },
+              ],
+              outputs: ["{projectRoot}/.next", "!{projectRoot}/.next/cache"],
+              dependsOn: ["^build"],
+              syncGenerators: ["@nx/js:typescript-sync"],
+            };
+            targets.dev = {
+              command: "next dev",
               options: { cwd: "{projectRoot}" },
               continuous: true,
-              dependsOn: ["build", "^build"],
+            };
+            targets.start = {
+              command: "next start",
+              options: { cwd: "{projectRoot}" },
+              continuous: true,
+              dependsOn: ["build"],
+            };
+          }
+          if (useDefaultStartCommand) {
+            const defaultStartCommand = getDefaultStartCommand(
+              projectRoot,
+              packageJson,
+            );
+            if (defaultStartCommand) {
+              targets.start = {
+                command: defaultStartCommand,
+                options: { cwd: "{projectRoot}" },
+                continuous: true,
+                dependsOn: ["build", "^build"],
+              };
+            }
+          }
+          const upCommand = getUpCommand(projectRoot, packageJson);
+          if (upCommand) {
+            targets.up = {
+              command: upCommand,
+              options: { cwd: "{projectRoot}" },
             };
           }
         }
