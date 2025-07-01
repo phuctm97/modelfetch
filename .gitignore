@@ -4,4 +4,5 @@
 *.tsbuildinfo
 node_modules
 dist
+.source
 .next

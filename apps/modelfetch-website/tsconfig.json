@@ -1,5 +1,5 @@
 {
-  "include": ["**/*", "**/*.json", ".next/types/**/*.ts"],
+  "include": ["**/*", "**/*.json", ".source/**/*.ts", ".next/types/**/*.ts"],
   "exclude": ["node_modules", "public"],
   "references": [],
   "extends": "../../tsconfig.next.json",

@@ -25,6 +25,7 @@
     "**/*.tsbuildinfo": true,
     "**/node_modules": true,
     "**/dist": true,
+    "**/.source": true,
     "**/next-env.d.ts": true,
     "**/.next": true
   }
