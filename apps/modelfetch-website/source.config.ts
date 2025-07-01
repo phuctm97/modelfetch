@@ -1,3 +1,3 @@
 import { defineDocs } from "fumadocs-mdx/config";
 
-export const docs = defineDocs({ dir: "doc" });
+export const docs = defineDocs({ dir: "mdx" });
