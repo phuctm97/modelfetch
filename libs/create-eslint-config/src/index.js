@@ -8,7 +8,16 @@ import prettier from "eslint-config-prettier";
 
 export default function createESLintConfig(...configs) {
   return ts.config(
-    { ignores: ["**/*.js", "**/*.jsx", "**/*.[cm]js", "**/dist"] },
+    {
+      ignores: [
+        "**/*.js",
+        "**/*.jsx",
+        "**/*.[cm]js",
+        "**/dist",
+        "**/next-env.d.ts",
+        "**/.next",
+      ],
+    },
     js.configs.recommended,
     {
       rules: {

@@ -11,6 +11,9 @@
       "path": "./apps/example-node-ts"
     },
     {
+      "path": "./apps/modelfetch-website"
+    },
+    {
       "path": "./libs/modelfetch"
     },
     {

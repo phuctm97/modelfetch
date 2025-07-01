@@ -1,0 +1,17 @@
+{
+  "include": ["**/*", "**/*.json", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", "public"],
+  "references": [],
+  "extends": "../../tsconfig.next.json",
+  "compilerOptions": {
+    "sourceRoot": "/apps/modelfetch-website",
+    "paths": {
+      "~/*": ["./*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  }
+}

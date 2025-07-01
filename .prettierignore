@@ -1,3 +1,4 @@
 .claude
 .cursor
 pnpm-lock.yaml
+next-env.d.ts

@@ -24,6 +24,8 @@
     "**/pnpm-lock.yaml": true,
     "**/*.tsbuildinfo": true,
     "**/node_modules": true,
-    "**/dist": true
+    "**/dist": true,
+    "**/next-env.d.ts": true,
+    "**/.next": true
   }
 }
