@@ -3,6 +3,9 @@
   "nxConsole.generatorAllowlist": ["nx-10x:*"],
   "nxConsole.projectViewingStyle": "tree",
   "nxConsole.generateAiAgentRules": true,
+  "tailwindCSS.experimental.configFile": {
+    "apps/modelfetch-website/app/layout.css": "apps/modelfetch-website/**"
+  },
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "eslint.workingDirectories": [{ "mode": "auto" }],
