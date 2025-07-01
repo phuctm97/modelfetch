@@ -2,10 +2,10 @@ import type { GeneratorCallback, Tree } from "@nx/devkit";
 
 import { formatFiles, generateFiles, getProjects } from "@nx/devkit";
 
-import { addTsConfigReferences } from "../../add-tsconfig-references";
-import { getPackagePath } from "../../get-package-path";
-import { installTask } from "../../install-task";
-import { validateNewProject } from "../../validate-new-project";
+import { addTsConfigReferences } from "../../utils/add-tsconfig-references";
+import { getPackagePath } from "../../utils/get-package-path";
+import { installTask } from "../../utils/install-task";
+import { validateNewProject } from "../../utils/validate-new-project";
 
 interface Options {
   name: string;

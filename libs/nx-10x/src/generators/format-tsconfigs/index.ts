@@ -9,7 +9,7 @@ import {
   updateJson,
 } from "@nx/devkit";
 
-import { compareTsConfigReferences } from "../../compare-tsconfig-references";
+import { compareTsConfigReferences } from "../../utils/compare-tsconfig-references";
 
 function formatConfigs(tree: Tree, root?: string) {
   for (const ext of ["json", "lib.json", "app.json", "build.json"]) {
