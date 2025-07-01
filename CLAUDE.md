@@ -42,7 +42,7 @@ This workspace follows Nx best practices as outlined in @.cursor/rules/nx-rules.
 
 ### Core Applications
 
-- `@modelfetch/website`: ModelFetch website (work in progress)
+- `@modelfetch/website`: ModelFetch website built with Next.js v15, Tailwind CSS v4, Fumadocs v15, and Fumadocs MDX (work in progress)
 
 ### Example Applications
 
