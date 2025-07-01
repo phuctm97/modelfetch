@@ -8,6 +8,7 @@ This page shows complete examples of MCP servers built with ModelFetch for Node.
 ## TypeScript Example
 
 ### Project Structure
+
 ```
 example-node-ts/
 ├── src/
@@ -18,6 +19,7 @@ example-node-ts/
 ```
 
 ### server.ts
+
 ```typescript
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
@@ -48,6 +50,7 @@ export default server;
 ```
 
 ### index.ts
+
 ```typescript
 import handle, { getEndpoint } from "@modelfetch/node";
 
@@ -59,6 +62,7 @@ handle(server, (address) => {
 ```
 
 ### package.json
+
 ```json
 {
   "name": "example-node-ts",
@@ -81,6 +85,7 @@ handle(server, (address) => {
 ```
 
 ### Running the TypeScript Example
+
 ```bash
 # Install dependencies
 npm install
@@ -94,6 +99,7 @@ npx tsx src/index.ts
 ## JavaScript Example
 
 ### Project Structure
+
 ```
 example-node-js/
 ├── src/
@@ -103,6 +109,7 @@ example-node-js/
 ```
 
 ### server.js
+
 ```javascript
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
@@ -133,6 +140,7 @@ export default server;
 ```
 
 ### index.js
+
 ```javascript
 import handle, { getEndpoint } from "@modelfetch/node";
 
@@ -144,6 +152,7 @@ handle(server, (address) => {
 ```
 
 ### package.json
+
 ```json
 {
   "name": "example-node-js",
@@ -161,6 +170,7 @@ handle(server, (address) => {
 ```
 
 ### Running the JavaScript Example
+
 ```bash
 # Install dependencies
 npm install
@@ -174,12 +184,15 @@ node src/index.js
 ## Key Features
 
 ### Import Syntax
+
 - Node.js uses `.js` extension for imports even in TypeScript files
 - ES modules are used (`"type": "module"` in package.json)
 - JSON imports use the `with { type: "json" }` syntax
 
 ### Callback Pattern
+
 The `handle` function accepts a callback that receives the server address:
+
 ```typescript
 handle(server, (address) => {
   console.log(`MCP server is available at ${getEndpoint(address)}`);
@@ -187,6 +200,7 @@ handle(server, (address) => {
 ```
 
 ### Helper Functions
+
 - `getEndpoint(address)` - Formats the server address for MCP clients
 
 ## Integration with MCP Clients
@@ -208,6 +222,7 @@ To use this server with an MCP client, configure it as follows:
 ## Source Code
 
 The complete source code for these examples is available at:
+
 - [example-node-ts](https://github.com/phuctm97/modelfetch/tree/main/apps/example-node-ts)
 - [example-node-js](https://github.com/phuctm97/modelfetch/tree/main/apps/example-node-js)
 

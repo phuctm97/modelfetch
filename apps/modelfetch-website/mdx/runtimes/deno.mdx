@@ -118,15 +118,15 @@ server.tool(
     try {
       const result = await someOperation(input);
       return {
-        content: [{ type: "text", text: result }]
+        content: [{ type: "text", text: result }],
       };
     } catch (error) {
       return {
         content: [{ type: "text", text: `Error: ${error.message}` }],
-        isError: true
+        isError: true,
       };
     }
-  }
+  },
 );
 ```
 
@@ -141,15 +141,15 @@ server.tool(
     try {
       const content = await Deno.readTextFile(path);
       return {
-        content: [{ type: "text", text: content }]
+        content: [{ type: "text", text: content }],
       };
     } catch (error) {
       return {
         content: [{ type: "text", text: `Error: ${error.message}` }],
-        isError: true
+        isError: true,
       };
     }
-  }
+  },
 );
 ```
 
@@ -186,7 +186,13 @@ Example client configuration:
   "mcpServers": {
     "my-server": {
       "command": "deno",
-      "args": ["run", "--allow-read", "--allow-write", "--allow-run", "./index.ts"],
+      "args": [
+        "run",
+        "--allow-read",
+        "--allow-write",
+        "--allow-run",
+        "./index.ts"
+      ],
       "transport": "stdio"
     }
   }
@@ -217,16 +223,17 @@ Optional `deno.json` configuration:
 ## Performance Tips
 
 1. **Cache dependencies** to avoid re-downloading:
+
    ```bash
    deno cache index.ts
    ```
 
 2. **Use workers** for CPU-intensive tasks:
+
    ```typescript
-   const worker = new Worker(
-     new URL("./worker.ts", import.meta.url).href,
-     { type: "module" }
-   );
+   const worker = new Worker(new URL("./worker.ts", import.meta.url).href, {
+     type: "module",
+   });
    ```
 
 3. **Enable JIT** for better performance:

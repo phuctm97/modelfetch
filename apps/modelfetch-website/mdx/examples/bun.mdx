@@ -8,6 +8,7 @@ This page shows complete examples of MCP servers built with ModelFetch for Bun, 
 ## TypeScript Example
 
 ### Project Structure
+
 ```
 example-bun-ts/
 ├── src/
@@ -19,6 +20,7 @@ example-bun-ts/
 ```
 
 ### server.ts
+
 ```typescript
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
@@ -49,6 +51,7 @@ export default server;
 ```
 
 ### index.ts
+
 ```typescript
 import handle, { getEndpoint } from "@modelfetch/bun";
 
@@ -60,6 +63,7 @@ handle(server, (address) => {
 ```
 
 ### package.json
+
 ```json
 {
   "name": "example-bun-ts",
@@ -81,6 +85,7 @@ handle(server, (address) => {
 ```
 
 ### Running the TypeScript Example
+
 ```bash
 # Install dependencies
 bun install
@@ -94,6 +99,7 @@ bun run src/index.ts
 ## JavaScript Example
 
 ### Project Structure
+
 ```
 example-bun-js/
 ├── src/
@@ -104,6 +110,7 @@ example-bun-js/
 ```
 
 ### server.js
+
 ```javascript
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
@@ -134,6 +141,7 @@ export default server;
 ```
 
 ### index.js
+
 ```javascript
 import handle, { getEndpoint } from "@modelfetch/bun";
 
@@ -145,6 +153,7 @@ handle(server, (address) => {
 ```
 
 ### package.json
+
 ```json
 {
   "name": "example-bun-js",
@@ -162,6 +171,7 @@ handle(server, (address) => {
 ```
 
 ### Running the JavaScript Example
+
 ```bash
 # Install dependencies
 bun install
@@ -175,17 +185,21 @@ bun run src/index.js
 ## Key Features
 
 ### Bun-Specific Optimizations
+
 - Native TypeScript support without transpilation
 - Fast startup times and efficient runtime
 - Built-in package manager and test runner
 
 ### Import Flexibility
+
 - Can import `.ts` files directly in TypeScript projects
 - JavaScript projects use `.js` extensions
 - JSON imports supported with `with { type: "json" }`
 
 ### Callback Pattern
+
 Similar to Node.js, the `handle` function uses a callback pattern:
+
 ```typescript
 handle(server, (address) => {
   console.log(`MCP server is available at ${getEndpoint(address)}`);
@@ -195,7 +209,9 @@ handle(server, (address) => {
 ## Configuration
 
 ### bunfig.toml
+
 Bun configuration file for package management:
+
 ```toml
 [install.lockfile]
 # Whether to save the lockfile
@@ -223,6 +239,7 @@ To use this server with an MCP client:
 ## Performance Benefits
 
 Bun provides several performance advantages:
+
 - **Fast startup** - Minimal cold start time
 - **Native TypeScript** - No transpilation overhead
 - **Efficient runtime** - Optimized JavaScript engine
@@ -230,6 +247,7 @@ Bun provides several performance advantages:
 ## Source Code
 
 The complete source code for these examples is available at:
+
 - [example-bun-ts](https://github.com/phuctm97/modelfetch/tree/main/apps/example-bun-ts)
 - [example-bun-js](https://github.com/phuctm97/modelfetch/tree/main/apps/example-bun-js)
 

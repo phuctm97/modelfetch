@@ -75,19 +75,14 @@ server.tool(
 );
 
 // Add another tool example
-server.tool(
-  "flip_coin",
-  "Flips a coin and returns heads or tails",
-  {},
-  () => ({
-    content: [
-      {
-        type: "text",
-        text: `🪙 You flipped: ${Math.random() < 0.5 ? "Heads" : "Tails"}!`,
-      },
-    ],
-  }),
-);
+server.tool("flip_coin", "Flips a coin and returns heads or tails", {}, () => ({
+  content: [
+    {
+      type: "text",
+      text: `🪙 You flipped: ${Math.random() < 0.5 ? "Heads" : "Tails"}!`,
+    },
+  ],
+}));
 
 export default server;
 ```

@@ -12,6 +12,7 @@ This page shows complete examples of MCP servers built with ModelFetch for Deno,
 ## TypeScript Example
 
 ### Project Structure
+
 ```
 example-deno-ts/
 ├── src/
@@ -22,6 +23,7 @@ example-deno-ts/
 ```
 
 ### server.ts
+
 ```typescript
 import { McpServer } from "npm:@modelcontextprotocol/sdk@^0.7.0/server/mcp.js";
 import { z } from "npm:zod@^3.24.1";
@@ -52,6 +54,7 @@ export default server;
 ```
 
 ### index.ts
+
 ```typescript
 import handle, { getEndpoint } from "jsr:@modelfetch/deno";
 
@@ -63,6 +66,7 @@ handle(server, (address) => {
 ```
 
 ### deno.json
+
 ```json
 {
   "compilerOptions": {
@@ -80,6 +84,7 @@ handle(server, (address) => {
 ```
 
 ### Running the TypeScript Example
+
 ```bash
 # Run in development
 deno task dev
@@ -91,6 +96,7 @@ deno run --allow-read --allow-write --allow-run src/index.ts
 ## JavaScript Example
 
 ### Project Structure
+
 ```
 example-deno-js/
 ├── src/
@@ -101,6 +107,7 @@ example-deno-js/
 ```
 
 ### server.js
+
 ```javascript
 import { McpServer } from "npm:@modelcontextprotocol/sdk@^0.7.0/server/mcp.js";
 import { z } from "npm:zod@^3.24.1";
@@ -131,6 +138,7 @@ export default server;
 ```
 
 ### index.js
+
 ```javascript
 import handle, { getEndpoint } from "jsr:@modelfetch/deno";
 
@@ -142,6 +150,7 @@ handle(server, (address) => {
 ```
 
 ### deno.json
+
 ```json
 {
   "compilerOptions": {
@@ -159,6 +168,7 @@ handle(server, (address) => {
 ```
 
 ### Running the JavaScript Example
+
 ```bash
 # Run in development
 deno task dev
@@ -170,19 +180,25 @@ deno run --allow-read --allow-write --allow-run src/index.js
 ## Key Features
 
 ### Import Specifiers
+
 Deno uses explicit import specifiers:
+
 - `npm:` - For npm packages
 - `jsr:` - For JSR (JavaScript Registry) packages
 - File imports include extensions (`.ts`, `.js`)
 
 ### Permissions Model
+
 Deno requires explicit permissions:
+
 - `--allow-read` - Read file system
 - `--allow-write` - Write file system
 - `--allow-run` - Execute subprocesses
 
 ### Configuration
+
 The `deno.json` file provides:
+
 - Import maps for cleaner imports
 - Task definitions for common commands
 - TypeScript compiler options
@@ -219,11 +235,13 @@ To use this server with an MCP client:
 ## Deployment Options
 
 ### Local Development
+
 ```bash
 deno run --allow-read --allow-write --allow-run src/index.ts
 ```
 
 ### Compiled Binary
+
 ```bash
 # Compile to standalone executable
 deno compile --allow-read --allow-write --allow-run src/index.ts -o mcp-server
@@ -235,6 +253,7 @@ deno compile --allow-read --allow-write --allow-run src/index.ts -o mcp-server
 ## Source Code
 
 The complete source code for these examples is available at:
+
 - [example-deno-ts](https://github.com/phuctm97/modelfetch/tree/main/apps/example-deno-ts)
 - [example-deno-js](https://github.com/phuctm97/modelfetch/tree/main/apps/example-deno-js)
 

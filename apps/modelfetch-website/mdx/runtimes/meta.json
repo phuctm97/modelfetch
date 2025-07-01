@@ -1,8 +1,4 @@
 {
   "title": "Runtime Packages",
-  "pages": [
-    "node",
-    "bun",
-    "deno"
-  ]
+  "pages": ["node", "bun", "deno"]
 }

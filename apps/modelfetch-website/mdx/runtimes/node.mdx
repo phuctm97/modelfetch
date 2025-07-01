@@ -110,15 +110,15 @@ server.tool(
       // Your operation here
       const result = await someOperation(input);
       return {
-        content: [{ type: "text", text: result }]
+        content: [{ type: "text", text: result }],
       };
     } catch (error) {
       return {
         content: [{ type: "text", text: `Error: ${error.message}` }],
-        isError: true
+        isError: true,
       };
     }
-  }
+  },
 );
 ```
 
@@ -139,15 +139,17 @@ server.tool(
   {
     name: z.string(),
     age: z.number().int().positive(),
-    email: z.string().email()
+    email: z.string().email(),
   },
   // Parameters are fully typed
   ({ name, age, email }) => ({
-    content: [{
-      type: "text",
-      text: `Hello ${name}, you are ${age} years old`
-    }]
-  })
+    content: [
+      {
+        type: "text",
+        text: `Hello ${name}, you are ${age} years old`,
+      },
+    ],
+  }),
 );
 ```
 

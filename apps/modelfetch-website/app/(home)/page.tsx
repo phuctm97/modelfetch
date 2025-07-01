@@ -9,8 +9,9 @@ export default async function Page() {
         <section className="text-center mb-16">
           <h1 className="text-5xl font-bold mb-6">ModelFetch</h1>
           <p className="text-xl text-muted-foreground mb-8">
-            A TypeScript/JavaScript SDK for building MCP (Model Context Protocol) servers
-            with a delightful developer experience and deploying them anywhere TypeScript/JavaScript runs.
+            A TypeScript/JavaScript SDK for building MCP (Model Context
+            Protocol) servers with a delightful developer experience and
+            deploying them anywhere TypeScript/JavaScript runs.
           </p>
           <div className="flex gap-4 justify-center">
             <Link
@@ -30,24 +31,31 @@ export default async function Page() {
 
         {/* Features Section */}
         <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">Why ModelFetch?</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            Why ModelFetch?
+          </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
               <h3 className="text-xl font-semibold mb-3">Runtime Agnostic</h3>
               <p className="text-muted-foreground">
-                Write once, run anywhere. Deploy your MCP servers on Node.js, Bun, or Deno with the same codebase.
+                Write once, run anywhere. Deploy your MCP servers on Node.js,
+                Bun, or Deno with the same codebase.
               </p>
             </div>
             <div className="text-center">
-              <h3 className="text-xl font-semibold mb-3">Developer Experience</h3>
+              <h3 className="text-xl font-semibold mb-3">
+                Developer Experience
+              </h3>
               <p className="text-muted-foreground">
-                Powerful CLI with live reload and MCP inspector integration for seamless development and debugging.
+                Powerful CLI with live reload and MCP inspector integration for
+                seamless development and debugging.
               </p>
             </div>
             <div className="text-center">
               <h3 className="text-xl font-semibold mb-3">TypeScript First</h3>
               <p className="text-muted-foreground">
-                Full TypeScript support with type safety and excellent IDE integration out of the box.
+                Full TypeScript support with type safety and excellent IDE
+                integration out of the box.
               </p>
             </div>
           </div>
@@ -58,7 +66,9 @@ export default async function Page() {
           <h2 className="text-3xl font-bold mb-8 text-center">Quick Start</h2>
           <div className="space-y-8">
             <div>
-              <p className="mb-4 text-muted-foreground">Install ModelFetch for your runtime:</p>
+              <p className="mb-4 text-muted-foreground">
+                Install ModelFetch for your runtime:
+              </p>
               <CodeBlock
                 lang="bash"
                 code={`# For Node.js
@@ -73,7 +83,9 @@ deno add jsr:@modelfetch/deno`}
             </div>
 
             <div>
-              <p className="mb-4 text-muted-foreground">Create your MCP server (server.ts):</p>
+              <p className="mb-4 text-muted-foreground">
+                Create your MCP server (server.ts):
+              </p>
               <CodeBlock
                 lang="typescript"
                 title="server.ts"
@@ -105,7 +117,9 @@ export default server;`}
             </div>
 
             <div>
-              <p className="mb-4 text-muted-foreground">Run with ModelFetch (index.ts):</p>
+              <p className="mb-4 text-muted-foreground">
+                Run with ModelFetch (index.ts):
+              </p>
               <CodeBlock
                 lang="typescript"
                 title="index.ts"
@@ -121,7 +135,8 @@ handle(server);`}
         {/* Status Section */}
         <section className="text-center">
           <p className="text-muted-foreground mb-4">
-            ModelFetch is currently a work in progress. Join us in building the world's most popular TypeScript/JavaScript SDK for MCP servers.
+            ModelFetch is currently a work in progress. Join us in building the
+            world's most popular TypeScript/JavaScript SDK for MCP servers.
           </p>
           <Link
             href="https://github.com/phuctm97/modelfetch"

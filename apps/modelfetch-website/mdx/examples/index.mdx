@@ -37,6 +37,7 @@ All examples follow the same pattern with two files:
 All ModelFetch servers share these common patterns:
 
 ### Server Definition
+
 ```typescript
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
@@ -52,14 +53,15 @@ server.tool(
   "Tool description",
   { param: z.string() },
   ({ param }) => ({
-    content: [{ type: "text", text: "Response" }]
-  })
+    content: [{ type: "text", text: "Response" }],
+  }),
 );
 
 export default server;
 ```
 
 ### Runtime Handler
+
 ```typescript
 import handle from "@modelfetch/runtime";
 import server from "./server";
