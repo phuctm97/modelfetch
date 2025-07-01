@@ -14,6 +14,17 @@ function getProjectType(projectRoot: string): ProjectType | undefined {
   if (projectRoot.startsWith("libs")) return "library";
 }
 
+function getUpCommand(
+  projectRoot: string,
+  packageJson: PackageJson,
+): string | undefined {
+  if (
+    packageJson.dependencies?.["fumadocs-mdx"] ||
+    packageJson.devDependencies?.["fumadocs-mdx"]
+  )
+    return "fumadocs-mdx";
+}
+
 function getDefaultStartCommand(
   projectRoot: string,
   packageJson: PackageJson,
@@ -136,6 +147,13 @@ export const createNodesV2: CreateNodesV2 = [
                 dependsOn: ["build", "^build"],
               };
             }
+          }
+          const upCommand = getUpCommand(projectRoot, packageJson);
+          if (upCommand) {
+            targets.up = {
+              command: upCommand,
+              options: { cwd: "{projectRoot}" },
+            };
           }
         }
         return { projects: { [projectRoot]: { projectType, targets } } };
