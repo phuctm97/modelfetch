@@ -1,0 +1,227 @@
+---
+title: Bun
+description: Using ModelFetch with Bun
+---
+
+The `@modelfetch/bun` package provides ModelFetch support for Bun applications.
+
+## Installation
+
+```bash
+bun add @modelfetch/bun
+```
+
+## Basic Usage
+
+```typescript
+// server.ts
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { z } from "zod";
+
+const server = new McpServer({
+  title: "My Bun MCP Server",
+  name: "my-bun-server",
+  version: "1.0.0",
+});
+
+// Define your tools
+server.tool(
+  "roll_dice",
+  "Rolls an N-sided dice",
+  { sides: z.number().int().min(2) },
+  ({ sides }) => ({
+    content: [
+      {
+        type: "text",
+        text: `🎲 You rolled a ${1 + Math.floor(Math.random() * sides)}!`,
+      },
+    ],
+  }),
+);
+
+export default server;
+```
+
+```typescript
+// index.ts
+import handle, { getEndpoint } from "@modelfetch/bun";
+import server from "./server";
+
+// Start the server
+handle(server, (address) => {
+  console.log(`Server running at: ${getEndpoint(address)}`);
+});
+```
+
+## API Reference
+
+### `handle(server, callback?)`
+
+Starts the MCP server with Bun-specific optimizations.
+
+- **server**: The MCP server instance from `@modelcontextprotocol/sdk`
+- **callback**: Optional callback that receives the server address
+
+```typescript
+import handle from "@modelfetch/bun";
+import server from "./server";
+
+handle(server, (address) => {
+  console.log(`Server started at: ${address}`);
+});
+```
+
+### `getEndpoint(address?)`
+
+Gets the MCP server endpoint for connecting clients.
+
+```typescript
+import { getEndpoint } from "@modelfetch/bun";
+
+const endpoint = getEndpoint();
+console.log(`Connect to: ${endpoint}`);
+```
+
+## Features
+
+### Bun-Specific Optimizations
+
+ModelFetch leverages Bun's features for better performance:
+
+1. **Fast startup**: Bun's runtime starts significantly faster than Node.js
+2. **Native TypeScript**: No compilation step needed
+3. **Built-in bundler**: Optimized production builds
+
+### Error Handling
+
+```typescript
+server.tool(
+  "safe_operation",
+  "An operation with error handling",
+  { input: z.string() },
+  async ({ input }) => {
+    try {
+      const result = await someOperation(input);
+      return {
+        content: [{ type: "text", text: result }]
+      };
+    } catch (error) {
+      return {
+        content: [{ type: "text", text: `Error: ${error.message}` }],
+        isError: true
+      };
+    }
+  }
+);
+```
+
+### WebSocket Support (Future)
+
+Bun's excellent WebSocket support will enable future transport options:
+
+```typescript
+// Future API (not yet implemented)
+handle(server, {
+  transport: "websocket",
+  port: 3000
+});
+```
+
+## Deployment
+
+### Running in Development
+
+```bash
+bun run index.ts
+```
+
+### Running in Production
+
+```bash
+# Bundle and run
+bun build index.ts --target=bun --outdir=dist
+bun run dist/index.js
+```
+
+### Using Bun's Built-in Server
+
+For HTTP-based MCP servers (future feature):
+
+```typescript
+// Future capability
+import { serve } from "@modelfetch/bun/http";
+
+serve(server, {
+  port: 3000,
+  hostname: "localhost"
+});
+```
+
+## Integration with MCP Clients
+
+Example client configuration:
+
+```json
+{
+  "mcpServers": {
+    "my-server": {
+      "command": "bun",
+      "args": ["run", "./index.ts"],
+      "transport": "stdio"
+    }
+  }
+}
+```
+
+## Performance Tips
+
+1. **Use Bun's macros** for compile-time optimizations:
+   ```typescript
+   import { $ } from "bun";
+   const version = await $`git describe --tags`.text();
+   ```
+
+2. **Leverage Bun's SQLite** for persistent storage:
+   ```typescript
+   import { Database } from "bun:sqlite";
+   const db = new Database("mcp.db");
+   ```
+
+3. **Use native modules** without compilation overhead
+
+## TypeScript Configuration
+
+Bun works with TypeScript out of the box. Recommended `tsconfig.json`:
+
+```json
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "types": ["bun-types"],
+    "strict": true,
+    "skipLibCheck": true
+  }
+}
+```
+
+## Debugging
+
+Enable debug logs:
+
+```bash
+DEBUG=modelfetch:* bun run index.ts
+```
+
+Use Bun's built-in debugger:
+
+```bash
+bun --inspect run index.ts
+```
+
+## Next Steps
+
+- Explore [complete examples](/docs/examples)
+- Learn about [Node.js runtime](/docs/runtimes/node)
+- Learn about [Deno runtime](/docs/runtimes/deno)

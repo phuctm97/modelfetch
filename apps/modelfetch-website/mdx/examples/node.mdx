@@ -1,0 +1,218 @@
+---
+title: Node.js
+description: MCP server examples for Node.js runtime
+---
+
+This page shows complete examples of MCP servers built with ModelFetch for Node.js, available in both TypeScript and JavaScript.
+
+## TypeScript Example
+
+### Project Structure
+```
+example-node-ts/
+├── src/
+│   ├── server.ts    # MCP server definition
+│   └── index.ts     # Runtime handler
+├── package.json
+└── tsconfig.json
+```
+
+### server.ts
+```typescript
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { z } from "zod";
+
+import packageJson from "../package.json" with { type: "json" };
+
+const server = new McpServer({
+  title: "Example Node.js MCP Server (TypeScript)",
+  name: packageJson.name,
+  version: packageJson.version,
+});
+
+server.tool(
+  "roll_dice",
+  "Rolls an N-sided dice",
+  { sides: z.number().int().min(2) },
+  ({ sides }) => ({
+    content: [
+      {
+        type: "text",
+        text: `🎲 You rolled a ${1 + Math.floor(Math.random() * sides)}!`,
+      },
+    ],
+  }),
+);
+
+export default server;
+```
+
+### index.ts
+```typescript
+import handle, { getEndpoint } from "@modelfetch/node";
+
+import server from "./server";
+
+handle(server, (address) => {
+  console.log(`MCP server is available at ${getEndpoint(address)}`);
+});
+```
+
+### package.json
+```json
+{
+  "name": "example-node-ts",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.7.0",
+    "@modelfetch/node": "workspace:^",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.34",
+    "tsx": "^4.20.0",
+    "typescript": "^5.8.3"
+  }
+}
+```
+
+### Running the TypeScript Example
+```bash
+# Install dependencies
+npm install
+
+# Run in development
+npm run dev
+# or directly with tsx
+npx tsx src/index.ts
+```
+
+## JavaScript Example
+
+### Project Structure
+```
+example-node-js/
+├── src/
+│   ├── server.js    # MCP server definition
+│   └── index.js     # Runtime handler
+└── package.json
+```
+
+### server.js
+```javascript
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { z } from "zod";
+
+import packageJson from "../package.json" with { type: "json" };
+
+const server = new McpServer({
+  title: "Example Node.js MCP Server (JavaScript)",
+  name: packageJson.name,
+  version: packageJson.version,
+});
+
+server.tool(
+  "roll_dice",
+  "Rolls an N-sided dice",
+  { sides: z.number().int().min(2) },
+  ({ sides }) => ({
+    content: [
+      {
+        type: "text",
+        text: `🎲 You rolled a ${1 + Math.floor(Math.random() * sides)}!`,
+      },
+    ],
+  }),
+);
+
+export default server;
+```
+
+### index.js
+```javascript
+import handle, { getEndpoint } from "@modelfetch/node";
+
+import server from "./server.js";
+
+handle(server, (address) => {
+  console.log(`MCP server is available at ${getEndpoint(address)}`);
+});
+```
+
+### package.json
+```json
+{
+  "name": "example-node-js",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node src/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.7.0",
+    "@modelfetch/node": "workspace:^",
+    "zod": "^3.24.1"
+  }
+}
+```
+
+### Running the JavaScript Example
+```bash
+# Install dependencies
+npm install
+
+# Run the server
+npm run dev
+# or directly with node
+node src/index.js
+```
+
+## Key Features
+
+### Import Syntax
+- Node.js uses `.js` extension for imports even in TypeScript files
+- ES modules are used (`"type": "module"` in package.json)
+- JSON imports use the `with { type: "json" }` syntax
+
+### Callback Pattern
+The `handle` function accepts a callback that receives the server address:
+```typescript
+handle(server, (address) => {
+  console.log(`MCP server is available at ${getEndpoint(address)}`);
+});
+```
+
+### Helper Functions
+- `getEndpoint(address)` - Formats the server address for MCP clients
+
+## Integration with MCP Clients
+
+To use this server with an MCP client, configure it as follows:
+
+```json
+{
+  "mcpServers": {
+    "example-node": {
+      "command": "node",
+      "args": ["path/to/index.js"],
+      "transport": "stdio"
+    }
+  }
+}
+```
+
+## Source Code
+
+The complete source code for these examples is available at:
+- [example-node-ts](https://github.com/phuctm97/modelfetch/tree/main/apps/example-node-ts)
+- [example-node-js](https://github.com/phuctm97/modelfetch/tree/main/apps/example-node-js)
+
+## Next Steps
+
+- Explore [Bun examples](/docs/examples/bun) for Bun runtime
+- Learn about [Node.js runtime features](/docs/runtimes/node)
+- Build your own server with the [Getting Started guide](/docs/getting-started)

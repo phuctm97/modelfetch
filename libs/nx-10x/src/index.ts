@@ -42,10 +42,10 @@ function getDefaultStartCommand(
     entryPoint.endsWith(".cjs") ||
     entryPoint.endsWith(".mjs");
   if (!isTypeScript && !isJavaScript) return;
-  if (fs.existsSync(path.join(projectRoot, "deno.json")))
-    return `deno run -A ${entryPoint}`;
   if (fs.existsSync(path.join(projectRoot, "bunfig.toml")))
     return `bun run ${entryPoint}`;
+  if (fs.existsSync(path.join(projectRoot, "deno.json")))
+    return `deno run -A ${entryPoint}`;
   if (packageJson.dependencies?.tsx || packageJson.devDependencies?.tsx)
     return "tsx .";
   if (isTypeScript) return "node --import=@swc-node/register/esm-register .";

@@ -1,0 +1,240 @@
+---
+title: Bun
+description: MCP server examples for Bun runtime
+---
+
+This page shows complete examples of MCP servers built with ModelFetch for Bun, available in both TypeScript and JavaScript.
+
+## TypeScript Example
+
+### Project Structure
+```
+example-bun-ts/
+├── src/
+│   ├── server.ts    # MCP server definition
+│   └── index.ts     # Runtime handler
+├── package.json
+├── tsconfig.json
+└── bunfig.toml
+```
+
+### server.ts
+```typescript
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { z } from "zod";
+
+import packageJson from "../package.json" with { type: "json" };
+
+const server = new McpServer({
+  title: "Example Bun MCP Server (TypeScript)",
+  name: packageJson.name,
+  version: packageJson.version,
+});
+
+server.tool(
+  "roll_dice",
+  "Rolls an N-sided dice",
+  { sides: z.number().int().min(2) },
+  ({ sides }) => ({
+    content: [
+      {
+        type: "text",
+        text: `🎲 You rolled a ${1 + Math.floor(Math.random() * sides)}!`,
+      },
+    ],
+  }),
+);
+
+export default server;
+```
+
+### index.ts
+```typescript
+import handle, { getEndpoint } from "@modelfetch/bun";
+
+import server from "./server";
+
+handle(server, (address) => {
+  console.log(`MCP server is available at ${getEndpoint(address)}`);
+});
+```
+
+### package.json
+```json
+{
+  "name": "example-bun-ts",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run src/index.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.7.0",
+    "@modelfetch/bun": "workspace:^",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.1.20",
+    "typescript": "^5.8.3"
+  }
+}
+```
+
+### Running the TypeScript Example
+```bash
+# Install dependencies
+bun install
+
+# Run in development
+bun run dev
+# or directly
+bun run src/index.ts
+```
+
+## JavaScript Example
+
+### Project Structure
+```
+example-bun-js/
+├── src/
+│   ├── server.js    # MCP server definition
+│   └── index.js     # Runtime handler
+├── package.json
+└── bunfig.toml
+```
+
+### server.js
+```javascript
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { z } from "zod";
+
+import packageJson from "../package.json" with { type: "json" };
+
+const server = new McpServer({
+  title: "Example Bun MCP Server (JavaScript)",
+  name: packageJson.name,
+  version: packageJson.version,
+});
+
+server.tool(
+  "roll_dice",
+  "Rolls an N-sided dice",
+  { sides: z.number().int().min(2) },
+  ({ sides }) => ({
+    content: [
+      {
+        type: "text",
+        text: `🎲 You rolled a ${1 + Math.floor(Math.random() * sides)}!`,
+      },
+    ],
+  }),
+);
+
+export default server;
+```
+
+### index.js
+```javascript
+import handle, { getEndpoint } from "@modelfetch/bun";
+
+import server from "./server.js";
+
+handle(server, (address) => {
+  console.log(`MCP server is available at ${getEndpoint(address)}`);
+});
+```
+
+### package.json
+```json
+{
+  "name": "example-bun-js",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run src/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.7.0",
+    "@modelfetch/bun": "workspace:^",
+    "zod": "^3.24.1"
+  }
+}
+```
+
+### Running the JavaScript Example
+```bash
+# Install dependencies
+bun install
+
+# Run the server
+bun run dev
+# or directly
+bun run src/index.js
+```
+
+## Key Features
+
+### Bun-Specific Optimizations
+- Native TypeScript support without transpilation
+- Fast startup times and efficient runtime
+- Built-in package manager and test runner
+
+### Import Flexibility
+- Can import `.ts` files directly in TypeScript projects
+- JavaScript projects use `.js` extensions
+- JSON imports supported with `with { type: "json" }`
+
+### Callback Pattern
+Similar to Node.js, the `handle` function uses a callback pattern:
+```typescript
+handle(server, (address) => {
+  console.log(`MCP server is available at ${getEndpoint(address)}`);
+});
+```
+
+## Configuration
+
+### bunfig.toml
+Bun configuration file for package management:
+```toml
+[install.lockfile]
+# Whether to save the lockfile
+save = true
+# Whether to save an exact lockfile
+saveExact = false
+```
+
+## Integration with MCP Clients
+
+To use this server with an MCP client:
+
+```json
+{
+  "mcpServers": {
+    "example-bun": {
+      "command": "bun",
+      "args": ["run", "path/to/index.ts"],
+      "transport": "stdio"
+    }
+  }
+}
+```
+
+## Performance Benefits
+
+Bun provides several performance advantages:
+- **Fast startup** - Minimal cold start time
+- **Native TypeScript** - No transpilation overhead
+- **Efficient runtime** - Optimized JavaScript engine
+
+## Source Code
+
+The complete source code for these examples is available at:
+- [example-bun-ts](https://github.com/phuctm97/modelfetch/tree/main/apps/example-bun-ts)
+- [example-bun-js](https://github.com/phuctm97/modelfetch/tree/main/apps/example-bun-js)
+
+## Next Steps
+
+- Explore [Deno examples](/docs/examples/deno) for Deno runtime
+- Learn about [Bun runtime features](/docs/runtimes/bun)
+- Build your own server with the [Getting Started guide](/docs/getting-started)

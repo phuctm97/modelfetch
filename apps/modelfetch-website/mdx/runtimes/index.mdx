@@ -1,0 +1,153 @@
+---
+title: Runtime Packages
+description: Deploy MCP servers on your preferred runtime
+---
+
+ModelFetch provides runtime-specific packages that handle the platform details while you focus on building your MCP server functionality. Each package is optimized for its target runtime while maintaining a consistent API.
+
+## Available Runtimes
+
+<Cards>
+  <Card
+    title="Node.js"
+    description="Build MCP servers for Node.js 18+"
+    href="/docs/runtimes/node"
+  />
+  <Card
+    title="Bun"
+    description="Lightning-fast MCP servers with Bun"
+    href="/docs/runtimes/bun"
+  />
+  <Card
+    title="Deno"
+    description="Secure MCP servers with Deno v2"
+    href="/docs/runtimes/deno"
+  />
+</Cards>
+
+## Common API
+
+All runtime packages share the same simple API:
+
+```typescript
+import handle from "@modelfetch/runtime";
+import server from "./server";
+
+handle(server, (address) => {
+  console.log(`Server running at: ${address}`);
+});
+```
+
+## Choosing a Runtime
+
+### Node.js
+Choose Node.js when:
+- You need the largest ecosystem of packages
+- Your team is familiar with Node.js
+- You're integrating with existing Node.js applications
+- You need specific Node.js APIs or modules
+
+### Bun
+Choose Bun when:
+- You want the fastest startup and runtime performance
+- You prefer built-in TypeScript support
+- You value an all-in-one toolkit (runtime, package manager, bundler)
+- You're building performance-critical applications
+
+### Deno
+Choose Deno when:
+- Security is a top priority (permissions model)
+- You want built-in TypeScript and modern JavaScript features
+- You prefer web standard APIs
+- You need built-in development tools (formatter, linter, test runner)
+
+## Installation
+
+Each runtime has its own package:
+
+### Node.js
+```bash
+npm install @modelfetch/node
+```
+
+### Bun
+```bash
+bun add @modelfetch/bun
+```
+
+### Deno
+```bash
+deno add jsr:@modelfetch/deno
+```
+
+## Runtime Features Comparison
+
+| Feature | Node.js | Bun | Deno |
+|---------|---------|-----|------|
+| TypeScript Support | Via tsx/ts-node | Native | Native |
+| Package Manager | npm/yarn/pnpm | Built-in | Built-in |
+| Permissions Model | No | No | Yes |
+| Startup Speed | Good | Excellent | Good |
+| Ecosystem | Largest | Growing | Growing |
+| Web Standards | Partial | Good | Excellent |
+
+## Server Compatibility
+
+The MCP server code remains identical across all runtimes:
+
+```typescript
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { z } from "zod";
+
+const server = new McpServer({
+  title: "My MCP Server",
+  name: "my-server",
+  version: "1.0.0",
+});
+
+// Define tools, resources, and prompts
+server.tool(
+  "roll_dice",
+  "Rolls an N-sided dice",
+  { sides: z.number().int().min(2) },
+  ({ sides }) => ({
+    content: [
+      {
+        type: "text",
+        text: `🎲 You rolled a ${1 + Math.floor(Math.random() * sides)}!`,
+      },
+    ],
+  }),
+);
+
+export default server;
+```
+
+Only the runtime handler import changes:
+- `@modelfetch/node` for Node.js
+- `@modelfetch/bun` for Bun  
+- `@modelfetch/deno` for Deno
+
+## Development Workflow
+
+All runtimes support a similar development workflow:
+
+1. **Create your MCP server** using the standard SDK
+2. **Import the runtime handler** for your platform
+3. **Run with your runtime's command**:
+   - Node.js: `npx tsx index.ts`
+   - Bun: `bun run index.ts`
+   - Deno: `deno run --allow-read --allow-write --allow-run index.ts`
+
+## Future Runtimes
+
+ModelFetch is actively working on support for:
+- **Cloudflare Workers** - Deploy MCP servers on the edge
+- **Vercel Functions** - Serverless MCP servers
+- **AWS Lambda** - Enterprise serverless deployment
+
+## Next Steps
+
+- Choose a runtime and explore its [specific documentation](/docs/runtimes/node)
+- Check out [working examples](/docs/examples) for each runtime
+- Learn how to [get started](/docs/getting-started) with your first MCP server

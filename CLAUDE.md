@@ -9,8 +9,8 @@ This repository contains the source code of ModelFetch: a TypeScript/JavaScript 
 The SDK is built as a thin wrapper on top of `hono` and `@hono/mcp`, leveraging Hono's runtime-agnostic capabilities. The SDK provides multiple packages, each optimized for specific platforms/runtimes:
 
 - `@modelfetch/node` - Node.js runtime support (work in progress)
-- `@modelfetch/deno` - Deno runtime support (work in progress)
 - `@modelfetch/bun` - Bun runtime support (work in progress)
+- `@modelfetch/deno` - Deno runtime support (work in progress)
 - `@modelfetch/cloudflare` - Cloudflare Workers support (planned)
 - `@modelfetch/vercel` - Vercel Functions support (planned)
 
@@ -31,7 +31,7 @@ This workspace follows Nx best practices as outlined in @.cursor/rules/nx-rules.
 
 - Node.js version: @.nvmrc
 - Workspace configurations: @package.json @pnpm-workspace.yaml
-- TypeScript configurations: @tsconfig.base.json @tsconfig.deno.json @tsconfig.bun.json @tsconfig.next.json
+- TypeScript configurations: @tsconfig.base.json @tsconfig.bun.json @tsconfig.deno.json @tsconfig.next.json
 - TypeScript project references are used to improve the performance of TypeScript-related features
   - All TypeScript projects are referenced in the root @tsconfig.json
   - When adding or removing a TypeScript project as a local dependency to another TypeScript project, update the target project's `tsconfig.json` to add or remove the dependency project in its `references`
@@ -50,18 +50,18 @@ These projects are example applications powered by ModelFetch:
 
 - `example-node-js`: Node.js application (JavaScript)
 - `example-node-ts`: Node.js application (TypeScript)
-- `example-deno-js`: Deno application (JavaScript)
-- `example-deno-ts`: Deno application (TypeScript)
 - `example-bun-js`: Bun application (JavaScript)
 - `example-bun-ts`: Bun application (TypeScript)
+- `example-deno-js`: Deno application (JavaScript)
+- `example-deno-ts`: Deno application (TypeScript)
 
 ### Core Libraries
 
 - `modelfetch`: ModelFetch CLI tools (work in progress)
 - `@modelfetch/core`: ModelFetch core utilities (work in progress)
 - `@modelfetch/node`: Node.js runtime support (work in progress)
-- `@modelfetch/deno`: Deno runtime support (work in progress)
 - `@modelfetch/bun`: Bun runtime support (work in progress)
+- `@modelfetch/deno`: Deno runtime support (work in progress)
 - `@modelfetch/cloudflare`: Cloudflare Workers support (planned)
 - `@modelfetch/vercel`: Vercel Functions support (planned)
 
