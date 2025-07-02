@@ -38,10 +38,8 @@
 /* Glow effect for text */
 .neonGlow {
   text-shadow:
-    0 0 10px currentColor,
-    0 0 20px currentColor,
-    0 0 30px currentColor,
-    0 0 40px currentColor;
+    0 0 7px currentColor,
+    0 0 14px currentColor;
 }
 
 /* Terminal cursor blink */
@@ -272,9 +270,7 @@
 
   .neonGlow {
     text-shadow:
-      0 0 5px currentColor,
-      0 0 10px currentColor,
-      0 0 15px currentColor,
-      0 0 20px currentColor;
+      0 0 4px currentColor,
+      0 0 8px currentColor;
   }
 }

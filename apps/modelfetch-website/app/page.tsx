@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CodeBlock } from "~/lib/code-block";
 
 import { Raining } from "./raining";
+import { ThemeSwitch } from "./theme-switch";
 import { Typing } from "./typing";
 
 import styles from "./page.module.css";
@@ -17,13 +18,16 @@ export default function Page() {
           <div className="max-w-4xl mx-auto">
             {/* Terminal Header */}
             <div className="mb-8 bg-white dark:bg-[#1a1a1a] rounded-t-lg border border-gray-300 dark:border-[#333] overflow-hidden shadow-lg dark:shadow-none">
-              <div className="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-[#2a2a2a] border-b border-gray-300 dark:border-[#333]">
-                <div className="w-3 h-3 rounded-full bg-red-500" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                <div className="w-3 h-3 rounded-full bg-green-500" />
-                <span className="ml-2 text-xs text-gray-600 dark:text-gray-500">
-                  modelfetch@terminal ~ %
-                </span>
+              <div className="flex items-center justify-between px-4 py-2 bg-gray-100 dark:bg-[#2a2a2a] border-b border-gray-300 dark:border-[#333]">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                  <div className="w-3 h-3 rounded-full bg-green-500" />
+                  <span className="ml-2 text-xs text-gray-600 dark:text-gray-500">
+                    ModelFetch ~ %
+                  </span>
+                </div>
+                <ThemeSwitch />
               </div>
             </div>
 
@@ -78,22 +82,22 @@ export default function Page() {
                 <div className="block sm:hidden text-xs">
                   <div className="flex flex-col items-center gap-1">
                     <div className="flex items-center gap-2">
-                      <span className="text-[#008f00] dark:text-[#00ff00] animate-pulse">
+                      <span className="text-[#0099cc] dark:text-[#00ffff] animate-pulse">
                         ●
                       </span>
                       <span className="text-gray-700 dark:text-gray-400">
-                        SYSTEM: ONLINE
+                        STATUS: ALPHA
                       </span>
                     </div>
                     <div className="flex items-center gap-2 text-[10px]">
                       <span className="text-gray-600 dark:text-gray-400">
-                        v1.0.0
+                        v0.0.1
                       </span>
                       <span className="text-gray-400 dark:text-gray-600">
                         •
                       </span>
                       <span className="text-gray-600 dark:text-gray-400">
-                        OPERATIONAL
+                        IN DEVELOPMENT
                       </span>
                     </div>
                   </div>
@@ -101,23 +105,23 @@ export default function Page() {
 
                 {/* Desktop Layout (full) */}
                 <div className="hidden sm:flex sm:items-center sm:justify-center text-sm">
-                  <span className="text-[#008f00] dark:text-[#00ff00] animate-pulse">
+                  <span className="text-[#0099cc] dark:text-[#00ffff] animate-pulse">
                     ●
                   </span>
                   <span className="ml-2 text-gray-700 dark:text-gray-400">
-                    SYSTEM: ONLINE
+                    STATUS: ALPHA
                   </span>
                   <span className="mx-4 text-gray-400 dark:text-gray-600">
                     |
                   </span>
                   <span className="text-gray-600 dark:text-gray-400">
-                    VERSION: 1.0.0
+                    VERSION: 0.0.1
                   </span>
                   <span className="mx-4 text-gray-400 dark:text-gray-600">
                     |
                   </span>
                   <span className="text-gray-600 dark:text-gray-400">
-                    STATUS: OPERATIONAL
+                    IN DEVELOPMENT
                   </span>
                 </div>
               </div>
