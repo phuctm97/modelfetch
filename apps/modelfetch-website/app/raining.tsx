@@ -25,15 +25,15 @@ export function Raining() {
     function draw() {
       if (!ctx) return;
 
-      // Check if light mode
-      const isLightMode = matchMedia("(prefers-color-scheme: light)").matches;
+      // Check if dark mode by looking for .dark class
+      const isDarkMode = document.documentElement.classList.contains("dark");
 
-      ctx.fillStyle = isLightMode
-        ? "rgba(240, 240, 240, 0.05)"
-        : "rgba(0, 0, 0, 0.05)";
+      ctx.fillStyle = isDarkMode
+        ? "rgba(0, 0, 0, 0.05)"
+        : "rgba(240, 240, 240, 0.05)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      ctx.fillStyle = isLightMode ? "#008f00" : "#00ff00";
+      ctx.fillStyle = isDarkMode ? "#00ff00" : "#008f00";
       ctx.font = `${fontSize}px monospace`;
 
       for (let i = 0; i < drops.length; i++) {
@@ -54,25 +54,28 @@ export function Raining() {
       canvas.height = innerHeight;
     };
 
-    // Listen for theme changes
-    const mediaQuery = matchMedia("(prefers-color-scheme: light)");
-    const handleThemeChange = () => {
-      // Force redraw with new colors
+    // Listen for theme changes via class mutation
+    const observer = new MutationObserver(() => {
+      // Force redraw with new colors when dark class changes
       draw();
-    };
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
 
     addEventListener("resize", handleResize);
-    mediaQuery.addEventListener("change", handleThemeChange);
 
     return () => {
       clearInterval(interval);
       removeEventListener("resize", handleResize);
-      mediaQuery.removeEventListener("change", handleThemeChange);
+      observer.disconnect();
     };
   }, []);
   return (
     <canvas
-      className="fixed inset-0 z-0 opacity-5 dark:opacity-10"
+      className="fixed inset-0 z-10 opacity-10"
       id="matrix"
       style={{ pointerEvents: "none" }}
     />
