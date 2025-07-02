@@ -1,0 +1,254 @@
+/* Terminal/Hacker theme custom styles */
+
+/* Light mode adjustments */
+:root {
+  --terminal-green-light: #008f00;
+  --terminal-green-dark: #00ff00;
+  --terminal-cyan-light: #0099cc;
+  --terminal-cyan-dark: #00ffff;
+}
+
+/* Scanlines effect */
+@keyframes scanlines {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 10px;
+  }
+}
+
+.scanlines::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 255, 0, 0.03) 51%
+  );
+  background-size: 100% 10px;
+  animation: scanlines 8s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Glow effect for text */
+.neon-glow {
+  text-shadow: 
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 30px currentColor,
+    0 0 40px currentColor;
+}
+
+/* Terminal cursor blink */
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.terminal-cursor {
+  animation: blink 1s infinite;
+}
+
+
+/* Glitch effect */
+@keyframes glitch {
+  0%, 100% {
+    transform: translate(0);
+    filter: hue-rotate(0deg);
+  }
+  20% {
+    transform: translate(-1px, 1px);
+    filter: hue-rotate(90deg);
+  }
+  40% {
+    transform: translate(-1px, -1px);
+    filter: hue-rotate(180deg);
+  }
+  60% {
+    transform: translate(1px, 1px);
+    filter: hue-rotate(270deg);
+  }
+  80% {
+    transform: translate(1px, -1px);
+    filter: hue-rotate(360deg);
+  }
+}
+
+.glitch:hover {
+  animation: glitch 0.3s infinite;
+}
+
+/* Tech grid pattern */
+.tech-grid {
+  background-image: 
+    linear-gradient(rgba(0, 255, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 0, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Button command style */
+.cmd-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.cmd-button::before {
+  content: "$ ";
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: left 0.3s;
+  color: var(--terminal-green-dark);
+}
+
+/* Light mode button adjustments */
+@media (prefers-color-scheme: light) {
+  .cmd-button::before {
+    color: var(--terminal-green-light);
+  }
+}
+
+.cmd-button:hover::before {
+  left: 10px;
+}
+
+.cmd-button:hover {
+  padding-left: 35px;
+}
+
+/* Typing effect */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.typing-effect {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 2s steps(40, end);
+}
+
+/* Matrix text effect */
+.matrix-text {
+  background: linear-gradient(0deg, #00ff00 0%, #00ff00 40%, #ffffff 50%, #00ff00 60%, #00ff00 100%);
+  background-size: 100% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: matrix-text 3s linear infinite;
+}
+
+@keyframes matrix-text {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 0% 200%; }
+}
+
+
+/* Text selection styling for terminal theme */
+/* Scoped to landing page only - applies to main element and all its children */
+
+/* Light mode selection - use darker green background with white text for better contrast */
+main::selection,
+main *::selection {
+  background-color: var(--terminal-green-light);
+  color: white;
+  text-shadow: none;
+}
+
+main::-moz-selection,
+main *::-moz-selection {
+  background-color: var(--terminal-green-light);
+  color: white;
+  text-shadow: none;
+}
+
+/* Dark mode selection - use bright cyan background with black text for contrast */
+.dark main::selection,
+.dark main *::selection {
+  background-color: var(--terminal-cyan-dark);
+  color: #000000;
+  text-shadow: none;
+}
+
+.dark main::-moz-selection,
+.dark main *::-moz-selection {
+  background-color: var(--terminal-cyan-dark);
+  color: #000000;
+  text-shadow: none;
+}
+
+/* Special selection styling for code blocks to maintain readability */
+/* Light mode - darker green background with better contrast */
+main pre::selection,
+main pre *::selection,
+main code::selection,
+main code *::selection {
+  background-color: rgba(0, 143, 0, 0.4);
+  color: white;
+  text-shadow: none;
+}
+
+main pre::-moz-selection,
+main pre *::-moz-selection,
+main code::-moz-selection,
+main code *::-moz-selection {
+  background-color: rgba(0, 143, 0, 0.4);
+  color: white;
+  text-shadow: none;
+}
+
+/* Dark mode - bright cyan background with black text */
+.dark main pre::selection,
+.dark main pre *::selection,
+.dark main code::selection,
+.dark main code *::selection {
+  background-color: rgba(0, 255, 255, 0.4);
+  color: #000000;
+  text-shadow: none;
+}
+
+.dark main pre::-moz-selection,
+.dark main pre *::-moz-selection,
+.dark main code::-moz-selection,
+.dark main code *::-moz-selection {
+  background-color: rgba(0, 255, 255, 0.4);
+  color: #000000;
+  text-shadow: none;
+}
+
+/* Light mode specific adjustments */
+@media (prefers-color-scheme: light) {
+  .scanlines::before {
+    background: linear-gradient(
+      to bottom,
+      transparent 50%,
+      rgba(0, 143, 0, 0.02) 51%
+    );
+  }
+  
+  .tech-grid {
+    background-image: 
+      linear-gradient(rgba(0, 143, 0, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 143, 0, 0.02) 1px, transparent 1px);
+  }
+  
+  .matrix-text {
+    background: linear-gradient(0deg, #008f00 0%, #008f00 40%, #333333 50%, #008f00 60%, #008f00 100%);
+  }
+  
+  .neon-glow {
+    text-shadow: 
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 15px currentColor,
+      0 0 20px currentColor;
+  }
+}

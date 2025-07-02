@@ -1,0 +1,182 @@
+/* Terminal/Hacker theme custom styles */
+
+/* Scanlines effect */
+@keyframes scanlines {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 10px;
+  }
+}
+
+.scanlines::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 255, 0, 0.03) 51%
+  );
+  background-size: 100% 10px;
+  animation: scanlines 8s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Glow effect for text */
+.neon-glow {
+  text-shadow: 
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 30px currentColor,
+    0 0 40px currentColor;
+}
+
+/* Terminal cursor blink */
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.terminal-cursor {
+  animation: blink 1s infinite;
+}
+
+/* Code block enhancements */
+.code-enhanced {
+  position: relative;
+  overflow: hidden;
+}
+
+.code-enhanced::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #00ff00, #00ffff, #00ff00);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: -1;
+}
+
+.code-enhanced:hover::before {
+  opacity: 0.3;
+}
+
+/* Glitch effect */
+@keyframes glitch {
+  0%, 100% {
+    transform: translate(0);
+    filter: hue-rotate(0deg);
+  }
+  20% {
+    transform: translate(-1px, 1px);
+    filter: hue-rotate(90deg);
+  }
+  40% {
+    transform: translate(-1px, -1px);
+    filter: hue-rotate(180deg);
+  }
+  60% {
+    transform: translate(1px, 1px);
+    filter: hue-rotate(270deg);
+  }
+  80% {
+    transform: translate(1px, -1px);
+    filter: hue-rotate(360deg);
+  }
+}
+
+.glitch:hover {
+  animation: glitch 0.3s infinite;
+}
+
+/* Tech grid pattern */
+.tech-grid {
+  background-image: 
+    linear-gradient(rgba(0, 255, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 0, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Button command style */
+.cmd-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.cmd-button::before {
+  content: "$ ";
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: left 0.3s;
+  color: #00ff00;
+}
+
+.cmd-button:hover::before {
+  left: 10px;
+}
+
+.cmd-button:hover {
+  padding-left: 35px;
+}
+
+/* Typing effect */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.typing-effect {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 2s steps(40, end);
+}
+
+/* Matrix text effect */
+.matrix-text {
+  background: linear-gradient(0deg, #00ff00 0%, #00ff00 40%, #ffffff 50%, #00ff00 60%, #00ff00 100%);
+  background-size: 100% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: matrix-text 3s linear infinite;
+}
+
+@keyframes matrix-text {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 0% 200%; }
+}
+
+/* Terminal code block styling */
+.code-enhanced pre {
+  background-color: #0a0a0a !important;
+  border: 1px solid #333 !important;
+}
+
+.code-enhanced code {
+  color: #00ff00 !important;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+/* Override Fumadocs code block styles */
+[data-theme="dark"] .code-enhanced pre,
+[data-theme="light"] .code-enhanced pre {
+  background-color: #0a0a0a !important;
+  border-color: #333 !important;
+}
+
+[data-theme="dark"] .code-enhanced code,
+[data-theme="light"] .code-enhanced code {
+  color: #00ff00 !important;
+}

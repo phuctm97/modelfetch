@@ -13,8 +13,7 @@ deno add jsr:@modelfetch/deno
 
 ## Basic Usage
 
-```typescript
-// server.ts
+```typescript title="server.ts"
 import { McpServer } from "npm:@modelcontextprotocol/sdk@^0.7.0/server/mcp.js";
 import { z } from "npm:zod@^3.24.1";
 
@@ -42,44 +41,63 @@ server.tool(
 export default server;
 ```
 
-```typescript
-// index.ts
+```typescript title="index.ts"
 import handle, { getEndpoint } from "jsr:@modelfetch/deno";
 import server from "./server.ts";
 
 // Start the server
-handle(server, (address) => {
-  console.log(`Server running at: ${getEndpoint(address)}`);
+const httpServer = handle(server);
+httpServer.finished.then(() => {
+  console.log("Server stopped");
 });
+
+// Get the server address
+const address = httpServer.addr;
+if (address) {
+  console.log(`Server running at: ${getEndpoint(address)}`);
+}
 ```
 
 ## API Reference
 
-### `handle(server, callback?)`
+### `handle(server, options?)`
 
-Starts the MCP server with Deno-specific optimizations.
+Starts the MCP server with Deno-specific optimizations and returns a Deno.HttpServer instance.
 
 - **server**: The MCP server instance from `@modelcontextprotocol/sdk`
-- **callback**: Optional callback that receives the server address
+- **options**: Optional Deno.ServeOptions for configuring the HTTP server
 
 ```typescript
 import handle from "jsr:@modelfetch/deno";
 import server from "./server.ts";
 
-handle(server, (address) => {
-  console.log(`Server started at: ${address}`);
+const httpServer = handle(server, {
+  port: 3000,
+  hostname: "localhost"
 });
+
+const address = httpServer.addr;
+if (address) {
+  console.log(`Server started at ${address.hostname}:${address.port}`);
+}
 ```
 
-### `getEndpoint(address?)`
+### `getEndpoint(address)`
 
 Gets the MCP server endpoint for connecting clients.
 
-```typescript
-import { getEndpoint } from "jsr:@modelfetch/deno";
+- **address**: Required. A Deno.Addr object from the HTTP server
 
-const endpoint = getEndpoint();
-console.log(`Connect to: ${endpoint}`);
+```typescript
+import handle, { getEndpoint } from "jsr:@modelfetch/deno";
+import server from "./server.ts";
+
+const httpServer = handle(server);
+const address = httpServer.addr;
+if (address) {
+  const endpoint = getEndpoint(address);
+  console.log(`Connect to: ${endpoint}`);
+}
 ```
 
 ## Features
@@ -95,14 +113,17 @@ ModelFetch leverages Deno's unique capabilities:
 
 ### Permission Management
 
-Deno requires explicit permissions. Basic permissions needed:
+Deno requires explicit permissions. For simplicity, you can use:
 
 ```bash
-deno run --allow-read --allow-write --allow-run index.ts
+deno run -A index.ts
 ```
 
-Additional permissions based on your tools:
+The `-A` flag allows all permissions. For production, consider using specific permissions:
 
+- `--allow-read`: File system read access
+- `--allow-write`: File system write access
+- `--allow-run`: Subprocess execution
 - `--allow-net`: For network requests
 - `--allow-env`: For environment variables
 - `--allow-ffi`: For native modules
@@ -158,7 +179,7 @@ server.tool(
 ### Running in Development
 
 ```bash
-deno run --allow-read --allow-write --allow-run index.ts
+deno run -A index.ts
 ```
 
 ### Running in Production
@@ -167,7 +188,7 @@ Compile for faster startup:
 
 ```bash
 # Compile to executable
-deno compile --allow-read --allow-write --allow-run index.ts -o mcp-server
+deno compile -A index.ts -o mcp-server
 
 # Run the compiled binary
 ./mcp-server
@@ -188,12 +209,10 @@ Example client configuration:
       "command": "deno",
       "args": [
         "run",
-        "--allow-read",
-        "--allow-write",
-        "--allow-run",
+        "-A",
         "./index.ts"
       ],
-      "transport": "stdio"
+      "transport": "http"
     }
   }
 }
@@ -214,8 +233,8 @@ Optional `deno.json` configuration:
     "zod": "npm:zod@^3.24.1"
   },
   "tasks": {
-    "dev": "deno run --allow-read --allow-write --allow-run index.ts",
-    "build": "deno compile --allow-read --allow-write --allow-run index.ts"
+    "dev": "deno run -A index.ts",
+    "build": "deno compile -A index.ts"
   }
 }
 ```
@@ -246,13 +265,13 @@ Optional `deno.json` configuration:
 Enable debug logs:
 
 ```bash
-DEBUG=modelfetch:* deno run --allow-read --allow-write --allow-env index.ts
+DEBUG=modelfetch:* deno run -A index.ts
 ```
 
 Use Deno's built-in inspector:
 
 ```bash
-deno run --inspect-brk --allow-read --allow-write --allow-run index.ts
+deno run --inspect-brk -A index.ts
 ```
 
 ## Next Steps

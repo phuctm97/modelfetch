@@ -31,8 +31,7 @@ The CLI tools and additional runtime support (Cloudflare Workers, Vercel Functio
 
 Here's a simple MCP server built with ModelFetch:
 
-```typescript
-// server.ts - Your MCP server (same for all runtimes)
+```typescript title="server.ts"
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 
@@ -59,8 +58,7 @@ server.tool(
 export default server;
 ```
 
-```typescript
-// index.ts - Runtime-specific entry point
+```typescript title="index.ts"
 import handle from "@modelfetch/node"; // or @modelfetch/bun, @modelfetch/deno
 import server from "./server";
 

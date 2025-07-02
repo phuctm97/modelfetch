@@ -9,14 +9,18 @@ This page shows complete examples of MCP servers built with ModelFetch for Node.
 
 ### Project Structure
 
-```
-example-node-ts/
-├── src/
-│   ├── server.ts    # MCP server definition
-│   └── index.ts     # Runtime handler
-├── package.json
-└── tsconfig.json
-```
+import { File, Folder, Files } from 'fumadocs-ui/components/files';
+
+<Files>
+  <Folder name="example-node-ts" defaultOpen>
+    <Folder name="src">
+      <File name="server.ts" />
+      <File name="index.ts" />
+    </Folder>
+    <File name="package.json" />
+    <File name="tsconfig.json" />
+  </Folder>
+</Files>
 
 ### server.ts
 
@@ -100,13 +104,15 @@ npx tsx src/index.ts
 
 ### Project Structure
 
-```
-example-node-js/
-├── src/
-│   ├── server.js    # MCP server definition
-│   └── index.js     # Runtime handler
-└── package.json
-```
+<Files>
+  <Folder name="example-node-js" defaultOpen>
+    <Folder name="src">
+      <File name="server.js" />
+      <File name="index.js" />
+    </Folder>
+    <File name="package.json" />
+  </Folder>
+</Files>
 
 ### server.js
 
@@ -213,7 +219,7 @@ To use this server with an MCP client, configure it as follows:
     "example-node": {
       "command": "node",
       "args": ["path/to/index.js"],
-      "transport": "stdio"
+      "transport": "http"
     }
   }
 }

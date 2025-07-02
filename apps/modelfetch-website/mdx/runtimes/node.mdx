@@ -17,8 +17,7 @@ pnpm add @modelfetch/node
 
 ## Basic Usage
 
-```typescript
-// server.ts
+```typescript title="server.ts"
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 
@@ -46,8 +45,7 @@ server.tool(
 export default server;
 ```
 
-```typescript
-// index.ts
+```typescript title="index.ts"
 import handle, { getEndpoint } from "@modelfetch/node";
 import server from "./server";
 
@@ -75,25 +73,31 @@ handle(server, (address) => {
 });
 ```
 
-### `getEndpoint(address?)`
+### `getEndpoint(address)`
 
 Gets the MCP server endpoint for connecting clients.
 
+- **address**: Required. A Node.js `AddressInfo` object from the server callback
+
 ```typescript
 import { getEndpoint } from "@modelfetch/node";
+import handle from "@modelfetch/node";
+import server from "./server";
 
-const endpoint = getEndpoint();
-console.log(`Connect to: ${endpoint}`);
+handle(server, (address) => {
+  const endpoint = getEndpoint(address);
+  console.log(`Connect to: ${endpoint}`);
+});
 ```
 
 ## Features
 
-### Stdio Communication
+### HTTP Transport
 
-By default, ModelFetch uses stdio for communication, which is the standard for MCP servers:
+ModelFetch uses streamable HTTP transport for MCP communication:
 
 ```typescript
-handle(server); // Uses stdio by default
+handle(server); // Sets up HTTP transport
 ```
 
 ### Error Handling
@@ -199,7 +203,7 @@ Example client configuration:
     "my-server": {
       "command": "node",
       "args": ["./index.js"],
-      "transport": "stdio"
+      "transport": "http"
     }
   }
 }

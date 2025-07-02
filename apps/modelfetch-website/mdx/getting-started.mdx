@@ -47,8 +47,7 @@ Let's create a simple MCP server that provides a greeting tool.
 
 Create a new file called `server.ts` (or `server.js` for JavaScript):
 
-```typescript
-// server.ts
+```typescript title="server.ts"
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 
@@ -74,16 +73,6 @@ server.tool(
   }),
 );
 
-// Add another tool example
-server.tool("flip_coin", "Flips a coin and returns heads or tails", {}, () => ({
-  content: [
-    {
-      type: "text",
-      text: `🪙 You flipped: ${Math.random() < 0.5 ? "Heads" : "Tails"}!`,
-    },
-  ],
-}));
-
 export default server;
 ```
 
@@ -91,15 +80,18 @@ export default server;
 
 Create an `index.ts` file to handle the server with ModelFetch:
 
-```typescript
-// index.ts
+```typescript title="index.ts"
 import handle, { getEndpoint } from "@modelfetch/node"; // or @modelfetch/bun, @modelfetch/deno
 import server from "./server";
 
-// Start the server
+// Start the server (Node.js example)
 handle(server, (address) => {
   console.log(`MCP Server is available at ${getEndpoint(address)}`);
 });
+
+// Note: Bun and Deno have different patterns:
+// Bun: const bunServer = handle(server); console.log(getEndpoint(bunServer));
+// Deno: const httpServer = handle(server); if (httpServer.addr) console.log(getEndpoint(httpServer.addr));
 ```
 
 ### 3. Run the server
@@ -125,7 +117,7 @@ bun run index.ts
 #### Deno
 
 ```bash
-deno run --allow-read --allow-write --allow-run index.ts
+deno run -A index.ts
 ```
 
 ## Understanding the Basics
@@ -151,7 +143,7 @@ Tools are the primary way MCP servers provide functionality. Each tool is define
 
 The `handle()` function from ModelFetch starts the MCP server. It:
 
-- Sets up the communication channel (stdio by default)
+- Sets up the streamable HTTP transport for MCP communication
 - Handles all the runtime-specific details
 - Provides a callback with the server endpoint information
 

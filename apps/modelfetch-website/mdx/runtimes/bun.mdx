@@ -13,8 +13,7 @@ bun add @modelfetch/bun
 
 ## Basic Usage
 
-```typescript
-// server.ts
+```typescript title="server.ts"
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 
@@ -42,43 +41,47 @@ server.tool(
 export default server;
 ```
 
-```typescript
-// index.ts
+```typescript title="index.ts"
 import handle, { getEndpoint } from "@modelfetch/bun";
 import server from "./server";
 
 // Start the server
-handle(server, (address) => {
-  console.log(`Server running at: ${getEndpoint(address)}`);
-});
+const bunServer = handle(server);
+console.log(`Server running at: ${getEndpoint(bunServer)}`);
 ```
 
 ## API Reference
 
-### `handle(server, callback?)`
+### `handle(server, options?)`
 
-Starts the MCP server with Bun-specific optimizations.
+Starts the MCP server with Bun-specific optimizations and returns a Bun.Server instance.
 
 - **server**: The MCP server instance from `@modelcontextprotocol/sdk`
-- **callback**: Optional callback that receives the server address
+- **options**: Optional Bun.ServeOptions (excluding the fetch handler)
 
 ```typescript
 import handle from "@modelfetch/bun";
 import server from "./server";
 
-handle(server, (address) => {
-  console.log(`Server started at: ${address}`);
+const bunServer = handle(server, {
+  port: 3000,
+  hostname: "localhost"
 });
+console.log(`Server started on port ${bunServer.port}`);
 ```
 
-### `getEndpoint(address?)`
+### `getEndpoint(server)`
 
 Gets the MCP server endpoint for connecting clients.
 
-```typescript
-import { getEndpoint } from "@modelfetch/bun";
+- **server**: Required. The Bun.Server instance returned by the handle function
 
-const endpoint = getEndpoint();
+```typescript
+import handle, { getEndpoint } from "@modelfetch/bun";
+import server from "./server";
+
+const bunServer = handle(server);
+const endpoint = getEndpoint(bunServer);
 console.log(`Connect to: ${endpoint}`);
 ```
 
@@ -167,7 +170,7 @@ Example client configuration:
     "my-server": {
       "command": "bun",
       "args": ["run", "./index.ts"],
-      "transport": "stdio"
+      "transport": "http"
     }
   }
 }
