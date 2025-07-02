@@ -175,7 +175,7 @@ export default function Page() {
                     <span className="text-[#008f00] dark:text-[#00ff00]">
                       $
                     </span>{" "}
-                    Install ModelFetch for your runtime:
+                    Install a ModelFetch runtime of your choice:
                   </p>
                   <div className="bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] rounded-lg overflow-hidden hover:border-[#008f00] dark:hover:border-[#00ff00] transition-colors shadow-md dark:shadow-none">
                     <div className="px-4 py-2 bg-gray-100 dark:bg-[#2a2a2a] border-b border-gray-300 dark:border-[#333] flex items-center justify-between">
@@ -207,7 +207,7 @@ deno add jsr:@modelfetch/deno`}
                     <span className="text-[#008f00] dark:text-[#00ff00]">
                       $
                     </span>{" "}
-                    Create your MCP server:
+                    Create your MCP server with the official MCP TypeScript SDK:
                   </p>
                   <div className="bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] rounded-lg overflow-hidden hover:border-[#008f00] dark:hover:border-[#00ff00] transition-colors shadow-md dark:shadow-none">
                     <div className="px-4 py-2 bg-gray-100 dark:bg-[#2a2a2a] border-b border-gray-300 dark:border-[#333] flex items-center justify-between">
@@ -255,7 +255,7 @@ export default server;`}
                     <span className="text-[#008f00] dark:text-[#00ff00]">
                       $
                     </span>{" "}
-                    Run with ModelFetch:
+                    Run your MCP server with the installed ModelFetch runtime:
                   </p>
                   <div className="bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] rounded-lg overflow-hidden hover:border-[#008f00] dark:hover:border-[#00ff00] transition-colors shadow-md dark:shadow-none">
                     <div className="px-4 py-2 bg-gray-100 dark:bg-[#2a2a2a] border-b border-gray-300 dark:border-[#333] flex items-center justify-between">
