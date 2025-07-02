@@ -58,8 +58,8 @@ export function MatrixRain() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
 
     const chars =
       "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
@@ -73,9 +73,7 @@ export function MatrixRain() {
       if (!ctx) return;
 
       // Check if light mode
-      const isLightMode = window.matchMedia(
-        "(prefers-color-scheme: light)",
-      ).matches;
+      const isLightMode = matchMedia("(prefers-color-scheme: light)").matches;
 
       ctx.fillStyle = isLightMode
         ? "rgba(240, 240, 240, 0.05)"
@@ -99,23 +97,23 @@ export function MatrixRain() {
     const interval = setInterval(draw, 35);
 
     const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width = innerWidth;
+      canvas.height = innerHeight;
     };
 
     // Listen for theme changes
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: light)");
+    const mediaQuery = matchMedia("(prefers-color-scheme: light)");
     const handleThemeChange = () => {
       // Force redraw with new colors
       draw();
     };
 
-    window.addEventListener("resize", handleResize);
+    addEventListener("resize", handleResize);
     mediaQuery.addEventListener("change", handleThemeChange);
 
     return () => {
       clearInterval(interval);
-      window.removeEventListener("resize", handleResize);
+      removeEventListener("resize", handleResize);
       mediaQuery.removeEventListener("change", handleThemeChange);
     };
   }, []);

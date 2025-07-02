@@ -7,11 +7,6 @@ const eslintConfig = createESLintConfig(
   importPaths,
   react,
   flatConfig.coreWebVitals,
-  {
-    rules: {
-      "no-restricted-globals": "off",
-    },
-  },
 );
 
 export default eslintConfig;

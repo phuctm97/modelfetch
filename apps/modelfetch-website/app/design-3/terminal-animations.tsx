@@ -58,8 +58,8 @@ export function MatrixRain() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
 
     const chars =
       "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
@@ -92,15 +92,15 @@ export function MatrixRain() {
     const interval = setInterval(draw, 35);
 
     const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width = innerWidth;
+      canvas.height = innerHeight;
     };
 
-    window.addEventListener("resize", handleResize);
+    addEventListener("resize", handleResize);
 
     return () => {
       clearInterval(interval);
-      window.removeEventListener("resize", handleResize);
+      removeEventListener("resize", handleResize);
     };
   }, []);
 
