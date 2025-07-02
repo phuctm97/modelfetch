@@ -1,5 +1,3 @@
-import "./page.css";
-
 import Link from "next/link";
 
 import { CodeBlock } from "~/lib/code-block";
@@ -7,10 +5,14 @@ import { CodeBlock } from "~/lib/code-block";
 import { Raining } from "./raining";
 import { Typing } from "./typing";
 
+import styles from "./page.module.css";
+
 export default function Page() {
   return (
     <>
-      <main className="relative z-10 min-h-screen bg-[#f0f0f0] dark:bg-[#0a0a0a] text-[#008f00] dark:text-[#00ff00] font-mono scanlines tech-grid">
+      <main
+        className={`relative z-10 min-h-screen bg-[#f0f0f0] dark:bg-[#0a0a0a] text-[#008f00] dark:text-[#00ff00] font-mono ${styles.scanlines} ${styles.techGrid} ${styles.main}`}
+      >
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto">
             {/* Terminal Header */}
@@ -38,7 +40,9 @@ export default function Page() {
                 </pre>
               </div>
 
-              <h1 className="text-5xl font-bold mb-6 text-[#008f00] dark:text-[#00ff00] drop-shadow-[0_0_20px_rgba(0,143,0,0.5)] dark:drop-shadow-[0_0_20px_rgba(0,255,0,0.5)] neon-glow">
+              <h1
+                className={`text-5xl font-bold mb-6 text-[#008f00] dark:text-[#00ff00] drop-shadow-[0_0_20px_rgba(0,143,0,0.5)] dark:drop-shadow-[0_0_20px_rgba(0,255,0,0.5)] ${styles.neonGlow}`}
+              >
                 <Typing>ModelFetch</Typing>
               </h1>
 
@@ -53,13 +57,13 @@ export default function Page() {
 
               <div className="flex gap-4 justify-center">
                 <Link
-                  className="px-6 py-3 bg-[#008f00] dark:bg-[#00ff00] text-white dark:text-black font-bold rounded hover:shadow-[0_0_20px_rgba(0,143,0,0.8)] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.8)] transition-all hover:scale-105 glitch"
+                  className={`inline-flex items-center px-6 py-3 bg-[#008f00] dark:bg-[#00ff00] text-white dark:text-black font-bold rounded hover:shadow-[0_0_20px_rgba(0,143,0,0.8)] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.8)] transition-all hover:scale-105 ${styles.glitch}`}
                   href="/docs/getting-started"
                 >
                   <span className="mr-2">▶</span>Get Started
                 </Link>
                 <Link
-                  className="px-6 py-3 border-2 border-[#0099cc] dark:border-[#00ffff] text-[#0099cc] dark:text-[#00ffff] rounded hover:bg-[#0099cc] dark:hover:bg-[#00ffff] hover:text-white dark:hover:text-black hover:shadow-[0_0_20px_rgba(0,153,204,0.8)] dark:hover:shadow-[0_0_20px_rgba(0,255,255,0.8)] transition-all"
+                  className="inline-flex items-center px-6 py-3 border-2 border-[#0099cc] dark:border-[#00ffff] text-[#0099cc] dark:text-[#00ffff] rounded hover:bg-[#0099cc] dark:hover:bg-[#00ffff] hover:text-white dark:hover:text-black hover:shadow-[0_0_20px_rgba(0,153,204,0.8)] dark:hover:shadow-[0_0_20px_rgba(0,255,255,0.8)] transition-all"
                   href="/docs"
                 >
                   <span className="mr-2">◆</span>View Docs
