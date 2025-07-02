@@ -1,5 +1,6 @@
 "use client";
 
+import { useMounted } from "@mantine/hooks";
 import { useEffect, useState } from "react";
 
 // Terminal typing effect component
@@ -118,11 +119,7 @@ export function TerminalAnimations({
 }: {
   children: React.ReactNode;
 }) {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useMounted();
 
   return (
     <>

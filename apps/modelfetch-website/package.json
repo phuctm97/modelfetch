@@ -4,6 +4,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
+    "@mantine/hooks": "^8.1.2",
     "fumadocs-core": "^15.6.0",
     "fumadocs-mdx": "^11.6.10",
     "fumadocs-ui": "^15.6.0",
