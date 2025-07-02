@@ -119,6 +119,27 @@ File/folder names and their primary exports must always match using the followin
   - `button.tsx` → `Button` component
   - `do-something.ts` → `doSomething` function
 
+### Type Definitions
+
+Never inline types for component props or function parameters. Always define types separately:
+
+```typescript
+// ❌ Bad
+function Component({ text, delay = 50 }: { text: string; delay?: number }) {
+  // ...
+}
+
+// ✅ Good
+type ComponentProps = {
+  text: string;
+  delay?: number;
+};
+
+function Component({ text, delay = 50 }: ComponentProps) {
+  // ...
+}
+```
+
 ## Development Commands
 
 ### Building Projects

@@ -3,7 +3,12 @@
 import { useMounted } from "@mantine/hooks";
 import { useEffect, useState } from "react";
 
-function Component({ text, delay = 50 }: { text: string; delay?: number }) {
+interface ComponentProps {
+  text: string;
+  delay?: number;
+}
+
+function Component({ text, delay = 50 }: ComponentProps) {
   const [displayText, setDisplayText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
 
