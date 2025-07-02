@@ -1,9 +1,8 @@
 "use client";
 
-import { useMounted } from "@mantine/hooks";
 import { useEffect } from "react";
 
-function Component() {
+export function Raining() {
   useEffect(() => {
     const canvasElement = document.querySelector("#matrix");
     if (!(canvasElement instanceof HTMLCanvasElement)) return;
@@ -71,7 +70,6 @@ function Component() {
       mediaQuery.removeEventListener("change", handleThemeChange);
     };
   }, []);
-
   return (
     <canvas
       className="fixed inset-0 z-0 opacity-5 dark:opacity-10"
@@ -79,9 +77,4 @@ function Component() {
       style={{ pointerEvents: "none" }}
     />
   );
-}
-
-export function Raining() {
-  const mounted = useMounted();
-  return mounted ? <Component /> : undefined;
 }
