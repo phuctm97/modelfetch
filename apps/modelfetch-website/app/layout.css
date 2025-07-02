@@ -6,14 +6,3 @@
   --font-sans: var(--font-geist);
   --font-mono: var(--font-geist-mono);
 }
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Custom selection color for minimalist design */
-::selection {
-  background-color: rgba(37, 99, 235, 0.1);
-  color: #1e293b;
-}

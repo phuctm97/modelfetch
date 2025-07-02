@@ -19,7 +19,7 @@ export default function Layout({ children }: PropsWithChildren) {
   return (
     <html
       suppressHydrationWarning
-      className={`${geist.variable} ${geistMono.variable}`}
+      className={`${geist.variable} ${geistMono.variable} scroll-smooth antialiased`}
       lang="en"
     >
       <body className="flex flex-col min-h-screen">
