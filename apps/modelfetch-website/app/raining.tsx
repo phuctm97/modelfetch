@@ -1,55 +1,9 @@
 "use client";
 
 import { useMounted } from "@mantine/hooks";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
-// Terminal typing effect component
-export function TerminalTyping({
-  text,
-  delay = 50,
-}: {
-  text: string;
-  delay?: number;
-}) {
-  const [displayText, setDisplayText] = useState("");
-  const [showCursor, setShowCursor] = useState(true);
-
-  useEffect(() => {
-    let index = 0;
-    const interval = setInterval(() => {
-      if (index < text.length) {
-        setDisplayText(text.slice(0, index + 1));
-        index++;
-      } else {
-        clearInterval(interval);
-      }
-    }, delay);
-
-    // Blinking cursor
-    const cursorInterval = setInterval(() => {
-      setShowCursor((prev) => !prev);
-    }, 500);
-
-    return () => {
-      clearInterval(interval);
-      clearInterval(cursorInterval);
-    };
-  }, [text, delay]);
-
-  return (
-    <span>
-      {displayText}
-      <span
-        className={`${showCursor ? "opacity-100" : "opacity-0"} transition-opacity`}
-      >
-        _
-      </span>
-    </span>
-  );
-}
-
-// Matrix rain effect component
-export function MatrixRain() {
+function Component() {
   useEffect(() => {
     const canvasElement = document.querySelector("#matrix");
     if (!(canvasElement instanceof HTMLCanvasElement)) return;
@@ -127,18 +81,7 @@ export function MatrixRain() {
   );
 }
 
-// Client wrapper for animations
-export function TerminalAnimations({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function Raining() {
   const mounted = useMounted();
-
-  return (
-    <>
-      {mounted && <MatrixRain />}
-      {children}
-    </>
-  );
+  return mounted ? <Component /> : undefined;
 }

@@ -1,15 +1,15 @@
-import "./terminal.css";
+import "./page.css";
 
 import Link from "next/link";
 
 import { CodeBlock } from "~/lib/code-block";
 
-import { HeroTitle } from "./hero-section";
-import { TerminalAnimations } from "./terminal-animations";
+import { Raining } from "./raining";
+import { Typing } from "./typing";
 
 export default function Page() {
   return (
-    <TerminalAnimations>
+    <>
       <main className="relative z-10 min-h-screen bg-[#f0f0f0] dark:bg-[#0a0a0a] text-[#008f00] dark:text-[#00ff00] font-mono scanlines tech-grid">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto">
@@ -38,7 +38,9 @@ export default function Page() {
                 </pre>
               </div>
 
-              <HeroTitle />
+              <h1 className="text-5xl font-bold mb-6 text-[#008f00] dark:text-[#00ff00] drop-shadow-[0_0_20px_rgba(0,143,0,0.5)] dark:drop-shadow-[0_0_20px_rgba(0,255,0,0.5)] neon-glow">
+                <Typing>ModelFetch</Typing>
+              </h1>
 
               <div className="mb-8">
                 <span className="text-[#0099cc] dark:text-[#00ffff]">$</span>{" "}
@@ -300,6 +302,7 @@ handle(server);`}
           </div>
         </div>
       </main>
-    </TerminalAnimations>
+      <Raining />
+    </>
   );
 }
