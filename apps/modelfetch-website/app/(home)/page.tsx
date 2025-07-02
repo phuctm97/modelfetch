@@ -29,10 +29,10 @@ export default function Page() {
             <section className="text-center mb-16">
               <div className="inline-block mb-6">
                 <pre className="text-[#008f00] dark:text-[#00ff00] text-xs leading-tight opacity-70 dark:opacity-50">
-                  {`   __  __           _      _ _____    _       _     
-  |  \\/  |         | |    | |  ___|  | |     | |    
-  | .  . | ___   __| | ___| | |_ ___| |_ ___| |__  
-  | |\\/| |/ _ \\ / _\` |/ _ \\ |  _/ _ \\ __/ __| '_ \\ 
+                  {`   __  __           _      _ _____    _       _
+  |  \\/  |         | |    | |  ___|  | |     | |
+  | .  . | ___   __| | ___| | |_ ___| |_ ___| |__
+  | |\\/| |/ _ \\ / _\` |/ _ \\ |  _/ _ \\ __/ __| '_ \\
   | |  | | (_) | (_| |  __/ | ||  __/ || (__| | | |
   \\_|  |_/\\___/ \\__,_|\\___|_\\_| \\___|\\__\\___|_| |_|`}
                 </pre>
@@ -51,16 +51,16 @@ export default function Page() {
 
               <div className="flex gap-4 justify-center">
                 <Link
-                  className="px-6 py-3 bg-[#008f00] dark:bg-[#00ff00] text-white dark:text-black font-bold rounded hover:shadow-[0_0_20px_rgba(0,143,0,0.8)] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.8)] transition-all hover:scale-105 cmd-button glitch"
-                  href="/docs"
+                  className="px-6 py-3 bg-[#008f00] dark:bg-[#00ff00] text-white dark:text-black font-bold rounded hover:shadow-[0_0_20px_rgba(0,143,0,0.8)] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.8)] transition-all hover:scale-105 glitch"
+                  href="/docs/getting-started"
                 >
                   <span className="mr-2">▶</span>Get Started
                 </Link>
                 <Link
-                  className="px-6 py-3 border-2 border-[#0099cc] dark:border-[#00ffff] text-[#0099cc] dark:text-[#00ffff] rounded hover:bg-[#0099cc] dark:hover:bg-[#00ffff] hover:text-white dark:hover:text-black hover:shadow-[0_0_20px_rgba(0,153,204,0.8)] dark:hover:shadow-[0_0_20px_rgba(0,255,255,0.8)] transition-all cmd-button"
-                  href="/docs/examples"
+                  className="px-6 py-3 border-2 border-[#0099cc] dark:border-[#00ffff] text-[#0099cc] dark:text-[#00ffff] rounded hover:bg-[#0099cc] dark:hover:bg-[#00ffff] hover:text-white dark:hover:text-black hover:shadow-[0_0_20px_rgba(0,153,204,0.8)] dark:hover:shadow-[0_0_20px_rgba(0,255,255,0.8)] transition-all"
+                  href="/docs"
                 >
-                  <span className="mr-2">◆</span>View Examples
+                  <span className="mr-2">◆</span>View Docs
                 </Link>
               </div>
             </section>
@@ -119,35 +119,35 @@ export default function Page() {
 
             {/* Features Section */}
             <section className="mb-16">
-              <h2 className="text-3xl font-bold mb-8 text-center text-[#0099cc] dark:text-[#00ffff] drop-shadow-[0_0_10px_rgba(0,153,204,0.5)] dark:drop-shadow-[0_0_10px_rgba(0,255,255,0.5)] matrix-text">
+              <h2 className="text-3xl font-bold mb-8 text-center text-[#0099cc] dark:text-[#00ffff] drop-shadow-[0_0_10px_rgba(0,153,204,0.5)] dark:drop-shadow-[0_0_10px_rgba(0,255,255,0.5)]">
                 <span className="mr-2">&gt;</span>Why ModelFetch?
               </h2>
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] p-6 rounded hover:border-[#008f00] dark:hover:border-[#00ff00] hover:shadow-[0_0_20px_rgba(0,143,0,0.3)] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.3)] transition-all group shadow-md dark:shadow-none">
                   <h3 className="text-xl font-semibold mb-3 text-[#008f00] dark:text-[#00ff00] group-hover:text-[#0099cc] dark:group-hover:text-[#00ffff] transition-colors">
-                    <span className="mr-2">◈</span>Runtime Agnostic
+                    <span className="mr-2">◈</span>Multi-Runtime
                   </h3>
                   <p className="text-gray-400">
-                    Write once, run anywhere. Deploy your MCP servers on
-                    Node.js, Bun, or Deno with the same codebase.
+                    Write your MCP servers once. Run them anywhere
+                    TypeScript/JavaScript runs: Node.js, Bun, Deno, etc.
                   </p>
                 </div>
                 <div className="bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] p-6 rounded hover:border-[#008f00] dark:hover:border-[#00ff00] hover:shadow-[0_0_20px_rgba(0,143,0,0.3)] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.3)] transition-all group shadow-md dark:shadow-none">
                   <h3 className="text-xl font-semibold mb-3 text-[#008f00] dark:text-[#00ff00] group-hover:text-[#0099cc] dark:group-hover:text-[#00ffff] transition-colors">
-                    <span className="mr-2">◈</span>Developer Experience
+                    <span className="mr-2">◈</span>Delightful DX
                   </h3>
                   <p className="text-gray-400">
-                    Powerful CLI with live reload and MCP inspector integration
-                    for seamless development and debugging.
+                    Build your MCP servers with tools designed for building MCP
+                    servers: live reload, MCP Inspector, etc.
                   </p>
                 </div>
                 <div className="bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] p-6 rounded hover:border-[#008f00] dark:hover:border-[#00ff00] hover:shadow-[0_0_20px_rgba(0,143,0,0.3)] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.3)] transition-all group shadow-md dark:shadow-none">
                   <h3 className="text-xl font-semibold mb-3 text-[#008f00] dark:text-[#00ff00] group-hover:text-[#0099cc] dark:group-hover:text-[#00ffff] transition-colors">
-                    <span className="mr-2">◈</span>TypeScript First
+                    <span className="mr-2">◈</span>Official SDK
                   </h3>
                   <p className="text-gray-400">
-                    Full TypeScript support with type safety and excellent IDE
-                    integration out of the box.
+                    Built on top of the official MCP TypeScript SDK to avoid
+                    lock-in and ensure up-to-date capabilities.
                   </p>
                 </div>
               </div>
@@ -155,7 +155,7 @@ export default function Page() {
 
             {/* Quick Start Section */}
             <section className="mb-16">
-              <h2 className="text-3xl font-bold mb-8 text-center text-[#0099cc] dark:text-[#00ffff] drop-shadow-[0_0_10px_rgba(0,153,204,0.5)] dark:drop-shadow-[0_0_10px_rgba(0,255,255,0.5)] matrix-text">
+              <h2 className="text-3xl font-bold mb-8 text-center text-[#0099cc] dark:text-[#00ffff] drop-shadow-[0_0_10px_rgba(0,153,204,0.5)] dark:drop-shadow-[0_0_10px_rgba(0,255,255,0.5)]">
                 <span className="mr-2">&gt;</span>Quick Start
               </h2>
 
@@ -292,14 +292,9 @@ handle(server);`}
 
             {/* Footer Terminal */}
             <div className="mt-16 text-center text-xs text-gray-500 dark:text-gray-600">
-              <div className="mb-2">
+              <div>
                 <span className="text-[#008f00] dark:text-[#00ff00]">$</span>{" "}
                 echo &quot;Built with ❤️ by developers, for developers&quot;
-              </div>
-              <div>Built with ❤️ by developers, for developers</div>
-              <div className="mt-2">
-                <span className="text-[#008f00] dark:text-[#00ff00]">$</span>{" "}
-                <span className="animate-pulse">_</span>
               </div>
             </div>
           </div>
