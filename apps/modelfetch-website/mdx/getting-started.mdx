@@ -1,0 +1,167 @@
+---
+title: Getting Started
+description: Install ModelFetch and build your first MCP server
+---
+
+This guide will help you install ModelFetch and create your first MCP (Model Context Protocol) server.
+
+## Prerequisites
+
+Before you begin, make sure you have one of the following JavaScript runtimes installed:
+
+- [Node.js](https://nodejs.org/) (v18 or later)
+- [Bun](https://bun.sh/) (v1 or later)
+- [Deno](https://deno.land/) (v2 or later)
+
+## Installation
+
+ModelFetch provides separate packages for each runtime. Install the package that matches your runtime:
+
+### Node.js
+
+```bash
+npm install @modelfetch/node
+# or
+yarn add @modelfetch/node
+# or
+pnpm add @modelfetch/node
+```
+
+### Bun
+
+```bash
+bun add @modelfetch/bun
+```
+
+### Deno
+
+```bash
+deno add jsr:@modelfetch/deno
+```
+
+## Creating Your First MCP Server
+
+Let's create a simple MCP server that provides a greeting tool.
+
+### 1. Create the server file
+
+Create a new file called `server.ts` (or `server.js` for JavaScript):
+
+```typescript title="server.ts"
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { z } from "zod";
+
+// Create a new MCP server
+const server = new McpServer({
+  title: "My First MCP Server",
+  name: "greeting-server",
+  version: "1.0.0",
+});
+
+// Define a tool
+server.tool(
+  "roll_dice",
+  "Rolls an N-sided dice",
+  { sides: z.number().int().min(2) },
+  ({ sides }) => ({
+    content: [
+      {
+        type: "text",
+        text: `🎲 You rolled a ${1 + Math.floor(Math.random() * sides)}!`,
+      },
+    ],
+  }),
+);
+
+export default server;
+```
+
+### 2. Create the entry point
+
+Create an `index.ts` file to handle the server with ModelFetch:
+
+```typescript title="index.ts"
+import handle, { getEndpoint } from "@modelfetch/node"; // or @modelfetch/bun, @modelfetch/deno
+import server from "./server";
+
+// Start the server (Node.js example)
+handle(server, (address) => {
+  console.log(`MCP Server is available at ${getEndpoint(address)}`);
+});
+
+// Note: Bun and Deno have different patterns:
+// Bun: const bunServer = handle(server); console.log(getEndpoint(bunServer));
+// Deno: const httpServer = handle(server); if (httpServer.addr) console.log(getEndpoint(httpServer.addr));
+```
+
+### 3. Run the server
+
+The way you run your server depends on your runtime:
+
+#### Node.js
+
+```bash
+# TypeScript
+npx tsx index.ts
+
+# JavaScript
+node index.js
+```
+
+#### Bun
+
+```bash
+bun run index.ts
+```
+
+#### Deno
+
+```bash
+deno run -A index.ts
+```
+
+## Understanding the Basics
+
+### Creating an MCP Server
+
+The `McpServer` class from `@modelcontextprotocol/sdk` creates a new MCP server instance. You provide:
+
+- **title**: A human-readable title for your server
+- **name**: A unique identifier for your server
+- **version**: The version of your server
+
+### Defining Tools
+
+Tools are the primary way MCP servers provide functionality. Each tool is defined using the `server.tool()` method with:
+
+- **Name**: A unique identifier for the tool
+- **Description**: Explains what the tool does
+- **Parameters**: Zod schema defining the expected input
+- **Handler**: A function that processes requests and returns results
+
+### Starting the Server
+
+The `handle()` function from ModelFetch starts the MCP server. It:
+
+- Sets up the streamable HTTP transport for MCP communication
+- Handles all the runtime-specific details
+- Provides a callback with the server endpoint information
+
+## Next Steps
+
+Now that you have a basic MCP server running, you can:
+
+- Learn about the [runtime-specific features](/docs/runtimes/node)
+- Explore more [complete examples](/docs/examples)
+- Add more tools to your server
+- Implement resources for data access
+
+## TypeScript Support
+
+ModelFetch is built with TypeScript first in mind. You get:
+
+- Full type safety for tool parameters and responses
+- Autocompletion in your IDE
+- Type checking at compile time
+
+If you're using JavaScript, you'll still benefit from your IDE's IntelliSense through the included type definitions.

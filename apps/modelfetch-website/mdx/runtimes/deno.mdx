@@ -1,0 +1,277 @@
+---
+title: Deno
+description: Using ModelFetch with Deno
+---
+
+The `@modelfetch/deno` package provides ModelFetch support for Deno applications.
+
+## Installation
+
+```bash
+deno add jsr:@modelfetch/deno
+```
+
+## Basic Usage
+
+```typescript title="server.ts"
+import { McpServer } from "npm:@modelcontextprotocol/sdk@^0.7.0/server/mcp.js";
+import { z } from "npm:zod@^3.24.1";
+
+const server = new McpServer({
+  title: "My Deno MCP Server",
+  name: "my-deno-server",
+  version: "1.0.0",
+});
+
+// Define your tools
+server.tool(
+  "roll_dice",
+  "Rolls an N-sided dice",
+  { sides: z.number().int().min(2) },
+  ({ sides }) => ({
+    content: [
+      {
+        type: "text",
+        text: `🎲 You rolled a ${1 + Math.floor(Math.random() * sides)}!`,
+      },
+    ],
+  }),
+);
+
+export default server;
+```
+
+```typescript title="index.ts"
+import handle, { getEndpoint } from "jsr:@modelfetch/deno";
+import server from "./server.ts";
+
+// Start the server
+const httpServer = handle(server);
+httpServer.finished.then(() => {
+  console.log("Server stopped");
+});
+
+// Get the server address
+const address = httpServer.addr;
+if (address) {
+  console.log(`Server running at: ${getEndpoint(address)}`);
+}
+```
+
+## API Reference
+
+### `handle(server, options?)`
+
+Starts the MCP server with Deno-specific optimizations and returns a Deno.HttpServer instance.
+
+- **server**: The MCP server instance from `@modelcontextprotocol/sdk`
+- **options**: Optional Deno.ServeOptions for configuring the HTTP server
+
+```typescript
+import handle from "jsr:@modelfetch/deno";
+import server from "./server.ts";
+
+const httpServer = handle(server, {
+  port: 3000,
+  hostname: "localhost",
+});
+
+const address = httpServer.addr;
+if (address) {
+  console.log(`Server started at ${address.hostname}:${address.port}`);
+}
+```
+
+### `getEndpoint(address)`
+
+Gets the MCP server endpoint for connecting clients.
+
+- **address**: Required. A Deno.Addr object from the HTTP server
+
+```typescript
+import handle, { getEndpoint } from "jsr:@modelfetch/deno";
+import server from "./server.ts";
+
+const httpServer = handle(server);
+const address = httpServer.addr;
+if (address) {
+  const endpoint = getEndpoint(address);
+  console.log(`Connect to: ${endpoint}`);
+}
+```
+
+## Features
+
+### Deno-Specific Features
+
+ModelFetch leverages Deno's unique capabilities:
+
+1. **Security by default**: Explicit permissions model
+2. **Native TypeScript**: First-class TypeScript support
+3. **Web APIs**: Uses standard Web APIs like fetch
+4. **JSR packages**: Native support for JSR registry
+
+### Permission Management
+
+Deno requires explicit permissions. For simplicity, you can use:
+
+```bash
+deno run -A index.ts
+```
+
+The `-A` flag allows all permissions. For production, consider using specific permissions:
+
+- `--allow-read`: File system read access
+- `--allow-write`: File system write access
+- `--allow-run`: Subprocess execution
+- `--allow-net`: For network requests
+- `--allow-env`: For environment variables
+- `--allow-ffi`: For native modules
+
+### Error Handling
+
+```typescript
+server.tool(
+  "safe_operation",
+  "An operation with error handling",
+  { input: z.string() },
+  async ({ input }) => {
+    try {
+      const result = await someOperation(input);
+      return {
+        content: [{ type: "text", text: result }],
+      };
+    } catch (error) {
+      return {
+        content: [{ type: "text", text: `Error: ${error.message}` }],
+        isError: true,
+      };
+    }
+  },
+);
+```
+
+### Using Deno APIs
+
+```typescript
+server.tool(
+  "read_file",
+  "Read a file from disk",
+  { path: z.string().describe("File path to read") },
+  async ({ path }) => {
+    try {
+      const content = await Deno.readTextFile(path);
+      return {
+        content: [{ type: "text", text: content }],
+      };
+    } catch (error) {
+      return {
+        content: [{ type: "text", text: `Error: ${error.message}` }],
+        isError: true,
+      };
+    }
+  },
+);
+```
+
+## Deployment
+
+### Running in Development
+
+```bash
+deno run -A index.ts
+```
+
+### Running in Production
+
+Compile for faster startup:
+
+```bash
+# Compile to executable
+deno compile -A index.ts -o mcp-server
+
+# Run the compiled binary
+./mcp-server
+```
+
+### Using Deno Deploy (Future)
+
+While MCP servers typically run locally, future versions may support remote deployment.
+
+## Integration with MCP Clients
+
+Example client configuration:
+
+```json
+{
+  "mcpServers": {
+    "my-server": {
+      "command": "deno",
+      "args": ["run", "-A", "./index.ts"],
+      "transport": "http"
+    }
+  }
+}
+```
+
+## Configuration
+
+Optional `deno.json` configuration:
+
+```json
+{
+  "compilerOptions": {
+    "strict": true
+  },
+  "imports": {
+    "@modelfetch/deno": "jsr:@modelfetch/deno",
+    "@modelcontextprotocol/sdk": "npm:@modelcontextprotocol/sdk@^0.7.0",
+    "zod": "npm:zod@^3.24.1"
+  },
+  "tasks": {
+    "dev": "deno run -A index.ts",
+    "build": "deno compile -A index.ts"
+  }
+}
+```
+
+## Performance Tips
+
+1. **Cache dependencies** to avoid re-downloading:
+
+   ```bash
+   deno cache index.ts
+   ```
+
+2. **Use workers** for CPU-intensive tasks:
+
+   ```typescript
+   const worker = new Worker(new URL("./worker.ts", import.meta.url).href, {
+     type: "module",
+   });
+   ```
+
+3. **Enable JIT** for better performance:
+   ```bash
+   deno run --v8-flags=--jitless=false index.ts
+   ```
+
+## Debugging
+
+Enable debug logs:
+
+```bash
+DEBUG=modelfetch:* deno run -A index.ts
+```
+
+Use Deno's built-in inspector:
+
+```bash
+deno run --inspect-brk -A index.ts
+```
+
+## Next Steps
+
+- Explore [complete examples](/docs/examples)
+- Learn about [Node.js runtime](/docs/runtimes/node)
+- Learn about [Bun runtime](/docs/runtimes/bun)

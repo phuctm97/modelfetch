@@ -9,8 +9,8 @@ This repository contains the source code of ModelFetch: a TypeScript/JavaScript 
 The SDK is built as a thin wrapper on top of `hono` and `@hono/mcp`, leveraging Hono's runtime-agnostic capabilities. The SDK provides multiple packages, each optimized for specific platforms/runtimes:
 
 - `@modelfetch/node` - Node.js runtime support (work in progress)
-- `@modelfetch/deno` - Deno runtime support (work in progress)
 - `@modelfetch/bun` - Bun runtime support (work in progress)
+- `@modelfetch/deno` - Deno runtime support (work in progress)
 - `@modelfetch/cloudflare` - Cloudflare Workers support (planned)
 - `@modelfetch/vercel` - Vercel Functions support (planned)
 
@@ -31,7 +31,7 @@ This workspace follows Nx best practices as outlined in @.cursor/rules/nx-rules.
 
 - Node.js version: @.nvmrc
 - Workspace configurations: @package.json @pnpm-workspace.yaml
-- TypeScript configurations: @tsconfig.base.json @tsconfig.deno.json @tsconfig.bun.json @tsconfig.next.json
+- TypeScript configurations: @tsconfig.base.json @tsconfig.bun.json @tsconfig.deno.json @tsconfig.next.json
 - TypeScript project references are used to improve the performance of TypeScript-related features
   - All TypeScript projects are referenced in the root @tsconfig.json
   - When adding or removing a TypeScript project as a local dependency to another TypeScript project, update the target project's `tsconfig.json` to add or remove the dependency project in its `references`
@@ -50,18 +50,18 @@ These projects are example applications powered by ModelFetch:
 
 - `example-node-js`: Node.js application (JavaScript)
 - `example-node-ts`: Node.js application (TypeScript)
-- `example-deno-js`: Deno application (JavaScript)
-- `example-deno-ts`: Deno application (TypeScript)
 - `example-bun-js`: Bun application (JavaScript)
 - `example-bun-ts`: Bun application (TypeScript)
+- `example-deno-js`: Deno application (JavaScript)
+- `example-deno-ts`: Deno application (TypeScript)
 
 ### Core Libraries
 
 - `modelfetch`: ModelFetch CLI tools (work in progress)
 - `@modelfetch/core`: ModelFetch core utilities (work in progress)
 - `@modelfetch/node`: Node.js runtime support (work in progress)
-- `@modelfetch/deno`: Deno runtime support (work in progress)
 - `@modelfetch/bun`: Bun runtime support (work in progress)
+- `@modelfetch/deno`: Deno runtime support (work in progress)
 - `@modelfetch/cloudflare`: Cloudflare Workers support (planned)
 - `@modelfetch/vercel`: Vercel Functions support (planned)
 
@@ -73,6 +73,72 @@ These projects are example applications powered by ModelFetch:
 ## Nx Generators
 
 When creating applications or libraries, always prefer using the custom generators provided by `nx-10x` over the built-in Nx generators. The `nx-10x` generators are specifically tailored for this workspace's conventions and requirements.
+
+## Code Style Conventions
+
+### CSS Module Imports
+
+When importing CSS modules, always name the import `css`:
+
+```typescript
+import css from "./page.module.css";
+```
+
+### Client Components in Next.js
+
+When working with Next.js components, minimize client-side JavaScript by extracting only the parts that need client APIs into separate client components. Keep the parent components server-friendly (neutral) whenever possible.
+
+Example: If only a button needs `onClick` or hooks like `useTheme`, extract just the button into a client component while keeping the wrapper/layout as a server component.
+
+### Component Organization
+
+When a component has internal sub-components that are only used by that component (e.g., extracted client components to minimize client-side JS), organize them as follows:
+
+1. Create a folder in `lib/` with the main component's name
+2. Place the main component and all its internal sub-components in this folder
+3. Only export the main component from the folder's index file
+
+This ensures internal components won't be imported by other parts of the codebase.
+
+Example structure:
+
+```
+lib/
+  theme-switch/
+    index.tsx        # Main component (server-friendly)
+    button.tsx       # Internal client component
+```
+
+### Naming Conventions
+
+File/folder names and their primary exports must always match using the following convention:
+
+- Kebab-case for files/folders → PascalCase or camelCase for exports
+- Examples:
+  - `theme-switch` folder/file → `ThemeSwitch` component
+  - `button.tsx` → `Button` component
+  - `do-something.ts` → `doSomething` function
+
+### Type Definitions
+
+Never inline types for component props or function parameters. Always define types separately:
+
+```typescript
+// ❌ Bad
+function Component({ text, delay = 50 }: { text: string; delay?: number }) {
+  // ...
+}
+
+// ✅ Good
+type ComponentProps = {
+  text: string;
+  delay?: number;
+};
+
+function Component({ text, delay = 50 }: ComponentProps) {
+  // ...
+}
+```
 
 ## Development Commands
 

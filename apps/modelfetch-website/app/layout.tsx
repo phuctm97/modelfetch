@@ -1,5 +1,6 @@
 import "./layout.css";
 
+import type { RootProviderProps } from "fumadocs-ui/provider/base";
 import type { PropsWithChildren } from "react";
 
 import { RootProvider } from "fumadocs-ui/provider";
@@ -15,15 +16,17 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const theme: RootProviderProps["theme"] = { defaultTheme: "dark" };
+
 export default function Layout({ children }: PropsWithChildren) {
   return (
     <html
       suppressHydrationWarning
-      className={`${geist.variable} ${geistMono.variable}`}
+      className={`${geist.variable} ${geistMono.variable} scroll-smooth antialiased`}
       lang="en"
     >
       <body className="flex flex-col min-h-screen">
-        <RootProvider>{children}</RootProvider>
+        <RootProvider theme={theme}>{children}</RootProvider>
       </body>
     </html>
   );

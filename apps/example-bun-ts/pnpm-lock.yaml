@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@modelcontextprotocol/sdk':
-        specifier: ^1.13.2
-        version: 1.13.2
+        specifier: ^1.13.3
+        version: 1.13.3
       '@modelfetch/bun':
         specifier: workspace:^
         version: link:../../libs/modelfetch-bun
@@ -19,7 +19,7 @@ importers:
         version: 3.25.67
     devDependencies:
       '@types/bun':
-        specifier: ^1.1.14
+        specifier: ^1.2.17
         version: 1.2.17
       create-eslint-config:
         specifier: workspace:^
@@ -30,15 +30,15 @@ importers:
 
 packages:
 
-  '@modelcontextprotocol/sdk@1.13.2':
-    resolution: {integrity: sha512-Vx7qOcmoKkR3qhaQ9qf3GxiVKCEu+zfJddHv6x3dY/9P6+uIwJnmuAur5aB+4FDXf41rRrDnOEGkviX5oYZ67w==}
+  '@modelcontextprotocol/sdk@1.13.3':
+    resolution: {integrity: sha512-bGwA78F/U5G2jrnsdRkPY3IwIwZeWUEfb5o764b79lb0rJmMT76TLwKhdNZOWakOQtedYefwIR4emisEMvInKA==}
     engines: {node: '>=18'}
 
   '@types/bun@1.2.17':
     resolution: {integrity: sha512-l/BYs/JYt+cXA/0+wUhulYJB6a6p//GTPiJ7nV+QHa8iiId4HZmnu/3J/SowP5g0rTiERY2kfGKXEK5Ehltx4Q==}
 
-  '@types/node@24.0.8':
-    resolution: {integrity: sha512-WytNrFSgWO/esSH9NbpWUfTMGQwCGIKfCmNlmFDNiI5gGhgMmEA+V1AEvKLeBNvvtBnailJtkrEa2OIISwrVAA==}
+  '@types/node@24.0.10':
+    resolution: {integrity: sha512-ENHwaH+JIRTDIEEbDK6QSQntAYGtbvdDXnMXnZaZ6k13Du1dPMmprkEHIL7ok2Wl2aZevetwTAb5S+7yIF+enA==}
 
   accepts@2.0.0:
     resolution: {integrity: sha512-5cvg6CtKwfgdmVqY1WIiXKc3Q1bkRqGLi+2W/6ao+6Y7gu/RCwRuAhGEzh5B4KlszSuTLgZYuqFqo5bImjNKng==}
@@ -387,13 +387,14 @@ packages:
 
 snapshots:
 
-  '@modelcontextprotocol/sdk@1.13.2':
+  '@modelcontextprotocol/sdk@1.13.3':
     dependencies:
       ajv: 6.12.6
       content-type: 1.0.5
       cors: 2.8.5
       cross-spawn: 7.0.6
       eventsource: 3.0.7
+      eventsource-parser: 3.0.3
       express: 5.1.0
       express-rate-limit: 7.5.1(express@5.1.0)
       pkce-challenge: 5.0.0
@@ -407,7 +408,7 @@ snapshots:
     dependencies:
       bun-types: 1.2.17
 
-  '@types/node@24.0.8':
+  '@types/node@24.0.10':
     dependencies:
       undici-types: 7.8.0
 
@@ -439,7 +440,7 @@ snapshots:
 
   bun-types@1.2.17:
     dependencies:
-      '@types/node': 24.0.8
+      '@types/node': 24.0.10
 
   bytes@3.1.2: {}
 

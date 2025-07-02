@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@modelcontextprotocol/sdk':
-        specifier: ^1.13.2
-        version: 1.13.2
+        specifier: ^1.13.3
+        version: 1.13.3
       '@modelfetch/deno':
         specifier: workspace:^
         version: link:../../libs/modelfetch-deno
@@ -24,8 +24,8 @@ importers:
 
 packages:
 
-  '@modelcontextprotocol/sdk@1.13.2':
-    resolution: {integrity: sha512-Vx7qOcmoKkR3qhaQ9qf3GxiVKCEu+zfJddHv6x3dY/9P6+uIwJnmuAur5aB+4FDXf41rRrDnOEGkviX5oYZ67w==}
+  '@modelcontextprotocol/sdk@1.13.3':
+    resolution: {integrity: sha512-bGwA78F/U5G2jrnsdRkPY3IwIwZeWUEfb5o764b79lb0rJmMT76TLwKhdNZOWakOQtedYefwIR4emisEMvInKA==}
     engines: {node: '>=18'}
 
   accepts@2.0.0:
@@ -369,13 +369,14 @@ packages:
 
 snapshots:
 
-  '@modelcontextprotocol/sdk@1.13.2':
+  '@modelcontextprotocol/sdk@1.13.3':
     dependencies:
       ajv: 6.12.6
       content-type: 1.0.5
       cors: 2.8.5
       cross-spawn: 7.0.6
       eventsource: 3.0.7
+      eventsource-parser: 3.0.3
       express: 5.1.0
       express-rate-limit: 7.5.1(express@5.1.0)
       pkce-challenge: 5.0.0

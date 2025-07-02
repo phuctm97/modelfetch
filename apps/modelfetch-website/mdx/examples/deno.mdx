@@ -1,0 +1,270 @@
+---
+title: Deno
+description: MCP server examples for Deno runtime
+---
+
+This page shows complete examples of MCP servers built with ModelFetch for Deno, available in both TypeScript and JavaScript.
+
+## Prerequisites
+
+- Deno v2 or later
+
+## TypeScript Example
+
+### Project Structure
+
+import { File, Folder, Files } from "fumadocs-ui/components/files";
+
+<Files>
+  <Folder name="example-deno-ts" defaultOpen>
+    <Folder name="src">
+      <File name="server.ts" />
+      <File name="index.ts" />
+    </Folder>
+    <File name="package.json" />
+    <File name="deno.json" />
+  </Folder>
+</Files>
+
+### server.ts
+
+```typescript
+import { McpServer } from "npm:@modelcontextprotocol/sdk@^0.7.0/server/mcp.js";
+import { z } from "npm:zod@^3.24.1";
+
+import packageJson from "../package.json" with { type: "json" };
+
+const server = new McpServer({
+  title: "Example Deno MCP Server (TypeScript)",
+  name: packageJson.name,
+  version: packageJson.version,
+});
+
+server.tool(
+  "roll_dice",
+  "Rolls an N-sided dice",
+  { sides: z.number().int().min(2) },
+  ({ sides }) => ({
+    content: [
+      {
+        type: "text",
+        text: `🎲 You rolled a ${1 + Math.floor(Math.random() * sides)}!`,
+      },
+    ],
+  }),
+);
+
+export default server;
+```
+
+### index.ts
+
+```typescript
+import handle, { getEndpoint } from "jsr:@modelfetch/deno";
+
+import server from "./server.ts";
+
+const httpServer = handle(server);
+const address = httpServer.addr;
+if (address) {
+  console.log(`MCP server is available at ${getEndpoint(address)}`);
+}
+```
+
+### deno.json
+
+```json
+{
+  "compilerOptions": {
+    "strict": true
+  },
+  "imports": {
+    "@modelfetch/deno": "jsr:@modelfetch/deno",
+    "@modelcontextprotocol/sdk": "npm:@modelcontextprotocol/sdk@^0.7.0",
+    "zod": "npm:zod@^3.24.1"
+  },
+  "tasks": {
+    "dev": "deno run -A src/index.ts"
+  }
+}
+```
+
+### Running the TypeScript Example
+
+```bash
+# Run in development
+deno task dev
+
+# or directly with permissions
+deno run -A src/index.ts
+```
+
+## JavaScript Example
+
+### Project Structure
+
+<Files>
+  <Folder name="example-deno-js" defaultOpen>
+    <Folder name="src">
+      <File name="server.js" />
+      <File name="index.js" />
+    </Folder>
+    <File name="package.json" />
+    <File name="deno.json" />
+  </Folder>
+</Files>
+
+### server.js
+
+```javascript
+import { McpServer } from "npm:@modelcontextprotocol/sdk@^0.7.0/server/mcp.js";
+import { z } from "npm:zod@^3.24.1";
+
+import packageJson from "../package.json" with { type: "json" };
+
+const server = new McpServer({
+  title: "Example Deno MCP Server (JavaScript)",
+  name: packageJson.name,
+  version: packageJson.version,
+});
+
+server.tool(
+  "roll_dice",
+  "Rolls an N-sided dice",
+  { sides: z.number().int().min(2) },
+  ({ sides }) => ({
+    content: [
+      {
+        type: "text",
+        text: `🎲 You rolled a ${1 + Math.floor(Math.random() * sides)}!`,
+      },
+    ],
+  }),
+);
+
+export default server;
+```
+
+### index.js
+
+```javascript
+import handle, { getEndpoint } from "jsr:@modelfetch/deno";
+
+import server from "./server.js";
+
+const httpServer = handle(server);
+const address = httpServer.addr;
+if (address) {
+  console.log(`MCP server is available at ${getEndpoint(address)}`);
+}
+```
+
+### deno.json
+
+```json
+{
+  "compilerOptions": {
+    "strict": true
+  },
+  "imports": {
+    "@modelfetch/deno": "jsr:@modelfetch/deno",
+    "@modelcontextprotocol/sdk": "npm:@modelcontextprotocol/sdk@^0.7.0",
+    "zod": "npm:zod@^3.24.1"
+  },
+  "tasks": {
+    "dev": "deno run -A src/index.js"
+  }
+}
+```
+
+### Running the JavaScript Example
+
+```bash
+# Run in development
+deno task dev
+
+# or directly with permissions
+deno run -A src/index.js
+```
+
+## Key Features
+
+### Import Specifiers
+
+Deno uses explicit import specifiers:
+
+- `npm:` - For npm packages
+- `jsr:` - For JSR (JavaScript Registry) packages
+- File imports include extensions (`.ts`, `.js`)
+
+### Permissions Model
+
+Deno requires explicit permissions. For development, use `-A` to allow all permissions. For production, consider using specific permissions:
+
+- `--allow-read` - Read file system
+- `--allow-write` - Write file system
+- `--allow-run` - Execute subprocesses
+- `--allow-net` - Network access
+- `--allow-env` - Environment variables
+
+### Configuration
+
+The `deno.json` file provides:
+
+- Import maps for cleaner imports
+- Task definitions for common commands
+- TypeScript compiler options
+
+## Integration with MCP Clients
+
+To use this server with an MCP client:
+
+```json
+{
+  "mcpServers": {
+    "example-deno": {
+      "command": "deno",
+      "args": ["run", "-A", "path/to/index.ts"],
+      "transport": "http"
+    }
+  }
+}
+```
+
+## Deno-Specific Benefits
+
+- **Security by default** - Explicit permission model
+- **Built-in TypeScript** - No configuration needed
+- **Standard Web APIs** - Uses fetch, crypto, etc.
+- **Built-in tooling** - Formatter, linter, test runner
+
+## Deployment Options
+
+### Local Development
+
+```bash
+deno run --allow-read --allow-write --allow-run src/index.ts
+```
+
+### Compiled Binary
+
+```bash
+# Compile to standalone executable
+deno compile --allow-read --allow-write --allow-run src/index.ts -o mcp-server
+
+# Run the binary
+./mcp-server
+```
+
+## Source Code
+
+The complete source code for these examples is available at:
+
+- [example-deno-ts](https://github.com/phuctm97/modelfetch/tree/main/apps/example-deno-ts)
+- [example-deno-js](https://github.com/phuctm97/modelfetch/tree/main/apps/example-deno-js)
+
+## Next Steps
+
+- Explore [Node.js examples](/docs/examples/node) for comparison
+- Learn about [Deno runtime features](/docs/runtimes/deno)
+- Build your own server with the [Getting Started guide](/docs/getting-started)
