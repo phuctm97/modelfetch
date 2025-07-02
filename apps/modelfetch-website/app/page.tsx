@@ -6,13 +6,13 @@ import { Raining } from "./raining";
 import { ThemeSwitch } from "./theme-switch";
 import { Typing } from "./typing";
 
-import styles from "./page.module.css";
+import css from "./page.module.css";
 
 export default function Page() {
   return (
     <>
       <main
-        className={`relative z-10 min-h-screen bg-[#f0f0f0] dark:bg-[#0a0a0a] text-[#008f00] dark:text-[#00ff00] font-mono ${styles.scanlines} ${styles.techGrid} ${styles.main}`}
+        className={`relative z-10 min-h-screen bg-[#f0f0f0] dark:bg-[#0a0a0a] text-[#008f00] dark:text-[#00ff00] font-mono ${css.scanlines} ${css.techGrid} ${css.main}`}
       >
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto">
@@ -45,7 +45,7 @@ export default function Page() {
               </div>
 
               <h1
-                className={`text-5xl font-bold mb-6 text-[#008f00] dark:text-[#00ff00] drop-shadow-[0_0_20px_rgba(0,143,0,0.5)] dark:drop-shadow-[0_0_20px_rgba(0,255,0,0.5)] ${styles.neonGlow}`}
+                className={`text-5xl font-bold mb-6 text-[#008f00] dark:text-[#00ff00] drop-shadow-[0_0_20px_rgba(0,143,0,0.5)] dark:drop-shadow-[0_0_20px_rgba(0,255,0,0.5)] ${css.neonGlow}`}
               >
                 <Typing>ModelFetch</Typing>
               </h1>
@@ -61,7 +61,7 @@ export default function Page() {
 
               <div className="flex gap-4 justify-center">
                 <Link
-                  className={`inline-flex items-center px-6 py-3 bg-[#008f00] dark:bg-[#00ff00] text-white dark:text-black font-bold rounded hover:shadow-[0_0_20px_rgba(0,143,0,0.8)] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.8)] transition-all hover:scale-105 ${styles.glitch}`}
+                  className={`inline-flex items-center px-6 py-3 bg-[#008f00] dark:bg-[#00ff00] text-white dark:text-black font-bold rounded hover:shadow-[0_0_20px_rgba(0,143,0,0.8)] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.8)] transition-all hover:scale-105 ${css.glitch}`}
                   href="/docs/getting-started"
                 >
                   <span className="mr-2">▶</span>Get Started

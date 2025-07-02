@@ -74,6 +74,16 @@ These projects are example applications powered by ModelFetch:
 
 When creating applications or libraries, always prefer using the custom generators provided by `nx-10x` over the built-in Nx generators. The `nx-10x` generators are specifically tailored for this workspace's conventions and requirements.
 
+## Code Style Conventions
+
+### CSS Module Imports
+
+When importing CSS modules, always name the import `css`:
+
+```typescript
+import css from "./page.module.css";
+```
+
 ## Development Commands
 
 ### Building Projects
