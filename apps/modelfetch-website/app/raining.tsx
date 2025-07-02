@@ -7,7 +7,7 @@ export function Raining() {
     const canvasElement = document.querySelector("#matrix");
     if (!(canvasElement instanceof HTMLCanvasElement)) return;
 
-    const canvas = canvasElement; // Now TypeScript knows this is HTMLCanvasElement
+    const canvas = canvasElement;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
@@ -20,12 +20,12 @@ export function Raining() {
     const columns = canvas.width / fontSize;
     const drops: number[] = [];
 
-    for (let i = 0; i < columns; i++) drops[i] = 1;
+    for (let i = 0; i < columns; i++)
+      drops[i] = Math.floor((Math.random() * -canvas.height) / fontSize);
 
     function draw() {
       if (!ctx) return;
 
-      // Check if dark mode by looking for .dark class
       const isDarkMode = document.documentElement.classList.contains("dark");
 
       ctx.fillStyle = isDarkMode
@@ -54,9 +54,7 @@ export function Raining() {
       canvas.height = innerHeight;
     };
 
-    // Listen for theme changes via class mutation
     const observer = new MutationObserver(() => {
-      // Force redraw with new colors when dark class changes
       draw();
     });
 
