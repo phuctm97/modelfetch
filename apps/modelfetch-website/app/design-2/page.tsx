@@ -9,25 +9,39 @@ export default function Page() {
     <>
       {/* Background animated gradient */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
-        <div className={`absolute inset-0 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 ${styles.animateGradientShift}`} />
-        <div className={`absolute inset-0 bg-gradient-to-tl from-blue-600/30 via-purple-600/30 to-pink-600/30 ${styles.animateGradientShiftReverse}`} />
-        
+        <div
+          className={`absolute inset-0 bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500 ${styles.animateGradientShift}`}
+        />
+        <div
+          className={`absolute inset-0 bg-gradient-to-tl from-blue-600/30 via-purple-600/30 to-pink-600/30 ${styles.animateGradientShiftReverse}`}
+        />
+
         {/* Floating shapes */}
-        <div className={`absolute top-20 left-10 w-64 h-64 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 rounded-full blur-3xl ${styles.animateFloat}`} />
-        <div className={`absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl ${styles.animateFloatDelayed}`} />
-        <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-pink-400/20 to-purple-400/20 rounded-full blur-3xl ${styles.animatePulseSlow}`} />
+        <div
+          className={`absolute top-20 left-10 w-64 h-64 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 rounded-full blur-3xl ${styles.animateFloat}`}
+        />
+        <div
+          className={`absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl ${styles.animateFloatDelayed}`}
+        />
+        <div
+          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-pink-400/20 to-purple-400/20 rounded-full blur-3xl ${styles.animatePulseSlow}`}
+        />
       </div>
 
       <main className="container mx-auto px-4 py-16 relative">
         <div className="max-w-4xl mx-auto">
           {/* Hero Section */}
           <section className="text-center mb-16">
-            <h1 className={`text-6xl md:text-7xl font-black mb-6 bg-gradient-to-r from-white via-yellow-200 to-white bg-clip-text text-transparent ${styles.animateTextShimmer}`}>
+            <h1
+              className={`text-6xl md:text-7xl font-black mb-6 bg-gradient-to-r from-white via-yellow-200 to-white bg-clip-text text-transparent ${styles.animateTextShimmer}`}
+            >
               ModelFetch 🚀
             </h1>
             <p className="text-xl md:text-2xl text-white/90 mb-8 font-medium leading-relaxed">
-              A TypeScript/JavaScript SDK for building MCP servers with a 
-              <span className={`inline-block mx-2 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-yellow-300 font-bold ${styles.animateBounceSlow}`}>
+              A TypeScript/JavaScript SDK for building MCP servers with a
+              <span
+                className={`inline-block mx-2 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-yellow-300 font-bold ${styles.animateBounceSlow}`}
+              >
                 ✨ delightful ✨
               </span>
               developer experience!
@@ -52,29 +66,50 @@ export default function Page() {
 
           {/* Features Section */}
           <section className="mb-16">
-            <h2 className={`text-4xl font-black mb-12 text-center text-white ${styles.animatePulseSlow}`}>
+            <h2
+              className={`text-4xl font-black mb-12 text-center text-white ${styles.animatePulseSlow}`}
+            >
               Why ModelFetch? 🤔
             </h2>
             <div className="grid md:grid-cols-3 gap-8">
               <div className="group text-center bg-white/10 backdrop-blur-sm rounded-3xl p-8 transform transition-all duration-300 hover:scale-105 hover:-rotate-2 hover:bg-white/20">
-                <div className={`text-5xl mb-4 ${styles.animateBounceSlow}`}>🌍</div>
-                <h3 className="text-2xl font-bold mb-3 text-yellow-300">Runtime Agnostic</h3>
+                <div className={`text-5xl mb-4 ${styles.animateBounceSlow}`}>
+                  🌍
+                </div>
+                <h3 className="text-2xl font-bold mb-3 text-yellow-300">
+                  Runtime Agnostic
+                </h3>
                 <p className="text-white/90">
-                  Write once, run anywhere! Deploy on Node.js, Bun, or Deno with the same codebase.
+                  Write once, run anywhere! Deploy on Node.js, Bun, or Deno with
+                  the same codebase.
                 </p>
               </div>
               <div className="group text-center bg-white/10 backdrop-blur-sm rounded-3xl p-8 transform transition-all duration-300 hover:scale-105 hover:rotate-2 hover:bg-white/20">
-                <div className={`text-5xl mb-4 ${styles.animateBounceSlow} ${styles.animationDelay200}`}>💖</div>
-                <h3 className="text-2xl font-bold mb-3 text-pink-300">Developer Experience</h3>
+                <div
+                  className={`text-5xl mb-4 ${styles.animateBounceSlow} ${styles.animationDelay200}`}
+                >
+                  💖
+                </div>
+                <h3 className="text-2xl font-bold mb-3 text-pink-300">
+                  Developer Experience
+                </h3>
                 <p className="text-white/90">
-                  Powerful CLI with live reload and MCP inspector for seamless debugging!
+                  Powerful CLI with live reload and MCP inspector for seamless
+                  debugging!
                 </p>
               </div>
               <div className="group text-center bg-white/10 backdrop-blur-sm rounded-3xl p-8 transform transition-all duration-300 hover:scale-105 hover:-rotate-2 hover:bg-white/20">
-                <div className={`text-5xl mb-4 ${styles.animateBounceSlow} ${styles.animationDelay400}`}>⚡</div>
-                <h3 className="text-2xl font-bold mb-3 text-blue-300">TypeScript First</h3>
+                <div
+                  className={`text-5xl mb-4 ${styles.animateBounceSlow} ${styles.animationDelay400}`}
+                >
+                  ⚡
+                </div>
+                <h3 className="text-2xl font-bold mb-3 text-blue-300">
+                  TypeScript First
+                </h3>
                 <p className="text-white/90">
-                  Full TypeScript support with type safety and excellent IDE integration!
+                  Full TypeScript support with type safety and excellent IDE
+                  integration!
                 </p>
               </div>
             </div>
@@ -90,7 +125,8 @@ export default function Page() {
             <div className="space-y-8">
               <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 transform transition-all duration-300 hover:scale-[1.02]">
                 <p className="mb-4 text-white/90 font-semibold text-lg flex items-center gap-2">
-                  <span className="text-2xl">📦</span> Install ModelFetch for your runtime:
+                  <span className="text-2xl">📦</span> Install ModelFetch for
+                  your runtime:
                 </p>
                 <div className="overflow-hidden rounded-2xl">
                   <CodeBlock
@@ -164,15 +200,18 @@ handle(server);`}
           {/* Status Section */}
           <section className="text-center bg-white/10 backdrop-blur-sm rounded-3xl p-12 transform transition-all duration-300 hover:scale-[1.02]">
             <p className="text-white/90 mb-6 text-lg font-medium">
-              ModelFetch is currently a work in progress. Join us in building the
-              world&apos;s most popular TypeScript/JavaScript SDK for MCP servers! 🌟
+              ModelFetch is currently a work in progress. Join us in building
+              the world&apos;s most popular TypeScript/JavaScript SDK for MCP
+              servers! 🌟
             </p>
             <Link
               className="inline-flex items-center gap-2 text-2xl font-bold text-yellow-300 hover:text-yellow-200 transition-colors group"
               href="https://github.com/phuctm97/modelfetch"
             >
               <span className="group-hover:animate-bounce">View on GitHub</span>
-              <span className="group-hover:translate-x-1 transition-transform">→</span>
+              <span className="group-hover:translate-x-1 transition-transform">
+                →
+              </span>
             </Link>
           </section>
         </div>

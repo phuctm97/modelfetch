@@ -30,7 +30,7 @@
 
 /* Glow effect for text */
 .neon-glow {
-  text-shadow: 
+  text-shadow:
     0 0 10px currentColor,
     0 0 20px currentColor,
     0 0 30px currentColor,
@@ -39,8 +39,14 @@
 
 /* Terminal cursor blink */
 @keyframes blink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
 }
 
 .terminal-cursor {
@@ -72,7 +78,8 @@
 
 /* Glitch effect */
 @keyframes glitch {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0);
     filter: hue-rotate(0deg);
   }
@@ -100,7 +107,7 @@
 
 /* Tech grid pattern */
 .tech-grid {
-  background-image: 
+  background-image:
     linear-gradient(rgba(0, 255, 0, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 255, 0, 0.03) 1px, transparent 1px);
   background-size: 50px 50px;
@@ -133,8 +140,12 @@
 
 /* Typing effect */
 @keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 .typing-effect {
@@ -145,7 +156,14 @@
 
 /* Matrix text effect */
 .matrix-text {
-  background: linear-gradient(0deg, #00ff00 0%, #00ff00 40%, #ffffff 50%, #00ff00 60%, #00ff00 100%);
+  background: linear-gradient(
+    0deg,
+    #00ff00 0%,
+    #00ff00 40%,
+    #ffffff 50%,
+    #00ff00 60%,
+    #00ff00 100%
+  );
   background-size: 100% 200%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -154,8 +172,12 @@
 }
 
 @keyframes matrix-text {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 0% 200%; }
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 0% 200%;
+  }
 }
 
 /* Terminal code block styling */

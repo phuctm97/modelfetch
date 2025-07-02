@@ -73,7 +73,7 @@ import server from "./server.ts";
 
 const httpServer = handle(server, {
   port: 3000,
-  hostname: "localhost"
+  hostname: "localhost",
 });
 
 const address = httpServer.addr;
@@ -207,11 +207,7 @@ Example client configuration:
   "mcpServers": {
     "my-server": {
       "command": "deno",
-      "args": [
-        "run",
-        "-A",
-        "./index.ts"
-      ],
+      "args": ["run", "-A", "./index.ts"],
       "transport": "http"
     }
   }

@@ -19,7 +19,9 @@ export default function Page() {
                 <div className="w-3 h-3 rounded-full bg-red-500" />
                 <div className="w-3 h-3 rounded-full bg-yellow-500" />
                 <div className="w-3 h-3 rounded-full bg-green-500" />
-                <span className="ml-2 text-xs text-gray-600 dark:text-gray-500">modelfetch@terminal ~ %</span>
+                <span className="ml-2 text-xs text-gray-600 dark:text-gray-500">
+                  modelfetch@terminal ~ %
+                </span>
               </div>
             </div>
 
@@ -27,7 +29,7 @@ export default function Page() {
             <section className="text-center mb-16">
               <div className="inline-block mb-6">
                 <pre className="text-[#008f00] dark:text-[#00ff00] text-xs leading-tight opacity-70 dark:opacity-50">
-{`   __  __           _      _ _____    _       _     
+                  {`   __  __           _      _ _____    _       _     
   |  \\/  |         | |    | |  ___|  | |     | |    
   | .  . | ___   __| | ___| | |_ ___| |_ ___| |__  
   | |\\/| |/ _ \\ / _\` |/ _ \\ |  _/ _ \\ __/ __| '_ \\ 
@@ -35,9 +37,9 @@ export default function Page() {
   \\_|  |_/\\___/ \\__,_|\\___|_\\_| \\___|\\__\\___|_| |_|`}
                 </pre>
               </div>
-              
+
               <HeroTitle />
-              
+
               <div className="mb-8">
                 <span className="text-[#0099cc] dark:text-[#00ffff]">$</span>{" "}
                 <span className="text-gray-600 dark:text-gray-400">
@@ -46,7 +48,7 @@ export default function Page() {
                   deploying them anywhere TypeScript/JavaScript runs.
                 </span>
               </div>
-              
+
               <div className="flex gap-4 justify-center">
                 <Link
                   className="px-6 py-3 bg-[#008f00] dark:bg-[#00ff00] text-white dark:text-black font-bold rounded hover:shadow-[0_0_20px_rgba(0,143,0,0.8)] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.8)] transition-all hover:scale-105 cmd-button glitch"
@@ -70,25 +72,47 @@ export default function Page() {
                 <div className="block sm:hidden text-xs">
                   <div className="flex flex-col items-center gap-1">
                     <div className="flex items-center gap-2">
-                      <span className="text-[#008f00] dark:text-[#00ff00] animate-pulse">●</span>
-                      <span className="text-gray-700 dark:text-gray-400">SYSTEM: ONLINE</span>
+                      <span className="text-[#008f00] dark:text-[#00ff00] animate-pulse">
+                        ●
+                      </span>
+                      <span className="text-gray-700 dark:text-gray-400">
+                        SYSTEM: ONLINE
+                      </span>
                     </div>
                     <div className="flex items-center gap-2 text-[10px]">
-                      <span className="text-gray-600 dark:text-gray-400">v1.0.0</span>
-                      <span className="text-gray-400 dark:text-gray-600">•</span>
-                      <span className="text-gray-600 dark:text-gray-400">OPERATIONAL</span>
+                      <span className="text-gray-600 dark:text-gray-400">
+                        v1.0.0
+                      </span>
+                      <span className="text-gray-400 dark:text-gray-600">
+                        •
+                      </span>
+                      <span className="text-gray-600 dark:text-gray-400">
+                        OPERATIONAL
+                      </span>
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Desktop Layout (full) */}
                 <div className="hidden sm:flex sm:items-center sm:justify-center text-sm">
-                  <span className="text-[#008f00] dark:text-[#00ff00] animate-pulse">●</span>
-                  <span className="ml-2 text-gray-700 dark:text-gray-400">SYSTEM: ONLINE</span>
-                  <span className="mx-4 text-gray-400 dark:text-gray-600">|</span>
-                  <span className="text-gray-600 dark:text-gray-400">VERSION: 1.0.0</span>
-                  <span className="mx-4 text-gray-400 dark:text-gray-600">|</span>
-                  <span className="text-gray-600 dark:text-gray-400">STATUS: OPERATIONAL</span>
+                  <span className="text-[#008f00] dark:text-[#00ff00] animate-pulse">
+                    ●
+                  </span>
+                  <span className="ml-2 text-gray-700 dark:text-gray-400">
+                    SYSTEM: ONLINE
+                  </span>
+                  <span className="mx-4 text-gray-400 dark:text-gray-600">
+                    |
+                  </span>
+                  <span className="text-gray-600 dark:text-gray-400">
+                    VERSION: 1.0.0
+                  </span>
+                  <span className="mx-4 text-gray-400 dark:text-gray-600">
+                    |
+                  </span>
+                  <span className="text-gray-600 dark:text-gray-400">
+                    STATUS: OPERATIONAL
+                  </span>
                 </div>
               </div>
             </div>
@@ -104,8 +128,8 @@ export default function Page() {
                     <span className="mr-2">◈</span>Runtime Agnostic
                   </h3>
                   <p className="text-gray-400">
-                    Write once, run anywhere. Deploy your MCP servers on Node.js,
-                    Bun, or Deno with the same codebase.
+                    Write once, run anywhere. Deploy your MCP servers on
+                    Node.js, Bun, or Deno with the same codebase.
                   </p>
                 </div>
                 <div className="bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] p-6 rounded hover:border-[#008f00] dark:hover:border-[#00ff00] hover:shadow-[0_0_20px_rgba(0,143,0,0.3)] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.3)] transition-all group shadow-md dark:shadow-none">
@@ -113,8 +137,8 @@ export default function Page() {
                     <span className="mr-2">◈</span>Developer Experience
                   </h3>
                   <p className="text-gray-400">
-                    Powerful CLI with live reload and MCP inspector integration for
-                    seamless development and debugging.
+                    Powerful CLI with live reload and MCP inspector integration
+                    for seamless development and debugging.
                   </p>
                 </div>
                 <div className="bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] p-6 rounded hover:border-[#008f00] dark:hover:border-[#00ff00] hover:shadow-[0_0_20px_rgba(0,143,0,0.3)] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.3)] transition-all group shadow-md dark:shadow-none">
@@ -134,16 +158,23 @@ export default function Page() {
               <h2 className="text-3xl font-bold mb-8 text-center text-[#0099cc] dark:text-[#00ffff] drop-shadow-[0_0_10px_rgba(0,153,204,0.5)] dark:drop-shadow-[0_0_10px_rgba(0,255,255,0.5)] matrix-text">
                 <span className="mr-2">&gt;</span>Quick Start
               </h2>
-              
+
               <div className="space-y-8">
                 <div>
                   <p className="mb-4 text-gray-400">
-                    <span className="text-[#008f00] dark:text-[#00ff00]">$</span> Install ModelFetch for your runtime:
+                    <span className="text-[#008f00] dark:text-[#00ff00]">
+                      $
+                    </span>{" "}
+                    Install ModelFetch for your runtime:
                   </p>
                   <div className="bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] rounded-lg overflow-hidden hover:border-[#008f00] dark:hover:border-[#00ff00] transition-colors shadow-md dark:shadow-none">
                     <div className="px-4 py-2 bg-gray-100 dark:bg-[#2a2a2a] border-b border-gray-300 dark:border-[#333] flex items-center justify-between">
-                      <span className="text-xs text-gray-600 dark:text-gray-500">bash</span>
-                      <span className="text-xs text-[#008f00] dark:text-[#00ff00]">◉ terminal</span>
+                      <span className="text-xs text-gray-600 dark:text-gray-500">
+                        bash
+                      </span>
+                      <span className="text-xs text-[#008f00] dark:text-[#00ff00]">
+                        ◉ terminal
+                      </span>
                     </div>
                     <div className="p-4">
                       <CodeBlock
@@ -163,12 +194,19 @@ deno add jsr:@modelfetch/deno`}
 
                 <div>
                   <p className="mb-4 text-gray-400">
-                    <span className="text-[#008f00] dark:text-[#00ff00]">$</span> Create your MCP server:
+                    <span className="text-[#008f00] dark:text-[#00ff00]">
+                      $
+                    </span>{" "}
+                    Create your MCP server:
                   </p>
                   <div className="bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] rounded-lg overflow-hidden hover:border-[#008f00] dark:hover:border-[#00ff00] transition-colors shadow-md dark:shadow-none">
                     <div className="px-4 py-2 bg-gray-100 dark:bg-[#2a2a2a] border-b border-gray-300 dark:border-[#333] flex items-center justify-between">
-                      <span className="text-xs text-gray-600 dark:text-gray-500">server.ts</span>
-                      <span className="text-xs text-[#008f00] dark:text-[#00ff00]">◉ typescript</span>
+                      <span className="text-xs text-gray-600 dark:text-gray-500">
+                        server.ts
+                      </span>
+                      <span className="text-xs text-[#008f00] dark:text-[#00ff00]">
+                        ◉ typescript
+                      </span>
                     </div>
                     <div className="p-4">
                       <CodeBlock
@@ -204,12 +242,19 @@ export default server;`}
 
                 <div>
                   <p className="mb-4 text-gray-400">
-                    <span className="text-[#008f00] dark:text-[#00ff00]">$</span> Run with ModelFetch:
+                    <span className="text-[#008f00] dark:text-[#00ff00]">
+                      $
+                    </span>{" "}
+                    Run with ModelFetch:
                   </p>
                   <div className="bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] rounded-lg overflow-hidden hover:border-[#008f00] dark:hover:border-[#00ff00] transition-colors shadow-md dark:shadow-none">
                     <div className="px-4 py-2 bg-gray-100 dark:bg-[#2a2a2a] border-b border-gray-300 dark:border-[#333] flex items-center justify-between">
-                      <span className="text-xs text-gray-600 dark:text-gray-500">index.ts</span>
-                      <span className="text-xs text-[#008f00] dark:text-[#00ff00]">◉ typescript</span>
+                      <span className="text-xs text-gray-600 dark:text-gray-500">
+                        index.ts
+                      </span>
+                      <span className="text-xs text-[#008f00] dark:text-[#00ff00]">
+                        ◉ typescript
+                      </span>
                     </div>
                     <div className="p-4">
                       <CodeBlock
@@ -229,8 +274,12 @@ handle(server);`}
             <section className="text-center">
               <div className="inline-block px-6 py-4 bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] rounded-lg">
                 <p className="text-gray-400 mb-4">
-                  <span className="text-[#0099cc] dark:text-[#00ffff]">[INFO]</span> ModelFetch is currently a work in progress. 
-                  Join us in building the world&apos;s most popular TypeScript/JavaScript SDK for MCP servers.
+                  <span className="text-[#0099cc] dark:text-[#00ffff]">
+                    [INFO]
+                  </span>{" "}
+                  ModelFetch is currently a work in progress. Join us in
+                  building the world&apos;s most popular TypeScript/JavaScript
+                  SDK for MCP servers.
                 </p>
                 <Link
                   className="text-[#008f00] dark:text-[#00ff00] hover:text-[#0099cc] dark:hover:text-[#00ffff] hover:underline transition-colors"
@@ -244,13 +293,13 @@ handle(server);`}
             {/* Footer Terminal */}
             <div className="mt-16 text-center text-xs text-gray-500 dark:text-gray-600">
               <div className="mb-2">
-                <span className="text-[#008f00] dark:text-[#00ff00]">$</span> echo &quot;Built with ❤️ by developers, for developers&quot;
+                <span className="text-[#008f00] dark:text-[#00ff00]">$</span>{" "}
+                echo &quot;Built with ❤️ by developers, for developers&quot;
               </div>
-              <div>
-                Built with ❤️ by developers, for developers
-              </div>
+              <div>Built with ❤️ by developers, for developers</div>
               <div className="mt-2">
-                <span className="text-[#008f00] dark:text-[#00ff00]">$</span> <span className="animate-pulse">_</span>
+                <span className="text-[#008f00] dark:text-[#00ff00]">$</span>{" "}
+                <span className="animate-pulse">_</span>
               </div>
             </div>
           </div>

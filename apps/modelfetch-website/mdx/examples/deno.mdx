@@ -13,7 +13,7 @@ This page shows complete examples of MCP servers built with ModelFetch for Deno,
 
 ### Project Structure
 
-import { File, Folder, Files } from 'fumadocs-ui/components/files';
+import { File, Folder, Files } from "fumadocs-ui/components/files";
 
 <Files>
   <Folder name="example-deno-ts" defaultOpen>
@@ -224,11 +224,7 @@ To use this server with an MCP client:
   "mcpServers": {
     "example-deno": {
       "command": "deno",
-      "args": [
-        "run",
-        "-A",
-        "path/to/index.ts"
-      ],
+      "args": ["run", "-A", "path/to/index.ts"],
       "transport": "http"
     }
   }

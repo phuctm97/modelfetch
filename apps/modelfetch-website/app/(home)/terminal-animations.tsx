@@ -3,7 +3,13 @@
 import { useEffect, useState } from "react";
 
 // Terminal typing effect component
-export function TerminalTyping({ text, delay = 50 }: { text: string; delay?: number }) {
+export function TerminalTyping({
+  text,
+  delay = 50,
+}: {
+  text: string;
+  delay?: number;
+}) {
   const [displayText, setDisplayText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
 
@@ -32,7 +38,9 @@ export function TerminalTyping({ text, delay = 50 }: { text: string; delay?: num
   return (
     <span>
       {displayText}
-      <span className={`${showCursor ? "opacity-100" : "opacity-0"} transition-opacity`}>
+      <span
+        className={`${showCursor ? "opacity-100" : "opacity-0"} transition-opacity`}
+      >
         _
       </span>
     </span>
@@ -44,7 +52,7 @@ export function MatrixRain() {
   useEffect(() => {
     const canvasElement = document.querySelector("#matrix");
     if (!(canvasElement instanceof HTMLCanvasElement)) return;
-    
+
     const canvas = canvasElement; // Now TypeScript knows this is HTMLCanvasElement
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
@@ -52,22 +60,25 @@ export function MatrixRain() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const chars = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
+    const chars =
+      "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン";
     const fontSize = 14;
     const columns = canvas.width / fontSize;
     const drops: number[] = [];
 
-    for (let i = 0; i < columns; i++) 
-      drops[i] = 1;
-    
+    for (let i = 0; i < columns; i++) drops[i] = 1;
 
     function draw() {
       if (!ctx) return;
-      
+
       // Check if light mode
-      const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches;
-      
-      ctx.fillStyle = isLightMode ? "rgba(240, 240, 240, 0.05)" : "rgba(0, 0, 0, 0.05)";
+      const isLightMode = window.matchMedia(
+        "(prefers-color-scheme: light)",
+      ).matches;
+
+      ctx.fillStyle = isLightMode
+        ? "rgba(240, 240, 240, 0.05)"
+        : "rgba(0, 0, 0, 0.05)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       ctx.fillStyle = isLightMode ? "#008f00" : "#00ff00";
@@ -77,9 +88,9 @@ export function MatrixRain() {
         const text = chars[Math.floor(Math.random() * chars.length)];
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) 
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
           drops[i] = 0;
-        
+
         drops[i]++;
       }
     }
@@ -118,7 +129,11 @@ export function MatrixRain() {
 }
 
 // Client wrapper for animations
-export function TerminalAnimations({ children }: { children: React.ReactNode }) {
+export function TerminalAnimations({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
