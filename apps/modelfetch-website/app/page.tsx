@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 import { CodeBlock } from "~/lib/code-block";
+import { ThemeSwitch } from "~/lib/theme-switch";
 
 import { Raining } from "./raining";
-import { ThemeSwitch } from "~/lib/theme-switch";
 import { Typing } from "./typing";
 
 import css from "./page.module.css";
