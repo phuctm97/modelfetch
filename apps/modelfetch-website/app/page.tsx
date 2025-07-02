@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CodeBlock } from "~/lib/code-block";
 
 import { Raining } from "./raining";
-import { ThemeSwitch } from "./theme-switch";
+import { ThemeSwitch } from "~/lib/theme-switch";
 import { Typing } from "./typing";
 
 import css from "./page.module.css";

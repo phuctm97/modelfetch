@@ -84,6 +84,41 @@ When importing CSS modules, always name the import `css`:
 import css from "./page.module.css";
 ```
 
+### Client Components in Next.js
+
+When working with Next.js components, minimize client-side JavaScript by extracting only the parts that need client APIs into separate client components. Keep the parent components server-friendly (neutral) whenever possible.
+
+Example: If only a button needs `onClick` or hooks like `useTheme`, extract just the button into a client component while keeping the wrapper/layout as a server component.
+
+### Component Organization
+
+When a component has internal sub-components that are only used by that component (e.g., extracted client components to minimize client-side JS), organize them as follows:
+
+1. Create a folder in `lib/` with the main component's name
+2. Place the main component and all its internal sub-components in this folder
+3. Only export the main component from the folder's index file
+
+This ensures internal components won't be imported by other parts of the codebase.
+
+Example structure:
+
+```
+lib/
+  theme-switch/
+    index.tsx        # Main component (server-friendly)
+    button.tsx       # Internal client component
+```
+
+### Naming Conventions
+
+File/folder names and their primary exports must always match using the following convention:
+
+- Kebab-case for files/folders → PascalCase or camelCase for exports
+- Examples:
+  - `theme-switch` folder/file → `ThemeSwitch` component
+  - `button.tsx` → `Button` component
+  - `do-something.ts` → `doSomething` function
+
 ## Development Commands
 
 ### Building Projects
