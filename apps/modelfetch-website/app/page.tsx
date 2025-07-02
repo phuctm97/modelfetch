@@ -132,8 +132,8 @@ export default function Page() {
               <h2 className="text-3xl font-bold mb-8 text-center text-[#0099cc] dark:text-[#00ffff] drop-shadow-[0_0_10px_rgba(0,153,204,0.5)] dark:drop-shadow-[0_0_10px_rgba(0,255,255,0.5)]">
                 <span className="mr-2">&gt;</span>Why ModelFetch?
               </h2>
-              <div className="grid md:grid-cols-3 gap-8">
-                <div className="bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] p-6 rounded hover:border-[#008f00] dark:hover:border-[#00ff00] hover:shadow-[0_0_20px_rgba(0,143,0,0.3)] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.3)] transition-all group shadow-md dark:shadow-none">
+              <div className="grid lg:grid-cols-3 gap-8">
+                <div className="bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] p-4 sm:p-6 rounded hover:border-[#008f00] dark:hover:border-[#00ff00] hover:shadow-[0_0_20px_rgba(0,143,0,0.3)] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.3)] transition-all group shadow-md dark:shadow-none">
                   <h3 className="text-xl font-semibold mb-3 text-[#008f00] dark:text-[#00ff00] group-hover:text-[#0099cc] dark:group-hover:text-[#00ffff] transition-colors">
                     <span className="mr-2">◈</span>Multi-Runtime
                   </h3>
@@ -142,7 +142,7 @@ export default function Page() {
                     TypeScript/JavaScript runs: Node.js, Bun, Deno, etc.
                   </p>
                 </div>
-                <div className="bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] p-6 rounded hover:border-[#008f00] dark:hover:border-[#00ff00] hover:shadow-[0_0_20px_rgba(0,143,0,0.3)] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.3)] transition-all group shadow-md dark:shadow-none">
+                <div className="bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] p-4 sm:p-6 rounded hover:border-[#008f00] dark:hover:border-[#00ff00] hover:shadow-[0_0_20px_rgba(0,143,0,0.3)] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.3)] transition-all group shadow-md dark:shadow-none">
                   <h3 className="text-xl font-semibold mb-3 text-[#008f00] dark:text-[#00ff00] group-hover:text-[#0099cc] dark:group-hover:text-[#00ffff] transition-colors">
                     <span className="mr-2">◈</span>Delightful DX
                   </h3>
@@ -151,7 +151,7 @@ export default function Page() {
                     servers: live reload, MCP Inspector, etc.
                   </p>
                 </div>
-                <div className="bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] p-6 rounded hover:border-[#008f00] dark:hover:border-[#00ff00] hover:shadow-[0_0_20px_rgba(0,143,0,0.3)] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.3)] transition-all group shadow-md dark:shadow-none">
+                <div className="bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] p-4 sm:p-6 rounded hover:border-[#008f00] dark:hover:border-[#00ff00] hover:shadow-[0_0_20px_rgba(0,143,0,0.3)] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.3)] transition-all group shadow-md dark:shadow-none">
                   <h3 className="text-xl font-semibold mb-3 text-[#008f00] dark:text-[#00ff00] group-hover:text-[#0099cc] dark:group-hover:text-[#00ffff] transition-colors">
                     <span className="mr-2">◈</span>Official SDK
                   </h3>
@@ -180,13 +180,13 @@ export default function Page() {
                   <div className="bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] rounded-lg overflow-hidden hover:border-[#008f00] dark:hover:border-[#00ff00] transition-colors shadow-md dark:shadow-none">
                     <div className="px-4 py-2 bg-gray-100 dark:bg-[#2a2a2a] border-b border-gray-300 dark:border-[#333] flex items-center justify-between">
                       <span className="text-xs text-gray-600 dark:text-gray-500">
-                        bash
+                        terminal
                       </span>
                       <span className="text-xs text-[#008f00] dark:text-[#00ff00]">
-                        ◉ terminal
+                        ◉ bash
                       </span>
                     </div>
-                    <div className="p-4">
+                    <div className="p-3 sm:p-4">
                       <CodeBlock
                         code={`# For Node.js
 npm install @modelfetch/node
@@ -218,7 +218,7 @@ deno add jsr:@modelfetch/deno`}
                         ◉ typescript
                       </span>
                     </div>
-                    <div className="p-4">
+                    <div className="p-3 sm:p-4">
                       <CodeBlock
                         code={`import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
@@ -266,7 +266,7 @@ export default server;`}
                         ◉ typescript
                       </span>
                     </div>
-                    <div className="p-4">
+                    <div className="p-3 sm:p-4">
                       <CodeBlock
                         code={`import handle from "@modelfetch/node";
 import server from "./server";
@@ -282,7 +282,7 @@ handle(server);`}
 
             {/* Status Section */}
             <section className="text-center">
-              <div className="inline-block px-6 py-4 bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] rounded-lg">
+              <div className="inline-block px-4 sm:px-6 py-3 sm:py-4 bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] rounded-lg">
                 <p className="text-gray-400 mb-4">
                   <span className="text-[#0099cc] dark:text-[#00ffff]">
                     [INFO]
