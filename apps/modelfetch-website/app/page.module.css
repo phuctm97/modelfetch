@@ -113,10 +113,8 @@
 }
 
 /* Light mode button adjustments */
-@media (prefers-color-scheme: light) {
-  .cmdButton::before {
-    color: #008f00;
-  }
+:global(.light) .cmdButton::before {
+  color: #008f00;
 }
 
 .cmdButton:hover::before {
@@ -242,35 +240,33 @@
 }
 
 /* Light mode specific adjustments */
-@media (prefers-color-scheme: light) {
-  .scanlines::before {
-    background: linear-gradient(
-      to bottom,
-      transparent 50%,
-      rgba(0, 143, 0, 0.02) 51%
-    );
-  }
+:global(.light) .scanlines::before {
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0, 143, 0, 0.02) 51%
+  );
+}
 
-  .techGrid {
-    background-image:
-      linear-gradient(rgba(0, 143, 0, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 143, 0, 0.02) 1px, transparent 1px);
-  }
+:global(.light) .techGrid {
+  background-image:
+    linear-gradient(rgba(0, 143, 0, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 143, 0, 0.02) 1px, transparent 1px);
+}
 
-  .matrixText {
-    background: linear-gradient(
-      0deg,
-      #008f00 0%,
-      #008f00 40%,
-      #333333 50%,
-      #008f00 60%,
-      #008f00 100%
-    );
-  }
+:global(.light) .matrixText {
+  background: linear-gradient(
+    0deg,
+    #008f00 0%,
+    #008f00 40%,
+    #333333 50%,
+    #008f00 60%,
+    #008f00 100%
+  );
+}
 
-  .neonGlow {
-    text-shadow:
-      0 0 4px currentColor,
-      0 0 8px currentColor;
-  }
+:global(.light) .neonGlow {
+  text-shadow:
+    0 0 4px currentColor,
+    0 0 8px currentColor;
 }
