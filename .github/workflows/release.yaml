@@ -1,0 +1,27 @@
+name: Release
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}
+
+jobs:
+  release:
+    name: ${{ github.workflow }}
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      - uses: fregante/setup-git-user@v2
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+          node-version-file: .nvmrc
+      - run: pnpm i
+      - run: pnpm exec nx run-many -t typecheck lint build
+      - run: pnpm exec nx release --skip-publish

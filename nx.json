@@ -20,8 +20,8 @@
     "globalGenerators": ["@nx/js:typescript-sync", "nx-10x:format-tsconfigs"]
   },
   "release": {
-    "git": { "commitMessage": "Release {version}" },
-    "version": { "preVersionCommand": "nx run-many -t typecheck lint build" },
-    "changelog": { "workspaceChangelog": { "createRelease": "github" } }
+    "versionPlans": true,
+    "changelog": { "workspaceChangelog": { "createRelease": "github" } },
+    "git": { "commitMessage": "Release v{version}" }
   }
 }
