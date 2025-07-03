@@ -24,7 +24,7 @@ jobs:
           node-version-file: .nvmrc
           registry-url: https://registry.npmjs.org
       - run: pnpm i
-      - run: pnpm exec nx run-many -t build
+      - run: pnpm exec nx run-many -t typecheck lint build -p tag:npm:public
       - run: pnpm exec nx release publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

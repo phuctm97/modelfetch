@@ -22,6 +22,6 @@ jobs:
           cache: pnpm
           node-version-file: .nvmrc
       - run: pnpm i
-      - run: pnpm exec nx run-many -t typecheck lint build
+      - run: pnpm exec nx run-many -t typecheck lint build -p tag:npm:public
       - run: pnpm exec nx release --skip-publish
       - run: git push --follow-tags
