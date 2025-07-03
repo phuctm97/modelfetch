@@ -17,11 +17,14 @@
     "nx-10x"
   ],
   "sync": {
-    "globalGenerators": ["@nx/js:typescript-sync", "nx-10x:format-tsconfigs"]
+    "globalGenerators": [
+      "@nx/js:typescript-sync",
+      "nx-10x:format-tsconfigs",
+      "nx-10x:update-package-manifests"
+    ]
   },
   "release": {
     "versionPlans": true,
-    "changelog": { "workspaceChangelog": { "createRelease": "github" } },
     "git": { "commitMessage": "Release v{version}" }
   }
 }

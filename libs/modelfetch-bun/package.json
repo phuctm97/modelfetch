@@ -1,6 +1,11 @@
 {
   "name": "@modelfetch/bun",
   "version": "0.0.3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phuctm97/modelfetch.git",
+    "directory": "libs/modelfetch-bun"
+  },
   "license": "MIT",
   "type": "module",
   "exports": {

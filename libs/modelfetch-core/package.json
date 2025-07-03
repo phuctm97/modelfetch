@@ -1,6 +1,11 @@
 {
   "name": "@modelfetch/core",
   "version": "0.0.3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phuctm97/modelfetch.git",
+    "directory": "libs/modelfetch-core"
+  },
   "license": "MIT",
   "type": "module",
   "exports": {

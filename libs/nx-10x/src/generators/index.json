@@ -9,6 +9,11 @@
       "description": "Format TypeScript configuration files.",
       "factory": "./format-tsconfigs/index.ts",
       "schema": "./format-tsconfigs/schema.json"
+    },
+    "update-package-manifests": {
+      "description": "Update package manifest (package.json) files.",
+      "factory": "./update-package-manifests/index.ts",
+      "schema": "./update-package-manifests/schema.json"
     }
   }
 }

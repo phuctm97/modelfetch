@@ -187,6 +187,10 @@ This ensures code quality and consistency across the entire workspace.
 
 Note: If `nx sync` (which runs within `pnpm -w format`) reports files are out of date, simply run `pnpm -w format` again to resolve the issue.
 
+### Commit Messages
+
+This project does NOT use conventional commits. Write clear, descriptive commit messages without prefixes like `fix:`, `feat:`, `chore:`, etc.
+
 ### External Documentation
 
 When working with external libraries and frameworks, use `context7-mcp` to access up-to-date documentation. This ensures you're using the latest APIs and best practices.

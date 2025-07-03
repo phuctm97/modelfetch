@@ -41,5 +41,5 @@ export default async function formatTsConfigs(
     formatConfigs(tree, project.root);
   formatConfigs(tree);
   await formatFiles(tree);
-  return { outOfSyncMessage: "Some tsconfig.json files are unformatted." };
+  return { outOfSyncMessage: "Some tsconfig.json files are out of sync." };
 }
