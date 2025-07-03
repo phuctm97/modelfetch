@@ -175,7 +175,7 @@ pnpm -w format
 
 ### Git Workflow
 
-Before committing changes or creating a pull request, always run the following commands in order:
+Before committing changes or creating a pull request, always run the following commands:
 
 ```bash
 pnpm -w format
