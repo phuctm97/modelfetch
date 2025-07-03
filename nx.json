@@ -1,10 +1,6 @@
 {
   "namedInputs": {
-    "default": [
-      "{workspaceRoot}/pnpm-lock.yaml",
-      "{workspaceRoot}/tsconfig.*.json",
-      "{projectRoot}/**/*"
-    ],
+    "default": ["{workspaceRoot}/tsconfig.*.json", "{projectRoot}/**/*"],
     "production": [
       "default",
       "!{projectRoot}/.mcp.json",
