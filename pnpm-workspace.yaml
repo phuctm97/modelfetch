@@ -1,4 +1,10 @@
 packages:
   - apps/*
   - libs/*
-sharedWorkspaceLockfile: false
+onlyBuiltDependencies:
+  - nx
+  - unrs-resolver
+  - esbuild
+  - sharp
+  - "@swc/core"
+  - "@tailwindcss/oxide"
