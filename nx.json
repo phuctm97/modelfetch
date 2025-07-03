@@ -3,6 +3,7 @@
     "default": [
       "{workspaceRoot}/tsconfig.*.json",
       "{projectRoot}/**/*",
+      "!{projectRoot}/.github",
       "!{projectRoot}/.cursor",
       "!{projectRoot}/.claude",
       "!{projectRoot}/CLAUDE.md"

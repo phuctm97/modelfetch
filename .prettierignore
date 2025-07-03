@@ -1,5 +1,6 @@
 /pnpm-lock.yaml
 /CHANGELOG.md
-.cursor
+/.github/instructions/nx.instructions.md
+/.cursor/rules/nx-rules.mdc
 .claude
 next-env.d.ts

@@ -22,10 +22,12 @@
     "**/.husky/*": "shellscript"
   },
   "files.exclude": {
+    "pnpm-lock.yaml": true,
+    ".nvmrc": true,
     ".nx": true,
     ".husky/_": true,
-    ".nvmrc": true,
-    "pnpm-lock.yaml": true,
+    ".github/instructions/nx.instructions.md": true,
+    ".cursor/rules/nx-rules.mdc": true,
     "**/*.tsbuildinfo": true,
     "**/node_modules": true,
     "**/dist": true,

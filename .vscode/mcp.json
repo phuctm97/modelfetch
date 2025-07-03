@@ -1,5 +1,5 @@
 {
-  "mcpServers": {
+  "servers": {
     "nx-mcp": {
       "type": "http",
       "url": "http://localhost:9685/mcp"

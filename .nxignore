@@ -2,6 +2,7 @@
 /.nx
 /.husky
 /.vscode
+/.github
 /.gitattributes
 /.nvmrc
 /.prettierignore
