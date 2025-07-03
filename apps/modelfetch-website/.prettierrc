@@ -1,0 +1,4 @@
+{
+  "plugins": ["prettier-plugin-packagejson", "prettier-plugin-tailwindcss"],
+  "tailwindStylesheet": "./app/layout.css"
+}

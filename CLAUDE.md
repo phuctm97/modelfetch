@@ -173,6 +173,20 @@ pnpm exec nx run-many -t lint --args=--fix # with autofix
 pnpm -w format
 ```
 
+### Git Workflow
+
+Before committing changes or creating a pull request, always run the following commands:
+
+```bash
+pnpm -w format
+pnpm exec nx run-many -t typecheck
+pnpm exec nx run-many -t lint --args=--fix
+```
+
+This ensures code quality and consistency across the entire workspace.
+
+Note: If `nx sync` (which runs within `pnpm -w format`) reports files are out of date, simply run `pnpm -w format` again to resolve the issue.
+
 ### External Documentation
 
 When working with external libraries and frameworks, use `context7-mcp` to access up-to-date documentation. This ensures you're using the latest APIs and best practices.
