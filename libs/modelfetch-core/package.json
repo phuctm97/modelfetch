@@ -15,6 +15,9 @@
       "import": "./dist/index.js"
     }
   },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@hono/mcp": "^0.1.0",
     "hono": "^4.8.3"
