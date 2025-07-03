@@ -9,6 +9,9 @@
     ],
     "production": ["default", "!{projectRoot}/eslint.config.js"]
   },
+  "targetDefaults": {
+    "@nx/js:release-publish": { "options": { "access": "public" } }
+  },
   "plugins": [
     { "plugin": "@nx/js/typescript", "options": { "build": {} } },
     "nx-10x"
