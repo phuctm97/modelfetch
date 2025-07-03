@@ -12,17 +12,17 @@ export default function Page() {
   return (
     <>
       <main
-        className={`relative z-10 min-h-screen bg-[#f0f0f0] dark:bg-[#0a0a0a] text-[#008f00] dark:text-[#00ff00] font-mono ${css.scanlines} ${css.techGrid} ${css.main}`}
+        className={`relative z-10 min-h-screen bg-[#f0f0f0] font-mono text-[#008f00] dark:bg-[#0a0a0a] dark:text-[#00ff00] ${css.scanlines} ${css.techGrid} ${css.main}`}
       >
         <div className="container mx-auto px-4 py-16">
-          <div className="max-w-4xl mx-auto">
+          <div className="mx-auto max-w-4xl">
             {/* Terminal Header */}
-            <div className="mb-8 bg-white dark:bg-[#1a1a1a] rounded-t-lg border border-gray-300 dark:border-[#333] overflow-hidden shadow-lg dark:shadow-none">
-              <div className="flex items-center justify-between px-4 py-2 bg-gray-100 dark:bg-[#2a2a2a] border-b border-gray-300 dark:border-[#333]">
+            <div className="mb-8 overflow-hidden rounded-t-lg border border-gray-300 bg-white shadow-lg dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none">
+              <div className="flex items-center justify-between border-b border-gray-300 bg-gray-100 px-4 py-2 dark:border-[#333] dark:bg-[#2a2a2a]">
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                  <div className="w-3 h-3 rounded-full bg-green-500" />
+                  <div className="h-3 w-3 rounded-full bg-red-500" />
+                  <div className="h-3 w-3 rounded-full bg-yellow-500" />
+                  <div className="h-3 w-3 rounded-full bg-green-500" />
                   <span className="ml-2 text-xs text-gray-600 dark:text-gray-500">
                     ModelFetch ~ %
                   </span>
@@ -32,9 +32,9 @@ export default function Page() {
             </div>
 
             {/* Hero Section */}
-            <section className="text-center mb-16">
-              <div className="inline-block mb-6">
-                <pre className="text-[#008f00] dark:text-[#00ff00] text-xs leading-tight opacity-70 dark:opacity-50">
+            <section className="mb-16 text-center">
+              <div className="mb-6 inline-block">
+                <pre className="text-xs leading-tight text-[#008f00] opacity-70 dark:text-[#00ff00] dark:opacity-50">
                   {`   __  __           _      _ _____    _       _
   |  \\/  |         | |    | |  ___|  | |     | |
   | .  . | ___   __| | ___| | |_ ___| |_ ___| |__
@@ -45,7 +45,7 @@ export default function Page() {
               </div>
 
               <h1
-                className={`text-5xl font-bold mb-6 text-[#008f00] dark:text-[#00ff00] drop-shadow-[0_0_20px_rgba(0,143,0,0.5)] dark:drop-shadow-[0_0_20px_rgba(0,255,0,0.5)] ${css.neonGlow}`}
+                className={`mb-6 text-5xl font-bold text-[#008f00] drop-shadow-[0_0_20px_rgba(0,143,0,0.5)] dark:text-[#00ff00] dark:drop-shadow-[0_0_20px_rgba(0,255,0,0.5)] ${css.neonGlow}`}
               >
                 <Typing>ModelFetch</Typing>
               </h1>
@@ -59,15 +59,15 @@ export default function Page() {
                 </span>
               </div>
 
-              <div className="flex gap-4 justify-center">
+              <div className="flex justify-center gap-4">
                 <Link
-                  className={`inline-flex items-center px-6 py-3 bg-[#008f00] dark:bg-[#00ff00] text-white dark:text-black font-bold rounded hover:shadow-[0_0_20px_rgba(0,143,0,0.8)] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.8)] transition-all hover:scale-105 ${css.glitch}`}
+                  className={`inline-flex items-center rounded bg-[#008f00] px-6 py-3 font-bold text-white transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(0,143,0,0.8)] dark:bg-[#00ff00] dark:text-black dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.8)] ${css.glitch}`}
                   href="/docs/getting-started"
                 >
                   <span className="mr-2">▶</span>Get Started
                 </Link>
                 <Link
-                  className="inline-flex items-center px-6 py-3 border-2 border-[#0099cc] dark:border-[#00ffff] text-[#0099cc] dark:text-[#00ffff] rounded hover:bg-[#0099cc] dark:hover:bg-[#00ffff] hover:text-white dark:hover:text-black hover:shadow-[0_0_20px_rgba(0,153,204,0.8)] dark:hover:shadow-[0_0_20px_rgba(0,255,255,0.8)] transition-all"
+                  className="inline-flex items-center rounded border-2 border-[#0099cc] px-6 py-3 text-[#0099cc] transition-all hover:bg-[#0099cc] hover:text-white hover:shadow-[0_0_20px_rgba(0,153,204,0.8)] dark:border-[#00ffff] dark:text-[#00ffff] dark:hover:bg-[#00ffff] dark:hover:text-black dark:hover:shadow-[0_0_20px_rgba(0,255,255,0.8)]"
                   href="/docs"
                 >
                   <span className="mr-2">◆</span>View Docs
@@ -77,12 +77,12 @@ export default function Page() {
 
             {/* Status Bar */}
             <div className="mb-12 text-center">
-              <div className="inline-block px-4 py-2 bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] rounded">
+              <div className="inline-block rounded border border-gray-300 bg-gray-100 px-4 py-2 dark:border-[#333] dark:bg-[#1a1a1a]">
                 {/* Mobile Layout (stacked) */}
-                <div className="block sm:hidden text-xs">
+                <div className="block text-xs sm:hidden">
                   <div className="flex flex-col items-center gap-1">
                     <div className="flex items-center gap-2">
-                      <span className="text-[#0099cc] dark:text-[#00ffff] animate-pulse">
+                      <span className="animate-pulse text-[#0099cc] dark:text-[#00ffff]">
                         ●
                       </span>
                       <span className="text-gray-700 dark:text-gray-400">
@@ -104,8 +104,8 @@ export default function Page() {
                 </div>
 
                 {/* Desktop Layout (full) */}
-                <div className="hidden sm:flex sm:items-center sm:justify-center text-sm">
-                  <span className="text-[#0099cc] dark:text-[#00ffff] animate-pulse">
+                <div className="hidden text-sm sm:flex sm:items-center sm:justify-center">
+                  <span className="animate-pulse text-[#0099cc] dark:text-[#00ffff]">
                     ●
                   </span>
                   <span className="ml-2 text-gray-700 dark:text-gray-400">
@@ -129,12 +129,12 @@ export default function Page() {
 
             {/* Features Section */}
             <section className="mb-16">
-              <h2 className="text-3xl font-bold mb-8 text-center text-[#0099cc] dark:text-[#00ffff] drop-shadow-[0_0_10px_rgba(0,153,204,0.5)] dark:drop-shadow-[0_0_10px_rgba(0,255,255,0.5)]">
+              <h2 className="mb-8 text-center text-3xl font-bold text-[#0099cc] drop-shadow-[0_0_10px_rgba(0,153,204,0.5)] dark:text-[#00ffff] dark:drop-shadow-[0_0_10px_rgba(0,255,255,0.5)]">
                 <span className="mr-2">&gt;</span>Why ModelFetch?
               </h2>
-              <div className="grid lg:grid-cols-3 gap-8">
-                <div className="bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] p-4 sm:p-6 rounded hover:border-[#008f00] dark:hover:border-[#00ff00] hover:shadow-[0_0_20px_rgba(0,143,0,0.3)] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.3)] transition-all group shadow-md dark:shadow-none">
-                  <h3 className="text-xl font-semibold mb-3 text-[#008f00] dark:text-[#00ff00] group-hover:text-[#0099cc] dark:group-hover:text-[#00ffff] transition-colors">
+              <div className="grid gap-8 lg:grid-cols-3">
+                <div className="group rounded border border-gray-300 bg-white p-4 shadow-md transition-all hover:border-[#008f00] hover:shadow-[0_0_20px_rgba(0,143,0,0.3)] sm:p-6 dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.3)]">
+                  <h3 className="mb-3 text-xl font-semibold text-[#008f00] transition-colors group-hover:text-[#0099cc] dark:text-[#00ff00] dark:group-hover:text-[#00ffff]">
                     <span className="mr-2">◈</span>Multi-Runtime
                   </h3>
                   <p className="text-gray-400">
@@ -142,8 +142,8 @@ export default function Page() {
                     TypeScript/JavaScript runs: Node.js, Bun, Deno, etc.
                   </p>
                 </div>
-                <div className="bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] p-4 sm:p-6 rounded hover:border-[#008f00] dark:hover:border-[#00ff00] hover:shadow-[0_0_20px_rgba(0,143,0,0.3)] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.3)] transition-all group shadow-md dark:shadow-none">
-                  <h3 className="text-xl font-semibold mb-3 text-[#008f00] dark:text-[#00ff00] group-hover:text-[#0099cc] dark:group-hover:text-[#00ffff] transition-colors">
+                <div className="group rounded border border-gray-300 bg-white p-4 shadow-md transition-all hover:border-[#008f00] hover:shadow-[0_0_20px_rgba(0,143,0,0.3)] sm:p-6 dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.3)]">
+                  <h3 className="mb-3 text-xl font-semibold text-[#008f00] transition-colors group-hover:text-[#0099cc] dark:text-[#00ff00] dark:group-hover:text-[#00ffff]">
                     <span className="mr-2">◈</span>Delightful DX
                   </h3>
                   <p className="text-gray-400">
@@ -151,8 +151,8 @@ export default function Page() {
                     servers: live reload, MCP Inspector, etc.
                   </p>
                 </div>
-                <div className="bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] p-4 sm:p-6 rounded hover:border-[#008f00] dark:hover:border-[#00ff00] hover:shadow-[0_0_20px_rgba(0,143,0,0.3)] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.3)] transition-all group shadow-md dark:shadow-none">
-                  <h3 className="text-xl font-semibold mb-3 text-[#008f00] dark:text-[#00ff00] group-hover:text-[#0099cc] dark:group-hover:text-[#00ffff] transition-colors">
+                <div className="group rounded border border-gray-300 bg-white p-4 shadow-md transition-all hover:border-[#008f00] hover:shadow-[0_0_20px_rgba(0,143,0,0.3)] sm:p-6 dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.3)]">
+                  <h3 className="mb-3 text-xl font-semibold text-[#008f00] transition-colors group-hover:text-[#0099cc] dark:text-[#00ff00] dark:group-hover:text-[#00ffff]">
                     <span className="mr-2">◈</span>Official SDK
                   </h3>
                   <p className="text-gray-400">
@@ -165,7 +165,7 @@ export default function Page() {
 
             {/* Quick Start Section */}
             <section className="mb-16">
-              <h2 className="text-3xl font-bold mb-8 text-center text-[#0099cc] dark:text-[#00ffff] drop-shadow-[0_0_10px_rgba(0,153,204,0.5)] dark:drop-shadow-[0_0_10px_rgba(0,255,255,0.5)]">
+              <h2 className="mb-8 text-center text-3xl font-bold text-[#0099cc] drop-shadow-[0_0_10px_rgba(0,153,204,0.5)] dark:text-[#00ffff] dark:drop-shadow-[0_0_10px_rgba(0,255,255,0.5)]">
                 <span className="mr-2">&gt;</span>Quick Start
               </h2>
 
@@ -177,8 +177,8 @@ export default function Page() {
                     </span>{" "}
                     Install a ModelFetch runtime of your choice:
                   </p>
-                  <div className="bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] rounded-lg overflow-hidden hover:border-[#008f00] dark:hover:border-[#00ff00] transition-colors shadow-md dark:shadow-none">
-                    <div className="px-4 py-2 bg-gray-100 dark:bg-[#2a2a2a] border-b border-gray-300 dark:border-[#333] flex items-center justify-between">
+                  <div className="overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md transition-colors hover:border-[#008f00] dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00]">
+                    <div className="flex items-center justify-between border-b border-gray-300 bg-gray-100 px-4 py-2 dark:border-[#333] dark:bg-[#2a2a2a]">
                       <span className="text-xs text-gray-600 dark:text-gray-500">
                         terminal
                       </span>
@@ -209,8 +209,8 @@ deno add jsr:@modelfetch/deno`}
                     </span>{" "}
                     Create your MCP server with the official MCP TypeScript SDK:
                   </p>
-                  <div className="bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] rounded-lg overflow-hidden hover:border-[#008f00] dark:hover:border-[#00ff00] transition-colors shadow-md dark:shadow-none">
-                    <div className="px-4 py-2 bg-gray-100 dark:bg-[#2a2a2a] border-b border-gray-300 dark:border-[#333] flex items-center justify-between">
+                  <div className="overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md transition-colors hover:border-[#008f00] dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00]">
+                    <div className="flex items-center justify-between border-b border-gray-300 bg-gray-100 px-4 py-2 dark:border-[#333] dark:bg-[#2a2a2a]">
                       <span className="text-xs text-gray-600 dark:text-gray-500">
                         server.ts
                       </span>
@@ -257,8 +257,8 @@ export default server;`}
                     </span>{" "}
                     Run your MCP server with the installed ModelFetch runtime:
                   </p>
-                  <div className="bg-white dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] rounded-lg overflow-hidden hover:border-[#008f00] dark:hover:border-[#00ff00] transition-colors shadow-md dark:shadow-none">
-                    <div className="px-4 py-2 bg-gray-100 dark:bg-[#2a2a2a] border-b border-gray-300 dark:border-[#333] flex items-center justify-between">
+                  <div className="overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md transition-colors hover:border-[#008f00] dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00]">
+                    <div className="flex items-center justify-between border-b border-gray-300 bg-gray-100 px-4 py-2 dark:border-[#333] dark:bg-[#2a2a2a]">
                       <span className="text-xs text-gray-600 dark:text-gray-500">
                         index.ts
                       </span>
@@ -282,8 +282,8 @@ handle(server);`}
 
             {/* Status Section */}
             <section className="text-center">
-              <div className="inline-block px-4 sm:px-6 py-3 sm:py-4 bg-gray-100 dark:bg-[#1a1a1a] border border-gray-300 dark:border-[#333] rounded-lg">
-                <p className="text-gray-400 mb-4">
+              <div className="inline-block rounded-lg border border-gray-300 bg-gray-100 px-4 py-3 sm:px-6 sm:py-4 dark:border-[#333] dark:bg-[#1a1a1a]">
+                <p className="mb-4 text-gray-400">
                   <span className="text-[#0099cc] dark:text-[#00ffff]">
                     [INFO]
                   </span>{" "}
@@ -292,7 +292,7 @@ handle(server);`}
                   SDK for MCP servers.
                 </p>
                 <Link
-                  className="text-[#008f00] dark:text-[#00ff00] hover:text-[#0099cc] dark:hover:text-[#00ffff] hover:underline transition-colors"
+                  className="text-[#008f00] transition-colors hover:text-[#0099cc] hover:underline dark:text-[#00ff00] dark:hover:text-[#00ffff]"
                   href="https://github.com/phuctm97/modelfetch"
                 >
                   <span className="mr-2">◆</span>View on GitHub →
