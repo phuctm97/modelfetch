@@ -1,14 +1,13 @@
 {
   "namedInputs": {
-    "default": ["{workspaceRoot}/tsconfig.*.json", "{projectRoot}/**/*"],
-    "production": [
-      "default",
-      "!{projectRoot}/.mcp.json",
+    "default": [
+      "{workspaceRoot}/tsconfig.*.json",
+      "{projectRoot}/**/*",
       "!{projectRoot}/.cursor",
       "!{projectRoot}/.claude",
-      "!{projectRoot}/CLAUDE.md",
-      "!{projectRoot}/eslint.config.js"
-    ]
+      "!{projectRoot}/CLAUDE.md"
+    ],
+    "production": ["default", "!{projectRoot}/eslint.config.js"]
   },
   "plugins": [
     { "plugin": "@nx/js/typescript", "options": { "build": {} } },
@@ -16,5 +15,10 @@
   ],
   "sync": {
     "globalGenerators": ["@nx/js:typescript-sync", "nx-10x:format-tsconfigs"]
+  },
+  "release": {
+    "git": { "commitMessage": "Release {version}" },
+    "version": { "preVersionCommand": "nx run-many -t typecheck lint build" },
+    "changelog": { "workspaceChangelog": { "createRelease": "github" } }
   }
 }

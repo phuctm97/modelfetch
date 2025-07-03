@@ -6,8 +6,9 @@
 /.nvmrc
 /.prettierignore
 /.prettierrc
+/.mcp.json
 /tsconfig.json
-.mcp.json
+/CHANGELOG.md
 .cursor
 .claude
 CLAUDE.md
