@@ -8,8 +8,8 @@ concurrency:
 
 jobs:
   release:
+    if: github.ref == 'refs/heads/main' && github.actor == 'phuctm97' && github.triggering_actor == 'phuctm97'
     name: ${{ github.workflow }}
-    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -20,7 +20,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           cache: pnpm
-          registry-url: https://registry.npmjs.org
           node-version-file: .nvmrc
       - run: pnpm i
       - run: pnpm exec nx run-many -t typecheck lint build

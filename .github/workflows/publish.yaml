@@ -1,0 +1,31 @@
+name: Publish
+
+on:
+  push:
+    tags: [v*.*.*]
+
+concurrency:
+  group: ${{ github.workflow }} ${{ github.ref_name }}
+
+jobs:
+  publish:
+    if: github.ref_type == 'tag' && github.actor == 'phuctm97' && github.triggering_actor == 'phuctm97'
+    name: ${{ github.workflow }} ${{ github.ref_name }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          cache: pnpm
+          node-version-file: .nvmrc
+          registry-url: https://registry.npmjs.org
+      - run: pnpm i
+      - run: pnpm exec nx run-many -t build
+      - run: pnpm exec nx release publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
