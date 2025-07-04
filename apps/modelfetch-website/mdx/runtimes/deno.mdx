@@ -8,7 +8,7 @@ The `@modelfetch/deno` package provides ModelFetch support for Deno applications
 ## Installation
 
 ```bash
-deno add jsr:@modelfetch/deno
+deno add npm:@modelfetch/deno
 ```
 
 ## Basic Usage
@@ -42,7 +42,7 @@ export default server;
 ```
 
 ```typescript title="index.ts"
-import handle, { getEndpoint } from "jsr:@modelfetch/deno";
+import handle, { getEndpoint } from "npm:@modelfetch/deno";
 import server from "./server.ts";
 
 // Start the server
@@ -68,7 +68,7 @@ Starts the MCP server with Deno-specific optimizations and returns a Deno.HttpSe
 - **options**: Optional Deno.ServeOptions for configuring the HTTP server
 
 ```typescript
-import handle from "jsr:@modelfetch/deno";
+import handle from "npm:@modelfetch/deno";
 import server from "./server.ts";
 
 const httpServer = handle(server, {
@@ -89,7 +89,7 @@ Gets the MCP server endpoint for connecting clients.
 - **address**: Required. A Deno.Addr object from the HTTP server
 
 ```typescript
-import handle, { getEndpoint } from "jsr:@modelfetch/deno";
+import handle, { getEndpoint } from "npm:@modelfetch/deno";
 import server from "./server.ts";
 
 const httpServer = handle(server);
@@ -109,7 +109,7 @@ ModelFetch leverages Deno's unique capabilities:
 1. **Security by default**: Explicit permissions model
 2. **Native TypeScript**: First-class TypeScript support
 3. **Web APIs**: Uses standard Web APIs like fetch
-4. **JSR packages**: Native support for JSR registry
+4. **NPM packages**: Native support for NPM packages
 
 ### Permission Management
 
@@ -224,7 +224,7 @@ Optional `deno.json` configuration:
     "strict": true
   },
   "imports": {
-    "@modelfetch/deno": "jsr:@modelfetch/deno",
+    "@modelfetch/deno": "npm:@modelfetch/deno",
     "@modelcontextprotocol/sdk": "npm:@modelcontextprotocol/sdk@^0.7.0",
     "zod": "npm:zod@^3.24.1"
   },

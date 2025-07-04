@@ -60,7 +60,7 @@ export default server;
 ### index.ts
 
 ```typescript
-import handle, { getEndpoint } from "jsr:@modelfetch/deno";
+import handle, { getEndpoint } from "npm:@modelfetch/deno";
 
 import server from "./server.ts";
 
@@ -79,7 +79,7 @@ if (address) {
     "strict": true
   },
   "imports": {
-    "@modelfetch/deno": "jsr:@modelfetch/deno",
+    "@modelfetch/deno": "npm:@modelfetch/deno",
     "@modelcontextprotocol/sdk": "npm:@modelcontextprotocol/sdk@^0.7.0",
     "zod": "npm:zod@^3.24.1"
   },
@@ -148,7 +148,7 @@ export default server;
 ### index.js
 
 ```javascript
-import handle, { getEndpoint } from "jsr:@modelfetch/deno";
+import handle, { getEndpoint } from "npm:@modelfetch/deno";
 
 import server from "./server.js";
 
@@ -167,7 +167,7 @@ if (address) {
     "strict": true
   },
   "imports": {
-    "@modelfetch/deno": "jsr:@modelfetch/deno",
+    "@modelfetch/deno": "npm:@modelfetch/deno",
     "@modelcontextprotocol/sdk": "npm:@modelcontextprotocol/sdk@^0.7.0",
     "zod": "npm:zod@^3.24.1"
   },
@@ -194,7 +194,6 @@ deno run -A src/index.js
 Deno uses explicit import specifiers:
 
 - `npm:` - For npm packages
-- `jsr:` - For JSR (JavaScript Registry) packages
 - File imports include extensions (`.ts`, `.js`)
 
 ### Permissions Model
