@@ -1,0 +1,80 @@
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { z } from "zod";
+
+import packageJson from "../package.json" with { type: "json" };
+
+const server = new McpServer({
+  title: "<%= projectTitle %>",
+  name: packageJson.name,
+  version: packageJson.version,
+});
+
+// Example tool: Roll dice
+server.tool(
+  "roll_dice",
+  "Rolls an N-sided dice",
+  { sides: z.number().int().min(2).describe("Number of sides on the dice") },
+  ({ sides }) => ({
+    content: [
+      {
+        type: "text",
+        text: `🎲 You rolled a ${1 + Math.floor(Math.random() * sides)}!`,
+      },
+    ],
+  }),
+);
+
+// Example resource: Get current time
+server.resource(
+  "time://current",
+  async () => {
+    const now = new Date();
+    return {
+      contents: [
+        {
+          uri: "time://current",
+          mimeType: "text/plain",
+          text: `Current time: ${now.toISOString()}`,
+        },
+      ],
+    };
+  },
+  "Get the current time in ISO format",
+);
+
+// Example prompt: Generate greeting
+server.prompt(
+  "greeting",
+  "Generate a personalized greeting",
+  [
+    {
+      name: "name",
+      description: "Name of the person to greet",
+      required: true,
+    },
+    {
+      name: "style",
+      description: "Style of greeting (formal/casual)",
+      required: false,
+    },
+  ],
+  ({ name, style = "casual" }) => {
+    const greeting = style === "formal" 
+      ? `Good day, ${name}. How may I assist you today?`
+      : `Hey ${name}! What's up?`;
+    
+    return {
+      messages: [
+        {
+          role: "user",
+          content: {
+            type: "text",
+            text: greeting,
+          },
+        },
+      ],
+    };
+  },
+);
+
+export default server;

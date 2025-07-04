@@ -14,10 +14,16 @@
       "path": "./apps/modelfetch-website"
     },
     {
+      "path": "./libs/create-modelfetch"
+    },
+    {
       "path": "./libs/modelfetch"
     },
     {
       "path": "./libs/modelfetch-bun"
+    },
+    {
+      "path": "./libs/modelfetch-cloudflare"
     },
     {
       "path": "./libs/modelfetch-core"
@@ -26,7 +32,13 @@
       "path": "./libs/modelfetch-deno"
     },
     {
+      "path": "./libs/modelfetch-netlify"
+    },
+    {
       "path": "./libs/modelfetch-node"
+    },
+    {
+      "path": "./libs/modelfetch-vercel"
     },
     {
       "path": "./libs/nx-10x"

@@ -156,6 +156,20 @@ export const createNodesV2: CreateNodesV2 = [
             };
           }
         }
+        if (packageJson.bin) {
+          const binEntries =
+            typeof packageJson.bin === "string"
+              ? { [packageJson.name]: packageJson.bin }
+              : packageJson.bin;
+          for (const [binName, binPath] of Object.entries(binEntries)) {
+            targets[binName] = {
+              command: `node ${binPath}`,
+              options: { cwd: "{projectRoot}" },
+              continuous: true,
+              dependsOn: ["build", "^build"],
+            };
+          }
+        }
         return { projects: { [projectRoot]: { projectType, targets } } };
       },
       packageJsonFilePaths,

@@ -7,7 +7,7 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.13.3",
     "@modelfetch/bun": "workspace:^",
-    "zod": "^3.25.67"
+    "zod": "^3.25.72"
   },
   "devDependencies": {
     "modelfetch": "workspace:^"

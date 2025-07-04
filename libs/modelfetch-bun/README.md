@@ -112,7 +112,7 @@ bun run dist/index.js
 
 ## Documentation
 
-For complete documentation, examples, and guides, visit [modelfetch.com/docs/runtimes/bun](https://modelfetch.com/docs/runtimes/bun).
+For complete documentation, examples, and guides, visit [preview.modelfetch.com/docs/runtimes/bun](https://preview.modelfetch.com/docs/runtimes/bun).
 
 ## License
 

@@ -1,0 +1,116 @@
+# <%= projectTitle %>
+
+An MCP (Model Context Protocol) server built with [ModelFetch](https://preview.modelfetch.com).
+
+## Quick Start
+
+### Running the Server
+
+Start the MCP server:
+
+```bash
+<%= packageManager %> start
+```
+
+### Testing with MCP Inspector
+
+In a separate terminal, run the MCP Inspector to test your server:
+
+```bash
+npx @modelcontextprotocol/inspector
+```
+
+Then connect to your server at `http://localhost:3000` (or the port shown in your dev server output).
+
+## Project Structure
+
+```
+<%= projectName %>/
+├── src/
+│   ├── index.js      # Project entry point
+│   └── server.js     # MCP server implementation
+├── package.json
+└── README.md
+```
+
+## Adding Features
+
+### Tools
+
+Tools allow your MCP server to provide executable functions to LLMs:
+
+```javascript
+server.tool(
+  "my_tool",
+  "What this tool does",
+  { 
+    param: z.string().describe("Parameter description") 
+  },
+  ({ param }) => ({
+    content: [
+      {
+        type: "text",
+        text: `Result: ${param}`,
+      },
+    ],
+  }),
+);
+```
+
+### Resources
+
+Resources expose data and content to LLMs:
+
+```javascript
+server.resource(
+  "resource://my-resource", 
+  async () => {
+    return {
+      contents: [
+        {
+          uri: "resource://my-resource",
+          mimeType: "text/plain",
+          text: "Resource content",
+        },
+      ],
+    };
+  },
+  "What this resource provides",
+);
+```
+
+### Prompts
+
+Prompts provide reusable prompt templates:
+
+```javascript
+server.prompt(
+  "my_prompt",
+  "What this prompt does",
+  [
+    { 
+      name: "arg", 
+      description: "Argument description", 
+      required: true 
+    },
+  ],
+  ({ arg }) => ({
+    messages: [
+      {
+        role: "user",
+        content: { 
+          type: "text", 
+          text: `Prompt with ${arg}` 
+        },
+      },
+    ],
+  }),
+);
+```
+
+## Learn More
+
+- [Model Context Protocol](https://modelcontextprotocol.io)
+- [ModelFetch Website](https://preview.modelfetch.com)
+- [ModelFetch Documentation](https://preview.modelfetch.com/docs)
+- [ModelFetch GitHub](https://github.com/phuctm97/modelfetch)

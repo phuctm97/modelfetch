@@ -9,7 +9,7 @@ Deno runtime adapter for building MCP (Model Context Protocol) servers with Mode
 ## Installation
 
 ```bash
-deno add jsr:@modelfetch/deno
+deno add npm:@modelfetch/deno
 ```
 
 ## Quick Start
@@ -44,7 +44,7 @@ export default server;
 
 ```typescript
 // index.ts
-import handle, { getEndpoint } from "jsr:@modelfetch/deno";
+import handle, { getEndpoint } from "npm:@modelfetch/deno";
 import server from "./server.ts";
 
 // Start the server
@@ -124,7 +124,7 @@ Optional `deno.json`:
     "strict": true
   },
   "imports": {
-    "@modelfetch/deno": "jsr:@modelfetch/deno",
+    "@modelfetch/deno": "npm:@modelfetch/deno",
     "@modelcontextprotocol/sdk": "npm:@modelcontextprotocol/sdk@^0.7.0",
     "zod": "npm:zod@^3.24.1"
   },
@@ -137,7 +137,7 @@ Optional `deno.json`:
 
 ## Documentation
 
-For complete documentation, examples, and guides, visit [modelfetch.com/docs/runtimes/deno](https://modelfetch.com/docs/runtimes/deno).
+For complete documentation, examples, and guides, visit [preview.modelfetch.com/docs/runtimes/deno](https://preview.modelfetch.com/docs/runtimes/deno).
 
 ## License
 

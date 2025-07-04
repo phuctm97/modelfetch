@@ -1,7 +1,13 @@
 {
   "name": "@modelfetch/node",
   "version": "0.0.1",
-  "private": true,
+  "description": "Node.js runtime support for ModelFetch MCP servers",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phuctm97/modelfetch.git",
+    "directory": "libs/modelfetch-node"
+  },
+  "license": "MIT",
   "type": "module",
   "exports": {
     ".": {
@@ -10,6 +16,9 @@
       "import": "./dist/index.js"
     }
   },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@hono/node-server": "^1.15.0",
     "@modelfetch/core": "workspace:^",

@@ -1,0 +1,29 @@
+{
+  "name": "@modelfetch/vercel",
+  "version": "0.0.1",
+  "description": "Vercel runtime adapter for building MCP servers with ModelFetch",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phuctm97/modelfetch.git",
+    "directory": "libs/modelfetch-vercel"
+  },
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "development": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@modelfetch/core": "workspace:^",
+    "hono": "^4.8.3"
+  },
+  "devDependencies": {
+    "create-eslint-config": "workspace:^"
+  }
+}
