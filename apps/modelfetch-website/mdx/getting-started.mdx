@@ -122,7 +122,7 @@ handle(server, (address) => {
 // Note: Other runtimes have different patterns:
 // Bun: const bunServer = handle(server); console.log(getEndpoint(bunServer));
 // Deno: const httpServer = handle(server); if (httpServer.addr) console.log(getEndpoint(httpServer.addr));
-// Vercel: export const GET = handle(server); export const POST = handle(server);
+// Vercel: const handler = handle(server); export const GET = handler; export const POST = handler; export const DELETE = handler;
 // Netlify: export const handler = handle(server);
 ```
 
@@ -162,8 +162,10 @@ import server from "./server";
 
 export const runtime = "edge"; // or "nodejs"
 
-export const GET = handle(server);
-export const POST = handle(server);
+const handler = handle(server);
+export const GET = handler;
+export const POST = handler;
+export const DELETE = handler;
 ```
 
 Then deploy with:

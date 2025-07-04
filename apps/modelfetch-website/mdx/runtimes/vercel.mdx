@@ -17,8 +17,6 @@ pnpm add @modelfetch/vercel
 
 ## Basic Usage
 
-### Next.js App Router
-
 ```typescript title="app/api/mcp/route.ts"
 import handle from "@modelfetch/vercel";
 import server from "./server";
@@ -26,38 +24,11 @@ import server from "./server";
 // Choose your runtime
 export const runtime = "edge"; // or "nodejs"
 
-// Export handlers for both GET and POST
-export const GET = handle(server);
-export const POST = handle(server);
-```
-
-### Next.js Pages Router
-
-```typescript title="pages/api/mcp.ts"
-import type { PageConfig } from "next";
-import handle from "@modelfetch/vercel";
-import server from "./server";
-
-// Configure the runtime
-export const config: PageConfig = {
-  runtime: "edge", // or "nodejs"
-};
-
-// Export the handler as default
-export default handle(server);
-```
-
-### Standalone Vercel Functions
-
-```typescript title="api/mcp.ts"
-import handle from "@modelfetch/vercel";
-import server from "./server";
-
-export const config = {
-  runtime: "edge", // or "nodejs"
-};
-
-export default handle(server);
+// Create handler once and export for all methods
+const handler = handle(server);
+export const GET = handler;
+export const POST = handler;
+export const DELETE = handler;
 ```
 
 ## API Reference
@@ -198,8 +169,10 @@ import server from "./server";
 
 export const runtime = "edge";
 
-export const GET = handle(server);
-export const POST = handle(server);
+const handler = handle(server);
+export const GET = handler;
+export const POST = handler;
+export const DELETE = handler;
 ```
 
 ## Best Practices
