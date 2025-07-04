@@ -138,8 +138,8 @@ export default function Page() {
                     <span className="mr-2">◈</span>Multi-Runtime
                   </h3>
                   <p className="text-gray-400">
-                    Write your MCP servers once. Run them anywhere
-                    TypeScript/JavaScript runs: Node.js, Bun, Deno, etc.
+                    Write your MCP server once. Run it anywhere: Node.js, Bun,
+                    Deno, Cloudflare, Vercel, Netlify, etc.
                   </p>
                 </div>
                 <div className="group rounded border border-gray-300 bg-white p-4 shadow-md transition-all hover:border-[#008f00] hover:shadow-[0_0_20px_rgba(0,143,0,0.3)] sm:p-6 dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.3)]">
@@ -147,7 +147,7 @@ export default function Page() {
                     <span className="mr-2">◈</span>Delightful DX
                   </h3>
                   <p className="text-gray-400">
-                    Build your MCP servers with tools designed for building MCP
+                    Build your MCP server with tools designed for building MCP
                     servers: live reload, MCP Inspector, etc.
                   </p>
                 </div>
@@ -175,7 +175,7 @@ export default function Page() {
                     <span className="text-[#008f00] dark:text-[#00ff00]">
                       $
                     </span>{" "}
-                    Install a ModelFetch runtime of your choice:
+                    Install ModelFetch runtime for your environment:
                   </p>
                   <div className="overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md transition-colors hover:border-[#008f00] dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00]">
                     <div className="flex items-center justify-between border-b border-gray-300 bg-gray-100 px-4 py-2 dark:border-[#333] dark:bg-[#2a2a2a]">
@@ -195,7 +195,7 @@ npm install @modelfetch/node
 bun add @modelfetch/bun
 
 # For Deno
-deno add jsr:@modelfetch/deno
+deno add npm:@modelfetch/deno
 
 # For Cloudflare
 npm install @modelfetch/cloudflare
@@ -234,7 +234,7 @@ import { z } from "zod";
 
 const server = new McpServer({
   title: "My MCP Server",
-  name: "my-server",
+  name: "my-mcp-server",
   version: "1.0.0",
 });
 
