@@ -10,14 +10,12 @@ npm install @modelfetch/vercel
 
 ## Usage
 
-Create an API route in your Vercel app:
+Create an API route in your Next.js app:
 
 ```typescript
-// app/api/mcp/route.ts
+// app/mcp/route.ts
 import handle from "@modelfetch/vercel";
 import server from "./server";
-
-export const runtime = "edge"; // or "nodejs"
 
 const handler = handle(server);
 export const GET = handler;

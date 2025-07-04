@@ -17,14 +17,12 @@ pnpm add @modelfetch/vercel
 
 ## Basic Usage
 
-```typescript title="app/api/mcp/route.ts"
+Create an API route in your Next.js app:
+
+```typescript title="app/mcp/route.ts"
 import handle from "@modelfetch/vercel";
 import server from "./server";
 
-// Choose your runtime
-export const runtime = "edge"; // or "nodejs"
-
-// Create handler once and export for all methods
 const handler = handle(server);
 export const GET = handler;
 export const POST = handler;
@@ -163,11 +161,9 @@ server.tool(
 export default server;
 ```
 
-```typescript title="app/api/mcp/route.ts"
+```typescript title="app/mcp/route.ts"
 import handle from "@modelfetch/vercel";
 import server from "./server";
-
-export const runtime = "edge";
 
 const handler = handle(server);
 export const GET = handler;

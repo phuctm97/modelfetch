@@ -154,13 +154,11 @@ deno run -A index.ts
 
 #### Vercel
 
-For Vercel, you'll typically deploy as an API route:
+For Vercel, create an API route in your Next.js app:
 
-```typescript title="app/api/mcp/route.ts"
+```typescript title="app/mcp/route.ts"
 import handle from "@modelfetch/vercel";
 import server from "./server";
-
-export const runtime = "edge"; // or "nodejs"
 
 const handler = handle(server);
 export const GET = handler;
