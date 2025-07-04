@@ -113,7 +113,7 @@ lib/
 
 ### Naming Conventions
 
-File/folder names and their primary exports must always match using the following convention:
+All file/folder names and their primary exports must always match using the following convention:
 
 - Kebab-case for files/folders → PascalCase or camelCase for exports
 - Examples:
