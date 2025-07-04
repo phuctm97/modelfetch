@@ -16,7 +16,9 @@
       "import": "./dist/index.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@hono/node-server": "^1.15.0",
     "@modelfetch/core": "workspace:^",
