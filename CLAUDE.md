@@ -121,11 +121,11 @@ File/folder names and their primary exports must always match using the followin
   - `button.tsx` → `Button` component
   - `do-something.ts` → `doSomething` function
 
-Constants and variables use camelCase, not CONSTANT_CASE:
+All constants and variables use camelCase, not CONSTANT_CASE:
 
-- Use `packageVersions` instead of `PACKAGE_VERSIONS`
-- Use `apiUrl` instead of `API_URL`
-- This applies to all constants, even those that are never reassigned
+- Examples:
+  - Use `packageVersions` instead of `PACKAGE_VERSIONS`
+  - Use `apiUrl` instead of `API_URL`
 
 ### Type Definitions
 
