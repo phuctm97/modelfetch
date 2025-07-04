@@ -318,13 +318,7 @@ importers:
       hono:
         specifier: ^4.8.3
         version: 4.8.3
-      type-fest:
-        specifier: ^4.41.0
-        version: 4.41.0
     devDependencies:
-      '@cloudflare/workers-types':
-        specifier: ^4.20241127.0
-        version: 4.20250704.0
       create-eslint-config:
         specifier: workspace:^
         version: link:../create-eslint-config
@@ -965,9 +959,6 @@ packages:
 
   '@clack/prompts@0.11.0':
     resolution: {integrity: sha512-pMN5FcrEw9hUkZA4f+zLlzivQSeQf5dRGJjSUbvVYDLvpKCdQx5OaknvKzgbtXOizhP+SJJJjqEbOe55uKKfAw==}
-
-  '@cloudflare/workers-types@4.20250704.0':
-    resolution: {integrity: sha512-KR8XwXVnJdbSStdmmkkqE0ac5UCrRT+HyFnpt/VcVMzEVeAiZfH0VAcYXasMs842CE1BsdbQG0FboVV9EmyMpQ==}
 
   '@emnapi/core@1.4.3':
     resolution: {integrity: sha512-4m62DuCE07lw01soJwPiBGC0nAww0Q+RY70VZ+n49yDIO13yyinhbWCeNnaob0lakDtWQzSdtNWzJeOJt2ma+g==}
@@ -5838,8 +5829,6 @@ snapshots:
       '@clack/core': 0.5.0
       picocolors: 1.1.1
       sisteransi: 1.0.5
-
-  '@cloudflare/workers-types@4.20250704.0': {}
 
   '@emnapi/core@1.4.3':
     dependencies:

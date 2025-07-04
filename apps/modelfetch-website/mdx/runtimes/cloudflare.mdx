@@ -23,10 +23,12 @@ pnpm add @modelfetch/cloudflare
 import handle from "@modelfetch/cloudflare";
 import server from "./server";
 
-export default handle(server);
+export default {
+  fetch: handle(server),
+};
 ```
 
-### With Custom Handlers
+### With Additional Handlers
 
 ```typescript title="src/index.ts"
 import handle from "@modelfetch/cloudflare";
@@ -37,8 +39,8 @@ interface Env {
   MY_API_KEY: string;
 }
 
-// Add custom handlers like scheduled, queue, etc.
-export default handle<Env>(server, {
+export default {
+  fetch: handle(server),
   scheduled: async (event, env, ctx) => {
     console.log("Running scheduled task");
     // Your scheduled task logic
@@ -47,16 +49,13 @@ export default handle<Env>(server, {
     console.log(`Processing ${batch.messages.length} messages`);
     // Your queue processing logic
   },
-});
+};
 ```
 
-### Manual Integration
-
-If you need more control over the fetch handler:
+### With Environment Types
 
 ```typescript title="src/index.ts"
 import handle from "@modelfetch/cloudflare";
-import type { Options } from "@modelfetch/cloudflare";
 import server from "./server";
 
 interface Env {
@@ -64,71 +63,26 @@ interface Env {
   MY_API_KEY: string;
 }
 
-// Define handlers separately for better organization
-const options: Options<Env> = {
-  scheduled: async (event, env, ctx) => {
-    // Your scheduled task logic
+export default {
+  fetch: handle(server),
+  scheduled: async (event, env: Env, ctx) => {
+    // Your scheduled task logic with typed environment
   },
-  trace: async (traces, env, ctx) => {
+  trace: async (traces, env: Env, ctx) => {
     // Handle trace events
   },
-};
-
-// Option 1: Use the handle function
-export default handle<Env>(server, options);
-
-// Option 2: Manual integration
-export default {
-  async fetch(request: Request, env: Env, ctx: ExecutionContext) {
-    const handler = handle<Env>(server);
-    return handler.fetch(request, env, ctx);
-  },
-  ...options,
 };
 ```
 
 ## API Reference
 
-### Type Exports
+### `handle(server)`
 
-#### `Options<Env, QueueHandlerMessage, CfHostMetadata>`
-
-Type for additional Cloudflare Workers handlers, excluding the `fetch` handler which is provided by ModelFetch.
-
-```typescript
-import type { Options } from "@modelfetch/cloudflare";
-
-type Options<Env, QueueHandlerMessage, CfHostMetadata> = {
-  tail?: ExportedHandlerTailHandler<Env>;
-  trace?: ExportedHandlerTraceHandler<Env>;
-  scheduled?: ExportedHandlerScheduledHandler<Env>;
-  queue?: ExportedHandlerQueueHandler<Env, QueueHandlerMessage>;
-  test?: ExportedHandlerTestHandler<Env>;
-  email?: EmailExportedHandler<Env>;
-};
-```
-
-### `handle(server, options?)`
-
-Creates a Cloudflare Workers-compatible handler from a ModelFetch server.
+Creates a Cloudflare Workers fetch handler from a ModelFetch server.
 
 - **server**: The MCP server instance from `@modelcontextprotocol/sdk`
-- **options** (optional): Additional Cloudflare Workers handlers (scheduled, queue, email, etc.)
 
-Returns an `ExportedHandler` object compatible with Cloudflare Workers.
-
-#### Type Parameters
-
-```typescript
-handle<Env, QueueHandlerMessage, CfHostMetadata>(
-  server: Server,
-  options?: Options<Env, QueueHandlerMessage, CfHostMetadata>
-): ExportedHandler<Env, QueueHandlerMessage, CfHostMetadata>
-```
-
-- **Env**: Environment bindings type (KV, R2, D1, etc.)
-- **QueueHandlerMessage**: Message type for queue handlers
-- **CfHostMetadata**: Cloudflare-specific host metadata type
+Returns a fetch function compatible with Cloudflare Workers.
 
 #### Examples
 
@@ -137,41 +91,23 @@ import handle from "@modelfetch/cloudflare";
 import server from "./server";
 
 // Basic usage
-const handler = handle(server);
+export default {
+  fetch: handle(server),
+};
 
-// With typed environment
+// With typed environment and additional handlers
 interface Env {
   MY_KV: KVNamespace;
   MY_QUEUE: Queue<MessageType>;
 }
 
-const typedHandler = handle<Env>(server);
-
-// With additional handlers
-const handlerWithScheduled = handle<Env>(server, {
-  scheduled: async (event, env, ctx) => {
+export default {
+  fetch: handle(server),
+  scheduled: async (event, env: Env, ctx) => {
     // env is typed as Env
     await env.MY_KV.put("last-run", Date.now().toString());
   },
-});
-```
-
-### Type Exports
-
-```typescript
-import type { Options } from "@modelfetch/cloudflare";
-
-// Use when defining handlers separately
-const myHandlers: Options<Env> = {
-  scheduled: async (event, env, ctx) => {
-    // ...
-  },
-  queue: async (batch, env, ctx) => {
-    // ...
-  },
 };
-
-export default handle(server, myHandlers);
 ```
 
 ## Deployment
@@ -215,23 +151,22 @@ database_id = "your-database-id"
 
 ### Environment Variables and Bindings
 
-Access Cloudflare bindings in your MCP server:
+Cloudflare bindings are accessible through the environment parameter in your Workers handlers:
 
-```typescript title="server.ts"
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+```typescript title="src/index.ts"
+import handle from "@modelfetch/cloudflare";
+import server from "./server";
 
-const server = new McpServer({
-  title: "My MCP Server",
-  name: "my-server",
-  version: "1.0.0",
-});
+interface MyEnv {
+  MY_KV: KVNamespace;
+  MY_API_KEY: string;
+}
 
-// Access bindings through the handler
 export default {
-  async fetch(request: Request, env: MyEnv, ctx: ExecutionContext) {
-    // Use env.MY_KV, env.MY_API_KEY, etc.
-    const handler = handle(server);
-    return handler(request, env, ctx);
+  fetch: handle(server),
+  async scheduled(event, env: MyEnv, ctx) {
+    // Access env.MY_KV, env.MY_API_KEY, etc.
+    await env.MY_KV.put("scheduled-run", new Date().toISOString());
   },
 };
 ```
@@ -298,7 +233,9 @@ interface Env {
   MY_KV: KVNamespace;
 }
 
-export default handle<Env>(server);
+export default {
+  fetch: handle(server),
+};
 ```
 
 ### Example with Queues
@@ -319,8 +256,14 @@ interface QueueMessage {
   data: Record<string, unknown>;
 }
 
-export default handle<Env, QueueMessage>(server, {
-  async queue(batch, env, ctx) {
+export default {
+  fetch: handle(server),
+
+  async queue(
+    batch: MessageBatch<QueueMessage>,
+    env: Env,
+    ctx: ExecutionContext,
+  ) {
     // Process typed messages from the queue
     for (const message of batch.messages) {
       try {
@@ -346,7 +289,7 @@ export default handle<Env, QueueMessage>(server, {
     }
   },
 
-  async scheduled(event, env, ctx) {
+  async scheduled(event, env: Env, ctx) {
     // Run cleanup tasks every hour
     console.log("Running scheduled cleanup at", event.cron);
 
@@ -361,7 +304,7 @@ export default handle<Env, QueueMessage>(server, {
       }
     }
   },
-});
+};
 ```
 
 ## Features
@@ -462,7 +405,8 @@ server.tool(
 ```typescript
 // Access through env parameter, not process.env
 export default {
-  async fetch(request: Request, env: Env, ctx: ExecutionContext) {
+  fetch: handle(server),
+  async scheduled(event, env: Env, ctx) {
     console.log(env.MY_VAR); // ✓ Correct
     console.log(process.env.MY_VAR); // ✗ Won't work
   },
@@ -496,9 +440,13 @@ import handle from "@modelfetch/cloudflare";
 import server from "../src/server";
 
 const mf = new Miniflare({
+  modules: true,
   script: `
+    import handle from "@modelfetch/cloudflare";
+    import server from "../src/server";
+    
     export default {
-      fetch: ${handle(server).toString()}
+      fetch: handle(server)
     }
   `,
   kvNamespaces: ["MY_KV"],

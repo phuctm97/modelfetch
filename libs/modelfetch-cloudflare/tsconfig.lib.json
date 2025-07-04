@@ -7,7 +7,6 @@
   ],
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "types": ["@cloudflare/workers-types"],
     "sourceRoot": "/libs/modelfetch-cloudflare/src",
     "rootDir": "src",
     "outDir": "dist"

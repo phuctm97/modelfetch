@@ -27,7 +27,7 @@ Then connect to your server at `http://localhost:3000` (or the port shown in you
 ```
 <%= projectName %>/
 ├── src/
-│   ├── index.ts      # Server entry point
+│   ├── index.ts      # Project entry point
 │   └── server.ts     # MCP server implementation
 ├── package.json
 ├── tsconfig.json
