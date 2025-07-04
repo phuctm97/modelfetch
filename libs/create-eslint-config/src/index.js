@@ -59,7 +59,14 @@ export default function createESLintConfig(...configs) {
         ],
         "@typescript-eslint/no-restricted-types": [
           "error",
-          { types: { Omit: true } },
+          {
+            types: {
+              Omit: {
+                message: "Use `Except` from `type-fest` instead",
+                suggest: ["Except"],
+              },
+            },
+          },
         ],
         "@typescript-eslint/no-unused-vars": [
           "error",

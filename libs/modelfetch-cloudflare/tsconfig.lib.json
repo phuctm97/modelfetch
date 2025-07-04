@@ -1,0 +1,15 @@
+{
+  "include": ["src"],
+  "references": [
+    {
+      "path": "../modelfetch-core/tsconfig.lib.json"
+    }
+  ],
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["@cloudflare/workers-types"],
+    "sourceRoot": "/libs/modelfetch-cloudflare/src",
+    "rootDir": "src",
+    "outDir": "dist"
+  }
+}

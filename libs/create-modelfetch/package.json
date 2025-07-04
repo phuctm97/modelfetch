@@ -1,0 +1,34 @@
+{
+  "name": "create-modelfetch",
+  "version": "0.0.1",
+  "description": "CLI for scaffolding a new MCP server with ModelFetch",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phuctm97/modelfetch.git",
+    "directory": "libs/create-modelfetch"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "development": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "create-modelfetch": "./bin/index.js"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "templates"
+  ],
+  "dependencies": {
+    "@clack/prompts": "^0.8.2",
+    "ejs": "^3.1.10",
+    "picocolors": "^1.1.1"
+  },
+  "devDependencies": {
+    "create-eslint-config": "workspace:^"
+  }
+}

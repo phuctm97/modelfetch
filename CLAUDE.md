@@ -11,8 +11,9 @@ The SDK is built as a thin wrapper on top of `hono` and `@hono/mcp`, leveraging 
 - `@modelfetch/node` - Node.js runtime support (work in progress)
 - `@modelfetch/bun` - Bun runtime support (work in progress)
 - `@modelfetch/deno` - Deno runtime support (work in progress)
-- `@modelfetch/cloudflare` - Cloudflare Workers support (planned)
-- `@modelfetch/vercel` - Vercel Functions support (planned)
+- `@modelfetch/cloudflare` - Cloudflare Workers support (work in progress)
+- `@modelfetch/vercel` - Vercel Functions support (work in progress)
+- `@modelfetch/netlify` - Netlify Functions support (work in progress)
 
 Each package acts as a thin wrapper around the equivalent Hono package, ensuring optimal performance and compatibility.
 
@@ -39,6 +40,7 @@ This workspace follows Nx best practices as outlined in @.cursor/rules/nx-rules.
 - All JavaScript projects have no ESLint configurations
 - All Nx projects use automatic configuration provided by Nx plugins instead of individual `project.json` files
 - All local dependencies use `workspace:^` version specifier
+- Dependencies and devDependencies that are already available in the root package.json should NOT be included in individual project package.json files. This includes common dependencies like `typescript`, `@types/node`, `eslint`, `prettier`, `nx`, `@nx/*`, `@swc/*`, etc.
 
 ### Core Applications
 
@@ -62,8 +64,9 @@ These projects are example applications powered by ModelFetch:
 - `@modelfetch/node`: Node.js runtime support (work in progress)
 - `@modelfetch/bun`: Bun runtime support (work in progress)
 - `@modelfetch/deno`: Deno runtime support (work in progress)
-- `@modelfetch/cloudflare`: Cloudflare Workers support (planned)
-- `@modelfetch/vercel`: Vercel Functions support (planned)
+- `@modelfetch/cloudflare`: Cloudflare Workers support (work in progress)
+- `@modelfetch/vercel`: Vercel Functions support (work in progress)
+- `@modelfetch/netlify`: Netlify Functions support (work in progress)
 
 ### Supporting Libraries
 
@@ -118,6 +121,12 @@ File/folder names and their primary exports must always match using the followin
   - `theme-switch` folder/file → `ThemeSwitch` component
   - `button.tsx` → `Button` component
   - `do-something.ts` → `doSomething` function
+
+Constants and variables use camelCase, not CONSTANT_CASE:
+
+- Use `packageVersions` instead of `PACKAGE_VERSIONS`
+- Use `apiUrl` instead of `API_URL`
+- This applies to all constants, even those that are never reassigned
 
 ### Type Definitions
 

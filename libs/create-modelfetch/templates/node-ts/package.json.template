@@ -1,0 +1,20 @@
+{
+  "name": "<%= projectName %>",
+  "version": "0.0.1",
+  "description": "<%= projectTitle %> (built with ModelFetch)",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "scripts": {
+    "start": "tsx ."
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "<%= versions['@modelcontextprotocol/sdk'] %>",
+    "@modelfetch/node": "<%= versions['@modelfetch/node'] %>",
+    "tslib": "<%= versions['tslib'] %>",
+    "zod": "<%= versions['zod'] %>"
+  },
+  "devDependencies": {
+    "tsx": "<%= versions['tsx'] %>"
+  }
+}

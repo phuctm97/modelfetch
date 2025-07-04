@@ -1,0 +1,397 @@
+---
+title: Netlify
+description: Deploy MCP servers to Netlify Functions
+---
+
+The `@modelfetch/netlify` package provides ModelFetch support for deploying MCP servers to Netlify Functions.
+
+## Installation
+
+```bash
+npm install @modelfetch/netlify
+# or
+yarn add @modelfetch/netlify
+# or
+pnpm add @modelfetch/netlify
+```
+
+## Basic Usage
+
+### Netlify Functions
+
+Create a function in your `netlify/functions` directory:
+
+```typescript title="netlify/functions/mcp.ts"
+import handle from "@modelfetch/netlify";
+import server from "../../server";
+
+export const handler = handle(server);
+```
+
+### Configuration
+
+Configure your function in `netlify.toml`:
+
+```toml title="netlify.toml"
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/mcp"
+  to = "/.netlify/functions/mcp"
+  status = 200
+```
+
+## API Reference
+
+### `handle(server)`
+
+Creates a Netlify-compatible handler from a ModelFetch server.
+
+- **server**: The MCP server instance from `@modelcontextprotocol/sdk`
+
+Returns a handler function compatible with Netlify Functions.
+
+```typescript
+import handle from "@modelfetch/netlify";
+import server from "./server";
+
+export const handler = handle(server);
+```
+
+## Features
+
+### Background Functions
+
+For long-running MCP operations, use Netlify Background Functions by configuring them in `netlify.toml`:
+
+```toml
+[functions."mcp-background"]
+  schedule = "@daily"
+```
+
+```typescript title="netlify/functions/mcp-background.ts"
+import handle from "@modelfetch/netlify";
+import server from "../../server";
+
+export const handler = handle(server);
+```
+
+### Environment Variables
+
+Set environment variables in the Netlify dashboard or using the CLI:
+
+```bash
+netlify env:set MY_API_KEY "your-api-key"
+```
+
+Access them in your MCP server:
+
+```typescript
+const server = new McpServer({
+  title: "My MCP Server",
+  name: "my-server",
+  version: "1.0.0",
+});
+
+server.tool("get_api_key", "Returns the API key", {}, () => ({
+  content: [
+    {
+      type: "text",
+      text: process.env.MY_API_KEY || "Not set",
+    },
+  ],
+}));
+```
+
+### CORS Configuration
+
+Configure CORS headers in your `netlify.toml`:
+
+```toml
+[[headers]]
+  for = "/.netlify/functions/mcp"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "Content-Type"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+```
+
+## Deployment
+
+### Using Netlify CLI
+
+```bash
+# Install Netlify CLI
+npm i -g netlify-cli
+
+# Login to Netlify
+netlify login
+
+# Deploy
+netlify deploy --prod
+```
+
+### Using Git Integration
+
+1. Push your code to GitHub, GitLab, or Bitbucket
+2. Import your project in the Netlify dashboard
+3. Configure build settings:
+   - Build command: `npm run build` (if needed)
+   - Functions directory: `netlify/functions`
+4. Deploy automatically on every push
+
+### Build Configuration
+
+For TypeScript projects, configure the build in `netlify.toml`:
+
+```toml
+[build]
+  command = "npm run build"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+  [functions."mcp"]
+    external_node_modules = ["@modelcontextprotocol/sdk"]
+```
+
+## Example Server
+
+Here's a complete example of an MCP server for Netlify:
+
+```typescript title="server.ts"
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { z } from "zod";
+
+const server = new McpServer({
+  title: "Todo MCP Server",
+  name: "todo-server",
+  version: "1.0.0",
+});
+
+// In-memory todo storage
+const todos: Map<string, { text: string; done: boolean }> = new Map();
+
+// Add todo tool
+server.tool(
+  "add_todo",
+  "Add a new todo item",
+  { text: z.string() },
+  ({ text }) => {
+    const id = Date.now().toString();
+    todos.set(id, { text, done: false });
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: `Added todo: ${text} (ID: ${id})`,
+        },
+      ],
+    };
+  },
+);
+
+// List todos tool
+server.tool("list_todos", "List all todo items", {}, () => {
+  const todoList = Array.from(todos.entries())
+    .map(([id, todo]) => `${id}: [${todo.done ? "✓" : " "}] ${todo.text}`)
+    .join("\n");
+
+  return {
+    content: [
+      {
+        type: "text",
+        text: todoList || "No todos yet!",
+      },
+    ],
+  };
+});
+
+export default server;
+```
+
+```typescript title="netlify/functions/mcp.ts"
+import handle from "@modelfetch/netlify";
+import server from "../../server";
+
+export const handler = handle(server);
+```
+
+## Best Practices
+
+### Function Organization
+
+- Keep MCP servers in a separate file for reusability
+- Use TypeScript for better type safety
+- Organize related tools into modules
+
+### Performance Optimization
+
+1. **Bundle Size**: Keep dependencies minimal
+2. **Cold Starts**: Use lightweight initialization
+3. **Caching**: Implement caching for expensive operations
+4. **Connection Pooling**: Reuse database connections
+
+### Security
+
+1. **API Keys**: Store sensitive data in environment variables
+2. **Input Validation**: Always validate tool parameters
+3. **Rate Limiting**: Implement rate limiting for public endpoints
+4. **Authentication**: Add authentication if needed
+
+### Error Handling
+
+```typescript
+server.tool(
+  "safe_operation",
+  "Performs a safe operation",
+  { input: z.string() },
+  async ({ input }) => {
+    try {
+      // Your operation here
+      const result = await riskyOperation(input);
+
+      return {
+        content: [
+          {
+            type: "text",
+            text: `Success: ${result}`,
+          },
+        ],
+      };
+    } catch (error) {
+      return {
+        content: [
+          {
+            type: "text",
+            text: `Error: ${error.message}`,
+          },
+        ],
+        isError: true,
+      };
+    }
+  },
+);
+```
+
+## Limitations
+
+### Function Limitations
+
+- 10 second timeout for synchronous functions
+- 15 minute timeout for background functions
+- 6MB response size limit
+- 50MB memory limit (can be increased)
+
+### Development Limitations
+
+- No WebSocket support
+- Limited file system access
+- No persistent storage (use external databases)
+
+## Local Development
+
+### Netlify Dev
+
+Test your functions locally:
+
+```bash
+# Install dependencies
+npm install
+
+# Start local development server
+netlify dev
+```
+
+Your MCP server will be available at `http://localhost:8888/.netlify/functions/mcp`.
+
+### Testing
+
+```typescript title="tests/mcp.test.ts"
+import { handler } from "../netlify/functions/mcp";
+import type { HandlerEvent, HandlerContext } from "@netlify/functions";
+
+describe("MCP Server", () => {
+  it("handles requests", async () => {
+    const event: HandlerEvent = {
+      httpMethod: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        jsonrpc: "2.0",
+        method: "tools/list",
+        id: 1,
+      }),
+    };
+
+    const response = await handler(event, {} as HandlerContext);
+    expect(response.statusCode).toBe(200);
+  });
+});
+```
+
+## Troubleshooting
+
+### Common Issues
+
+**Function not found**
+
+```toml
+# Ensure functions directory is configured
+[functions]
+  directory = "netlify/functions"
+```
+
+**TypeScript errors**
+
+```json
+// tsconfig.json
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "esModuleInterop": true
+  }
+}
+```
+
+**Module not found**
+
+```toml
+# Configure external modules if needed
+[functions."mcp"]
+  external_node_modules = ["some-native-module"]
+```
+
+**CORS errors**
+
+Configure CORS headers in `netlify.toml` as shown in the CORS Configuration section above.
+
+## Monitoring
+
+### Function Logs
+
+View function logs in the Netlify dashboard or CLI:
+
+```bash
+netlify functions:log mcp --tail
+```
+
+### Analytics
+
+Track function usage in the Netlify Analytics dashboard:
+
+- Invocation count
+- Error rate
+- Duration metrics
+- Geographic distribution
+
+## Next Steps
+
+- Read the [MCP SDK documentation](https://docs.mcp.io)
+- Explore [Netlify Functions docs](https://docs.netlify.com/functions/overview/)
+- Check out [example implementations](/docs/examples)
+- Learn about [background functions](https://docs.netlify.com/functions/background-functions/)

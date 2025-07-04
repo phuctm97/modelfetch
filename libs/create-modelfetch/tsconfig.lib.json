@@ -1,0 +1,10 @@
+{
+  "include": ["src"],
+  "references": [],
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "sourceRoot": "/libs/create-modelfetch/src",
+    "rootDir": "src",
+    "outDir": "dist"
+  }
+}

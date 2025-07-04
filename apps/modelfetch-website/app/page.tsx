@@ -195,7 +195,16 @@ npm install @modelfetch/node
 bun add @modelfetch/bun
 
 # For Deno
-deno add jsr:@modelfetch/deno`}
+deno add jsr:@modelfetch/deno
+
+# For Cloudflare
+npm install @modelfetch/cloudflare
+
+# For Vercel
+npm install @modelfetch/vercel
+
+# For Netlify
+npm install @modelfetch/netlify`}
                         lang="bash"
                       />
                     </div>

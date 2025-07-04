@@ -23,6 +23,21 @@ ModelFetch provides runtime-specific packages that handle the platform details w
     description="Secure MCP servers with Deno v2"
     href="/docs/runtimes/deno"
   />
+  <Card
+    title="Cloudflare"
+    description="Deploy MCP servers to Cloudflare Workers"
+    href="/docs/runtimes/cloudflare"
+  />
+  <Card
+    title="Vercel"
+    description="Deploy MCP servers to Vercel Functions"
+    href="/docs/runtimes/vercel"
+  />
+  <Card
+    title="Netlify"
+    description="Deploy MCP servers to Netlify Functions"
+    href="/docs/runtimes/netlify"
+  />
 </Cards>
 
 ## Common API
@@ -67,6 +82,33 @@ Choose Deno when:
 - You prefer web standard APIs
 - You need built-in development tools (formatter, linter, test runner)
 
+### Cloudflare
+
+Choose Cloudflare when:
+
+- You want global edge deployment with ultra-low latency
+- You need zero cold starts and instant scaling
+- You're building stateful applications with Durable Objects
+- You want to leverage Cloudflare's ecosystem (KV, R2, D1, Workers AI)
+
+### Vercel
+
+Choose Vercel when:
+
+- You're deploying to Vercel's infrastructure
+- You want serverless MCP endpoints
+- You need both Edge Runtime and Node.js Runtime options
+- You're building Next.js applications with MCP integration
+
+### Netlify
+
+Choose Netlify when:
+
+- You're deploying to Netlify's infrastructure
+- You want serverless Functions with generous free tier
+- You need background functions for long-running tasks
+- You're building JAMstack applications
+
 ## Installation
 
 Each runtime has its own package:
@@ -89,16 +131,36 @@ bun add @modelfetch/bun
 deno add jsr:@modelfetch/deno
 ```
 
+### Cloudflare
+
+```bash
+npm install @modelfetch/cloudflare
+```
+
+### Vercel
+
+```bash
+npm install @modelfetch/vercel
+```
+
+### Netlify
+
+```bash
+npm install @modelfetch/netlify
+```
+
 ## Runtime Features Comparison
 
-| Feature            | Node.js         | Bun       | Deno      |
-| ------------------ | --------------- | --------- | --------- |
-| TypeScript Support | Via tsx/ts-node | Native    | Native    |
-| Package Manager    | npm/yarn/pnpm   | Built-in  | Built-in  |
-| Permissions Model  | No              | No        | Yes       |
-| Startup Speed      | Good            | Excellent | Good      |
-| Ecosystem          | Largest         | Growing   | Growing   |
-| Web Standards      | Partial         | Good      | Excellent |
+| Feature            | Node.js         | Bun         | Deno        | Cloudflare    | Vercel        | Netlify       |
+| ------------------ | --------------- | ----------- | ----------- | ------------- | ------------- | ------------- |
+| TypeScript Support | Via tsx/ts-node | Native      | Native      | Native        | Native        | Native        |
+| Package Manager    | npm/yarn/pnpm   | Built-in    | Built-in    | npm/yarn/pnpm | npm/yarn/pnpm | npm/yarn/pnpm |
+| Permissions Model  | No              | No          | Yes         | No            | No            | No            |
+| Startup Speed      | Good            | Excellent   | Good        | Instant       | Excellent     | Good          |
+| Ecosystem          | Largest         | Growing     | Growing     | Web Standards | Largest       | Largest       |
+| Web Standards      | Partial         | Good        | Excellent   | Excellent     | Excellent     | Good          |
+| Deployment         | Self-hosted     | Self-hosted | Self-hosted | Edge Network  | Serverless    | Serverless    |
+| Background Jobs    | Yes             | Yes         | Yes         | Via Queues    | Limited       | Yes           |
 
 ## Server Compatibility
 
@@ -137,6 +199,9 @@ Only the runtime handler import changes:
 - `@modelfetch/node` for Node.js
 - `@modelfetch/bun` for Bun
 - `@modelfetch/deno` for Deno
+- `@modelfetch/cloudflare` for Cloudflare Workers
+- `@modelfetch/vercel` for Vercel Functions
+- `@modelfetch/netlify` for Netlify Functions
 
 ## Development Workflow
 
@@ -151,11 +216,7 @@ All runtimes support a similar development workflow:
 
 ## Future Runtimes
 
-ModelFetch is actively working on support for:
-
-- **Cloudflare Workers** - Deploy MCP servers on the edge
-- **Vercel Functions** - Serverless MCP servers
-- **AWS Lambda** - Enterprise serverless deployment
+ModelFetch continues to expand runtime support. Additional runtimes will follow the same simple API pattern, making it easy to deploy your MCP servers anywhere.
 
 ## Next Steps
 

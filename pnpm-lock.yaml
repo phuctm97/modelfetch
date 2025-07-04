@@ -254,6 +254,22 @@ importers:
         specifier: 8.35.1
         version: 8.35.1(eslint@9.30.1(jiti@2.4.2))(typescript@5.8.3)
 
+  libs/create-modelfetch:
+    dependencies:
+      '@clack/prompts':
+        specifier: ^0.8.2
+        version: 0.8.2
+      ejs:
+        specifier: ^3.1.10
+        version: 3.1.10
+      picocolors:
+        specifier: ^1.1.1
+        version: 1.1.1
+    devDependencies:
+      create-eslint-config:
+        specifier: workspace:^
+        version: link:../create-eslint-config
+
   libs/eslint-config-import-paths:
     dependencies:
       eslint-plugin-no-relative-import-paths:
@@ -294,6 +310,25 @@ importers:
         specifier: workspace:^
         version: link:../create-eslint-config
 
+  libs/modelfetch-cloudflare:
+    dependencies:
+      '@modelfetch/core':
+        specifier: workspace:^
+        version: link:../modelfetch-core
+      hono:
+        specifier: ^4.8.3
+        version: 4.8.3
+      type-fest:
+        specifier: ^4.41.0
+        version: 4.41.0
+    devDependencies:
+      '@cloudflare/workers-types':
+        specifier: ^4.20241127.0
+        version: 4.20250704.0
+      create-eslint-config:
+        specifier: workspace:^
+        version: link:../create-eslint-config
+
   libs/modelfetch-core:
     dependencies:
       '@hono/mcp':
@@ -320,6 +355,19 @@ importers:
         specifier: workspace:^
         version: link:../create-eslint-config
 
+  libs/modelfetch-netlify:
+    dependencies:
+      '@modelfetch/core':
+        specifier: workspace:^
+        version: link:../modelfetch-core
+      hono:
+        specifier: ^4.8.3
+        version: 4.8.3
+    devDependencies:
+      create-eslint-config:
+        specifier: workspace:^
+        version: link:../create-eslint-config
+
   libs/modelfetch-node:
     dependencies:
       '@hono/node-server':
@@ -331,6 +379,19 @@ importers:
       type-fest:
         specifier: ^4.41.0
         version: 4.41.0
+    devDependencies:
+      create-eslint-config:
+        specifier: workspace:^
+        version: link:../create-eslint-config
+
+  libs/modelfetch-vercel:
+    dependencies:
+      '@modelfetch/core':
+        specifier: workspace:^
+        version: link:../modelfetch-core
+      hono:
+        specifier: ^4.8.3
+        version: 4.8.3
     devDependencies:
       create-eslint-config:
         specifier: workspace:^
@@ -898,6 +959,15 @@ packages:
   '@babel/types@7.28.0':
     resolution: {integrity: sha512-jYnje+JyZG5YThjHiF28oT4SIZLnYOcSBb6+SDaFIyzDVSkXQmQQYclJ2R+YxcdmK0AX6x1E5OQNtuh3jHDrUg==}
     engines: {node: '>=6.9.0'}
+
+  '@clack/core@0.3.5':
+    resolution: {integrity: sha512-5cfhQNH+1VQ2xLQlmzXMqUoiaH0lRBq9/CLW9lTyMbuKLC3+xEK01tHVvyut++mLOn5urSHmkm6I0Lg9MaJSTQ==}
+
+  '@clack/prompts@0.8.2':
+    resolution: {integrity: sha512-6b9Ab2UiZwJYA9iMyboYyW9yJvAO9V753ZhS+DHKEjZRKAxPPOb7MXXu84lsPFG+vZt6FRFniZ8rXi+zCIw4yQ==}
+
+  '@cloudflare/workers-types@4.20250704.0':
+    resolution: {integrity: sha512-KR8XwXVnJdbSStdmmkkqE0ac5UCrRT+HyFnpt/VcVMzEVeAiZfH0VAcYXasMs842CE1BsdbQG0FboVV9EmyMpQ==}
 
   '@emnapi/core@1.4.3':
     resolution: {integrity: sha512-4m62DuCE07lw01soJwPiBGC0nAww0Q+RY70VZ+n49yDIO13yyinhbWCeNnaob0lakDtWQzSdtNWzJeOJt2ma+g==}
@@ -4607,6 +4677,9 @@ packages:
   simple-swizzle@0.2.2:
     resolution: {integrity: sha512-JA//kQgZtbuY83m+xT+tXJkmJncGMTFT+C+g2h2R9uxkYIrE2yy9sgmcLhCnw57/WSD+Eh3J97FPEDFnbXnDUg==}
 
+  sisteransi@1.0.5:
+    resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
+
   sort-object-keys@1.1.3:
     resolution: {integrity: sha512-855pvK+VkU7PaKYPc+Jjnmt4EzejQHyhhF33q31qG8x7maDzkeFhAAThdCYay11CISO+qAMwjOBP+fPZe0IPyg==}
 
@@ -5746,6 +5819,19 @@ snapshots:
     dependencies:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.27.1
+
+  '@clack/core@0.3.5':
+    dependencies:
+      picocolors: 1.1.1
+      sisteransi: 1.0.5
+
+  '@clack/prompts@0.8.2':
+    dependencies:
+      '@clack/core': 0.3.5
+      picocolors: 1.1.1
+      sisteransi: 1.0.5
+
+  '@cloudflare/workers-types@4.20250704.0': {}
 
   '@emnapi/core@1.4.3':
     dependencies:
@@ -9971,6 +10057,8 @@ snapshots:
     dependencies:
       is-arrayish: 0.3.2
     optional: true
+
+  sisteransi@1.0.5: {}
 
   sort-object-keys@1.1.3: {}
 

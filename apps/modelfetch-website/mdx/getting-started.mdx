@@ -39,6 +39,36 @@ bun add @modelfetch/bun
 deno add jsr:@modelfetch/deno
 ```
 
+### Cloudflare
+
+```bash
+npm install @modelfetch/cloudflare
+# or
+yarn add @modelfetch/cloudflare
+# or
+pnpm add @modelfetch/cloudflare
+```
+
+### Vercel
+
+```bash
+npm install @modelfetch/vercel
+# or
+yarn add @modelfetch/vercel
+# or
+pnpm add @modelfetch/vercel
+```
+
+### Netlify
+
+```bash
+npm install @modelfetch/netlify
+# or
+yarn add @modelfetch/netlify
+# or
+pnpm add @modelfetch/netlify
+```
+
 ## Creating Your First MCP Server
 
 Let's create a simple MCP server that provides a greeting tool.
@@ -81,7 +111,7 @@ export default server;
 Create an `index.ts` file to handle the server with ModelFetch:
 
 ```typescript title="index.ts"
-import handle, { getEndpoint } from "@modelfetch/node"; // or @modelfetch/bun, @modelfetch/deno
+import handle, { getEndpoint } from "@modelfetch/node"; // or @modelfetch/bun, @modelfetch/deno, @modelfetch/vercel, @modelfetch/netlify
 import server from "./server";
 
 // Start the server (Node.js example)
@@ -89,9 +119,11 @@ handle(server, (address) => {
   console.log(`MCP Server is available at ${getEndpoint(address)}`);
 });
 
-// Note: Bun and Deno have different patterns:
+// Note: Other runtimes have different patterns:
 // Bun: const bunServer = handle(server); console.log(getEndpoint(bunServer));
 // Deno: const httpServer = handle(server); if (httpServer.addr) console.log(getEndpoint(httpServer.addr));
+// Vercel: export const GET = handle(server); export const POST = handle(server);
+// Netlify: export const handler = handle(server);
 ```
 
 ### 3. Run the server
@@ -118,6 +150,43 @@ bun run index.ts
 
 ```bash
 deno run -A index.ts
+```
+
+#### Vercel
+
+For Vercel, you'll typically deploy as an API route:
+
+```typescript title="app/api/mcp/route.ts"
+import handle from "@modelfetch/vercel";
+import server from "./server";
+
+export const runtime = "edge"; // or "nodejs"
+
+export const GET = handle(server);
+export const POST = handle(server);
+```
+
+Then deploy with:
+
+```bash
+vercel
+```
+
+#### Netlify
+
+For Netlify, create a serverless function:
+
+```typescript title="netlify/functions/mcp.ts"
+import handle from "@modelfetch/netlify";
+import server from "./server";
+
+export const handler = handle(server);
+```
+
+Then deploy with:
+
+```bash
+netlify deploy
 ```
 
 ## Understanding the Basics

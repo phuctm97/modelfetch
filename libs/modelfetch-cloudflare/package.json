@@ -1,0 +1,31 @@
+{
+  "name": "@modelfetch/cloudflare",
+  "version": "0.0.1",
+  "description": "Cloudflare Workers runtime adapter for building MCP servers with ModelFetch",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phuctm97/modelfetch.git",
+    "directory": "libs/modelfetch-cloudflare"
+  },
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "development": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@modelfetch/core": "workspace:^",
+    "hono": "^4.8.3",
+    "type-fest": "^4.41.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241127.0",
+    "create-eslint-config": "workspace:^"
+  }
+}

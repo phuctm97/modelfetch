@@ -1,0 +1,518 @@
+---
+title: Cloudflare
+description: Deploy MCP servers to Cloudflare Workers
+---
+
+The `@modelfetch/cloudflare` package provides ModelFetch support for deploying MCP servers to Cloudflare Workers, leveraging the power of the edge network for global, low-latency deployments.
+
+## Installation
+
+```bash
+npm install @modelfetch/cloudflare
+# or
+yarn add @modelfetch/cloudflare
+# or
+pnpm add @modelfetch/cloudflare
+```
+
+## Basic Usage
+
+### Cloudflare Workers
+
+```typescript title="src/index.ts"
+import handle from "@modelfetch/cloudflare";
+import server from "./server";
+
+export default handle(server);
+```
+
+### With Custom Handlers
+
+```typescript title="src/index.ts"
+import handle from "@modelfetch/cloudflare";
+import server from "./server";
+
+interface Env {
+  MY_KV: KVNamespace;
+  MY_API_KEY: string;
+}
+
+// Add custom handlers like scheduled, queue, etc.
+export default handle<Env>(server, {
+  scheduled: async (event, env, ctx) => {
+    console.log("Running scheduled task");
+    // Your scheduled task logic
+  },
+  queue: async (batch, env, ctx) => {
+    console.log(`Processing ${batch.messages.length} messages`);
+    // Your queue processing logic
+  },
+});
+```
+
+### Manual Integration
+
+If you need more control over the fetch handler:
+
+```typescript title="src/index.ts"
+import handle from "@modelfetch/cloudflare";
+import type { Options } from "@modelfetch/cloudflare";
+import server from "./server";
+
+interface Env {
+  MY_KV: KVNamespace;
+  MY_API_KEY: string;
+}
+
+// Define handlers separately for better organization
+const options: Options<Env> = {
+  scheduled: async (event, env, ctx) => {
+    // Your scheduled task logic
+  },
+  trace: async (traces, env, ctx) => {
+    // Handle trace events
+  },
+};
+
+// Option 1: Use the handle function
+export default handle<Env>(server, options);
+
+// Option 2: Manual integration
+export default {
+  async fetch(request: Request, env: Env, ctx: ExecutionContext) {
+    const handler = handle<Env>(server);
+    return handler.fetch(request, env, ctx);
+  },
+  ...options,
+};
+```
+
+## API Reference
+
+### Type Exports
+
+#### `Options<Env, QueueHandlerMessage, CfHostMetadata>`
+
+Type for additional Cloudflare Workers handlers, excluding the `fetch` handler which is provided by ModelFetch.
+
+```typescript
+import type { Options } from "@modelfetch/cloudflare";
+
+type Options<Env, QueueHandlerMessage, CfHostMetadata> = {
+  tail?: ExportedHandlerTailHandler<Env>;
+  trace?: ExportedHandlerTraceHandler<Env>;
+  scheduled?: ExportedHandlerScheduledHandler<Env>;
+  queue?: ExportedHandlerQueueHandler<Env, QueueHandlerMessage>;
+  test?: ExportedHandlerTestHandler<Env>;
+  email?: EmailExportedHandler<Env>;
+};
+```
+
+### `handle(server, options?)`
+
+Creates a Cloudflare Workers-compatible handler from a ModelFetch server.
+
+- **server**: The MCP server instance from `@modelcontextprotocol/sdk`
+- **options** (optional): Additional Cloudflare Workers handlers (scheduled, queue, email, etc.)
+
+Returns an `ExportedHandler` object compatible with Cloudflare Workers.
+
+#### Type Parameters
+
+```typescript
+handle<Env, QueueHandlerMessage, CfHostMetadata>(
+  server: Server,
+  options?: Options<Env, QueueHandlerMessage, CfHostMetadata>
+): ExportedHandler<Env, QueueHandlerMessage, CfHostMetadata>
+```
+
+- **Env**: Environment bindings type (KV, R2, D1, etc.)
+- **QueueHandlerMessage**: Message type for queue handlers
+- **CfHostMetadata**: Cloudflare-specific host metadata type
+
+#### Examples
+
+```typescript
+import handle from "@modelfetch/cloudflare";
+import server from "./server";
+
+// Basic usage
+const handler = handle(server);
+
+// With typed environment
+interface Env {
+  MY_KV: KVNamespace;
+  MY_QUEUE: Queue<MessageType>;
+}
+
+const typedHandler = handle<Env>(server);
+
+// With additional handlers
+const handlerWithScheduled = handle<Env>(server, {
+  scheduled: async (event, env, ctx) => {
+    // env is typed as Env
+    await env.MY_KV.put("last-run", Date.now().toString());
+  },
+});
+```
+
+### Type Exports
+
+```typescript
+import type { Options } from "@modelfetch/cloudflare";
+
+// Use when defining handlers separately
+const myHandlers: Options<Env> = {
+  scheduled: async (event, env, ctx) => {
+    // ...
+  },
+  queue: async (batch, env, ctx) => {
+    // ...
+  },
+};
+
+export default handle(server, myHandlers);
+```
+
+## Deployment
+
+### Using Wrangler CLI
+
+```bash
+# Install Wrangler
+npm install -g wrangler
+
+# Initialize a new project
+wrangler init my-mcp-server
+
+# Deploy
+wrangler deploy
+```
+
+### wrangler.toml Configuration
+
+```toml title="wrangler.toml"
+name = "my-mcp-server"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+
+[env.production]
+vars = { ENVIRONMENT = "production" }
+
+[[kv_namespaces]]
+binding = "MY_KV"
+id = "your-kv-namespace-id"
+
+[[r2_buckets]]
+binding = "MY_BUCKET"
+bucket_name = "my-bucket"
+
+[[d1_databases]]
+binding = "MY_DB"
+database_name = "my-database"
+database_id = "your-database-id"
+```
+
+### Environment Variables and Bindings
+
+Access Cloudflare bindings in your MCP server:
+
+```typescript title="server.ts"
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+
+const server = new McpServer({
+  title: "My MCP Server",
+  name: "my-server",
+  version: "1.0.0",
+});
+
+// Access bindings through the handler
+export default {
+  async fetch(request: Request, env: MyEnv, ctx: ExecutionContext) {
+    // Use env.MY_KV, env.MY_API_KEY, etc.
+    const handler = handle(server);
+    return handler(request, env, ctx);
+  },
+};
+```
+
+## Example Server
+
+Here's a complete example of an MCP server for Cloudflare Workers:
+
+```typescript title="server.ts"
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { z } from "zod";
+
+const server = new McpServer({
+  title: "KV Store MCP Server",
+  name: "kv-store-server",
+  version: "1.0.0",
+});
+
+// KV storage tool
+server.tool(
+  "kv_get",
+  "Get a value from KV store",
+  { key: z.string() },
+  async ({ key }, { env }) => {
+    const value = await env.MY_KV.get(key);
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: value || "Key not found",
+        },
+      ],
+    };
+  },
+);
+
+server.tool(
+  "kv_put",
+  "Store a value in KV store",
+  { key: z.string(), value: z.string() },
+  async ({ key, value }, { env }) => {
+    await env.MY_KV.put(key, value);
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: `Stored ${key} = ${value}`,
+        },
+      ],
+    };
+  },
+);
+
+export default server;
+```
+
+```typescript title="src/index.ts"
+import handle from "@modelfetch/cloudflare";
+import server from "./server";
+
+interface Env {
+  MY_KV: KVNamespace;
+}
+
+export default handle<Env>(server);
+```
+
+### Example with Queues
+
+Here's an example combining MCP server with Cloudflare Queues:
+
+```typescript title="src/index.ts"
+import handle from "@modelfetch/cloudflare";
+import server from "./server";
+
+interface Env {
+  MY_QUEUE: Queue;
+  ERROR_LOG: R2Bucket;
+}
+
+interface QueueMessage {
+  id: string;
+  data: Record<string, unknown>;
+}
+
+export default handle<Env, QueueMessage>(server, {
+  async queue(batch, env, ctx) {
+    // Process typed messages from the queue
+    for (const message of batch.messages) {
+      try {
+        // message.body is typed as QueueMessage
+        console.log("Processing:", message.body.id, message.body.data);
+
+        // Mark as acknowledged
+        message.ack();
+      } catch (error) {
+        // Log errors to R2
+        await env.ERROR_LOG.put(
+          `errors/${Date.now()}.json`,
+          JSON.stringify({
+            error: error.message,
+            messageId: message.body.id,
+            data: message.body.data,
+          }),
+        );
+
+        // Retry the message
+        message.retry();
+      }
+    }
+  },
+
+  async scheduled(event, env, ctx) {
+    // Run cleanup tasks every hour
+    console.log("Running scheduled cleanup at", event.cron);
+
+    // Clean up old error logs
+    const listing = await env.ERROR_LOG.list();
+    const oneWeekAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+
+    for (const object of listing.objects) {
+      const timestamp = parseInt(object.key.split("/")[1].split(".")[0]);
+      if (timestamp < oneWeekAgo) {
+        await env.ERROR_LOG.delete(object.key);
+      }
+    }
+  },
+});
+```
+
+## Features
+
+### Edge Network Benefits
+
+- **Global deployment**: Deploy to 300+ cities worldwide
+- **Low latency**: Serve requests from the nearest edge location
+- **Automatic scaling**: Handle millions of requests without configuration
+- **Zero cold starts**: Workers are always warm at the edge
+
+### Cloudflare Services Integration
+
+- **KV Storage**: Key-value storage at the edge
+- **R2 Storage**: S3-compatible object storage
+- **D1 Database**: SQLite at the edge
+- **Durable Objects**: Stateful serverless computing
+- **Queues**: Message queuing service
+- **Workers AI**: Run AI models at the edge
+
+## Best Practices
+
+### Performance Optimization
+
+1. Use KV for frequently accessed data
+2. Implement caching strategies
+3. Minimize external API calls
+4. Use Workers AI for ML tasks when possible
+
+### Security
+
+1. Store secrets as environment variables
+2. Validate all input parameters
+3. Use Cloudflare Access for authentication
+4. Enable rate limiting with Cloudflare
+
+### Error Handling
+
+```typescript
+server.tool(
+  "safe_operation",
+  "Demonstrates error handling",
+  { input: z.string() },
+  async ({ input }) => {
+    try {
+      // Your operation
+      const result = await riskyOperation(input);
+      return {
+        content: [{ type: "text", text: result }],
+      };
+    } catch (error) {
+      return {
+        content: [
+          {
+            type: "text",
+            text: `Error: ${error.message}`,
+          },
+        ],
+        isError: true,
+      };
+    }
+  },
+);
+```
+
+## Limitations
+
+### Workers Limitations
+
+- 128MB memory limit
+- 10ms CPU time limit (50ms for paid plans)
+- 1MB request/response size (100MB for Enterprise)
+- No file system access
+- Limited to Web Standard APIs
+
+### Workarounds
+
+- Use R2 for file storage
+- Use D1 for relational data
+- Use Durable Objects for state
+- Use Workers AI for compute-intensive tasks
+
+## Troubleshooting
+
+### Common Issues
+
+**Module not found errors**
+
+```json
+// Ensure compatibility_flags in wrangler.toml
+{
+  "compatibility_flags": ["nodejs_compat"]
+}
+```
+
+**Environment variables not accessible**
+
+```typescript
+// Access through env parameter, not process.env
+export default {
+  async fetch(request: Request, env: Env, ctx: ExecutionContext) {
+    console.log(env.MY_VAR); // ✓ Correct
+    console.log(process.env.MY_VAR); // ✗ Won't work
+  },
+};
+```
+
+**Timeout errors**
+
+```typescript
+// Use ctx.waitUntil for background tasks
+ctx.waitUntil(doBackgroundWork().catch((err) => console.error(err)));
+```
+
+## Local Development
+
+### Using Wrangler Dev
+
+```bash
+# Start local development server
+wrangler dev
+
+# With local persistence
+wrangler dev --local --persist
+```
+
+### Testing with Miniflare
+
+```typescript title="test/server.test.ts"
+import { Miniflare } from "miniflare";
+import handle from "@modelfetch/cloudflare";
+import server from "../src/server";
+
+const mf = new Miniflare({
+  script: `
+    export default {
+      fetch: ${handle(server).toString()}
+    }
+  `,
+  kvNamespaces: ["MY_KV"],
+});
+
+test("server responds", async () => {
+  const response = await mf.dispatchFetch("http://localhost/mcp");
+  expect(response.status).toBe(200);
+});
+```
+
+## Next Steps
+
+- Read the [MCP SDK documentation](https://docs.mcp.io)
+- Explore [Cloudflare Workers documentation](https://developers.cloudflare.com/workers/)
+- Learn about [Workers best practices](https://developers.cloudflare.com/workers/best-practices/)
+- Check out [example implementations](/docs/examples)
