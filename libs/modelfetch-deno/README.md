@@ -137,7 +137,7 @@ Optional `deno.json`:
 
 ## Documentation
 
-For complete documentation, examples, and guides, visit [modelfetch.com/docs/runtimes/deno](https://modelfetch.com/docs/runtimes/deno).
+For complete documentation, examples, and guides, visit [preview.modelfetch.com/docs/runtimes/deno](https://preview.modelfetch.com/docs/runtimes/deno).
 
 ## License
 

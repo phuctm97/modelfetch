@@ -283,7 +283,7 @@ async function main() {
     console.log(`  ${pc.cyan("npx @modelcontextprotocol/inspector")}`);
     console.log();
     console.log(pc.gray("  Read the documentation:"));
-    console.log(`  ${pc.cyan("https://www.modelfetch.com/docs")}`);
+    console.log(`  ${pc.cyan("https://preview.modelfetch.com/docs")}`);
     console.log();
   } catch (error) {
     s.stop("Failed to create project");

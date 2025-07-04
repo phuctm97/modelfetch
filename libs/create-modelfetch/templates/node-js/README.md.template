@@ -1,6 +1,6 @@
 # <%= projectTitle %>
 
-An MCP (Model Context Protocol) server built with [ModelFetch](https://www.modelfetch.com).
+An MCP (Model Context Protocol) server built with [ModelFetch](https://preview.modelfetch.com).
 
 ## Quick Start
 
@@ -111,6 +111,6 @@ server.prompt(
 ## Learn More
 
 - [Model Context Protocol](https://modelcontextprotocol.io)
-- [ModelFetch Website](https://www.modelfetch.com)
-- [ModelFetch Documentation](https://www.modelfetch.com/docs)
+- [ModelFetch Website](https://preview.modelfetch.com)
+- [ModelFetch Documentation](https://preview.modelfetch.com/docs)
 - [ModelFetch GitHub](https://github.com/phuctm97/modelfetch)
