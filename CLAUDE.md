@@ -28,10 +28,9 @@ The `modelfetch` CLI provides an exceptional developer experience with:
 
 This workspace follows Nx best practices as outlined in @.cursor/rules/nx-rules.mdc
 
-### Global Configurations
+### Workspace Configurations
 
 - Node.js version: @.nvmrc
-- Workspace configurations: @package.json @pnpm-workspace.yaml
 - TypeScript configurations: @tsconfig.base.json @tsconfig.bun.json @tsconfig.deno.json @tsconfig.next.json
 - TypeScript project references are used to improve the performance of TypeScript-related features
   - All TypeScript projects are referenced in the root @tsconfig.json
@@ -40,7 +39,7 @@ This workspace follows Nx best practices as outlined in @.cursor/rules/nx-rules.
 - All JavaScript projects have no ESLint configurations
 - All Nx projects use automatic configuration provided by Nx plugins instead of individual `project.json` files
 - All local dependencies use `workspace:^` version specifier
-- Dependencies and devDependencies that are already available in the root package.json should NOT be included in individual project package.json files. This includes common dependencies like `typescript`, `@types/node`, `eslint`, `prettier`, `nx`, `@nx/*`, `@swc/*`, etc.
+- `dependencies` and `devDependencies` that are already available in the root @package.json should NOT be included in individual project package.json files. This includes common dependencies like `typescript`, `@types/node`, `eslint`, `prettier`, `nx`, `@nx/*`, `@swc/*`, etc.
 
 ### Core Applications
 
