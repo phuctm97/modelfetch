@@ -146,21 +146,9 @@ async function main() {
   const runtime = (await p.select({
     message: "Which runtime would you like to use?",
     options: [
-      {
-        value: "node",
-        label: "Node.js",
-        hint: "Universal JavaScript runtime",
-      },
-      {
-        value: "bun",
-        label: "Bun",
-        hint: "Fast all-in-one JavaScript runtime",
-      },
-      {
-        value: "deno",
-        label: "Deno",
-        hint: "Secure runtime for JavaScript and TypeScript",
-      },
+      { value: "node", label: "Node.js" },
+      { value: "bun", label: "Bun" },
+      { value: "deno", label: "Deno" },
     ],
   })) as Runtime;
 
@@ -172,15 +160,8 @@ async function main() {
   const language = (await p.select({
     message: "Which language would you like to use?",
     options: [
-      {
-        value: "typescript",
-        label: "TypeScript",
-        hint: "Recommended for better type safety",
-      },
-      {
-        value: "javascript",
-        label: "JavaScript",
-      },
+      { value: "typescript", label: "TypeScript" },
+      { value: "javascript", label: "JavaScript" },
     ],
   })) as Language;
 
