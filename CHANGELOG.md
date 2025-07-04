@@ -1,3 +1,14 @@
+## 0.0.6 (2025-07-04)
+
+### 🩹 Fixes
+
+- Update Nx from 21.2.1 to 21.2.2 ([45b964b](https://github.com/phuctm97/modelfetch/commit/45b964b))
+- Add README and descriptions for public npm packages ([45b964b](https://github.com/phuctm97/modelfetch/commit/45b964b))
+
+### ❤️ Thank You
+
+- phuctm97
+
 ## 0.0.5 (2025-07-03)
 
 ### 🩹 Fixes
