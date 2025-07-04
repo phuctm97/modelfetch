@@ -1,6 +1,7 @@
 {
   "name": "@modelfetch/bun",
   "version": "0.0.5",
+  "description": "Bun runtime adapter for building MCP servers with ModelFetch",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/phuctm97/modelfetch.git",
