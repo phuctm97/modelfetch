@@ -1,6 +1,6 @@
 {
   "name": "@modelfetch/node",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Node.js runtime support for ModelFetch MCP servers",
   "repository": {
     "type": "git",

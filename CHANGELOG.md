@@ -1,3 +1,13 @@
+## 0.1.0 (2025-07-04)
+
+### 🚀 Features
+
+- Add create-modelfetch CLI and runtime adapters for Cloudflare, Vercel, and Netlify ([1faea80](https://github.com/phuctm97/modelfetch/commit/1faea80))
+
+### ❤️ Thank You
+
+- phuctm97
+
 ## 0.0.6 (2025-07-04)
 
 ### 🩹 Fixes
