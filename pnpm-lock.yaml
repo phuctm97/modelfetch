@@ -58,8 +58,8 @@ importers:
         specifier: workspace:^
         version: link:../../libs/modelfetch-bun
       zod:
-        specifier: ^3.25.72
-        version: 3.25.72
+        specifier: ^3.25.73
+        version: 3.25.73
     devDependencies:
       modelfetch:
         specifier: workspace:^
@@ -74,8 +74,8 @@ importers:
         specifier: workspace:^
         version: link:../../libs/modelfetch-bun
       zod:
-        specifier: ^3.25.72
-        version: 3.25.72
+        specifier: ^3.25.73
+        version: 3.25.73
     devDependencies:
       '@types/bun':
         specifier: ^1.2.18
@@ -96,8 +96,8 @@ importers:
         specifier: workspace:^
         version: link:../../libs/modelfetch-deno
       zod:
-        specifier: ^3.25.72
-        version: 3.25.72
+        specifier: ^3.25.73
+        version: 3.25.73
     devDependencies:
       modelfetch:
         specifier: workspace:^
@@ -112,8 +112,8 @@ importers:
         specifier: workspace:^
         version: link:../../libs/modelfetch-deno
       zod:
-        specifier: ^3.25.72
-        version: 3.25.72
+        specifier: ^3.25.73
+        version: 3.25.73
     devDependencies:
       '@types/deno':
         specifier: ^2.3.0
@@ -134,8 +134,8 @@ importers:
         specifier: workspace:^
         version: link:../../libs/modelfetch-node
       zod:
-        specifier: ^3.25.72
-        version: 3.25.72
+        specifier: ^3.25.73
+        version: 3.25.73
     devDependencies:
       modelfetch:
         specifier: workspace:^
@@ -150,8 +150,8 @@ importers:
         specifier: workspace:^
         version: link:../../libs/modelfetch-node
       zod:
-        specifier: ^3.25.72
-        version: 3.25.72
+        specifier: ^3.25.73
+        version: 3.25.73
     devDependencies:
       create-eslint-config:
         specifier: workspace:^
@@ -193,8 +193,8 @@ importers:
         specifier: ^19.1.0
         version: 19.1.0(react@19.1.0)
       zod:
-        specifier: ^3.25.72
-        version: 3.25.72
+        specifier: ^3.25.73
+        version: 3.25.73
     devDependencies:
       '@next/eslint-plugin-next':
         specifier: ^15.3.5
@@ -269,6 +269,9 @@ importers:
         specifier: ^6.0.0
         version: 6.0.1
     devDependencies:
+      '@types/ejs':
+        specifier: ^3.1.5
+        version: 3.1.5
       '@types/validate-npm-package-name':
         specifier: ^4.0.2
         version: 4.0.2
@@ -322,8 +325,8 @@ importers:
         specifier: workspace:^
         version: link:../modelfetch-core
       hono:
-        specifier: ^4.8.3
-        version: 4.8.3
+        specifier: ^4.8.4
+        version: 4.8.4
     devDependencies:
       create-eslint-config:
         specifier: workspace:^
@@ -333,10 +336,10 @@ importers:
     dependencies:
       '@hono/mcp':
         specifier: ^0.1.0
-        version: 0.1.0(@modelcontextprotocol/sdk@1.13.3)(hono@4.8.3)
+        version: 0.1.0(@modelcontextprotocol/sdk@1.13.3)(hono@4.8.4)
       hono:
-        specifier: ^4.8.3
-        version: 4.8.3
+        specifier: ^4.8.4
+        version: 4.8.4
     devDependencies:
       create-eslint-config:
         specifier: workspace:^
@@ -361,8 +364,8 @@ importers:
         specifier: workspace:^
         version: link:../modelfetch-core
       hono:
-        specifier: ^4.8.3
-        version: 4.8.3
+        specifier: ^4.8.4
+        version: 4.8.4
     devDependencies:
       create-eslint-config:
         specifier: workspace:^
@@ -372,7 +375,7 @@ importers:
     dependencies:
       '@hono/node-server':
         specifier: ^1.15.0
-        version: 1.15.0(hono@4.8.3)
+        version: 1.15.0(hono@4.8.4)
       '@modelfetch/core':
         specifier: workspace:^
         version: link:../modelfetch-core
@@ -390,8 +393,8 @@ importers:
         specifier: workspace:^
         version: link:../modelfetch-core
       hono:
-        specifier: ^4.8.3
-        version: 4.8.3
+        specifier: ^4.8.4
+        version: 4.8.4
     devDependencies:
       create-eslint-config:
         specifier: workspace:^
@@ -2174,6 +2177,9 @@ packages:
   '@types/deno@2.3.0':
     resolution: {integrity: sha512-/4SyefQpKjwNKGkq9qG3Ln7MazfbWKvydyVFBnXzP5OQA4u1paoFtaOe1iHKycIWHHkhYag0lPxyheThV1ijzw==}
 
+  '@types/ejs@3.1.5':
+    resolution: {integrity: sha512-nv+GSx77ZtXiJzwKdsASqi+YQ5Z7vwHsTP0JY2SiQgjGckkBRKZnk8nIM+7oUZ1VCtuTz0+By4qVR7fqzp/Dfg==}
+
   '@types/estree-jsx@1.0.5':
     resolution: {integrity: sha512-52CcUVNFyfb1A2ALocQw/Dd1BQFNmSdkuC3BkZ6iqhdMfQz7JWOFRuJFloOzjk+6WijU56m9oKXFAXc7o3Towg==}
 
@@ -3424,8 +3430,8 @@ packages:
   hast-util-whitespace@3.0.0:
     resolution: {integrity: sha512-88JUN06ipLwsnv+dVn+OIYOvAuvBMy/Qoi6O7mQHxdPXpjy+Cd6xRkWwux7DKO+4sYILtLBRIKgsdpS2gQc7qw==}
 
-  hono@4.8.3:
-    resolution: {integrity: sha512-jYZ6ZtfWjzBdh8H/0CIFfCBHaFL75k+KMzaM177hrWWm2TWL39YMYaJgB74uK/niRc866NMlH9B8uCvIo284WQ==}
+  hono@4.8.4:
+    resolution: {integrity: sha512-KOIBp1+iUs0HrKztM4EHiB2UtzZDTBihDtOF5K6+WaJjCPeaW4Q92R8j63jOhvJI5+tZSMuKD9REVEXXY9illg==}
     engines: {node: '>=16.9.0'}
 
   hosted-git-info@7.0.2:
@@ -5098,8 +5104,8 @@ packages:
     peerDependencies:
       zod: ^3.24.1
 
-  zod@3.25.72:
-    resolution: {integrity: sha512-Cl+fe4dNL4XumOBNBsr0lHfA80PQiZXHI4xEMTEr8gt6aGz92t3lBA32e71j9+JeF/VAYvdfBnuwJs+BMx/BrA==}
+  zod@3.25.73:
+    resolution: {integrity: sha512-fuIKbQAWQl22Ba5d1quwEETQYjqnpKVyZIWAhbnnHgnDd3a+z4YgEfkI5SZ2xMELnLAXo/Flk2uXgysZNf0uaA==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -6002,14 +6008,14 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@hono/mcp@0.1.0(@modelcontextprotocol/sdk@1.13.3)(hono@4.8.3)':
+  '@hono/mcp@0.1.0(@modelcontextprotocol/sdk@1.13.3)(hono@4.8.4)':
     dependencies:
       '@modelcontextprotocol/sdk': 1.13.3
-      hono: 4.8.3
+      hono: 4.8.4
 
-  '@hono/node-server@1.15.0(hono@4.8.3)':
+  '@hono/node-server@1.15.0(hono@4.8.4)':
     dependencies:
-      hono: 4.8.3
+      hono: 4.8.4
 
   '@humanfs/core@0.19.1': {}
 
@@ -6173,8 +6179,8 @@ snapshots:
       express-rate-limit: 7.5.1(express@5.1.0)
       pkce-challenge: 5.0.0
       raw-body: 3.0.0
-      zod: 3.25.72
-      zod-to-json-schema: 3.24.6(zod@3.25.72)
+      zod: 3.25.73
+      zod-to-json-schema: 3.24.6(zod@3.25.73)
     transitivePeerDependencies:
       - supports-color
 
@@ -6949,6 +6955,8 @@ snapshots:
       '@types/ms': 2.1.0
 
   '@types/deno@2.3.0': {}
+
+  '@types/ejs@3.1.5': {}
 
   '@types/estree-jsx@1.0.5':
     dependencies:
@@ -8275,7 +8283,7 @@ snapshots:
       tinyexec: 1.0.1
       tinyglobby: 0.2.14
       unist-util-visit: 5.0.0
-      zod: 3.25.72
+      zod: 3.25.73
     optionalDependencies:
       next: 15.3.5(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     transitivePeerDependencies:
@@ -8473,7 +8481,7 @@ snapshots:
     dependencies:
       '@types/hast': 3.0.4
 
-  hono@4.8.3: {}
+  hono@4.8.4: {}
 
   hosted-git-info@7.0.2:
     dependencies:
@@ -10555,10 +10563,10 @@ snapshots:
 
   yocto-queue@0.1.0: {}
 
-  zod-to-json-schema@3.24.6(zod@3.25.72):
+  zod-to-json-schema@3.24.6(zod@3.25.73):
     dependencies:
-      zod: 3.25.72
+      zod: 3.25.73
 
-  zod@3.25.72: {}
+  zod@3.25.73: {}
 
   zwitch@2.0.4: {}
