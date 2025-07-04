@@ -4,19 +4,15 @@
   "description": "<%= projectTitle %> (built with ModelFetch)",
   "private": true,
   "type": "module",
-  "main": "./src/index.ts",
   "scripts": {
-    "start": "tsx ."
+    "start": "bun run ./src/index.ts"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "<%= versions['@modelcontextprotocol/sdk'] %>",
-    "@modelfetch/node": "<%= versions['@modelfetch/node'] %>",
-    "tslib": "<%= versions['tslib'] %>",
+    "@modelfetch/bun": "<%= versions['@modelfetch/bun'] %>",
     "zod": "<%= versions['zod'] %>"
   },
   "devDependencies": {
-    "@types/node": "<%= versions['@types/node'] %>",
-    "tsx": "<%= versions['tsx'] %>",
-    "typescript": "<%= versions['typescript'] %>"
+    "@types/bun": "<%= versions['@types/bun'] %>"
   }
 }

@@ -5,21 +5,28 @@ import { promises as fs } from "node:fs";
 import path from "node:path";
 import { promisify } from "node:util";
 import pc from "picocolors";
+import validatePackageName from "validate-npm-package-name";
+
+import packageJson from "../package.json" with { type: "json" };
 
 const execAsync = promisify(exec);
 
 // Package versions
 const packageVersions = {
-  "@modelcontextprotocol/sdk": "^1.13.3",
-  "@modelfetch/node": "^0.0.1",
-  tslib: "^2.8.1",
-  zod: "^3.25.67",
-  tsx: "^4.20.3",
+  "@modelcontextprotocol/sdk": "1.13.3",
+  "@modelfetch/node": packageJson.version,
+  "@modelfetch/bun": packageJson.version,
+  "@modelfetch/deno": packageJson.version,
+  tslib: "2.8.1",
+  zod: "3.25.72",
+  tsx: "4.20.3",
+  typescript: "5.8.3",
+  "@types/bun": "1.2.18",
+  "@types/node": "22.15.34",
 };
 
 type Runtime = "node" | "bun" | "deno";
 type Language = "javascript" | "typescript";
-type ServerType = "tools" | "resources" | "prompts" | "hybrid";
 type PackageManager = "npm" | "pnpm" | "yarn" | "bun";
 
 interface ProjectOptions {
@@ -27,12 +34,11 @@ interface ProjectOptions {
   title: string;
   runtime: Runtime;
   language: Language;
-  serverType: ServerType;
   packageManager: PackageManager;
   installDeps: boolean;
 }
 
-async function detectPackageManager(): Promise<PackageManager> {
+function detectPackageManager(): PackageManager {
   const userAgent = process.env.npm_config_user_agent;
 
   if (userAgent) {
@@ -41,40 +47,21 @@ async function detectPackageManager(): Promise<PackageManager> {
     if (userAgent.includes("bun")) return "bun";
   }
 
-  // Check for lock files
-  try {
-    await fs.access("pnpm-lock.yaml");
-    return "pnpm";
-  } catch {
-    // Ignore error
-  }
-
-  try {
-    await fs.access("yarn.lock");
-    return "yarn";
-  } catch {
-    // Ignore error
-  }
-
-  try {
-    await fs.access("bun.lockb");
-    return "bun";
-  } catch {
-    // Ignore error
-  }
-
   return "npm";
 }
 
 function validateProjectName(name: string): string | undefined {
   if (!name) return "Project name is required";
-  if (!/^[a-z0-9-_.]+$/.test(name))
-    return "Project name can only contain lowercase letters, numbers, hyphens, underscores, and dots";
 
-  if (/^[._]/.test(name))
-    return "Project name cannot start with a dot or underscore";
+  const validation = validatePackageName(name);
 
-  return undefined;
+  if (!validation.validForNewPackages) {
+    const issue = [
+      ...(validation.errors ?? []),
+      ...(validation.warnings ?? []),
+    ].find(Boolean);
+    return (issue ?? "") || "Project name is invalid";
+  }
 }
 
 async function copyTemplate(
@@ -92,7 +79,6 @@ async function copyTemplate(
     projectTitle: options.title,
     runtime: options.runtime,
     language: options.language,
-    serverType: options.serverType,
     packageManager: options.packageManager,
     versions: packageVersions,
   };
@@ -160,7 +146,11 @@ async function main() {
   const runtime = (await p.select({
     message: "Which runtime would you like to use?",
     options: [
-      { value: "node", label: "Node.js", hint: "Universal JavaScript runtime" },
+      {
+        value: "node",
+        label: "Node.js",
+        hint: "Universal JavaScript runtime",
+      },
       {
         value: "bun",
         label: "Bun",
@@ -187,7 +177,10 @@ async function main() {
         label: "TypeScript",
         hint: "Recommended for better type safety",
       },
-      { value: "javascript", label: "JavaScript" },
+      {
+        value: "javascript",
+        label: "JavaScript",
+      },
     ],
   })) as Language;
 
@@ -196,62 +189,42 @@ async function main() {
     process.exit(0);
   }
 
-  const serverType = (await p.select({
-    message: "What type of MCP server would you like to create?",
-    options: [
-      {
-        value: "tools",
-        label: "Tools",
-        hint: "Provide tools/functions to LLMs",
-      },
-      {
-        value: "resources",
-        label: "Resources",
-        hint: "Expose data and content to LLMs",
-      },
-      {
-        value: "prompts",
-        label: "Prompts",
-        hint: "Provide reusable prompts to LLMs",
-      },
-      {
-        value: "hybrid",
-        label: "Hybrid",
-        hint: "Combine tools, resources, and prompts",
-      },
-    ],
-  })) as ServerType;
+  const detectedPM = detectPackageManager();
+  let packageManager: PackageManager;
+  let installDeps = false;
 
-  if (p.isCancel(serverType)) {
-    p.cancel("Operation cancelled.");
-    process.exit(0);
-  }
+  // Skip package manager selection for Deno
+  if (runtime === "deno") {
+    packageManager = "npm"; // Not used for Deno, but needed for TypeScript
+    installDeps = false; // Deno doesn't need to install dependencies
+  } else {
+    packageManager = (await p.select({
+      message: "Which package manager would you like to use?",
+      options: [
+        { value: "npm", label: "npm" },
+        { value: "pnpm", label: "pnpm" },
+        { value: "yarn", label: "yarn" },
+        { value: "bun", label: "bun" },
+      ],
+      initialValue: detectedPM,
+    })) as PackageManager;
 
-  const detectedPM = await detectPackageManager();
-  const packageManager = (await p.select({
-    message: "Which package manager would you like to use?",
-    options: [
-      { value: "npm", label: "npm" },
-      { value: "pnpm", label: "pnpm" },
-      { value: "yarn", label: "yarn" },
-      { value: "bun", label: "bun" },
-    ],
-    initialValue: detectedPM,
-  })) as PackageManager;
+    if (p.isCancel(packageManager)) {
+      p.cancel("Operation cancelled.");
+      process.exit(0);
+    }
 
-  if (p.isCancel(packageManager)) {
-    p.cancel("Operation cancelled.");
-    process.exit(0);
-  }
+    const installDepsResult = await p.confirm({
+      message: "Would you like to install dependencies?",
+      initialValue: true,
+    });
 
-  const installDeps = await p.confirm({
-    message: "Would you like to install dependencies?",
-    initialValue: true,
-  });
+    if (p.isCancel(installDepsResult)) {
+      p.cancel("Operation cancelled.");
+      process.exit(0);
+    }
 
-  if (p.isCancel(installDeps)) {
-    p.cancel("Operation cancelled.");
-    process.exit(0);
+    installDeps = installDepsResult;
   }
 
   const options: ProjectOptions = {
@@ -259,7 +232,6 @@ async function main() {
     title: projectTitle,
     runtime,
     language,
-    serverType,
     packageManager,
     installDeps,
   };
@@ -322,7 +294,9 @@ async function main() {
     console.log(`  ${pc.cyan(`cd ${projectName}`)}`);
     console.log();
     console.log(pc.gray("  Start the MCP server:"));
-    console.log(`  ${pc.cyan(`${packageManager} start`)}`);
+    const startCommand =
+      runtime === "deno" ? "deno task start" : `${packageManager} start`;
+    console.log(`  ${pc.cyan(startCommand)}`);
     console.log();
     console.log(pc.gray("  Test with MCP Inspector:"));
     console.log(`  ${pc.cyan("npx @modelcontextprotocol/inspector")}`);

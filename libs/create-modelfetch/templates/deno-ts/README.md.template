@@ -9,7 +9,7 @@ An MCP (Model Context Protocol) server built with [ModelFetch](https://www.model
 Start the MCP server:
 
 ```bash
-<%= packageManager %> start
+deno task start
 ```
 
 ### Testing with MCP Inspector
@@ -27,9 +27,9 @@ Then connect to your server at `http://localhost:3000` (or the port shown in you
 ```
 <%= projectName %>/
 ├── src/
-│   ├── index.js      # Project entry point
-│   └── server.js     # MCP server implementation
-├── package.json
+│   ├── index.ts      # Project entry point
+│   └── server.ts     # MCP server implementation
+├── deno.json
 └── README.md
 ```
 
@@ -39,7 +39,7 @@ Then connect to your server at `http://localhost:3000` (or the port shown in you
 
 Tools allow your MCP server to provide executable functions to LLMs:
 
-```javascript
+```typescript
 server.tool(
   "my_tool",
   "What this tool does",
@@ -61,7 +61,7 @@ server.tool(
 
 Resources expose data and content to LLMs:
 
-```javascript
+```typescript
 server.resource(
   "resource://my-resource", 
   async () => {
@@ -83,7 +83,7 @@ server.resource(
 
 Prompts provide reusable prompt templates:
 
-```javascript
+```typescript
 server.prompt(
   "my_prompt",
   "What this prompt does",

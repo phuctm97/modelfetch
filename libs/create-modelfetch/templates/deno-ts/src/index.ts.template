@@ -1,0 +1,7 @@
+import handle, { getEndpoint } from "@modelfetch/deno";
+
+import server from "./server.ts";
+
+handle(server, (address) => {
+  console.log(`MCP server is available at ${getEndpoint(address)}`);
+});

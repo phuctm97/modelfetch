@@ -9,7 +9,7 @@ An MCP (Model Context Protocol) server built with [ModelFetch](https://www.model
 Start the MCP server:
 
 ```bash
-<%= packageManager %> start
+bun start
 ```
 
 ### Testing with MCP Inspector

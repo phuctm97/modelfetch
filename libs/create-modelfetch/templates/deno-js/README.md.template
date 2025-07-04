@@ -9,7 +9,7 @@ An MCP (Model Context Protocol) server built with [ModelFetch](https://www.model
 Start the MCP server:
 
 ```bash
-<%= packageManager %> start
+deno task start
 ```
 
 ### Testing with MCP Inspector
@@ -29,7 +29,7 @@ Then connect to your server at `http://localhost:3000` (or the port shown in you
 ├── src/
 │   ├── index.js      # Project entry point
 │   └── server.js     # MCP server implementation
-├── package.json
+├── deno.json
 └── README.md
 ```
 

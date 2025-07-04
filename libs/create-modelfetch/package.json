@@ -26,9 +26,11 @@
   "dependencies": {
     "@clack/prompts": "^0.11.0",
     "ejs": "^3.1.10",
-    "picocolors": "^1.1.1"
+    "picocolors": "^1.1.1",
+    "validate-npm-package-name": "^6.0.0"
   },
   "devDependencies": {
+    "@types/validate-npm-package-name": "^4.0.2",
     "create-eslint-config": "workspace:^"
   }
 }

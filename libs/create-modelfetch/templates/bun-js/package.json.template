@@ -1,0 +1,15 @@
+{
+  "name": "<%= projectName %>",
+  "version": "0.0.1",
+  "description": "<%= projectTitle %> (built with ModelFetch)",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "bun run ./src/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "<%= versions['@modelcontextprotocol/sdk'] %>",
+    "@modelfetch/bun": "<%= versions['@modelfetch/bun'] %>",
+    "zod": "<%= versions['zod'] %>"
+  }
+}

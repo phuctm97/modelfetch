@@ -1,0 +1,12 @@
+{
+  "name": "<%= projectName %>",
+  "version": "0.0.1",
+  "imports": {
+    "@modelcontextprotocol/sdk": "npm:@modelcontextprotocol/sdk@<%= versions['@modelcontextprotocol/sdk'] %>",
+    "@modelfetch/deno": "npm:@modelfetch/deno@<%= versions['@modelfetch/deno'] %>",
+    "zod": "npm:zod@<%= versions['zod'] %>"
+  },
+  "tasks": {
+    "start": "deno run -A ./src/index.js"
+  }
+}
