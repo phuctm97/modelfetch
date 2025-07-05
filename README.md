@@ -3,15 +3,15 @@
 
   <h3>Create, build, and deploy MCP servers anywhere TypeScript/JavaScript runs</h3>
 
-  <p>A delightful TypeScript/JavaScript SDK for developing MCP servers</p>
+  <p>The delightful TypeScript/JavaScript SDK for MCP servers</p>
 </div>
 
 ---
 
 ## 🚀 Features
 
-- **Runtime Agnostic**: Deploy to Node.js, Bun, Deno, Cloudflare Workers, Vercel, Netlify, and more
-- **TypeScript First**: Built with TypeScript for excellent type safety and developer experience
+- **Multi-Runtime**: Write once, run anywhere: Node.js, Bun, Deno, Cloudflare Workers, Vercel, Netlify, etc.
+- **Official SDK**: Built on top of the official MCP TypeScript SDK to avoid lock-in and ensure up-to-date implementation
 - **Live Reload**: Development server with automatic reloading
 - **MCP Inspector**: Built-in integration for testing and debugging
 - **Modular Design**: Platform-specific packages for optimal performance
@@ -46,17 +46,17 @@ const server = new McpServer({
 });
 
 server.registerTool(
-  "hello",
+  "roll_dice",
   {
-    title: "Say Hello",
-    description: "Say hello to someone",
-    inputSchema: { name: z.string() },
+    title: "Roll Dice",
+    description: "Rolls an N-sided dice",
+    inputSchema: { sides: z.number().int().min(2) },
   },
-  ({ name }) => ({
+  ({ sides }) => ({
     content: [
       {
         type: "text",
-        text: `Hello, ${name}! 👋`,
+        text: `🎲 You rolled a ${1 + Math.floor(Math.random() * sides)}!`,
       },
     ],
   }),
@@ -79,15 +79,15 @@ handle(server, (address) => {
 
 ### Prerequisites
 
-- Node.js 22.15+
-- pnpm 10.12+
+- Node.js 22+
+- pnpm 10+
 
 ### Setup
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/modelfetch/modelfetch.git
+   git clone https://github.com/phuctm97/modelfetch.git
    cd modelfetch
    ```
 
@@ -97,7 +97,7 @@ handle(server, (address) => {
    pnpm install
    ```
 
-3. Verify all projects
+3. Type check, lint, and build all projects
    ```bash
    pnpm exec nx run-many -t typecheck lint build
    ```
@@ -111,7 +111,7 @@ pnpm exec nx dev @modelfetch/website
 # Type check all projects
 pnpm exec nx run-many -t typecheck
 
-# Lint all projects
+# Lint and auto-fix all projects
 pnpm exec nx run-many -t lint --args=--fix
 
 # Build all projects
@@ -121,20 +121,19 @@ pnpm exec nx run-many -t build
 pnpm -w format
 ```
 
+## 📚 Documentation
+
+- [Model Context Protocol - TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
+- [Model Context Protocol - Documentation](https://modelcontextprotocol.io)
+- [ModelFetch - Website](https://preview.modelfetch.com)
+- [ModelFetch - Documentation](https://preview.modelfetch.com/docs)
+
 ## 📄 License
 
 ModelFetch is [MIT licensed](LICENSE).
 
-## Learn More
-
-- [Model Context Protocol - Documentation](https://modelcontextprotocol.io)
-- [Model Context Protocol - TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
-- [ModelFetch - Website](https://preview.modelfetch.com)
-- [ModelFetch - Documentation](https://preview.modelfetch.com/docs)
-- [ModelFetch - GitHub](https://github.com/modelfetch/modelfetch)
-
 ---
 
 <div align="center">
-  <p>Built with ❤️ by the ModelFetch team</p>
+  <p>Built with ❤️ by <a href="https://x.com/phuctm97">Minh-Phuc Tran</a></p>
 </div>

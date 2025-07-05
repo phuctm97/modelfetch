@@ -4,7 +4,7 @@ An MCP server built with [ModelFetch](https://preview.modelfetch.com)
 
 ## Quick Start
 
-### Running the Server
+### Running the MCP server
 
 Start the MCP server:
 
@@ -12,7 +12,7 @@ Start the MCP server:
 <%= packageManager %> start
 ```
 
-### Testing with MCP Inspector
+### Testing with the MCP Inspector
 
 In a separate terminal, run the MCP Inspector to test your server:
 
@@ -20,7 +20,7 @@ In a separate terminal, run the MCP Inspector to test your server:
 npx @modelcontextprotocol/inspector
 ```
 
-Then connect to your server at `http://localhost:3000` (or the port shown in your dev server output).
+Then, connect to your server at `http://localhost:3000/mcp` (or the endpoint shown in your server output).
 
 ## Project Structure
 
@@ -45,15 +45,13 @@ server.registerTool(
   {
     title: "My Tool",
     description: "What this tool does",
-    inputSchema: { 
-      param: z.string()
-    },
+    inputSchema: { param: z.string() },
   },
   ({ param }) => ({
     content: [
       {
         type: "text",
-        text: `Result: ${param}`,
+        text: `Result for ${param}`,
       },
     ],
   }),
@@ -70,14 +68,14 @@ server.registerResource(
   "resource://my-resource",
   {
     title: "My Resource",
-    description: "What this resource provides",
+    description: "What this resource does",
     mimeType: "text/plain",
   },
   (uri) => ({
     contents: [
       {
         uri: uri.href,
-        text: "Resource content",
+        text: "Content of my resource",
       },
     ],
   }),
@@ -94,9 +92,7 @@ server.registerPrompt(
   {
     title: "My Prompt",
     description: "What this prompt does",
-    argsSchema: {
-      arg: z.string(),
-    },
+    argsSchema: { arg: z.string() },
   },
   ({ arg }) => ({
     messages: [

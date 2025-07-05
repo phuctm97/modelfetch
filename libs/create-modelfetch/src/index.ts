@@ -132,8 +132,6 @@ async function copyTemplate(
 }
 
 async function main() {
-  console.clear();
-
   // Display ASCII art logo
   console.log(pc.greenBright(asciiLogo));
 
@@ -322,13 +320,13 @@ async function main() {
     console.log();
     console.log(pc.bold("Next steps:"));
     console.log();
-    console.log(pc.gray("  Navigate to your project:"));
+    console.log(pc.gray("  Navigate to the project directory:"));
     console.log(`  ${pc.cyan(`cd ${finalProjectName}`)}`);
     console.log();
     console.log(pc.gray("  Start the MCP server:"));
     console.log(`  ${pc.cyan(getStartCommand(runtime, packageManager))}`);
     console.log();
-    console.log(pc.gray("  Test with MCP Inspector:"));
+    console.log(pc.gray("  Test with the MCP Inspector:"));
     console.log(`  ${pc.cyan("npx @modelcontextprotocol/inspector")}`);
     console.log();
     console.log(pc.gray("  Read the documentation:"));
