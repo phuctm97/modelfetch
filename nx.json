@@ -26,6 +26,7 @@
   },
   "release": {
     "versionPlans": true,
+    "projects": ["*"],
     "git": { "commitMessage": "Release v{version}" }
   }
 }
