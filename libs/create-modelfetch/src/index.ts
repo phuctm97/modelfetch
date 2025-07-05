@@ -72,6 +72,20 @@ function validateProjectName(name: string): string | undefined {
   }
 }
 
+function getStartCommand(
+  runtime: Runtime,
+  packageManager: PackageManager,
+): string {
+  switch (runtime) {
+    case "deno": {
+      return "deno task start";
+    }
+    default: {
+      return `${packageManager} start`;
+    }
+  }
+}
+
 async function copyTemplate(
   templatePath: string,
   targetPath: string,
@@ -130,10 +144,10 @@ async function main() {
   );
   console.log();
 
-  p.intro(pc.bgCyan(pc.black(" Let's scaffold your MCP server ")));
+  p.intro(pc.bold("Let's scaffold your MCP server!"));
 
   const projectName = await p.text({
-    message: "What is your MCP server's name?",
+    message: "What is your MCP server name?",
     placeholder: "my-mcp-server",
     defaultValue: "my-mcp-server",
     validate: validateProjectName,
@@ -151,7 +165,7 @@ async function main() {
   const defaultTitle = capitalCase(finalProjectName);
 
   const projectTitle = await p.text({
-    message: "What is your MCP server's title?",
+    message: "What is your MCP server title?",
     placeholder: defaultTitle,
     defaultValue: defaultTitle,
   });
@@ -193,40 +207,52 @@ async function main() {
 
   const detectedPM = detectPackageManager();
   let packageManager: PackageManager;
-  let installDeps = false;
+  let installDeps: boolean | undefined;
 
-  // Skip package manager selection for Deno
-  if (runtime === "deno") {
-    packageManager = "npm"; // Not used for Deno, but needed for TypeScript
-    installDeps = false; // Deno doesn't need to install dependencies
-  } else {
-    packageManager = (await p.select({
-      message: "Which package manager would you like to use?",
-      options: [
-        { value: "npm", label: "npm" },
-        { value: "pnpm", label: "pnpm" },
-        { value: "yarn", label: "yarn" },
-        { value: "bun", label: "bun" },
-      ],
-      initialValue: detectedPM,
-    })) as PackageManager;
-
-    if (p.isCancel(packageManager)) {
-      p.cancel("Operation cancelled.");
-      process.exit(0);
+  // Handle package manager selection based on runtime
+  switch (runtime) {
+    case "bun": {
+      packageManager = "bun";
+      break;
     }
+    case "deno": {
+      packageManager = "npm";
+      installDeps = false; // Deno doesn't need to install dependencies
+      break;
+    }
+    default: {
+      packageManager = (await p.select({
+        message: "Which package manager would you like to use?",
+        options: [
+          { value: "npm", label: "npm" },
+          { value: "pnpm", label: "pnpm" },
+          { value: "bun", label: "bun" },
+          { value: "yarn", label: "yarn" },
+        ],
+        initialValue: detectedPM,
+      })) as PackageManager;
 
-    const installDepsResult = await p.confirm({
+      if (p.isCancel(packageManager)) {
+        p.cancel("Operation cancelled.");
+        process.exit(0);
+      }
+      break;
+    }
+  }
+
+  // Ask about installing dependencies
+  if (typeof installDeps !== "boolean") {
+    const value = await p.confirm({
       message: "Would you like to install dependencies?",
       initialValue: true,
     });
 
-    if (p.isCancel(installDepsResult)) {
+    if (p.isCancel(value)) {
       p.cancel("Operation cancelled.");
       process.exit(0);
     }
 
-    installDeps = installDepsResult;
+    installDeps = value;
   }
 
   const options: ProjectOptions = {
@@ -238,33 +264,37 @@ async function main() {
     installDeps,
   };
 
-  const s = p.spinner();
-
-  s.start("Scaffolding project");
-
   const targetDir = path.resolve(finalProjectName);
   const templateName = `${runtime}-${language === "javascript" ? "js" : "ts"}`;
   const templateDir = new URL(`../templates/${templateName}`, import.meta.url)
     .pathname;
 
+  // Check if directory exists
+  let shouldRemoveExisting = false;
   try {
-    // Check if directory exists
-    try {
-      await fs.access(targetDir);
-      const overwrite = await p.confirm({
-        message: `Directory ${finalProjectName} already exists. Overwrite?`,
-        initialValue: false,
-      });
+    await fs.access(targetDir);
+    const overwrite = await p.confirm({
+      message: `Directory ${finalProjectName} already exists. Overwrite?`,
+      initialValue: false,
+    });
 
-      if (!overwrite || p.isCancel(overwrite)) {
-        p.cancel("Operation cancelled.");
-        process.exit(0);
-      }
-
-      await fs.rm(targetDir, { recursive: true });
-    } catch {
-      // Directory doesn't exist, proceed with creation
+    if (!overwrite || p.isCancel(overwrite)) {
+      p.cancel("Operation cancelled.");
+      process.exit(0);
     }
+
+    shouldRemoveExisting = true;
+  } catch {
+    // Directory doesn't exist, proceed with creation
+  }
+
+  const s = p.spinner();
+
+  try {
+    s.start("Scaffolding project");
+
+    // Remove existing directory if needed
+    if (shouldRemoveExisting) await fs.rm(targetDir, { recursive: true });
 
     // Copy template
     await copyTemplate(templateDir, targetDir, options);
@@ -296,9 +326,7 @@ async function main() {
     console.log(`  ${pc.cyan(`cd ${finalProjectName}`)}`);
     console.log();
     console.log(pc.gray("  Start the MCP server:"));
-    const startCommand =
-      runtime === "deno" ? "deno task start" : `${packageManager} start`;
-    console.log(`  ${pc.cyan(startCommand)}`);
+    console.log(`  ${pc.cyan(getStartCommand(runtime, packageManager))}`);
     console.log();
     console.log(pc.gray("  Test with MCP Inspector:"));
     console.log(`  ${pc.cyan("npx @modelcontextprotocol/inspector")}`);

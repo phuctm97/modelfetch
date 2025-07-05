@@ -27,56 +27,44 @@ server.registerTool(
   }),
 );
 
-// Example resource: Get current time
+// Example resource: App config
 server.registerResource(
-  "time_current",
-  "time://current",
+  "app_config",
+  "app://config",
   {
-    title: "Current Time",
-    description: "Get the current time in ISO format",
+    title: "App Config",
+    description: "Application configurations",
+    mimeType: "text/plain",
   },
-  async () => {
-    const now = new Date();
-    return {
-      contents: [
-        {
-          uri: "time://current",
-          mimeType: "text/plain",
-          text: `Current time: ${now.toISOString()}`,
-        },
-      ],
-    };
-  },
+  (uri) => ({
+    contents: [
+      {
+        uri: uri.href,
+        text: "APP_CONFIG",
+      },
+    ],
+  }),
 );
 
-// Example prompt: Generate greeting
+// Example prompt: Code review
 server.registerPrompt(
-  "greeting",
+  "review-code",
   {
-    title: "Greeting Generator",
-    description: "Generate a personalized greeting",
-    argsSchema: {
-      name: z.string().describe("Name of the person to greet"),
-      style: z.enum(["formal", "casual"]).optional().describe("Style of greeting"),
-    },
+    title: "Code Review",
+    description: "Review code for best practices and potential issues",
+    argsSchema: { code: z.string() },
   },
-  ({ name, style = "casual" }) => {
-    const greeting = style === "formal" 
-      ? `Good day, ${name}. How may I assist you today?`
-      : `Hey ${name}! What's up?`;
-    
-    return {
-      messages: [
-        {
-          role: "user",
-          content: {
-            type: "text",
-            text: greeting,
-          },
+  ({ code }) => ({
+    messages: [
+      {
+        role: "user",
+        content: {
+          type: "text",
+          text: `Please review this code:\n\n${code}`,
         },
-      ],
-    };
-  },
+      },
+    ],
+  }),
 );
 
 export default server;

@@ -1,6 +1,6 @@
 # <%= projectTitle %>
 
-An MCP (Model Context Protocol) server built with [ModelFetch](https://preview.modelfetch.com).
+An MCP server built with [ModelFetch](https://preview.modelfetch.com)
 
 ## Quick Start
 
@@ -38,7 +38,7 @@ Then connect to your server at `http://localhost:3000` (or the port shown in you
 
 ### Tools
 
-Tools allow your MCP server to provide executable functions to LLMs:
+Tools provide executable functions to LLMs:
 
 ```typescript
 server.registerTool(
@@ -67,29 +67,27 @@ Resources expose data and content to LLMs:
 
 ```typescript
 server.registerResource(
-  "my-resource",
+  "my_resource",
   "resource://my-resource",
   {
     title: "My Resource",
     description: "What this resource provides",
+    mimeType: "text/plain",
   },
-  async () => {
-    return {
-      contents: [
-        {
-          uri: "resource://my-resource",
-          mimeType: "text/plain",
-          text: "Resource content",
-        },
-      ],
-    };
-  },
+  (uri) => ({
+    contents: [
+      {
+        uri: uri.href,
+        text: "Resource content",
+      },
+    ],
+  }),
 );
 ```
 
 ### Prompts
 
-Prompts provide reusable prompt templates:
+Prompts are reusable templates for interacting with LLMs:
 
 ```typescript
 server.registerPrompt(
@@ -97,21 +95,17 @@ server.registerPrompt(
   {
     title: "My Prompt",
     description: "What this prompt does",
-    argsSchema: [
-      { 
-        name: "arg", 
-        description: "Argument description", 
-        required: true 
-      },
-    ],
+    argsSchema: {
+      arg: z.string(),
+    },
   },
   ({ arg }) => ({
     messages: [
       {
         role: "user",
-        content: { 
-          type: "text", 
-          text: `Prompt with ${arg}` 
+        content: {
+          type: "text",
+          text: `Prompt with ${arg}`,
         },
       },
     ],
@@ -121,7 +115,8 @@ server.registerPrompt(
 
 ## Learn More
 
-- [Model Context Protocol](https://modelcontextprotocol.io)
-- [ModelFetch Website](https://preview.modelfetch.com)
-- [ModelFetch Documentation](https://preview.modelfetch.com/docs)
-- [ModelFetch GitHub](https://github.com/phuctm97/modelfetch)
+- [Model Context Protocol - Documentation](https://modelcontextprotocol.io)
+- [Model Context Protocol - TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
+- [ModelFetch - Website](https://preview.modelfetch.com)
+- [ModelFetch - Documentation](https://preview.modelfetch.com/docs)
+- [ModelFetch - GitHub](https://github.com/phuctm97/modelfetch)
