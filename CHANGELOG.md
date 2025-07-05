@@ -1,3 +1,17 @@
+## 0.3.0 (2025-07-05)
+
+### 🚀 Features
+
+- Improve create-modelfetch CLI UX with better prompts, updated examples matching MCP SDK patterns, and enhanced documentation ([#13](https://github.com/phuctm97/modelfetch/pull/13))
+
+### 🩹 Fixes
+
+- Add repository README, package READMEs, and MIT license for better documentation and licensing ([#13](https://github.com/phuctm97/modelfetch/pull/13))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.2.0 (2025-07-05)
 
 ### 🚀 Features
