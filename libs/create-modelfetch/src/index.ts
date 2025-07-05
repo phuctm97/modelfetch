@@ -1,4 +1,5 @@
 import * as p from "@clack/prompts";
+import { capitalCase } from "change-case";
 import ejs from "ejs";
 import { exec } from "node:child_process";
 import { promises as fs } from "node:fs";
@@ -10,6 +11,14 @@ import validatePackageName from "validate-npm-package-name";
 import packageJson from "../package.json" with { type: "json" };
 
 const execAsync = promisify(exec);
+
+// ASCII art logo
+const asciiLogo = `   __  __           _      _ _____    _       _
+  |  \\/  |         | |    | |  ___|  | |     | |
+  | .  . | ___   __| | ___| | |_ ___| |_ ___| |__
+  | |\\/| |/ _ \\ / _\` |/ _ \\ |  _/ _ \\ __/ __| '_ \\
+  | |  | | (_) | (_| |  __/ | ||  __/ || (__| | | |
+  \\_|  |_/\\___/ \\__,_|\\___|_\\_| \\___|\\__\\___|_| |_|`;
 
 // Package versions
 const packageVersions = {
@@ -51,16 +60,15 @@ function detectPackageManager(): PackageManager {
 }
 
 function validateProjectName(name: string): string | undefined {
-  if (!name) return "Project name is required";
-
-  const validation = validatePackageName(name);
-
-  if (!validation.validForNewPackages) {
-    const issue = [
-      ...(validation.errors ?? []),
-      ...(validation.warnings ?? []),
-    ].find(Boolean);
-    return (issue ?? "") || "Project name is invalid";
+  if (name) {
+    const validation = validatePackageName(name);
+    if (!validation.validForNewPackages) {
+      const issue = [
+        ...(validation.errors ?? []),
+        ...(validation.warnings ?? []),
+      ].find(Boolean);
+      return (issue ?? "") || "name is invalid";
+    }
   }
 }
 
@@ -112,10 +120,20 @@ async function copyTemplate(
 async function main() {
   console.clear();
 
-  p.intro(pc.bgCyan(pc.black(" create-modelfetch ")));
+  // Display ASCII art logo
+  console.log(pc.greenBright(asciiLogo));
+
+  // Display hero title
+  console.log();
+  console.log(
+    pc.gray("The delightful TypeScript/JavaScript SDK for MCP servers"),
+  );
+  console.log();
+
+  p.intro(pc.bgCyan(pc.black(" Let's scaffold your MCP server ")));
 
   const projectName = await p.text({
-    message: "What is your project named?",
+    message: "What is your MCP server's name?",
     placeholder: "my-mcp-server",
     defaultValue: "my-mcp-server",
     validate: validateProjectName,
@@ -126,14 +144,14 @@ async function main() {
     process.exit(0);
   }
 
+  // Use placeholder value if user enters empty string
+  const finalProjectName = projectName || "my-mcp-server";
+
   // Generate default title from project name
-  const defaultTitle = projectName
-    .split("-")
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(" ");
+  const defaultTitle = capitalCase(finalProjectName);
 
   const projectTitle = await p.text({
-    message: "What is your project title?",
+    message: "What is your MCP server's title?",
     placeholder: defaultTitle,
     defaultValue: defaultTitle,
   });
@@ -142,6 +160,9 @@ async function main() {
     p.cancel("Operation cancelled.");
     process.exit(0);
   }
+
+  // Use placeholder value if user enters empty string
+  const finalProjectTitle = projectTitle || defaultTitle;
 
   const runtime = (await p.select({
     message: "Which runtime would you like to use?",
@@ -209,8 +230,8 @@ async function main() {
   }
 
   const options: ProjectOptions = {
-    name: projectName,
-    title: projectTitle,
+    name: finalProjectName,
+    title: finalProjectTitle,
     runtime,
     language,
     packageManager,
@@ -219,9 +240,9 @@ async function main() {
 
   const s = p.spinner();
 
-  s.start("Creating your MCP server");
+  s.start("Scaffolding project");
 
-  const targetDir = path.resolve(projectName);
+  const targetDir = path.resolve(finalProjectName);
   const templateName = `${runtime}-${language === "javascript" ? "js" : "ts"}`;
   const templateDir = new URL(`../templates/${templateName}`, import.meta.url)
     .pathname;
@@ -231,7 +252,7 @@ async function main() {
     try {
       await fs.access(targetDir);
       const overwrite = await p.confirm({
-        message: `Directory ${projectName} already exists. Overwrite?`,
+        message: `Directory ${finalProjectName} already exists. Overwrite?`,
         initialValue: false,
       });
 
@@ -248,7 +269,7 @@ async function main() {
     // Copy template
     await copyTemplate(templateDir, targetDir, options);
 
-    s.stop("Project created!");
+    s.stop("Project scaffolded!");
 
     // Install dependencies
     if (installDeps) {
@@ -272,7 +293,7 @@ async function main() {
     console.log(pc.bold("Next steps:"));
     console.log();
     console.log(pc.gray("  Navigate to your project:"));
-    console.log(`  ${pc.cyan(`cd ${projectName}`)}`);
+    console.log(`  ${pc.cyan(`cd ${finalProjectName}`)}`);
     console.log();
     console.log(pc.gray("  Start the MCP server:"));
     const startCommand =
@@ -286,15 +307,16 @@ async function main() {
     console.log(`  ${pc.cyan("https://preview.modelfetch.com/docs")}`);
     console.log();
   } catch (error) {
-    s.stop("Failed to create project");
-    console.error(pc.red("Error:"), error);
+    s.stop("create-modelfetch CLI failed!");
+    console.error(error);
     process.exit(1);
   }
 }
 
 try {
   await main();
-} catch (error: unknown) {
-  console.error(pc.red("Unexpected error:"), error);
+} catch (error) {
+  console.log(pc.red("create-modelfetch CLI failed!"));
+  console.error(error);
   process.exit(1);
 }
