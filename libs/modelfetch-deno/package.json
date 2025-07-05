@@ -1,6 +1,6 @@
 {
   "name": "@modelfetch/deno",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Deno runtime adapter for building MCP servers with ModelFetch",
   "repository": {
     "type": "git",

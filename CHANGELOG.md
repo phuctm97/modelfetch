@@ -1,3 +1,14 @@
+## 0.2.0 (2025-07-05)
+
+### 🚀 Features
+
+- Update to MCP SDK 1.15.0 with breaking API changes for tool registration ([#12](https://github.com/phuctm97/modelfetch/pull/12))
+- Enhance website UI with search functionality and improved landing page design ([#12](https://github.com/phuctm97/modelfetch/pull/12))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.1.0 (2025-07-04)
 
 ### 🚀 Features
