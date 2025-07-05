@@ -1,3 +1,13 @@
+## 0.4.0 (2025-07-05)
+
+### 🚀 Features
+
+- Improve create-modelfetch CLI user experience with better formatting, consistent capitalization, and updated documentation ([#14](https://github.com/phuctm97/modelfetch/pull/14))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.3.0 (2025-07-05)
 
 ### 🚀 Features
