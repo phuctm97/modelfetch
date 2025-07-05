@@ -226,8 +226,8 @@ async function main() {
         options: [
           { value: "npm", label: "npm" },
           { value: "pnpm", label: "pnpm" },
-          { value: "yarn", label: "yarn" },
           { value: "bun", label: "bun" },
+          { value: "yarn", label: "yarn" },
         ],
         initialValue: detectedPM,
       })) as PackageManager;
