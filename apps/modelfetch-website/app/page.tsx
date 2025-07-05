@@ -26,7 +26,7 @@ export default function Page() {
                 <div className="h-3 w-3 rounded-full bg-yellow-500" />
                 <div className="h-3 w-3 rounded-full bg-green-500" />
                 <span className="ml-2 text-xs text-gray-600 dark:text-gray-400">
-                  Terminal % ~
+                  terminal % ~
                 </span>
               </div>
               <div className="flex items-center gap-3">
@@ -196,7 +196,7 @@ export default function Page() {
                   <div className="overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md transition-colors hover:border-[#008f00] dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00]">
                     <div className="flex items-center justify-between border-b border-gray-300 bg-gray-100 px-4 py-2 dark:border-[#333] dark:bg-[#2a2a2a]">
                       <span className="text-xs text-gray-600 dark:text-gray-500">
-                        terminal
+                        install.sh
                       </span>
                       <span className="text-xs text-[#008f00] dark:text-[#00ff00]">
                         ◉ bash
