@@ -10,10 +10,13 @@ const server = new McpServer({
 });
 
 // Example tool: Roll dice
-server.tool(
+server.registerTool(
   "roll_dice",
-  "Rolls an N-sided dice",
-  { sides: z.number().int().min(2).describe("Number of sides on the dice") },
+  {
+    title: "Roll Dice",
+    description: "Rolls an N-sided dice",
+    inputSchema: { sides: z.number().int().min(2) },
+  },
   ({ sides }) => ({
     content: [
       {
@@ -25,8 +28,13 @@ server.tool(
 );
 
 // Example resource: Get current time
-server.resource(
+server.registerResource(
+  "time_current",
   "time://current",
+  {
+    title: "Current Time",
+    description: "Get the current time in ISO format",
+  },
   async () => {
     const now = new Date();
     return {
@@ -39,25 +47,19 @@ server.resource(
       ],
     };
   },
-  "Get the current time in ISO format",
 );
 
 // Example prompt: Generate greeting
-server.prompt(
+server.registerPrompt(
   "greeting",
-  "Generate a personalized greeting",
-  [
-    {
-      name: "name",
-      description: "Name of the person to greet",
-      required: true,
+  {
+    title: "Greeting Generator",
+    description: "Generate a personalized greeting",
+    argsSchema: {
+      name: z.string().describe("Name of the person to greet"),
+      style: z.enum(["formal", "casual"]).optional().describe("Style of greeting"),
     },
-    {
-      name: "style",
-      description: "Style of greeting (formal/casual)",
-      required: false,
-    },
-  ],
+  },
   ({ name, style = "casual" }) => {
     const greeting = style === "formal" 
       ? `Good day, ${name}. How may I assist you today?`

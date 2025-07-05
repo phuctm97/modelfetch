@@ -89,10 +89,13 @@ const server = new McpServer({
 });
 
 // Define a tool
-server.tool(
+server.registerTool(
   "roll_dice",
-  "Rolls an N-sided dice",
-  { sides: z.number().int().min(2) },
+  {
+    title: "Roll Dice",
+    description: "Rolls an N-sided dice",
+    inputSchema: { sides: z.number().int().min(2) },
+  },
   ({ sides }) => ({
     content: [
       {
@@ -201,11 +204,13 @@ The `McpServer` class from `@modelcontextprotocol/sdk` creates a new MCP server 
 
 ### Defining Tools
 
-Tools are the primary way MCP servers provide functionality. Each tool is defined using the `server.tool()` method with:
+Tools are the primary way MCP servers provide functionality. Each tool is defined using the `server.registerTool()` method with:
 
 - **Name**: A unique identifier for the tool
-- **Description**: Explains what the tool does
-- **Parameters**: Zod schema defining the expected input
+- **Configuration**: An object containing:
+  - **title**: A human-readable title for the tool
+  - **description**: Explains what the tool does
+  - **inputSchema**: Zod schema defining the expected input
 - **Handler**: A function that processes requests and returns results
 
 ### Starting the Server

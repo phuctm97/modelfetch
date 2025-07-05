@@ -48,10 +48,13 @@ const server = new McpServer({
   version: "1.0.0",
 });
 
-server.tool(
+server.registerTool(
   "tool_name",
-  "Tool description",
-  { param: z.string() },
+  {
+    title: "Tool Name",
+    description: "Tool description",
+    inputSchema: { param: z.string() },
+  },
   ({ param }) => ({
     content: [{ type: "text", text: "Response" }],
   }),

@@ -5,9 +5,9 @@
   "type": "module",
   "main": "./src/index.js",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.13.3",
+    "@modelcontextprotocol/sdk": "^1.15.0",
     "@modelfetch/deno": "workspace:^",
-    "zod": "^3.25.73"
+    "zod": "^3.25.74"
   },
   "devDependencies": {
     "modelfetch": "workspace:^"

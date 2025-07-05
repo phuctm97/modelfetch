@@ -37,10 +37,13 @@ const server = new McpServer({
   version: packageJson.version,
 });
 
-server.tool(
+server.registerTool(
   "roll_dice",
-  "Rolls an N-sided dice",
-  { sides: z.number().int().min(2) },
+  {
+    title: "Roll Dice",
+    description: "Rolls an N-sided dice",
+    inputSchema: { sides: z.number().int().min(2) },
+  },
   ({ sides }) => ({
     content: [
       {
@@ -76,9 +79,9 @@ console.log(`MCP server is available at ${getEndpoint(bunServer)}`);
     "dev": "bun run src/index.ts"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^0.7.0",
+    "@modelcontextprotocol/sdk": "^1.15.0",
     "@modelfetch/bun": "workspace:^",
-    "zod": "^3.24.1"
+    "zod": "^3.25.74"
   },
   "devDependencies": {
     "@types/bun": "^1.1.20",
@@ -128,10 +131,13 @@ const server = new McpServer({
   version: packageJson.version,
 });
 
-server.tool(
+server.registerTool(
   "roll_dice",
-  "Rolls an N-sided dice",
-  { sides: z.number().int().min(2) },
+  {
+    title: "Roll Dice",
+    description: "Rolls an N-sided dice",
+    inputSchema: { sides: z.number().int().min(2) },
+  },
   ({ sides }) => ({
     content: [
       {
@@ -167,9 +173,9 @@ console.log(`MCP server is available at ${getEndpoint(bunServer)}`);
     "dev": "bun run src/index.js"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^0.7.0",
+    "@modelcontextprotocol/sdk": "^1.15.0",
     "@modelfetch/bun": "workspace:^",
-    "zod": "^3.24.1"
+    "zod": "^3.25.74"
   }
 }
 ```

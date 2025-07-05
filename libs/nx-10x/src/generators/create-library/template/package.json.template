@@ -1,6 +1,6 @@
 {
   "name": "<%= name %>",
-  "version": "0.0.1",
+  "version": "<%= version %>",
   "license": "MIT",
   "type": "module",
   "exports": {

@@ -40,11 +40,14 @@ Then connect to your server at `http://localhost:3000` (or the port shown in you
 Tools allow your MCP server to provide executable functions to LLMs:
 
 ```typescript
-server.tool(
+server.registerTool(
   "my_tool",
-  "What this tool does",
-  { 
-    param: z.string().describe("Parameter description") 
+  {
+    title: "My Tool",
+    description: "What this tool does",
+    inputSchema: { 
+      param: z.string()
+    },
   },
   ({ param }) => ({
     content: [
@@ -62,8 +65,13 @@ server.tool(
 Resources expose data and content to LLMs:
 
 ```typescript
-server.resource(
-  "resource://my-resource", 
+server.registerResource(
+  "my-resource",
+  "resource://my-resource",
+  {
+    title: "My Resource",
+    description: "What this resource provides",
+  },
   async () => {
     return {
       contents: [
@@ -75,7 +83,6 @@ server.resource(
       ],
     };
   },
-  "What this resource provides",
 );
 ```
 
@@ -84,16 +91,19 @@ server.resource(
 Prompts provide reusable prompt templates:
 
 ```typescript
-server.prompt(
+server.registerPrompt(
   "my_prompt",
-  "What this prompt does",
-  [
-    { 
-      name: "arg", 
-      description: "Argument description", 
-      required: true 
-    },
-  ],
+  {
+    title: "My Prompt",
+    description: "What this prompt does",
+    argsSchema: [
+      { 
+        name: "arg", 
+        description: "Argument description", 
+        required: true 
+      },
+    ],
+  },
   ({ arg }) => ({
     messages: [
       {
