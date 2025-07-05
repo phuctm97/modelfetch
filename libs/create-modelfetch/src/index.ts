@@ -72,6 +72,10 @@ function validateProjectName(name: string): string | undefined {
   }
 }
 
+function getProjectTitle(projectName: string): string {
+  return capitalCase(projectName).replaceAll("Mcp", "MCP");
+}
+
 function getStartCommand(
   runtime: Runtime,
   packageManager: PackageManager,
@@ -138,7 +142,7 @@ async function main() {
   // Display hero title
   console.log();
   console.log(
-    pc.gray("The delightful TypeScript/JavaScript SDK for MCP servers"),
+    pc.gray("A delightful TypeScript/JavaScript SDK for MCP servers"),
   );
   console.log();
 
@@ -160,7 +164,7 @@ async function main() {
   const finalProjectName = projectName || "my-mcp-server";
 
   // Generate default title from project name
-  const defaultTitle = capitalCase(finalProjectName);
+  const defaultTitle = getProjectTitle(finalProjectName);
 
   const projectTitle = await p.text({
     message: "What is your MCP server title?",
@@ -176,6 +180,9 @@ async function main() {
   // Use placeholder value if user enters empty string
   const finalProjectTitle = projectTitle || defaultTitle;
 
+  // Detect package manager early to set runtime default
+  const detectedPM = detectPackageManager();
+
   const runtime = (await p.select({
     message: "Which runtime would you like to use?",
     options: [
@@ -183,6 +190,7 @@ async function main() {
       { value: "bun", label: "Bun" },
       { value: "deno", label: "Deno" },
     ],
+    initialValue: detectedPM === "bun" ? "bun" : "node",
   })) as Runtime;
 
   if (p.isCancel(runtime)) {
@@ -203,7 +211,6 @@ async function main() {
     process.exit(0);
   }
 
-  const detectedPM = detectPackageManager();
   let packageManager: PackageManager;
   let installDeps: boolean | undefined;
 

@@ -4,8 +4,9 @@
   "description": "<%= projectTitle %> (built with ModelFetch)",
   "private": true,
   "type": "module",
+  "main": "./src/index.ts",
   "scripts": {
-    "start": "bun run ./src/index.ts"
+    "start": "bun ."
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "<%= versions['@modelcontextprotocol/sdk'] %>",

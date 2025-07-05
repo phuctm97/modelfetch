@@ -48,7 +48,7 @@ server.registerResource(
 
 // Example prompt: Review Code
 server.registerPrompt(
-  "review-code",
+  "review_code",
   {
     title: "Review Code",
     description: "Review code for best practices and potential issues",
