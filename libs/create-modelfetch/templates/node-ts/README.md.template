@@ -109,7 +109,7 @@ server.registerPrompt(
 );
 ```
 
-## Learn More
+## Reading Docs
 
 - [Model Context Protocol - Documentation](https://modelcontextprotocol.io)
 - [Model Context Protocol - TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)

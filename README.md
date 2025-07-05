@@ -3,7 +3,7 @@
 
   <h3>Create, build, and deploy MCP servers anywhere TypeScript/JavaScript runs</h3>
 
-  <p>The delightful TypeScript/JavaScript SDK for MCP servers</p>
+  <p>A delightful TypeScript/JavaScript SDK for MCP servers</p>
 </div>
 
 ---
