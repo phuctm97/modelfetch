@@ -9,12 +9,10 @@
     "outDir": "dist",
     "strict": true,
     "incremental": true,
-    "skipLibCheck": true,
-    "importHelpers": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
     "verbatimModuleSyntax": true,
-    "sourceMap": true,
-    "declarationMap": true
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "importHelpers": true
   }
 }
