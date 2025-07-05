@@ -28,10 +28,13 @@ const server = new McpServer({
 });
 
 // Define your tools
-server.tool(
+server.registerTool(
   "roll_dice",
-  "Rolls an N-sided dice",
-  { sides: z.number().int().min(2) },
+  {
+    title: "Roll Dice",
+    description: "Rolls an N-sided dice",
+    inputSchema: { sides: z.number().int().min(2) },
+  },
   ({ sides }) => ({
     content: [
       {
@@ -105,10 +108,13 @@ handle(server); // Sets up HTTP transport
 ModelFetch provides proper error handling for Node.js:
 
 ```typescript
-server.tool(
+server.registerTool(
   "safe_operation",
-  "An operation with error handling",
-  { input: z.string() },
+  {
+    title: "Safe Operation",
+    description: "An operation with error handling",
+    inputSchema: { input: z.string() },
+  },
   async ({ input }) => {
     try {
       // Your operation here
@@ -137,13 +143,16 @@ const server = new McpServer({
   version: "1.0.0",
 });
 
-server.tool(
+server.registerTool(
   "typed_tool",
-  "A fully typed tool",
   {
-    name: z.string(),
-    age: z.number().int().positive(),
-    email: z.string().email(),
+    title: "Typed Tool",
+    description: "A fully typed tool",
+    inputSchema: {
+      name: z.string(),
+      age: z.number().int().positive(),
+      email: z.string().email(),
+    },
   },
   // Parameters are fully typed
   ({ name, age, email }) => ({

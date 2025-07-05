@@ -52,14 +52,14 @@ importers:
   apps/example-bun-js:
     dependencies:
       '@modelcontextprotocol/sdk':
-        specifier: ^1.13.3
-        version: 1.13.3
+        specifier: ^1.15.0
+        version: 1.15.0
       '@modelfetch/bun':
         specifier: workspace:^
         version: link:../../libs/modelfetch-bun
       zod:
-        specifier: ^3.25.73
-        version: 3.25.73
+        specifier: ^3.25.74
+        version: 3.25.74
     devDependencies:
       modelfetch:
         specifier: workspace:^
@@ -68,14 +68,14 @@ importers:
   apps/example-bun-ts:
     dependencies:
       '@modelcontextprotocol/sdk':
-        specifier: ^1.13.3
-        version: 1.13.3
+        specifier: ^1.15.0
+        version: 1.15.0
       '@modelfetch/bun':
         specifier: workspace:^
         version: link:../../libs/modelfetch-bun
       zod:
-        specifier: ^3.25.73
-        version: 3.25.73
+        specifier: ^3.25.74
+        version: 3.25.74
     devDependencies:
       '@types/bun':
         specifier: ^1.2.18
@@ -90,14 +90,14 @@ importers:
   apps/example-deno-js:
     dependencies:
       '@modelcontextprotocol/sdk':
-        specifier: ^1.13.3
-        version: 1.13.3
+        specifier: ^1.15.0
+        version: 1.15.0
       '@modelfetch/deno':
         specifier: workspace:^
         version: link:../../libs/modelfetch-deno
       zod:
-        specifier: ^3.25.73
-        version: 3.25.73
+        specifier: ^3.25.74
+        version: 3.25.74
     devDependencies:
       modelfetch:
         specifier: workspace:^
@@ -106,14 +106,14 @@ importers:
   apps/example-deno-ts:
     dependencies:
       '@modelcontextprotocol/sdk':
-        specifier: ^1.13.3
-        version: 1.13.3
+        specifier: ^1.15.0
+        version: 1.15.0
       '@modelfetch/deno':
         specifier: workspace:^
         version: link:../../libs/modelfetch-deno
       zod:
-        specifier: ^3.25.73
-        version: 3.25.73
+        specifier: ^3.25.74
+        version: 3.25.74
     devDependencies:
       '@types/deno':
         specifier: ^2.3.0
@@ -128,14 +128,14 @@ importers:
   apps/example-node-js:
     dependencies:
       '@modelcontextprotocol/sdk':
-        specifier: ^1.13.3
-        version: 1.13.3
+        specifier: ^1.15.0
+        version: 1.15.0
       '@modelfetch/node':
         specifier: workspace:^
         version: link:../../libs/modelfetch-node
       zod:
-        specifier: ^3.25.73
-        version: 3.25.73
+        specifier: ^3.25.74
+        version: 3.25.74
     devDependencies:
       modelfetch:
         specifier: workspace:^
@@ -144,14 +144,14 @@ importers:
   apps/example-node-ts:
     dependencies:
       '@modelcontextprotocol/sdk':
-        specifier: ^1.13.3
-        version: 1.13.3
+        specifier: ^1.15.0
+        version: 1.15.0
       '@modelfetch/node':
         specifier: workspace:^
         version: link:../../libs/modelfetch-node
       zod:
-        specifier: ^3.25.73
-        version: 3.25.73
+        specifier: ^3.25.74
+        version: 3.25.74
     devDependencies:
       create-eslint-config:
         specifier: workspace:^
@@ -193,9 +193,12 @@ importers:
         specifier: ^19.1.0
         version: 19.1.0(react@19.1.0)
       zod:
-        specifier: ^3.25.73
-        version: 3.25.73
+        specifier: ^3.25.74
+        version: 3.25.74
     devDependencies:
+      '@icons-pack/react-simple-icons':
+        specifier: ^13.3.0
+        version: 13.3.0(react@19.1.0)
       '@next/eslint-plugin-next':
         specifier: ^15.3.5
         version: 15.3.5
@@ -223,6 +226,9 @@ importers:
       postcss:
         specifier: ^8.5.6
         version: 8.5.6
+      react-device-detect:
+        specifier: ^2.2.3
+        version: 2.2.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       tailwindcss:
         specifier: ^4.1.11
         version: 4.1.11
@@ -269,7 +275,7 @@ importers:
         specifier: ^1.1.1
         version: 1.1.1
       validate-npm-package-name:
-        specifier: ^6.0.0
+        specifier: ^6.0.1
         version: 6.0.1
     devDependencies:
       '@types/ejs':
@@ -339,7 +345,7 @@ importers:
     dependencies:
       '@hono/mcp':
         specifier: ^0.1.0
-        version: 0.1.0(@modelcontextprotocol/sdk@1.13.3)(hono@4.8.4)
+        version: 0.1.0(@modelcontextprotocol/sdk@1.15.0)(hono@4.8.4)
       hono:
         specifier: ^4.8.4
         version: 4.8.4
@@ -1231,6 +1237,11 @@ packages:
     resolution: {integrity: sha512-bV0Tgo9K4hfPCek+aMAn81RppFKv2ySDQeMoSZuvTASywNTnVJCArCZE2FWqpvIatKu7VMRLWlR1EazvVhDyhQ==}
     engines: {node: '>=18.18'}
 
+  '@icons-pack/react-simple-icons@13.3.0':
+    resolution: {integrity: sha512-+7IxrUMLjfHBdDtW3aBlvELvjbQTX29cbrpc3UcCBhE51uL7GP1bkIEcaFM30f5rSB0oSqeg3MAmTIZV6nzY7A==}
+    peerDependencies:
+      react: ^16.13 || ^17 || ^18 || ^19
+
   '@img/sharp-darwin-arm64@0.34.2':
     resolution: {integrity: sha512-OfXHZPppddivUJnqyKoi5YVeHRkkNE2zUFT2gbpKxp/JZCFYEYubnMg+gOp6lWfasPrTS+KPosKqdI+ELYVDtg==}
     engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
@@ -1376,8 +1387,8 @@ packages:
   '@mdx-js/mdx@3.1.0':
     resolution: {integrity: sha512-/QxEhPAvGwbQmy1Px8F899L5Uc2KZ6JtXwlCgJmjSTBedwOZkByYcBG4GceIGPXRDsmfxhHazuS+hlOShRLeDw==}
 
-  '@modelcontextprotocol/sdk@1.13.3':
-    resolution: {integrity: sha512-bGwA78F/U5G2jrnsdRkPY3IwIwZeWUEfb5o764b79lb0rJmMT76TLwKhdNZOWakOQtedYefwIR4emisEMvInKA==}
+  '@modelcontextprotocol/sdk@1.15.0':
+    resolution: {integrity: sha512-67hnl/ROKdb03Vuu0YOr+baKTvf1/5YBHBm9KnZdjdAh8hjt4FRCPD5ucwxGB237sBpzlqQsLy1PFu7z/ekZ9Q==}
     engines: {node: '>=18'}
 
   '@napi-rs/wasm-runtime@0.2.11':
@@ -4428,6 +4439,12 @@ packages:
     resolution: {integrity: sha512-RmkhL8CAyCRPXCE28MMH0z2PNWQBNk2Q09ZdxM9IOOXwxwZbN+qbWaatPkdkWIKL2ZVDImrN/pK5HTRz2PcS4g==}
     engines: {node: '>= 0.8'}
 
+  react-device-detect@2.2.3:
+    resolution: {integrity: sha512-buYY3qrCnQVlIFHrC5UcUoAj7iANs/+srdkwsnNjI7anr3Tt7UY6MqNxtMLlr0tMBied0O49UZVK8XKs3ZIiPw==}
+    peerDependencies:
+      react: '>= 0.14.0'
+      react-dom: '>= 0.14.0'
+
   react-dom@19.1.0:
     resolution: {integrity: sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g==}
     peerDependencies:
@@ -4934,6 +4951,10 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
+  ua-parser-js@1.0.40:
+    resolution: {integrity: sha512-z6PJ8Lml+v3ichVojCiB8toQJBuwR42ySM4ezjXIqXK3M0HczmKQ3LF4rhU55PfD99KEEXQG6yb7iOMyvYuHew==}
+    hasBin: true
+
   unbox-primitive@1.1.0:
     resolution: {integrity: sha512-nWJ91DjeOkej/TA8pXQ3myruKpKEYgqvpw9lz4OPHj/NWFNluYrjbz9j01CJ8yKQd2g4jFoOkINCTW2I5LEEyw==}
     engines: {node: '>= 0.4'}
@@ -5110,8 +5131,8 @@ packages:
     peerDependencies:
       zod: ^3.24.1
 
-  zod@3.25.73:
-    resolution: {integrity: sha512-fuIKbQAWQl22Ba5d1quwEETQYjqnpKVyZIWAhbnnHgnDd3a+z4YgEfkI5SZ2xMELnLAXo/Flk2uXgysZNf0uaA==}
+  zod@3.25.74:
+    resolution: {integrity: sha512-J8poo92VuhKjNknViHRAIuuN6li/EwFbAC8OedzI8uxpEPGiXHGQu9wemIAioIpqgfB4SySaJhdk0mH5Y4ICBg==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -6014,9 +6035,9 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@hono/mcp@0.1.0(@modelcontextprotocol/sdk@1.13.3)(hono@4.8.4)':
+  '@hono/mcp@0.1.0(@modelcontextprotocol/sdk@1.15.0)(hono@4.8.4)':
     dependencies:
-      '@modelcontextprotocol/sdk': 1.13.3
+      '@modelcontextprotocol/sdk': 1.15.0
       hono: 4.8.4
 
   '@hono/node-server@1.15.0(hono@4.8.4)':
@@ -6035,6 +6056,10 @@ snapshots:
   '@humanwhocodes/retry@0.3.1': {}
 
   '@humanwhocodes/retry@0.4.3': {}
+
+  '@icons-pack/react-simple-icons@13.3.0(react@19.1.0)':
+    dependencies:
+      react: 19.1.0
 
   '@img/sharp-darwin-arm64@0.34.2':
     optionalDependencies:
@@ -6173,7 +6198,7 @@ snapshots:
       - acorn
       - supports-color
 
-  '@modelcontextprotocol/sdk@1.13.3':
+  '@modelcontextprotocol/sdk@1.15.0':
     dependencies:
       ajv: 6.12.6
       content-type: 1.0.5
@@ -6185,8 +6210,8 @@ snapshots:
       express-rate-limit: 7.5.1(express@5.1.0)
       pkce-challenge: 5.0.0
       raw-body: 3.0.0
-      zod: 3.25.73
-      zod-to-json-schema: 3.24.6(zod@3.25.73)
+      zod: 3.25.74
+      zod-to-json-schema: 3.24.6(zod@3.25.74)
     transitivePeerDependencies:
       - supports-color
 
@@ -8291,7 +8316,7 @@ snapshots:
       tinyexec: 1.0.1
       tinyglobby: 0.2.14
       unist-util-visit: 5.0.0
-      zod: 3.25.73
+      zod: 3.25.74
     optionalDependencies:
       next: 15.3.5(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
     transitivePeerDependencies:
@@ -9688,6 +9713,12 @@ snapshots:
       iconv-lite: 0.6.3
       unpipe: 1.0.0
 
+  react-device-detect@2.2.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+    dependencies:
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
+      ua-parser-js: 1.0.40
+
   react-dom@19.1.0(react@19.1.0):
     dependencies:
       react: 19.1.0
@@ -10360,6 +10391,8 @@ snapshots:
 
   typescript@5.8.3: {}
 
+  ua-parser-js@1.0.40: {}
+
   unbox-primitive@1.1.0:
     dependencies:
       call-bound: 1.0.4
@@ -10571,10 +10604,10 @@ snapshots:
 
   yocto-queue@0.1.0: {}
 
-  zod-to-json-schema@3.24.6(zod@3.25.73):
+  zod-to-json-schema@3.24.6(zod@3.25.74):
     dependencies:
-      zod: 3.25.73
+      zod: 3.25.74
 
-  zod@3.25.73: {}
+  zod@3.25.74: {}
 
   zwitch@2.0.4: {}

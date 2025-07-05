@@ -36,10 +36,13 @@ const server = new McpServer({
   version: packageJson.version,
 });
 
-server.tool(
+server.registerTool(
   "roll_dice",
-  "Rolls an N-sided dice",
-  { sides: z.number().int().min(2) },
+  {
+    title: "Roll Dice",
+    description: "Rolls an N-sided dice",
+    inputSchema: { sides: z.number().int().min(2) },
+  },
   ({ sides }) => ({
     content: [
       {
@@ -76,9 +79,9 @@ handle(server, (address) => {
     "dev": "tsx src/index.ts"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^0.7.0",
+    "@modelcontextprotocol/sdk": "^1.15.0",
     "@modelfetch/node": "workspace:^",
-    "zod": "^3.24.1"
+    "zod": "^3.25.74"
   },
   "devDependencies": {
     "@types/node": "^22.15.34",
@@ -128,10 +131,13 @@ const server = new McpServer({
   version: packageJson.version,
 });
 
-server.tool(
+server.registerTool(
   "roll_dice",
-  "Rolls an N-sided dice",
-  { sides: z.number().int().min(2) },
+  {
+    title: "Roll Dice",
+    description: "Rolls an N-sided dice",
+    inputSchema: { sides: z.number().int().min(2) },
+  },
   ({ sides }) => ({
     content: [
       {
@@ -168,9 +174,9 @@ handle(server, (address) => {
     "dev": "node src/index.js"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^0.7.0",
+    "@modelcontextprotocol/sdk": "^1.15.0",
     "@modelfetch/node": "workspace:^",
-    "zod": "^3.24.1"
+    "zod": "^3.25.74"
   }
 }
 ```

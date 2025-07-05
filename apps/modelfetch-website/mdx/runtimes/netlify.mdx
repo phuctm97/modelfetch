@@ -95,14 +95,22 @@ const server = new McpServer({
   version: "1.0.0",
 });
 
-server.tool("get_api_key", "Returns the API key", {}, () => ({
-  content: [
-    {
-      type: "text",
-      text: process.env.MY_API_KEY || "Not set",
-    },
-  ],
-}));
+server.registerTool(
+  "get_api_key",
+  {
+    title: "Get API Key",
+    description: "Returns the API key",
+    inputSchema: {},
+  },
+  () => ({
+    content: [
+      {
+        type: "text",
+        text: process.env.MY_API_KEY || "Not set",
+      },
+    ],
+  }),
+);
 ```
 
 ### CORS Configuration
@@ -176,10 +184,13 @@ const server = new McpServer({
 const todos: Map<string, { text: string; done: boolean }> = new Map();
 
 // Add todo tool
-server.tool(
+server.registerTool(
   "add_todo",
-  "Add a new todo item",
-  { text: z.string() },
+  {
+    title: "Add Todo",
+    description: "Add a new todo item",
+    inputSchema: { text: z.string() },
+  },
   ({ text }) => {
     const id = Date.now().toString();
     todos.set(id, { text, done: false });
@@ -196,20 +207,28 @@ server.tool(
 );
 
 // List todos tool
-server.tool("list_todos", "List all todo items", {}, () => {
-  const todoList = Array.from(todos.entries())
-    .map(([id, todo]) => `${id}: [${todo.done ? "✓" : " "}] ${todo.text}`)
-    .join("\n");
+server.registerTool(
+  "list_todos",
+  {
+    title: "List Todos",
+    description: "List all todo items",
+    inputSchema: {},
+  },
+  () => {
+    const todoList = Array.from(todos.entries())
+      .map(([id, todo]) => `${id}: [${todo.done ? "✓" : " "}] ${todo.text}`)
+      .join("\n");
 
-  return {
-    content: [
-      {
-        type: "text",
-        text: todoList || "No todos yet!",
-      },
-    ],
-  };
-});
+    return {
+      content: [
+        {
+          type: "text",
+          text: todoList || "No todos yet!",
+        },
+      ],
+    };
+  },
+);
 
 export default server;
 ```
@@ -246,10 +265,13 @@ export const handler = handle(server);
 ### Error Handling
 
 ```typescript
-server.tool(
+server.registerTool(
   "safe_operation",
-  "Performs a safe operation",
-  { input: z.string() },
+  {
+    title: "Safe Operation",
+    description: "Performs a safe operation",
+    inputSchema: { input: z.string() },
+  },
   async ({ input }) => {
     try {
       // Your operation here

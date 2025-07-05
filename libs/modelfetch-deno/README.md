@@ -16,8 +16,8 @@ deno add npm:@modelfetch/deno
 
 ```typescript
 // server.ts
-import { McpServer } from "npm:@modelcontextprotocol/sdk@^0.7.0/server/mcp.js";
-import { z } from "npm:zod@^3.24.1";
+import { McpServer } from "npm:@modelcontextprotocol/sdk@^1.15.0/server/mcp.js";
+import { z } from "npm:zod@^3.25.74";
 
 const server = new McpServer({
   title: "My Deno MCP Server",
@@ -25,10 +25,13 @@ const server = new McpServer({
   version: "1.0.0",
 });
 
-server.tool(
+server.registerTool(
   "roll_dice",
-  "Rolls an N-sided dice",
-  { sides: z.number().int().min(2) },
+  {
+    title: "Roll Dice",
+    description: "Rolls an N-sided dice",
+    inputSchema: { sides: z.number().int().min(2) },
+  },
   ({ sides }) => ({
     content: [
       {
@@ -125,8 +128,8 @@ Optional `deno.json`:
   },
   "imports": {
     "@modelfetch/deno": "npm:@modelfetch/deno",
-    "@modelcontextprotocol/sdk": "npm:@modelcontextprotocol/sdk@^0.7.0",
-    "zod": "npm:zod@^3.24.1"
+    "@modelcontextprotocol/sdk": "npm:@modelcontextprotocol/sdk@^1.15.0",
+    "zod": "npm:zod@^3.25.74"
   },
   "tasks": {
     "dev": "deno run -A index.ts",

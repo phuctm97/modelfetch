@@ -22,12 +22,12 @@ const asciiLogo = `   __  __           _      _ _____    _       _
 
 // Package versions
 const packageVersions = {
-  "@modelcontextprotocol/sdk": "1.13.3",
+  "@modelcontextprotocol/sdk": "1.15.0",
   "@modelfetch/node": packageJson.version,
   "@modelfetch/bun": packageJson.version,
   "@modelfetch/deno": packageJson.version,
   tslib: "2.8.1",
-  zod: "3.25.72",
+  zod: "3.25.74",
   tsx: "4.20.3",
   typescript: "5.8.3",
   "@types/bun": "1.2.18",

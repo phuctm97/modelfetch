@@ -24,10 +24,13 @@ const server = new McpServer({
 });
 
 // Define your tools
-server.tool(
+server.registerTool(
   "roll_dice",
-  "Rolls an N-sided dice",
-  { sides: z.number().int().min(2) },
+  {
+    title: "Roll Dice",
+    description: "Rolls an N-sided dice",
+    inputSchema: { sides: z.number().int().min(2) },
+  },
   ({ sides }) => ({
     content: [
       {
@@ -98,10 +101,13 @@ ModelFetch leverages Bun's features for better performance:
 ### Error Handling
 
 ```typescript
-server.tool(
+server.registerTool(
   "safe_operation",
-  "An operation with error handling",
-  { input: z.string() },
+  {
+    title: "Safe Operation",
+    description: "An operation with error handling",
+    inputSchema: { input: z.string() },
+  },
   async ({ input }) => {
     try {
       const result = await someOperation(input);

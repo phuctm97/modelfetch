@@ -14,8 +14,8 @@ deno add npm:@modelfetch/deno
 ## Basic Usage
 
 ```typescript title="server.ts"
-import { McpServer } from "npm:@modelcontextprotocol/sdk@^0.7.0/server/mcp.js";
-import { z } from "npm:zod@^3.24.1";
+import { McpServer } from "npm:@modelcontextprotocol/sdk@^1.15.0/server/mcp.js";
+import { z } from "npm:zod@^3.25.74";
 
 const server = new McpServer({
   title: "My Deno MCP Server",
@@ -24,10 +24,13 @@ const server = new McpServer({
 });
 
 // Define your tools
-server.tool(
+server.registerTool(
   "roll_dice",
-  "Rolls an N-sided dice",
-  { sides: z.number().int().min(2) },
+  {
+    title: "Roll Dice",
+    description: "Rolls an N-sided dice",
+    inputSchema: { sides: z.number().int().min(2) },
+  },
   ({ sides }) => ({
     content: [
       {
@@ -131,10 +134,13 @@ The `-A` flag allows all permissions. For production, consider using specific pe
 ### Error Handling
 
 ```typescript
-server.tool(
+server.registerTool(
   "safe_operation",
-  "An operation with error handling",
-  { input: z.string() },
+  {
+    title: "Safe Operation",
+    description: "An operation with error handling",
+    inputSchema: { input: z.string() },
+  },
   async ({ input }) => {
     try {
       const result = await someOperation(input);
@@ -154,10 +160,13 @@ server.tool(
 ### Using Deno APIs
 
 ```typescript
-server.tool(
+server.registerTool(
   "read_file",
-  "Read a file from disk",
-  { path: z.string().describe("File path to read") },
+  {
+    title: "Read File",
+    description: "Read a file from disk",
+    inputSchema: { path: z.string().describe("File path to read") },
+  },
   async ({ path }) => {
     try {
       const content = await Deno.readTextFile(path);
@@ -225,8 +234,8 @@ Optional `deno.json` configuration:
   },
   "imports": {
     "@modelfetch/deno": "npm:@modelfetch/deno",
-    "@modelcontextprotocol/sdk": "npm:@modelcontextprotocol/sdk@^0.7.0",
-    "zod": "npm:zod@^3.24.1"
+    "@modelcontextprotocol/sdk": "npm:@modelcontextprotocol/sdk@^1.15.0",
+    "zod": "npm:zod@^3.25.74"
   },
   "tasks": {
     "dev": "deno run -A index.ts",

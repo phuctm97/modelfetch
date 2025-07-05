@@ -110,14 +110,22 @@ const server = new McpServer({
   version: "1.0.0",
 });
 
-server.tool("get_api_key", "Returns the API key", {}, () => ({
-  content: [
-    {
-      type: "text",
-      text: process.env.MY_API_KEY || "Not set",
-    },
-  ],
-}));
+server.registerTool(
+  "get_api_key",
+  {
+    title: "Get API Key",
+    description: "Returns the API key",
+    inputSchema: {},
+  },
+  () => ({
+    content: [
+      {
+        type: "text",
+        text: process.env.MY_API_KEY || "Not set",
+      },
+    ],
+  }),
+);
 ```
 
 ## Example Server
@@ -135,10 +143,13 @@ const server = new McpServer({
 });
 
 // Simple weather tool
-server.tool(
+server.registerTool(
   "get_weather",
-  "Get the weather for a location",
-  { location: z.string() },
+  {
+    title: "Get Weather",
+    description: "Get the weather for a location",
+    inputSchema: { location: z.string() },
+  },
   async ({ location }) => {
     // In a real app, you'd call a weather API
     const weather = {
@@ -236,8 +247,8 @@ export const config = {
 // Ensure dependencies are in package.json
 {
   "dependencies": {
-    "@modelfetch/vercel": "^0.0.1",
-    "@modelcontextprotocol/sdk": "^0.0.1"
+    "@modelfetch/vercel": "^0.1.0",
+    "@modelcontextprotocol/sdk": "^1.15.0"
   }
 }
 ```

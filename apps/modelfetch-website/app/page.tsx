@@ -1,7 +1,10 @@
+import { SiGithub } from "@icons-pack/react-simple-icons";
 import Link from "next/link";
 
 import { CodeBlock } from "~/lib/code-block";
+import { SearchButton } from "~/lib/search-button";
 import { ThemeSwitch } from "~/lib/theme-switch";
+import packageJson from "~/package.json";
 
 import { Raining } from "./raining";
 import { Typing } from "./typing";
@@ -17,16 +20,17 @@ export default function Page() {
         <div className="container mx-auto px-4 py-16">
           <div className="mx-auto max-w-4xl">
             {/* Terminal Header */}
-            <div className="mb-8 overflow-hidden rounded-t-lg border border-gray-300 bg-white shadow-lg dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none">
-              <div className="flex items-center justify-between border-b border-gray-300 bg-gray-100 px-4 py-2 dark:border-[#333] dark:bg-[#2a2a2a]">
-                <div className="flex items-center gap-2">
-                  <div className="h-3 w-3 rounded-full bg-red-500" />
-                  <div className="h-3 w-3 rounded-full bg-yellow-500" />
-                  <div className="h-3 w-3 rounded-full bg-green-500" />
-                  <span className="ml-2 text-xs text-gray-600 dark:text-gray-500">
-                    ModelFetch ~ %
-                  </span>
-                </div>
+            <div className="mb-8 flex items-center justify-between rounded-lg border border-gray-300 bg-gray-100 px-4 py-2 shadow-md dark:border-[#333] dark:bg-[#2a2a2a] dark:shadow-none">
+              <div className="flex items-center gap-2">
+                <div className="h-3 w-3 rounded-full bg-red-500" />
+                <div className="h-3 w-3 rounded-full bg-yellow-500" />
+                <div className="h-3 w-3 rounded-full bg-green-500" />
+                <span className="ml-2 text-xs text-gray-600 dark:text-gray-400">
+                  terminal % ~
+                </span>
+              </div>
+              <div className="flex items-center gap-3">
+                <SearchButton />
                 <ThemeSwitch />
               </div>
             </div>
@@ -51,7 +55,7 @@ export default function Page() {
               </h1>
 
               <div className="mb-8">
-                <span className="text-[#0099cc] dark:text-[#00ffff]">$</span>{" "}
+                <span className="text-[#0099cc] dark:text-[#00ffff]">%</span>{" "}
                 <span className="text-gray-600 dark:text-gray-400">
                   A TypeScript/JavaScript SDK for building MCP (Model Context
                   Protocol) servers with a delightful developer experience and
@@ -73,6 +77,18 @@ export default function Page() {
                   <span className="mr-2">◆</span>View Docs
                 </Link>
               </div>
+
+              <div className="mt-4 text-center">
+                <Link
+                  className="inline-flex items-center text-gray-600 underline decoration-gray-400 underline-offset-4 transition-all hover:text-gray-800 hover:decoration-gray-800 dark:text-gray-400 dark:decoration-gray-600 dark:hover:text-gray-200 dark:hover:decoration-gray-200"
+                  href="https://github.com/phuctm97/modelfetch"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <SiGithub className="mr-2 h-4 w-4" />
+                  View on GitHub →
+                </Link>
+              </div>
             </section>
 
             {/* Status Bar */}
@@ -91,7 +107,7 @@ export default function Page() {
                     </div>
                     <div className="flex items-center gap-2 text-[10px]">
                       <span className="text-gray-600 dark:text-gray-400">
-                        v0.0.1
+                        v{packageJson.version}
                       </span>
                       <span className="text-gray-400 dark:text-gray-600">
                         •
@@ -115,7 +131,7 @@ export default function Page() {
                     |
                   </span>
                   <span className="text-gray-600 dark:text-gray-400">
-                    VERSION: 0.0.1
+                    VERSION: {packageJson.version}
                   </span>
                   <span className="mx-4 text-gray-400 dark:text-gray-600">
                     |
@@ -130,7 +146,7 @@ export default function Page() {
             {/* Features Section */}
             <section className="mb-16">
               <h2 className="mb-8 text-center text-3xl font-bold text-[#0099cc] drop-shadow-[0_0_10px_rgba(0,153,204,0.5)] dark:text-[#00ffff] dark:drop-shadow-[0_0_10px_rgba(0,255,255,0.5)]">
-                <span className="mr-2">&gt;</span>Why ModelFetch?
+                <span className="mr-2">›</span>Why ModelFetch?
               </h2>
               <div className="grid gap-8 lg:grid-cols-3">
                 <div className="group rounded border border-gray-300 bg-white p-4 shadow-md transition-all hover:border-[#008f00] hover:shadow-[0_0_20px_rgba(0,143,0,0.3)] sm:p-6 dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.3)]">
@@ -166,21 +182,21 @@ export default function Page() {
             {/* Quick Start Section */}
             <section className="mb-16">
               <h2 className="mb-8 text-center text-3xl font-bold text-[#0099cc] drop-shadow-[0_0_10px_rgba(0,153,204,0.5)] dark:text-[#00ffff] dark:drop-shadow-[0_0_10px_rgba(0,255,255,0.5)]">
-                <span className="mr-2">&gt;</span>Quick Start
+                <span className="mr-2">›</span>Quick Start
               </h2>
 
               <div className="space-y-8">
                 <div>
                   <p className="mb-4 text-gray-400">
                     <span className="text-[#008f00] dark:text-[#00ff00]">
-                      $
+                      ~
                     </span>{" "}
                     Install ModelFetch runtime for your environment:
                   </p>
                   <div className="overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md transition-colors hover:border-[#008f00] dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00]">
                     <div className="flex items-center justify-between border-b border-gray-300 bg-gray-100 px-4 py-2 dark:border-[#333] dark:bg-[#2a2a2a]">
                       <span className="text-xs text-gray-600 dark:text-gray-500">
-                        terminal
+                        install.sh
                       </span>
                       <span className="text-xs text-[#008f00] dark:text-[#00ff00]">
                         ◉ bash
@@ -214,7 +230,7 @@ npm install @modelfetch/netlify`}
                 <div>
                   <p className="mb-4 text-gray-400">
                     <span className="text-[#008f00] dark:text-[#00ff00]">
-                      $
+                      ~
                     </span>{" "}
                     Create your MCP server with the official MCP TypeScript SDK:
                   </p>
@@ -238,10 +254,13 @@ const server = new McpServer({
   version: "1.0.0",
 });
 
-server.tool(
+server.registerTool(
   "roll_dice",
-  "Rolls an N-sided dice",
-  { sides: z.number().int().min(2) },
+  {
+    title: "Roll Dice",
+    description: "Rolls an N-sided dice",
+    inputSchema: { sides: z.number().int().min(2) },
+  },
   ({ sides }) => ({
     content: [
       {
@@ -262,7 +281,7 @@ export default server;`}
                 <div>
                   <p className="mb-4 text-gray-400">
                     <span className="text-[#008f00] dark:text-[#00ff00]">
-                      $
+                      ~
                     </span>{" "}
                     Run your MCP server with the installed ModelFetch runtime:
                   </p>
@@ -292,7 +311,7 @@ handle(server);`}
             {/* Status Section */}
             <section className="text-center">
               <div className="inline-block rounded-lg border border-gray-300 bg-gray-100 px-4 py-3 sm:px-6 sm:py-4 dark:border-[#333] dark:bg-[#1a1a1a]">
-                <p className="mb-4 text-gray-400">
+                <p className="mb-6 text-gray-400">
                   <span className="text-[#0099cc] dark:text-[#00ffff]">
                     [INFO]
                   </span>{" "}
@@ -301,10 +320,13 @@ handle(server);`}
                   SDK for MCP servers.
                 </p>
                 <Link
-                  className="text-[#008f00] transition-colors hover:text-[#0099cc] hover:underline dark:text-[#00ff00] dark:hover:text-[#00ffff]"
+                  className="inline-flex items-center rounded bg-gray-700 px-6 py-3 font-bold text-white transition-all hover:scale-105 hover:bg-gray-800 hover:shadow-[0_0_20px_rgba(100,100,100,0.8)] dark:bg-gray-300 dark:text-black dark:hover:bg-gray-200 dark:hover:shadow-[0_0_20px_rgba(200,200,200,0.8)]"
                   href="https://github.com/phuctm97/modelfetch"
+                  rel="noopener noreferrer"
+                  target="_blank"
                 >
-                  <span className="mr-2">◆</span>View on GitHub →
+                  <SiGithub className="mr-4 h-5 w-5" />
+                  Star on GitHub →
                 </Link>
               </div>
             </section>
@@ -312,7 +334,7 @@ handle(server);`}
             {/* Footer Terminal */}
             <div className="mt-16 text-center text-xs text-gray-500 dark:text-gray-600">
               <div>
-                <span className="text-[#008f00] dark:text-[#00ff00]">$</span>{" "}
+                <span className="text-[#008f00] dark:text-[#00ff00]">~</span>{" "}
                 echo &quot;Built with ❤️ by developers, for developers&quot;
               </div>
             </div>

@@ -186,10 +186,13 @@ const server = new McpServer({
 });
 
 // KV storage tool
-server.tool(
+server.registerTool(
   "kv_get",
-  "Get a value from KV store",
-  { key: z.string() },
+  {
+    title: "KV Get",
+    description: "Get a value from KV store",
+    inputSchema: { key: z.string() },
+  },
   async ({ key }, { env }) => {
     const value = await env.MY_KV.get(key);
 
@@ -204,10 +207,13 @@ server.tool(
   },
 );
 
-server.tool(
+server.registerTool(
   "kv_put",
-  "Store a value in KV store",
-  { key: z.string(), value: z.string() },
+  {
+    title: "KV Put",
+    description: "Store a value in KV store",
+    inputSchema: { key: z.string(), value: z.string() },
+  },
   async ({ key, value }, { env }) => {
     await env.MY_KV.put(key, value);
 
@@ -344,10 +350,13 @@ export default {
 ### Error Handling
 
 ```typescript
-server.tool(
+server.registerTool(
   "safe_operation",
-  "Demonstrates error handling",
-  { input: z.string() },
+  {
+    title: "Safe Operation",
+    description: "Demonstrates error handling",
+    inputSchema: { input: z.string() },
+  },
   async ({ input }) => {
     try {
       // Your operation
