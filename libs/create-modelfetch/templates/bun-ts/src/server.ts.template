@@ -9,7 +9,7 @@ const server = new McpServer({
   version: packageJson.version,
 });
 
-// Example tool: Roll dice
+// Example tool: Roll Dice
 server.registerTool(
   "roll_dice",
   {
@@ -27,30 +27,30 @@ server.registerTool(
   }),
 );
 
-// Example resource: App config
+// Example resource: App Config
 server.registerResource(
   "app_config",
   "app://config",
   {
     title: "App Config",
-    description: "Application configurations",
+    description: "Application configuration: API keys and user settings",
     mimeType: "text/plain",
   },
   (uri) => ({
     contents: [
       {
         uri: uri.href,
-        text: "APP_CONFIG",
+        text: "<APP_CONFIG>",
       },
     ],
   }),
 );
 
-// Example prompt: Code review
+// Example prompt: Review Code
 server.registerPrompt(
   "review-code",
   {
-    title: "Code Review",
+    title: "Review Code",
     description: "Review code for best practices and potential issues",
     argsSchema: { code: z.string() },
   },
