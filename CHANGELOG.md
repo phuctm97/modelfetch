@@ -1,3 +1,13 @@
+## 0.4.1 (2025-07-05)
+
+### 🩹 Fixes
+
+- Fix bun template entry points and improve create-modelfetch CLI with smart runtime defaults ([#15](https://github.com/phuctm97/modelfetch/pull/15))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.4.0 (2025-07-05)
 
 ### 🚀 Features
