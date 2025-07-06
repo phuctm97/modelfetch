@@ -7,7 +7,7 @@
 
 ## 🚀 Features
 
-- **Multi-Runtime**: Write once, run anywhere: Node.js, Bun, Deno, Cloudflare Workers, Vercel Functions, Netlify Functions, etc.
+- **Multi-Runtime**: Write once, run anywhere: Node.js, Bun, Deno, Cloudflare Workers, Vercel Functions, etc.
 - **Official SDK**: Built on top of the official MCP TypeScript SDK to avoid lock-in, guarantee long-term support, and ensure up-to-date implementation
 - **Live Reload**: Development server with automatic reloading
 - **MCP Inspector**: Built-in integration for testing and debugging
@@ -24,7 +24,6 @@ ModelFetch provides runtime-specific packages for optimal performance:
 | [`@modelfetch/deno`](libs/modelfetch-deno)             | Deno runtime support       | ✅ Ready       |
 | [`@modelfetch/cloudflare`](libs/modelfetch-cloudflare) | Cloudflare Workers support | 🚧 In Progress |
 | [`@modelfetch/vercel`](libs/modelfetch-vercel)         | Vercel Functions support   | 🚧 In Progress |
-| [`@modelfetch/netlify`](libs/modelfetch-netlify)       | Netlify Functions support  | 🚧 In Progress |
 | [`modelfetch`](libs/modelfetch)                        | CLI tools for development  | 🚧 In Progress |
 
 ## 💻 Example
@@ -77,7 +76,6 @@ handle(server);
 > - `@modelfetch/deno` for Deno
 > - `@modelfetch/cloudflare` for Cloudflare Workers
 > - `@modelfetch/vercel` for Vercel Functions
-> - `@modelfetch/netlify` for Netlify Functions
 
 ## 🛠️ Development
 

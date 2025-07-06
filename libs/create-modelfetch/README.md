@@ -64,7 +64,7 @@ yarn create modelfetch
 
 ## Features
 
-- **Multiple Runtimes**: Node.js, Bun, Deno, and Cloudflare Workers
+- **Multiple Runtimes**: Node.js, Bun, Deno, Cloudflare Workers, and Vercel Functions
 - **Multiple Languages**: TypeScript and JavaScript
 - **Multiple Package Managers**: `npm`, `pnpm`, `bun`, and `yarn`
 - **Multiple CLI Initializers**: `npx`, `npm init`, `npm create`, `pnpm dlx`, `pnpm create`, `bun x`, `bun create`, `deno`, and `yarn`

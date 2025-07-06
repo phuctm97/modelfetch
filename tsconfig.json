@@ -32,9 +32,6 @@
       "path": "./libs/modelfetch-deno"
     },
     {
-      "path": "./libs/modelfetch-netlify"
-    },
-    {
       "path": "./libs/modelfetch-node"
     },
     {

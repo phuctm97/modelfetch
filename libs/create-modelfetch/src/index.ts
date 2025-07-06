@@ -23,23 +23,29 @@ const asciiLogo = `   __  __           _      _ _____    _       _
 // Package versions
 const packageVersions = {
   "@modelcontextprotocol/sdk": "1.15.0",
+  zod: "3.25.74",
+  tslib: "2.8.1",
+  typescript: "5.8.3",
   "@modelfetch/node": packageJson.version,
+  "@types/node": "22.15.34",
+  tsx: "4.20.3",
   "@modelfetch/bun": packageJson.version,
+  "@types/bun": "1.2.18",
   "@modelfetch/deno": packageJson.version,
   "@modelfetch/cloudflare": packageJson.version,
-  tslib: "2.8.1",
-  zod: "3.25.74",
-  tsx: "4.20.3",
-  typescript: "5.8.3",
-  "@types/bun": "1.2.18",
-  "@types/node": "22.15.34",
   wrangler: "4.23.0",
+  "@modelfetch/vercel": packageJson.version,
+  next: "15.3.5",
+  react: "19.1.0",
+  "@types/react": "19.1.8",
+  "react-dom": "19.1.0",
+  "@types/react-dom": "19.1.6",
 };
 
 // Cloudflare compatibility date
 const cloudflareCompatibilityDate = "2025-06-17";
 
-type Runtime = "node" | "bun" | "deno" | "cloudflare";
+type Runtime = "node" | "bun" | "deno" | "cloudflare" | "vercel";
 type Language = "javascript" | "typescript";
 type PackageManager = "npm" | "pnpm" | "yarn" | "bun";
 
@@ -99,6 +105,9 @@ function getStartCommand(
   switch (runtime) {
     case "deno": {
       return "deno task start";
+    }
+    case "vercel": {
+      return `${packageManager} run dev`;
     }
     default: {
       return `${packageManager} start`;
@@ -212,6 +221,7 @@ async function main() {
       { value: "bun", label: "Bun" },
       { value: "deno", label: "Deno" },
       { value: "cloudflare", label: "Cloudflare Workers" },
+      { value: "vercel", label: "Vercel Functions" },
     ],
     initialValue: detectedRuntime,
   })) as Runtime;

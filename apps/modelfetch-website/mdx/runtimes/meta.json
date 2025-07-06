@@ -1,4 +1,4 @@
 {
   "title": "Runtime Packages",
-  "pages": ["node", "bun", "deno", "cloudflare", "vercel", "netlify"]
+  "pages": ["node", "bun", "deno", "cloudflare", "vercel"]
 }

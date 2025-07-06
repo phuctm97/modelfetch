@@ -26,7 +26,6 @@ ModelFetch is currently a work in progress. The following packages are available
 - `@modelfetch/deno` - Deno runtime support
 - `@modelfetch/cloudflare` - Cloudflare Workers support
 - `@modelfetch/vercel` - Vercel Functions support (Edge Runtime and Node.js)
-- `@modelfetch/netlify` - Netlify Functions support
 
 Additional packages are under active development:
 
@@ -67,7 +66,7 @@ export default server;
 ```
 
 ```typescript title="index.ts"
-import handle from "@modelfetch/node"; // or @modelfetch/bun, @modelfetch/deno, @modelfetch/cloudflare, @modelfetch/vercel, @modelfetch/netlify
+import handle from "@modelfetch/node"; // or @modelfetch/bun, @modelfetch/deno, @modelfetch/cloudflare, @modelfetch/vercel
 import server from "./server";
 
 handle(server);

@@ -33,11 +33,6 @@ ModelFetch provides runtime-specific packages that handle the platform details w
     description="Deploy MCP servers to Vercel Functions"
     href="/docs/runtimes/vercel"
   />
-  <Card
-    title="Netlify"
-    description="Deploy MCP servers to Netlify Functions"
-    href="/docs/runtimes/netlify"
-  />
 </Cards>
 
 ## Common API
@@ -100,15 +95,6 @@ Choose Vercel when:
 - You need both Edge Runtime and Node.js Runtime options
 - You're building Next.js applications with MCP integration
 
-### Netlify
-
-Choose Netlify when:
-
-- You're deploying to Netlify's infrastructure
-- You want serverless Functions with generous free tier
-- You need background functions for long-running tasks
-- You're building JAMstack applications
-
 ## Installation
 
 Each runtime has its own package:
@@ -143,24 +129,18 @@ npm install @modelfetch/cloudflare
 npm install @modelfetch/vercel
 ```
 
-### Netlify
-
-```bash
-npm install @modelfetch/netlify
-```
-
 ## Runtime Features Comparison
 
-| Feature            | Node.js         | Bun         | Deno        | Cloudflare    | Vercel        | Netlify       |
-| ------------------ | --------------- | ----------- | ----------- | ------------- | ------------- | ------------- |
-| TypeScript Support | Via tsx/ts-node | Native      | Native      | Native        | Native        | Native        |
-| Package Manager    | npm/yarn/pnpm   | Built-in    | Built-in    | npm/yarn/pnpm | npm/yarn/pnpm | npm/yarn/pnpm |
-| Permissions Model  | No              | No          | Yes         | No            | No            | No            |
-| Startup Speed      | Good            | Excellent   | Good        | Instant       | Excellent     | Good          |
-| Ecosystem          | Largest         | Growing     | Growing     | Web Standards | Largest       | Largest       |
-| Web Standards      | Partial         | Good        | Excellent   | Excellent     | Excellent     | Good          |
-| Deployment         | Self-hosted     | Self-hosted | Self-hosted | Edge Network  | Serverless    | Serverless    |
-| Background Jobs    | Yes             | Yes         | Yes         | Via Queues    | Limited       | Yes           |
+| Feature            | Node.js         | Bun         | Deno        | Cloudflare    | Vercel        |
+| ------------------ | --------------- | ----------- | ----------- | ------------- | ------------- |
+| TypeScript Support | Via tsx/ts-node | Native      | Native      | Native        | Native        |
+| Package Manager    | npm/yarn/pnpm   | Built-in    | Built-in    | npm/yarn/pnpm | npm/yarn/pnpm |
+| Permissions Model  | No              | No          | Yes         | No            | No            |
+| Startup Speed      | Good            | Excellent   | Good        | Instant       | Excellent     |
+| Ecosystem          | Largest         | Growing     | Growing     | Web Standards | Largest       |
+| Web Standards      | Partial         | Good        | Excellent   | Excellent     | Excellent     |
+| Deployment         | Self-hosted     | Self-hosted | Self-hosted | Edge Network  | Serverless    |
+| Background Jobs    | Yes             | Yes         | Yes         | Via Queues    | Limited       |
 
 ## Server Compatibility
 
@@ -204,7 +184,6 @@ Only the runtime handler import changes:
 - `@modelfetch/deno` for Deno
 - `@modelfetch/cloudflare` for Cloudflare Workers
 - `@modelfetch/vercel` for Vercel Functions
-- `@modelfetch/netlify` for Netlify Functions
 
 ## Development Workflow
 
