@@ -26,15 +26,20 @@ const packageVersions = {
   "@modelfetch/node": packageJson.version,
   "@modelfetch/bun": packageJson.version,
   "@modelfetch/deno": packageJson.version,
+  "@modelfetch/cloudflare": packageJson.version,
   tslib: "2.8.1",
   zod: "3.25.74",
   tsx: "4.20.3",
   typescript: "5.8.3",
   "@types/bun": "1.2.18",
   "@types/node": "22.15.34",
+  wrangler: "4.23.0",
 };
 
-type Runtime = "node" | "bun" | "deno";
+// Cloudflare compatibility date
+const cloudflareCompatibilityDate = "2025-06-17";
+
+type Runtime = "node" | "bun" | "deno" | "cloudflare";
 type Language = "javascript" | "typescript";
 type PackageManager = "npm" | "pnpm" | "yarn" | "bun";
 
@@ -118,6 +123,7 @@ async function copyTemplate(
     language: options.language,
     packageManager: options.packageManager,
     versions: packageVersions,
+    cloudflareCompatibilityDate,
   };
 
   for (const file of files) {
@@ -205,6 +211,7 @@ async function main() {
       { value: "node", label: "Node.js" },
       { value: "bun", label: "Bun" },
       { value: "deno", label: "Deno" },
+      { value: "cloudflare", label: "Cloudflare Workers" },
     ],
     initialValue: detectedRuntime,
   })) as Runtime;

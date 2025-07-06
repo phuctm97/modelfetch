@@ -1,0 +1,5 @@
+{
+  "name": "<%= projectName %>",
+  "main": "./src/index.js",
+  "compatibility_date": "<%= cloudflareCompatibilityDate %>"
+}

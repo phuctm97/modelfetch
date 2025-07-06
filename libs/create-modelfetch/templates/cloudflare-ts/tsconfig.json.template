@@ -1,0 +1,18 @@
+{
+  "include": ["worker-configuration.d.ts", "src"],
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "module": "esnext",
+    "target": "es2022",
+    "lib": ["es2023"],
+    "rootDir": "src",
+    "outDir": "dist",
+    "strict": true,
+    "incremental": true,
+    "verbatimModuleSyntax": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "importHelpers": true
+  }
+}
