@@ -1,3 +1,13 @@
+## 0.4.3 (2025-07-06)
+
+### 🩹 Fixes
+
+- Improve create-modelfetch CLI with tslib dependency, yarn output fix, Deno runtime detection, and updated MCP Inspector command ([#17](https://github.com/phuctm97/modelfetch/pull/17))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.4.2 (2025-07-06)
 
 ### 🩹 Fixes
