@@ -1,6 +1,6 @@
 # <%= projectTitle %>
 
-An MCP server built with [ModelFetch](https://preview.modelfetch.com)
+An MCP server built with [ModelFetch](https://www.modelfetch.com)
 
 ## Quick Start
 
@@ -112,6 +112,6 @@ server.registerPrompt(
 
 - [Model Context Protocol - Documentation](https://modelcontextprotocol.io)
 - [Model Context Protocol - TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
-- [ModelFetch - Website](https://preview.modelfetch.com)
-- [ModelFetch - Documentation](https://preview.modelfetch.com/docs)
+- [ModelFetch - Website](https://www.modelfetch.com)
+- [ModelFetch - Documentation](https://www.modelfetch.com/docs)
 - [ModelFetch - GitHub](https://github.com/phuctm97/modelfetch)

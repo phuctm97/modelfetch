@@ -119,7 +119,7 @@ node dist/index.js
 
 ## Documentation
 
-For complete documentation, examples, and guides, visit [preview.modelfetch.com/docs/runtimes/node](https://preview.modelfetch.com/docs/runtimes/node).
+For complete documentation, examples, and guides, visit [www.modelfetch.com/docs/runtimes/node](https://www.modelfetch.com/docs/runtimes/node).
 
 ## License
 
