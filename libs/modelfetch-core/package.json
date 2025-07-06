@@ -1,6 +1,6 @@
 {
   "name": "@modelfetch/core",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Core utilities for MCP servers built with ModelFetch",
   "repository": {
     "type": "git",

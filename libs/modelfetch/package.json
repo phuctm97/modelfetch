@@ -1,6 +1,6 @@
 {
   "name": "modelfetch",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "CLI for building and running MCP servers with ModelFetch",
   "repository": {
     "type": "git",

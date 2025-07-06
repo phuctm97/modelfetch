@@ -1,3 +1,13 @@
+## 0.6.0 (2025-07-06)
+
+### 🚀 Features
+
+- Add Vercel Functions runtime support to create-modelfetch CLI with JavaScript and TypeScript templates ([#20](https://github.com/phuctm97/modelfetch/pull/20))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.5.0 (2025-07-06)
 
 ### 🚀 Features
