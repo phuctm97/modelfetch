@@ -9,6 +9,7 @@ const server = new McpServer({
   version: packageJson.version,
 });
 
+// Example tool: Roll Dice
 server.registerTool(
   "roll_dice",
   {
@@ -21,6 +22,46 @@ server.registerTool(
       {
         type: "text",
         text: `🎲 You rolled a ${1 + Math.floor(Math.random() * sides)}!`,
+      },
+    ],
+  }),
+);
+
+// Example resource: App Config
+server.registerResource(
+  "app_config",
+  "app://config",
+  {
+    title: "App Config",
+    description: "Application configuration: API keys and user settings",
+    mimeType: "text/plain",
+  },
+  (uri) => ({
+    contents: [
+      {
+        uri: uri.href,
+        text: "<APP_CONFIG>",
+      },
+    ],
+  }),
+);
+
+// Example prompt: Review Code
+server.registerPrompt(
+  "review_code",
+  {
+    title: "Review Code",
+    description: "Review code for best practices and potential issues",
+    argsSchema: { code: z.string() },
+  },
+  ({ code }) => ({
+    messages: [
+      {
+        role: "user",
+        content: {
+          type: "text",
+          text: `Please review this code:\n\n${code}`,
+        },
       },
     ],
   }),

@@ -4,7 +4,7 @@ import { z } from "zod";
 import packageJson from "../package.json" with { type: "json" };
 
 const server = new McpServer({
-  title: "Example Node.js MCP Server (TypeScript)",
+  title: "<%= projectTitle %>",
   name: packageJson.name,
   version: packageJson.version,
 });

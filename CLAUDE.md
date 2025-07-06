@@ -13,7 +13,6 @@ The SDK is built as a thin wrapper on top of `hono` and `@hono/mcp`, leveraging 
 - `@modelfetch/deno` - Deno runtime support (work in progress)
 - `@modelfetch/cloudflare` - Cloudflare Workers support (work in progress)
 - `@modelfetch/vercel` - Vercel Functions support (work in progress)
-- `@modelfetch/netlify` - Netlify Functions support (work in progress)
 
 Each package acts as a thin wrapper around the equivalent Hono package, ensuring optimal performance and compatibility.
 
@@ -65,7 +64,6 @@ These projects are example applications powered by ModelFetch:
 - `@modelfetch/deno`: Deno runtime support (work in progress)
 - `@modelfetch/cloudflare`: Cloudflare Workers support (work in progress)
 - `@modelfetch/vercel`: Vercel Functions support (work in progress)
-- `@modelfetch/netlify`: Netlify Functions support (work in progress)
 
 ### Supporting Libraries
 

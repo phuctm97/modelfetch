@@ -1,7 +1,13 @@
 {
   "name": "modelfetch",
   "version": "0.5.0",
-  "private": true,
+  "description": "CLI for building and running MCP servers with ModelFetch",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phuctm97/modelfetch.git",
+    "directory": "libs/modelfetch"
+  },
+  "license": "MIT",
   "type": "module",
   "exports": {
     ".": {
@@ -13,6 +19,10 @@
   "bin": {
     "modelfetch": "./bin/index.js"
   },
+  "files": [
+    "bin",
+    "dist"
+  ],
   "devDependencies": {
     "create-eslint-config": "workspace:^"
   }
