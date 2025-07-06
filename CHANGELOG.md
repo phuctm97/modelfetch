@@ -1,3 +1,17 @@
+## 0.5.0 (2025-07-06)
+
+### 🚀 Features
+
+- Add Cloudflare Workers support to create-modelfetch CLI with JavaScript and TypeScript templates ([#19](https://github.com/phuctm97/modelfetch/pull/19))
+
+### 🩹 Fixes
+
+- Fix default port in Deno template READMEs from 3000 to 8000 ([#19](https://github.com/phuctm97/modelfetch/pull/19))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.4.4 (2025-07-06)
 
 ### 🩹 Fixes
