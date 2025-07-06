@@ -1,6 +1,6 @@
 ---
 title: Deno
-description: Using ModelFetch with Deno
+description: Use ModelFetch with Deno
 ---
 
 The `@modelfetch/deno` package provides ModelFetch support for Deno applications.
@@ -65,7 +65,7 @@ if (address) {
 
 ### `handle(server, options?)`
 
-Starts the MCP server with Deno-specific optimizations and returns a Deno.HttpServer instance.
+Starts the MCP server on Deno and returns a Deno.HttpServer instance.
 
 - **server**: The MCP server instance from `@modelcontextprotocol/sdk`
 - **options**: Optional Deno.ServeOptions for configuring the HTTP server
@@ -103,18 +103,7 @@ if (address) {
 }
 ```
 
-## Features
-
-### Deno-Specific Features
-
-ModelFetch leverages Deno's unique capabilities:
-
-1. **Security by default**: Explicit permissions model
-2. **Native TypeScript**: First-class TypeScript support
-3. **Web APIs**: Uses standard Web APIs like fetch
-4. **NPM packages**: Native support for NPM packages
-
-### Permission Management
+## Permission Management
 
 Deno requires explicit permissions. For simplicity, you can use:
 
@@ -131,33 +120,7 @@ The `-A` flag allows all permissions. For production, consider using specific pe
 - `--allow-env`: For environment variables
 - `--allow-ffi`: For native modules
 
-### Error Handling
-
-```typescript
-server.registerTool(
-  "safe_operation",
-  {
-    title: "Safe Operation",
-    description: "An operation with error handling",
-    inputSchema: { input: z.string() },
-  },
-  async ({ input }) => {
-    try {
-      const result = await someOperation(input);
-      return {
-        content: [{ type: "text", text: result }],
-      };
-    } catch (error) {
-      return {
-        content: [{ type: "text", text: `Error: ${error.message}` }],
-        isError: true,
-      };
-    }
-  },
-);
-```
-
-### Using Deno APIs
+## Using Deno APIs
 
 ```typescript
 server.registerTool(
@@ -183,104 +146,7 @@ server.registerTool(
 );
 ```
 
-## Deployment
-
-### Running in Development
-
-```bash
-deno run -A index.ts
-```
-
-### Running in Production
-
-Compile for faster startup:
-
-```bash
-# Compile to executable
-deno compile -A index.ts -o mcp-server
-
-# Run the compiled binary
-./mcp-server
-```
-
-### Using Deno Deploy (Future)
-
-While MCP servers typically run locally, future versions may support remote deployment.
-
-## Integration with MCP Clients
-
-Example client configuration:
-
-```json
-{
-  "mcpServers": {
-    "my-server": {
-      "command": "deno",
-      "args": ["run", "-A", "./index.ts"],
-      "transport": "http"
-    }
-  }
-}
-```
-
-## Configuration
-
-Optional `deno.json` configuration:
-
-```json
-{
-  "compilerOptions": {
-    "strict": true
-  },
-  "imports": {
-    "@modelfetch/deno": "npm:@modelfetch/deno",
-    "@modelcontextprotocol/sdk": "npm:@modelcontextprotocol/sdk@^1.15.0",
-    "zod": "npm:zod@^3.25.74"
-  },
-  "tasks": {
-    "dev": "deno run -A index.ts",
-    "build": "deno compile -A index.ts"
-  }
-}
-```
-
-## Performance Tips
-
-1. **Cache dependencies** to avoid re-downloading:
-
-   ```bash
-   deno cache index.ts
-   ```
-
-2. **Use workers** for CPU-intensive tasks:
-
-   ```typescript
-   const worker = new Worker(new URL("./worker.ts", import.meta.url).href, {
-     type: "module",
-   });
-   ```
-
-3. **Enable JIT** for better performance:
-   ```bash
-   deno run --v8-flags=--jitless=false index.ts
-   ```
-
-## Debugging
-
-Enable debug logs:
-
-```bash
-DEBUG=modelfetch:* deno run -A index.ts
-```
-
-Use Deno's built-in inspector:
-
-```bash
-deno run --inspect-brk -A index.ts
-```
-
 ## Next Steps
 
-- Explore [complete examples](/docs/examples)
-- Learn about [Node.js runtime](/docs/runtimes/node)
-- Learn about [Bun runtime](/docs/runtimes/bun)
+- Learn about [Node.js runtime](/runtimes/node)
+- Learn about [Bun runtime](/runtimes/bun)

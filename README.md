@@ -17,14 +17,13 @@
 
 ModelFetch provides runtime-specific packages for optimal performance:
 
-| Package                                                | Description                | Status         |
-| ------------------------------------------------------ | -------------------------- | -------------- |
-| [`@modelfetch/node`](libs/modelfetch-node)             | Node.js runtime support    | ✅ Ready       |
-| [`@modelfetch/bun`](libs/modelfetch-bun)               | Bun runtime support        | ✅ Ready       |
-| [`@modelfetch/deno`](libs/modelfetch-deno)             | Deno runtime support       | ✅ Ready       |
-| [`@modelfetch/cloudflare`](libs/modelfetch-cloudflare) | Cloudflare Workers support | 🚧 In Progress |
-| [`@modelfetch/vercel`](libs/modelfetch-vercel)         | Vercel Functions support   | 🚧 In Progress |
-| [`modelfetch`](libs/modelfetch)                        | CLI tools for development  | 🚧 In Progress |
+| Package                                                | Description                | Status   |
+| ------------------------------------------------------ | -------------------------- | -------- |
+| [`@modelfetch/node`](libs/modelfetch-node)             | Node.js runtime support    | ✅ Ready |
+| [`@modelfetch/bun`](libs/modelfetch-bun)               | Bun runtime support        | ✅ Ready |
+| [`@modelfetch/deno`](libs/modelfetch-deno)             | Deno runtime support       | ✅ Ready |
+| [`@modelfetch/cloudflare`](libs/modelfetch-cloudflare) | Cloudflare Workers support | ✅ Ready |
+| [`@modelfetch/vercel`](libs/modelfetch-vercel)         | Vercel Functions support   | ✅ Ready |
 
 ## 💻 Example
 

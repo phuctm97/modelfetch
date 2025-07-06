@@ -1,6 +1,7 @@
 import "./layout.css";
 
 import type { RootProviderProps } from "fumadocs-ui/provider/base";
+import type { Metadata } from "next";
 import type { PropsWithChildren } from "react";
 
 import { RootProvider } from "fumadocs-ui/provider";
@@ -17,6 +18,52 @@ const geistMono = Geist_Mono({
 });
 
 const theme: RootProviderProps["theme"] = { defaultTheme: "dark" };
+
+const siteTitle =
+  "ModelFetch - Runtime-agnostic TypeScript/JavaScript SDK for MCP Servers";
+
+const siteDescription =
+  "ModelFetch is a delightful TypeScript/JavaScript SDK for building MCP servers and deploying them anywhere TypeScript/JavaScript runs.";
+
+const siteUrl = "https://www.modelfetch.com";
+
+export const metadata: Metadata = {
+  title: {
+    template: "%s | ModelFetch",
+    default: siteTitle,
+  },
+  description: siteDescription,
+  keywords: [
+    "Model Context Protocol",
+    "MCP",
+    "MCP Server",
+    "AI",
+    "AI integration",
+    "SDK",
+    "TypeScript SDK",
+    "JavaScript SDK",
+    "Node.js",
+    "Next.js",
+    "Bun",
+    "Deno",
+    "Cloudflare",
+    "Cloudflare Workers",
+    "Vercel",
+    "Vercel Functions",
+  ],
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    url: siteUrl,
+    siteName: "ModelFetch",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: siteTitle,
+    description: siteDescription,
+  },
+};
 
 export default function Layout({ children }: PropsWithChildren) {
   return (

@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub](https://img.shields.io/badge/GitHub-modelfetch-blue)](https://github.com/phuctm97/modelfetch)
 
-Deno runtime adapter for building MCP (Model Context Protocol) servers with ModelFetch.
+Deno runtime adapter for building MCP servers with ModelFetch.
 
 ## Installation
 
