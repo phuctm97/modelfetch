@@ -11,6 +11,14 @@ import { Typing } from "./typing";
 
 import css from "./page.module.css";
 
+// ASCII art logo
+const asciiLogo = ` __  __           _      _ _____    _       _
+|  \\/  |         | |    | |  ___|  | |     | |
+| .  . | ___   __| | ___| | |_ ___| |_ ___| |__
+| |\\/| |/ _ \\ / _\` |/ _ \\ |  _/ _ \\ __/ __| '_ \\
+| |  | | (_) | (_| |  __/ | ||  __/ || (__| | | |
+\\_|  |_/\\___/ \\__,_|\\___|_\\_| \\___|\\__\\___|_| |_|`;
+
 export default function Page() {
   return (
     <>
@@ -39,12 +47,7 @@ export default function Page() {
             <section className="mb-16 text-center">
               <div className="mb-6 inline-block">
                 <pre className="text-xs leading-tight text-[#008f00] opacity-70 dark:text-[#00ff00] dark:opacity-50">
-                  {`   __  __           _      _ _____    _       _
-  |  \\/  |         | |    | |  ___|  | |     | |
-  | .  . | ___   __| | ___| | |_ ___| |_ ___| |__
-  | |\\/| |/ _ \\ / _\` |/ _ \\ |  _/ _ \\ __/ __| '_ \\
-  | |  | | (_) | (_| |  __/ | ||  __/ || (__| | | |
-  \\_|  |_/\\___/ \\__,_|\\___|_\\_| \\___|\\__\\___|_| |_|`}
+                  {asciiLogo}
                 </pre>
               </div>
 
@@ -55,11 +58,13 @@ export default function Page() {
               </h1>
 
               <div className="mb-8">
-                <span className="text-[#0099cc] dark:text-[#00ffff]">%</span>{" "}
+                <span className="text-[#0099cc] dark:text-[#00ffff]">
+                  [INFO]
+                </span>{" "}
                 <span className="text-gray-600 dark:text-gray-400">
-                  A TypeScript/JavaScript SDK for building MCP (Model Context
-                  Protocol) servers with a delightful developer experience and
-                  deploying them anywhere TypeScript/JavaScript runs.
+                  ModelFetch is a delightful TypeScript/JavaScript SDK for
+                  building MCP servers and deploying them anywhere
+                  TypeScript/JavaScript runs.
                 </span>
               </div>
 
@@ -173,7 +178,7 @@ export default function Page() {
                   </h3>
                   <p className="text-gray-400">
                     Built on top of the official MCP TypeScript SDK to avoid
-                    lock-in and ensure up-to-date capabilities.
+                    lock-in and ensure up-to-date implementation.
                   </p>
                 </div>
               </div>
@@ -283,7 +288,7 @@ export default server;`}
                     <span className="text-[#008f00] dark:text-[#00ff00]">
                       ~
                     </span>{" "}
-                    Run your MCP server with the installed ModelFetch runtime:
+                    Run your MCP server with the ModelFetch runtime handler:
                   </p>
                   <div className="overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md transition-colors hover:border-[#008f00] dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00]">
                     <div className="flex items-center justify-between border-b border-gray-300 bg-gray-100 px-4 py-2 dark:border-[#333] dark:bg-[#2a2a2a]">
@@ -310,14 +315,12 @@ handle(server);`}
 
             {/* Status Section */}
             <section className="text-center">
-              <div className="inline-block rounded-lg border border-gray-300 bg-gray-100 px-4 py-3 sm:px-6 sm:py-4 dark:border-[#333] dark:bg-[#1a1a1a]">
+              <div className="inline-block rounded-lg border border-gray-300 bg-gray-100 p-4 sm:p-6 dark:border-[#333] dark:bg-[#1a1a1a]">
                 <p className="mb-6 text-gray-400">
                   <span className="text-[#0099cc] dark:text-[#00ffff]">
                     [INFO]
                   </span>{" "}
-                  ModelFetch is currently a work in progress. Join us in
-                  building the world&apos;s most popular TypeScript/JavaScript
-                  SDK for MCP servers.
+                  Join us in building the future of MCP servers!
                 </p>
                 <Link
                   className="inline-flex items-center rounded bg-gray-700 px-6 py-3 font-bold text-white transition-all hover:scale-105 hover:bg-gray-800 hover:shadow-[0_0_20px_rgba(100,100,100,0.8)] dark:bg-gray-300 dark:text-black dark:hover:bg-gray-200 dark:hover:shadow-[0_0_20px_rgba(200,200,200,0.8)]"
