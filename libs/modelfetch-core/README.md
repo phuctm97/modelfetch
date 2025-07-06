@@ -16,7 +16,7 @@ To build MCP servers with ModelFetch, use one of the following runtime-specific 
 
 ## Documentation
 
-For complete documentation and examples, visit [preview.modelfetch.com](https://preview.modelfetch.com).
+For complete documentation and examples, visit [www.modelfetch.com](https://www.modelfetch.com).
 
 ## License
 

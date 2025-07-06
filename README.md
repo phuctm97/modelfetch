@@ -125,8 +125,8 @@ pnpm -w format
 
 - [Model Context Protocol - TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
 - [Model Context Protocol - Documentation](https://modelcontextprotocol.io)
-- [ModelFetch - Website](https://preview.modelfetch.com)
-- [ModelFetch - Documentation](https://preview.modelfetch.com/docs)
+- [ModelFetch - Website](https://www.modelfetch.com)
+- [ModelFetch - Documentation](https://www.modelfetch.com/docs)
 
 ## 📄 License
 
