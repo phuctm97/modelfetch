@@ -9,7 +9,7 @@ An MCP server built with [ModelFetch](https://www.modelfetch.com)
 Start the MCP server:
 
 ```bash
-deno task start
+<%= packageManager %> start
 ```
 
 ### Testing with the MCP Inspector
@@ -20,16 +20,18 @@ In a separate terminal, run the MCP Inspector to test your server:
 npx -y @modelcontextprotocol/inspector@latest
 ```
 
-Then, connect to your server at `http://localhost:8000/mcp` (or the endpoint shown in your server output).
+Then, connect to your server at `http://localhost:8787/mcp` (or the endpoint shown in your server output).
 
 ## Project Structure
 
 ```
 <%= projectName %>/
 ├── src/
-│   ├── index.ts      # Project entry point
+│   ├── index.ts      # Worker entry point
 │   └── server.ts     # MCP server implementation
-├── deno.json
+├── wrangler.jsonc    # Cloudflare Workers configuration
+├── package.json
+├── tsconfig.json
 └── README.md
 ```
 

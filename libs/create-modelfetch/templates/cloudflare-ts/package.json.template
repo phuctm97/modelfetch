@@ -1,0 +1,20 @@
+{
+  "name": "<%= projectName %>",
+  "version": "0.0.1",
+  "description": "<%= projectTitle %> (built with ModelFetch)",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "wrangler dev"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "<%= versions['@modelcontextprotocol/sdk'] %>",
+    "@modelfetch/cloudflare": "<%= versions['@modelfetch/cloudflare'] %>",
+    "tslib": "<%= versions['tslib'] %>",
+    "zod": "<%= versions['zod'] %>"
+  },
+  "devDependencies": {
+    "typescript": "<%= versions['typescript'] %>",
+    "wrangler": "<%= versions['wrangler'] %>"
+  }
+}
