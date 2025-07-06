@@ -1,20 +1,17 @@
 <div align="center">
   <h1>ModelFetch</h1>
-
-  <h3>Create, build, and deploy MCP servers anywhere TypeScript/JavaScript runs</h3>
-
-  <p>A delightful TypeScript/JavaScript SDK for MCP servers</p>
+  <p>ModelFetch is a delightful TypeScript/JavaScript SDK for building MCP servers and deploying them anywhere TypeScript/JavaScript runs.</p>
 </div>
 
 ---
 
 ## 🚀 Features
 
-- **Multi-Runtime**: Write once, run anywhere: Node.js, Bun, Deno, Cloudflare Workers, Vercel, Netlify, etc.
-- **Official SDK**: Built on top of the official MCP TypeScript SDK to avoid lock-in and ensure up-to-date implementation
+- **Multi-Runtime**: Write once, run anywhere: Node.js, Bun, Deno, Cloudflare Workers, Vercel Functions, Netlify Functions, etc.
+- **Official SDK**: Built on top of the official MCP TypeScript SDK to avoid lock-in, guarantee long-term support, and ensure up-to-date implementation
 - **Live Reload**: Development server with automatic reloading
 - **MCP Inspector**: Built-in integration for testing and debugging
-- **Modular Design**: Platform-specific packages for optimal performance
+- **Modular Design**: Platform-specific package for optimal performance
 
 ## 📦 Packages
 
@@ -32,7 +29,7 @@ ModelFetch provides runtime-specific packages for optimal performance:
 
 ## 💻 Example
 
-Here's a simple MCP server using ModelFetch:
+Here's a simple MCP server built with the official MCP TypeScript SDK and run with the ModelFetch runtime handler:
 
 ```typescript
 // server.ts
@@ -67,13 +64,20 @@ export default server;
 
 ```typescript
 // index.ts
-import handle, { getEndpoint } from "@modelfetch/node";
+import handle from "@modelfetch/node";
 import server from "./server";
 
-handle(server, (address) => {
-  console.log(`MCP server is available at ${getEndpoint(address)}`);
-});
+handle(server);
 ```
+
+> [!TIP]
+> To run on a different runtime, simply replace `@modelfetch/node` with the corresponding package:
+>
+> - `@modelfetch/bun` for Bun
+> - `@modelfetch/deno` for Deno
+> - `@modelfetch/cloudflare` for Cloudflare Workers
+> - `@modelfetch/vercel` for Vercel Functions
+> - `@modelfetch/netlify` for Netlify Functions
 
 ## 🛠️ Development
 
@@ -82,7 +86,7 @@ handle(server, (address) => {
 - Node.js 22+
 - pnpm 10+
 
-### Setup
+### Initial Steps
 
 1. Clone the repository:
 
