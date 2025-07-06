@@ -1,9 +1,8 @@
 {
-  "name": "<%= projectName %>",
-  "version": "0.0.1",
   "imports": {
     "@modelcontextprotocol/sdk": "npm:@modelcontextprotocol/sdk@<%= versions['@modelcontextprotocol/sdk'] %>",
     "@modelfetch/deno": "npm:@modelfetch/deno@<%= versions['@modelfetch/deno'] %>",
+    "tslib": "npm:tslib@<%= versions['tslib'] %>",
     "zod": "npm:zod@<%= versions['zod'] %>"
   },
   "tasks": {
