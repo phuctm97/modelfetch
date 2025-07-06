@@ -1,3 +1,13 @@
+## 0.4.2 (2025-07-06)
+
+### 🩹 Fixes
+
+- Update all documentation URLs from preview.modelfetch.com to www.modelfetch.com ([#16](https://github.com/phuctm97/modelfetch/pull/16))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.4.1 (2025-07-05)
 
 ### 🩹 Fixes
