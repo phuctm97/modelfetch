@@ -21,7 +21,7 @@ jobs:
         with:
           cache: pnpm
           node-version-file: .nvmrc
-      - run: pnpm i
+      - run: pnpm install
       - run: pnpm exec nx run-many -t typecheck lint build
       - run: pnpm exec nx release --skip-publish
         env:

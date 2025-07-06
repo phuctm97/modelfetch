@@ -2,12 +2,32 @@
   "name": "@modelfetch/cloudflare",
   "version": "0.6.0",
   "description": "Cloudflare Workers runtime adapter for MCP servers built with ModelFetch",
+  "keywords": [
+    "model-context-protocol",
+    "mcp",
+    "mcp-server",
+    "ai",
+    "ai-integration",
+    "sdk",
+    "typescript-sdk",
+    "javascript-sdk"
+  ],
+  "homepage": "https://www.modelfetch.com",
+  "bugs": {
+    "url": "https://github.com/phuctm97/modelfetch/issues",
+    "email": "phuctm97@gmail.com"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/phuctm97/modelfetch.git",
     "directory": "libs/modelfetch-cloudflare"
   },
   "license": "MIT",
+  "author": {
+    "name": "Minh-Phuc Tran",
+    "email": "phuctm97@gmail.com",
+    "url": "https://x.com/phuctm97"
+  },
   "type": "module",
   "exports": {
     ".": {

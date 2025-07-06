@@ -7,12 +7,8 @@ The `@modelfetch/vercel` package provides ModelFetch support for deploying MCP s
 
 ## Installation
 
-```bash
+```npm
 npm install @modelfetch/vercel
-# or
-yarn add @modelfetch/vercel
-# or
-pnpm add @modelfetch/vercel
 ```
 
 ## Basic Usage
@@ -51,81 +47,14 @@ const handler = handle(server);
 
 ### Edge Runtime
 
-The Edge Runtime provides:
-
-- Faster cold starts
-- Global edge deployment
-- Web standard APIs
-- Lower memory usage
-
 ```typescript
 export const runtime = "edge";
 ```
 
 ### Node.js Runtime
 
-The Node.js Runtime provides:
-
-- Full Node.js API compatibility
-- Larger memory limits
-- Broader package ecosystem support
-- File system access
-
 ```typescript
 export const runtime = "nodejs";
-```
-
-## Deployment
-
-### Using Vercel CLI
-
-```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy
-vercel
-```
-
-### Using Git Integration
-
-1. Push your code to GitHub, GitLab, or Bitbucket
-2. Import your project in the Vercel dashboard
-3. Vercel will automatically deploy on every push
-
-### Environment Variables
-
-Set environment variables in the Vercel dashboard or using the CLI:
-
-```bash
-vercel env add MY_API_KEY
-```
-
-Access them in your MCP server:
-
-```typescript
-const server = new McpServer({
-  title: "My MCP Server",
-  name: "my-server",
-  version: "1.0.0",
-});
-
-server.registerTool(
-  "get_api_key",
-  {
-    title: "Get API Key",
-    description: "Returns the API key",
-    inputSchema: {},
-  },
-  () => ({
-    content: [
-      {
-        type: "text",
-        text: process.env.MY_API_KEY || "Not set",
-      },
-    ],
-  }),
-);
 ```
 
 ## Example Server
@@ -182,95 +111,7 @@ export const POST = handler;
 export const DELETE = handler;
 ```
 
-## Best Practices
-
-### Choose the Right Runtime
-
-- Use **Edge Runtime** for:
-  - Simple MCP servers
-  - Fast response times
-  - Global distribution
-  - Lower costs
-
-- Use **Node.js Runtime** for:
-  - Complex MCP servers
-  - File system operations
-  - Heavy computations
-  - Specific Node.js packages
-
-### Optimize Cold Starts
-
-1. Keep dependencies minimal
-2. Use Edge Runtime when possible
-3. Implement proper caching
-4. Use Vercel's ISR for static responses
-
-### Security
-
-1. Always validate input parameters
-2. Use environment variables for secrets
-3. Implement rate limiting for public endpoints
-4. Enable CORS only for trusted origins
-
-## Limitations
-
-### Edge Runtime Limitations
-
-- No Node.js-specific APIs
-- Limited to Web Standard APIs
-- 1MB response size limit
-- 25 second timeout
-
-### Node.js Runtime Limitations
-
-- 10 second default timeout (configurable)
-- 4.5MB response size limit
-- Cold start latency
-
-## Troubleshooting
-
-### Common Issues
-
-**Function timeout**
-
-```typescript
-// Increase timeout for Node.js runtime
-export const config = {
-  runtime: "nodejs",
-  maxDuration: 60, // seconds
-};
-```
-
-**Module not found**
-
-```json
-// Ensure dependencies are in package.json
-{
-  "dependencies": {
-    "@modelfetch/vercel": "^0.1.0",
-    "@modelcontextprotocol/sdk": "^1.15.0"
-  }
-}
-```
-
-**CORS errors**
-
-```typescript
-// Add CORS headers if needed
-export async function OPTIONS(request: Request) {
-  return new Response(null, {
-    status: 200,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-      "Access-Control-Allow-Headers": "Content-Type",
-    },
-  });
-}
-```
-
 ## Next Steps
 
 - Read the [MCP SDK documentation](https://docs.mcp.io)
-- Explore [example implementations](/docs/examples)
-- Learn about [MCP concepts](/docs/concepts)
+- Learn about other [runtime options](/runtimes)

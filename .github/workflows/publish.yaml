@@ -23,7 +23,7 @@ jobs:
           cache: pnpm
           node-version-file: .nvmrc
           registry-url: https://registry.npmjs.org
-      - run: pnpm i
+      - run: pnpm install
       - run: pnpm exec nx run-many -t typecheck lint build
       - run: pnpm exec nx release publish
         env:

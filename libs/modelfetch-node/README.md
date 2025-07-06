@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub](https://img.shields.io/badge/GitHub-modelfetch-blue)](https://github.com/phuctm97/modelfetch)
 
-Node.js runtime adapter for building MCP (Model Context Protocol) servers with ModelFetch.
+Node.js runtime adapter for building MCP servers with ModelFetch.
 
 ## Installation
 
@@ -85,24 +85,6 @@ Returns: `string` - The complete endpoint URL
 
 ```typescript
 const endpoint = getEndpoint(nodeServer); // "http://localhost:3000/mcp"
-```
-
-## TypeScript Configuration
-
-Recommended `tsconfig.json` for Node.js:
-
-```json
-{
-  "compilerOptions": {
-    "target": "ES2022",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
-  }
-}
 ```
 
 ## Running Your Server

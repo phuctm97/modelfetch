@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub](https://img.shields.io/badge/GitHub-modelfetch-blue)](https://github.com/phuctm97/modelfetch)
 
-Bun runtime adapter for building MCP (Model Context Protocol) servers with ModelFetch.
+Bun runtime adapter for building MCP servers with ModelFetch.
 
 ## Installation
 
@@ -83,23 +83,6 @@ Returns: `string` - The complete endpoint URL
 
 ```typescript
 const endpoint = getEndpoint(bunServer); // "http://localhost:3000/mcp"
-```
-
-## TypeScript Configuration
-
-Bun works with TypeScript out of the box. Recommended `tsconfig.json`:
-
-```json
-{
-  "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "types": ["bun-types"],
-    "strict": true,
-    "skipLibCheck": true
-  }
-}
 ```
 
 ## Running Your Server

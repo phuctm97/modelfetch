@@ -3,7 +3,7 @@ title: Getting Started
 description: Install ModelFetch and build your first MCP server
 ---
 
-This guide will help you install ModelFetch and create your first MCP (Model Context Protocol) server.
+This guide will help you install ModelFetch and create your first MCP server.
 
 ## Prerequisites
 
@@ -19,12 +19,8 @@ ModelFetch provides separate packages for each runtime. Install the package that
 
 ### Node.js
 
-```bash
+```npm
 npm install @modelfetch/node
-# or
-yarn add @modelfetch/node
-# or
-pnpm add @modelfetch/node
 ```
 
 ### Bun
@@ -41,22 +37,14 @@ deno add npm:@modelfetch/deno
 
 ### Cloudflare
 
-```bash
+```npm
 npm install @modelfetch/cloudflare
-# or
-yarn add @modelfetch/cloudflare
-# or
-pnpm add @modelfetch/cloudflare
 ```
 
 ### Vercel
 
-```bash
+```npm
 npm install @modelfetch/vercel
-# or
-yarn add @modelfetch/vercel
-# or
-pnpm add @modelfetch/vercel
 ```
 
 ## Creating Your First MCP Server
@@ -111,58 +99,11 @@ import server from "./server";
 handle(server, (address) => {
   console.log(`MCP Server is available at ${getEndpoint(address)}`);
 });
-
-// Note: Other runtimes have different patterns:
-// Bun: const bunServer = handle(server); console.log(getEndpoint(bunServer));
-// Deno: const httpServer = handle(server); if (httpServer.addr) console.log(getEndpoint(httpServer.addr));
-// Vercel: const handler = handle(server); export const GET = handler; export const POST = handler; export const DELETE = handler;
 ```
 
 ### 3. Run the server
 
-The way you run your server depends on your runtime:
-
-#### Node.js
-
-```bash
-# TypeScript
-npx tsx index.ts
-
-# JavaScript
-node index.js
-```
-
-#### Bun
-
-```bash
-bun run index.ts
-```
-
-#### Deno
-
-```bash
-deno run -A index.ts
-```
-
-#### Vercel
-
-For Vercel, create an API route in your Next.js app:
-
-```typescript title="app/mcp/route.ts"
-import handle from "@modelfetch/vercel";
-import server from "./server";
-
-const handler = handle(server);
-export const GET = handler;
-export const POST = handler;
-export const DELETE = handler;
-```
-
-Then deploy with:
-
-```bash
-vercel
-```
+Run your server with the appropriate command for your runtime.
 
 ## Understanding the Basics
 
@@ -197,8 +138,7 @@ The `handle()` function from ModelFetch starts the MCP server. It:
 
 Now that you have a basic MCP server running, you can:
 
-- Learn about the [runtime-specific features](/docs/runtimes/node)
-- Explore more [complete examples](/docs/examples)
+- Learn about the [runtime-specific features](/runtimes)
 - Add more tools to your server
 - Implement resources for data access
 

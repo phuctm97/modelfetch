@@ -1,18 +1,14 @@
 ---
 title: Node.js
-description: Using ModelFetch with Node.js
+description: Use ModelFetch with Node.js
 ---
 
 The `@modelfetch/node` package provides ModelFetch support for Node.js applications.
 
 ## Installation
 
-```bash
+```npm
 npm install @modelfetch/node
-# or
-yarn add @modelfetch/node
-# or
-pnpm add @modelfetch/node
 ```
 
 ## Basic Usage
@@ -62,7 +58,7 @@ handle(server, (address) => {
 
 ### `handle(server, callback?)`
 
-Starts the MCP server with Node.js-specific optimizations.
+Starts the MCP server on Node.js.
 
 - **server**: The MCP server instance from `@modelcontextprotocol/sdk`
 - **callback**: Optional callback that receives the server address
@@ -93,150 +89,7 @@ handle(server, (address) => {
 });
 ```
 
-## Features
-
-### HTTP Transport
-
-ModelFetch uses streamable HTTP transport for MCP communication:
-
-```typescript
-handle(server); // Sets up HTTP transport
-```
-
-### Error Handling
-
-ModelFetch provides proper error handling for Node.js:
-
-```typescript
-server.registerTool(
-  "safe_operation",
-  {
-    title: "Safe Operation",
-    description: "An operation with error handling",
-    inputSchema: { input: z.string() },
-  },
-  async ({ input }) => {
-    try {
-      // Your operation here
-      const result = await someOperation(input);
-      return {
-        content: [{ type: "text", text: result }],
-      };
-    } catch (error) {
-      return {
-        content: [{ type: "text", text: `Error: ${error.message}` }],
-        isError: true,
-      };
-    }
-  },
-);
-```
-
-### TypeScript Support
-
-Full TypeScript support with type inference:
-
-```typescript
-const server = new McpServer({
-  title: "TypeScript Server",
-  name: "ts-server",
-  version: "1.0.0",
-});
-
-server.registerTool(
-  "typed_tool",
-  {
-    title: "Typed Tool",
-    description: "A fully typed tool",
-    inputSchema: {
-      name: z.string(),
-      age: z.number().int().positive(),
-      email: z.string().email(),
-    },
-  },
-  // Parameters are fully typed
-  ({ name, age, email }) => ({
-    content: [
-      {
-        type: "text",
-        text: `Hello ${name}, you are ${age} years old`,
-      },
-    ],
-  }),
-);
-```
-
-## Deployment
-
-### Running in Development
-
-```bash
-# TypeScript
-npx tsx index.ts
-
-# JavaScript
-node index.js
-```
-
-### Running in Production
-
-```bash
-# Build TypeScript
-tsc
-
-# Run the compiled JavaScript
-node dist/index.js
-```
-
-### Process Management
-
-For production deployments, use a process manager like PM2:
-
-```bash
-pm2 start index.js --name mcp-server
-```
-
-## Integration with MCP Clients
-
-To use your ModelFetch server with an MCP client:
-
-1. Start your server
-2. Get the endpoint using `getEndpoint()`
-3. Configure your MCP client to connect to this endpoint
-
-Example client configuration:
-
-```json
-{
-  "mcpServers": {
-    "my-server": {
-      "command": "node",
-      "args": ["./index.js"],
-      "transport": "http"
-    }
-  }
-}
-```
-
-## TypeScript Configuration
-
-For optimal TypeScript support, use the following `tsconfig.json`:
-
-```json
-{
-  "compilerOptions": {
-    "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "esModuleInterop": true,
-    "strict": true,
-    "skipLibCheck": true
-  }
-}
-```
-
 ## Next Steps
 
-- Explore [complete examples](/docs/examples)
-- Learn about [Bun runtime](/docs/runtimes/bun)
-- Learn about [Deno runtime](/docs/runtimes/deno)
+- Learn about [Bun runtime](/runtimes/bun)
+- Learn about [Deno runtime](/runtimes/deno)

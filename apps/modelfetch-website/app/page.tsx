@@ -62,21 +62,28 @@ export default function Page() {
                   [INFO]
                 </span>{" "}
                 <span className="text-gray-600 dark:text-gray-400">
-                  ModelFetch is a delightful TypeScript/JavaScript SDK for
-                  building MCP servers and deploying them anywhere
-                  TypeScript/JavaScript runs.
+                  ModelFetch is a delightful TypeScript/JavaScript SDK
+                  <span className="inline-block">
+                    for building MCP servers
+                  </span>{" "}
+                  <span className="inline-block">
+                    and deploying them anywhere
+                  </span>{" "}
+                  <span className="inline-block">
+                    TypeScript/JavaScript runs.
+                  </span>
                 </span>
               </div>
 
-              <div className="flex justify-center gap-4">
+              <div className="flex flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4">
                 <Link
-                  className={`inline-flex items-center rounded bg-[#008f00] px-6 py-3 font-bold text-white transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(0,143,0,0.8)] dark:bg-[#00ff00] dark:text-black dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.8)] ${css.glitch}`}
+                  className={`inline-flex items-center justify-center rounded bg-[#008f00] px-4 py-3 font-bold text-white transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(0,143,0,0.8)] sm:px-6 dark:bg-[#00ff00] dark:text-black dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.8)] ${css.glitch}`}
                   href="/docs/getting-started"
                 >
                   <span className="mr-2">▶</span>Get Started
                 </Link>
                 <Link
-                  className="inline-flex items-center rounded border-2 border-[#0099cc] px-6 py-3 text-[#0099cc] transition-all hover:bg-[#0099cc] hover:text-white hover:shadow-[0_0_20px_rgba(0,153,204,0.8)] dark:border-[#00ffff] dark:text-[#00ffff] dark:hover:bg-[#00ffff] dark:hover:text-black dark:hover:shadow-[0_0_20px_rgba(0,255,255,0.8)]"
+                  className="inline-flex items-center justify-center rounded border-2 border-[#0099cc] px-4 py-3 text-[#0099cc] transition-all hover:bg-[#0099cc] hover:text-white hover:shadow-[0_0_20px_rgba(0,153,204,0.8)] sm:px-6 dark:border-[#00ffff] dark:text-[#00ffff] dark:hover:bg-[#00ffff] dark:hover:text-black dark:hover:shadow-[0_0_20px_rgba(0,255,255,0.8)]"
                   href="/docs"
                 >
                   <span className="mr-2">◆</span>View Docs
@@ -100,25 +107,19 @@ export default function Page() {
             <div className="mb-12 text-center">
               <div className="inline-block rounded border border-gray-300 bg-gray-100 px-4 py-2 dark:border-[#333] dark:bg-[#1a1a1a]">
                 {/* Mobile Layout (stacked) */}
-                <div className="block text-xs sm:hidden">
+                <div className="block text-sm sm:hidden">
                   <div className="flex flex-col items-center gap-1">
                     <div className="flex items-center gap-2">
                       <span className="animate-pulse text-[#0099cc] dark:text-[#00ffff]">
                         ●
                       </span>
                       <span className="text-gray-700 dark:text-gray-400">
-                        STATUS: ALPHA
+                        STATUS: BETA
                       </span>
                     </div>
-                    <div className="flex items-center gap-2 text-[10px]">
+                    <div className="flex items-center gap-2 text-sm">
                       <span className="text-gray-600 dark:text-gray-400">
                         v{packageJson.version}
-                      </span>
-                      <span className="text-gray-400 dark:text-gray-600">
-                        •
-                      </span>
-                      <span className="text-gray-600 dark:text-gray-400">
-                        IN DEVELOPMENT
                       </span>
                     </div>
                   </div>
@@ -130,19 +131,13 @@ export default function Page() {
                     ●
                   </span>
                   <span className="ml-2 text-gray-700 dark:text-gray-400">
-                    STATUS: ALPHA
+                    STATUS: BETA
                   </span>
                   <span className="mx-4 text-gray-400 dark:text-gray-600">
                     |
                   </span>
                   <span className="text-gray-600 dark:text-gray-400">
                     VERSION: {packageJson.version}
-                  </span>
-                  <span className="mx-4 text-gray-400 dark:text-gray-600">
-                    |
-                  </span>
-                  <span className="text-gray-600 dark:text-gray-400">
-                    IN DEVELOPMENT
                   </span>
                 </div>
               </div>
@@ -222,9 +217,7 @@ deno add npm:@modelfetch/deno
 npm install @modelfetch/cloudflare
 
 # For Vercel
-npm install @modelfetch/vercel
-
-`}
+npm install @modelfetch/vercel`}
                         lang="bash"
                       />
                     </div>
