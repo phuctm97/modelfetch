@@ -11,6 +11,7 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "<%= versions['@modelcontextprotocol/sdk'] %>",
     "@modelfetch/node": "<%= versions['@modelfetch/node'] %>",
+    "tslib": "<%= versions['tslib'] %>",
     "zod": "<%= versions['zod'] %>"
   }
 }

@@ -1,12 +1,10 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 
-import denoJson from "../deno.json" with { type: "json" };
-
 const server = new McpServer({
   title: "<%= projectTitle %>",
-  name: denoJson.name,
-  version: denoJson.version,
+  name: "<%= projectName %>",
+  version: "0.0.1",
 });
 
 // Example tool: Roll Dice

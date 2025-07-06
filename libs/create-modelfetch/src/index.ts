@@ -59,6 +59,17 @@ function detectPackageManager(): PackageManager {
   return "npm";
 }
 
+function detectRuntime(): Runtime {
+  const userAgent = process.env.npm_config_user_agent;
+
+  if (userAgent) {
+    if (userAgent.includes("bun")) return "bun";
+    if (userAgent.includes("deno")) return "deno";
+  }
+
+  return "node";
+}
+
 function validateProjectName(name: string): string | undefined {
   if (name) {
     const validation = validatePackageName(name);
@@ -136,6 +147,13 @@ async function copyTemplate(
 }
 
 async function main() {
+  // Detect package manager running the CLI
+  const detectedPM = detectPackageManager();
+
+  // Wait for yarn to finish outputting if detected
+  if (detectedPM === "yarn")
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
   // Display ASCII art logo
   console.log(pc.greenBright(asciiLogo));
 
@@ -180,9 +198,7 @@ async function main() {
   // Use placeholder value if user enters empty string
   const finalProjectTitle = projectTitle || defaultTitle;
 
-  // Detect package manager early to set runtime default
-  const detectedPM = detectPackageManager();
-
+  const detectedRuntime = detectRuntime();
   const runtime = (await p.select({
     message: "Which runtime would you like to use?",
     options: [
@@ -190,7 +206,7 @@ async function main() {
       { value: "bun", label: "Bun" },
       { value: "deno", label: "Deno" },
     ],
-    initialValue: detectedPM === "bun" ? "bun" : "node",
+    initialValue: detectedRuntime,
   })) as Runtime;
 
   if (p.isCancel(runtime)) {
@@ -334,7 +350,9 @@ async function main() {
     console.log(`  ${pc.cyan(getStartCommand(runtime, packageManager))}`);
     console.log();
     console.log(pc.gray("  Test with the MCP Inspector:"));
-    console.log(`  ${pc.cyan("npx @modelcontextprotocol/inspector")}`);
+    console.log(
+      `  ${pc.cyan("npx -y @modelcontextprotocol/inspector@latest")}`,
+    );
     console.log();
     console.log(pc.gray("  Read the documentation:"));
     console.log(`  ${pc.cyan("https://www.modelfetch.com/docs")}`);
