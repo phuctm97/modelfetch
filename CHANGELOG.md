@@ -1,3 +1,13 @@
+## 0.4.4 (2025-07-06)
+
+### 🩹 Fixes
+
+- Improve documentation clarity and update Deno templates to use correct API ([#18](https://github.com/phuctm97/modelfetch/pull/18))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.4.3 (2025-07-06)
 
 ### 🩹 Fixes
