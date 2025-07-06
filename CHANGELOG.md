@@ -1,3 +1,13 @@
+## 0.6.1 (2025-07-06)
+
+### 🩹 Fixes
+
+- Improve documentation clarity by removing platform-specific details and updating package status ([#21](https://github.com/phuctm97/modelfetch/pull/21))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.6.0 (2025-07-06)
 
 ### 🚀 Features
