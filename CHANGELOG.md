@@ -1,3 +1,13 @@
+## 0.7.0 (2025-07-07)
+
+### 🚀 Features
+
+- Improve documentation clarity and add interactive runtime selector to website ([#22](https://github.com/phuctm97/modelfetch/pull/22))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.6.1 (2025-07-06)
 
 ### 🩹 Fixes
