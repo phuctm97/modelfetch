@@ -1,152 +1,70 @@
 ---
 title: Deno
-description: Use ModelFetch with Deno
+description: Run secure MCP servers with Deno
 ---
 
-The `@modelfetch/deno` package provides ModelFetch support for Deno applications.
+The `@modelfetch/deno` package lets you run MCP servers as Deno-native [HTTP servers](https://docs.deno.com/runtime/tutorials/http_server).
 
 ## Installation
 
-```bash
+```bash title="Terminal"
 deno add npm:@modelfetch/deno
 ```
 
-## Basic Usage
+## Usage
 
-```typescript title="server.ts"
-import { McpServer } from "npm:@modelcontextprotocol/sdk@^1.15.0/server/mcp.js";
-import { z } from "npm:zod@^3.25.74";
+### Start The Server
 
-const server = new McpServer({
-  title: "My Deno MCP Server",
-  name: "my-deno-server",
-  version: "1.0.0",
-});
+```typescript title="src/index.ts"
+import handle from "npm:@modelfetch/deno";
+import server from "./server.ts"; // Import your McpServer
 
-// Define your tools
-server.registerTool(
-  "roll_dice",
-  {
-    title: "Roll Dice",
-    description: "Rolls an N-sided dice",
-    inputSchema: { sides: z.number().int().min(2) },
-  },
-  ({ sides }) => ({
-    content: [
-      {
-        type: "text",
-        text: `🎲 You rolled a ${1 + Math.floor(Math.random() * sides)}!`,
-      },
-    ],
-  }),
-);
-
-export default server;
+// Run as a Deno HTTP server
+handle(server);
 ```
 
-```typescript title="index.ts"
+### Log The Endpoint
+
+```typescript title="src/index.ts"
 import handle, { getEndpoint } from "npm:@modelfetch/deno";
-import server from "./server.ts";
+import server from "./server.ts"; // Import your McpServer
 
-// Start the server
-const httpServer = handle(server);
-httpServer.finished.then(() => {
-  console.log("Server stopped");
+// Run as a Deno HTTP server
+handle(server, {
+  onListen: (address) => {
+    // Log the endpoint when the server starts listening
+    console.log(`MCP server is available at ${getEndpoint(address)}`);
+  },
 });
+```
 
-// Get the server address
-const address = httpServer.addr;
-if (address) {
-  console.log(`Server running at: ${getEndpoint(address)}`);
-}
+### Specify Custom Port
+
+```typescript title="src/index.ts"
+import handle, { getEndpoint } from "npm:@modelfetch/deno";
+import server from "./server.ts"; // Import your McpServer
+
+// Run as a Deno HTTP server
+handle(server, {
+  // Customize server options
+  port: 8080,
+  onListen: (address) => {
+    console.log(`MCP server is available at ${getEndpoint(address)}`);
+  },
+});
 ```
 
 ## API Reference
 
 ### `handle(server, options?)`
 
-Starts the MCP server on Deno and returns a Deno.HttpServer instance.
+Starts the MCP server
 
-- **server**: The MCP server instance from `@modelcontextprotocol/sdk`
-- **options**: Optional Deno.ServeOptions for configuring the HTTP server
-
-```typescript
-import handle from "npm:@modelfetch/deno";
-import server from "./server.ts";
-
-const httpServer = handle(server, {
-  port: 3000,
-  hostname: "localhost",
-});
-
-const address = httpServer.addr;
-if (address) {
-  console.log(`Server started at ${address.hostname}:${address.port}`);
-}
-```
+- **server**: Required [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance from [`@modelcontextprotocol/sdk`](https://github.com/modelcontextprotocol/typescript-sdk)
+- **options**: Optional [`Deno.ServeOptions`](https://docs.deno.com/api/deno/~/Deno.ServeOptions)
 
 ### `getEndpoint(address)`
 
-Gets the MCP server endpoint for connecting clients.
+Gets the MCP server endpoint from the server [`Deno.Addr`](https://docs.deno.com/api/deno/~/Deno.Addr)
 
-- **address**: Required. A Deno.Addr object from the HTTP server
-
-```typescript
-import handle, { getEndpoint } from "npm:@modelfetch/deno";
-import server from "./server.ts";
-
-const httpServer = handle(server);
-const address = httpServer.addr;
-if (address) {
-  const endpoint = getEndpoint(address);
-  console.log(`Connect to: ${endpoint}`);
-}
-```
-
-## Permission Management
-
-Deno requires explicit permissions. For simplicity, you can use:
-
-```bash
-deno run -A index.ts
-```
-
-The `-A` flag allows all permissions. For production, consider using specific permissions:
-
-- `--allow-read`: File system read access
-- `--allow-write`: File system write access
-- `--allow-run`: Subprocess execution
-- `--allow-net`: For network requests
-- `--allow-env`: For environment variables
-- `--allow-ffi`: For native modules
-
-## Using Deno APIs
-
-```typescript
-server.registerTool(
-  "read_file",
-  {
-    title: "Read File",
-    description: "Read a file from disk",
-    inputSchema: { path: z.string().describe("File path to read") },
-  },
-  async ({ path }) => {
-    try {
-      const content = await Deno.readTextFile(path);
-      return {
-        content: [{ type: "text", text: content }],
-      };
-    } catch (error) {
-      return {
-        content: [{ type: "text", text: `Error: ${error.message}` }],
-        isError: true,
-      };
-    }
-  },
-);
-```
-
-## Next Steps
-
-- Learn about [Node.js runtime](/runtimes/node)
-- Learn about [Bun runtime](/runtimes/bun)
+- **address**: Required server [`Deno.Addr`](https://docs.deno.com/api/deno/~/Deno.Addr) from the `onListen` callback

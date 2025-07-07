@@ -10,55 +10,55 @@
 
 Using **npx**:
 
-```bash
+```bash title="Terminal"
 npx -y create-modelfetch@latest
 ```
 
 Using **npm init**:
 
-```bash
+```bash title="Terminal"
 npm init modelfetch@latest
 ```
 
 Using **npm create**:
 
-```bash
+```bash title="Terminal"
 npm create modelfetch@latest
 ```
 
 Using **pnpm dlx**:
 
-```bash
+```bash title="Terminal"
 pnpm dlx create-modelfetch@latest
 ```
 
 Using **pnpm create**:
 
-```bash
+```bash title="Terminal"
 pnpm create modelfetch@latest
 ```
 
 Using **bun x**:
 
-```bash
+```bash title="Terminal"
 bun x create-modelfetch@latest
 ```
 
 Using **bun create**:
 
-```bash
+```bash title="Terminal"
 bun create modelfetch@latest
 ```
 
 Using **deno**:
 
-```bash
+```bash title="Terminal"
 deno run -A npm:create-modelfetch@latest
 ```
 
 Using **yarn**:
 
-```bash
+```bash title="Terminal"
 yarn create modelfetch
 ```
 

@@ -3,115 +3,68 @@ title: Vercel
 description: Deploy MCP servers to Vercel Functions
 ---
 
-The `@modelfetch/vercel` package provides ModelFetch support for deploying MCP servers to Vercel Functions, supporting both Edge Runtime and Node.js Runtime.
+The `@modelfetch/vercel` package lets you deploy MCP servers to [Vercel Functions](https://vercel.com/docs/functions).
 
 ## Installation
 
-```npm
+```npm title="Terminal"
 npm install @modelfetch/vercel
 ```
 
-## Basic Usage
+## Usage
 
-Create an API route in your Next.js app:
+### Next.js App Router
 
-```typescript title="app/mcp/route.ts"
+```typescript title="app/[[...path]]/route.ts"
 import handle from "@modelfetch/vercel";
-import server from "./server";
+import server from "./server"; // Import your McpServer
 
 const handler = handle(server);
+
+// Export as Next.js App Router API route handlers
 export const GET = handler;
 export const POST = handler;
 export const DELETE = handler;
+```
+
+### Use Node.js or Fluid Compute
+
+```typescript title="app/[[...path]]/route.ts"
+import handle from "@modelfetch/vercel";
+import server from "./server"; // Import your McpServer
+
+const handler = handle(server);
+
+// Export as Next.js App Router API route handlers
+export const GET = handler;
+export const POST = handler;
+export const DELETE = handler;
+
+// Use Node.js or Fluid Compute (default)
+export const runtime = "nodejs";
+```
+
+### Use Edge Runtime
+
+```typescript title="app/[[...path]]/route.ts"
+import handle from "@modelfetch/vercel";
+import server from "./server"; // Import your McpServer
+
+const handler = handle(server);
+
+// Export as Next.js App Router API route handlers
+export const GET = handler;
+export const POST = handler;
+export const DELETE = handler;
+
+// Use Edge runtime
+export const runtime = "edge";
 ```
 
 ## API Reference
 
 ### `handle(server)`
 
-Creates a Vercel-compatible handler from a ModelFetch server.
+Creates a Vercel-compatible Next.js App Router API route handler from an [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server)
 
-- **server**: The MCP server instance from `@modelcontextprotocol/sdk`
-
-Returns a handler function compatible with Vercel's runtime.
-
-```typescript
-import handle from "@modelfetch/vercel";
-import server from "./server";
-
-const handler = handle(server);
-// Use as GET, POST exports or default export
-```
-
-## Runtime Options
-
-### Edge Runtime
-
-```typescript
-export const runtime = "edge";
-```
-
-### Node.js Runtime
-
-```typescript
-export const runtime = "nodejs";
-```
-
-## Example Server
-
-Here's a complete example of an MCP server for Vercel:
-
-```typescript title="server.ts"
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { z } from "zod";
-
-const server = new McpServer({
-  title: "Weather MCP Server",
-  name: "weather-server",
-  version: "1.0.0",
-});
-
-// Simple weather tool
-server.registerTool(
-  "get_weather",
-  {
-    title: "Get Weather",
-    description: "Get the weather for a location",
-    inputSchema: { location: z.string() },
-  },
-  async ({ location }) => {
-    // In a real app, you'd call a weather API
-    const weather = {
-      location,
-      temperature: Math.floor(Math.random() * 30) + 10,
-      condition: ["sunny", "cloudy", "rainy"][Math.floor(Math.random() * 3)],
-    };
-
-    return {
-      content: [
-        {
-          type: "text",
-          text: `Weather in ${weather.location}: ${weather.temperature}°C, ${weather.condition}`,
-        },
-      ],
-    };
-  },
-);
-
-export default server;
-```
-
-```typescript title="app/mcp/route.ts"
-import handle from "@modelfetch/vercel";
-import server from "./server";
-
-const handler = handle(server);
-export const GET = handler;
-export const POST = handler;
-export const DELETE = handler;
-```
-
-## Next Steps
-
-- Read the [MCP SDK documentation](https://docs.mcp.io)
-- Learn about other [runtime options](/runtimes)
+- **server**: Required [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance from [`@modelcontextprotocol/sdk`](https://github.com/modelcontextprotocol/typescript-sdk)

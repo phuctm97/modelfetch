@@ -1,72 +1,62 @@
 ---
 title: Getting Started
-description: Install ModelFetch and build your first MCP server
+description: Install ModelFetch and create your first MCP server
 ---
 
-This guide will help you install ModelFetch and create your first MCP server.
+## Automatic Installation
 
-## Prerequisites
+The quickest way to get started with ModelFetch is to use our `create-modelfetch` CLI. It sets up everything you need in seconds.
 
-Before you begin, make sure you have one of the following JavaScript runtimes installed:
+```bash title="Terminal"
+npx -y create-modelfetch@latest
+```
 
-- [Node.js](https://nodejs.org/) (v18 or later)
-- [Bun](https://bun.sh/) (v1 or later)
-- [Deno](https://deno.land/) (v2 or later)
+The CLI will guide you through:
 
-## Installation
+1. **Choosing a runtime** - Node.js, Bun, Deno, Cloudflare Workers, or Vercel Functions
+2. **Selecting a language** - TypeScript or JavaScript
+3. **Picking a package manager** - npm, pnpm, bun, or yarn
 
-ModelFetch provides separate packages for each runtime. Install the package that matches your runtime:
+## Manual Installation
 
-### Node.js
+If you prefer to set up manually, install the ModelFetch package for your runtime:
 
-```npm
+```bash title="Terminal" tab="Node.js"
 npm install @modelfetch/node
 ```
 
-### Bun
-
-```bash
+```bash title="Terminal" tab="Bun"
 bun add @modelfetch/bun
 ```
 
-### Deno
-
-```bash
+```bash title="Terminal" tab="Deno"
 deno add npm:@modelfetch/deno
 ```
 
-### Cloudflare
-
-```npm
+```bash title="Terminal" tab="Cloudflare"
 npm install @modelfetch/cloudflare
 ```
 
-### Vercel
-
-```npm
+```bash title="Terminal" tab="Vercel"
 npm install @modelfetch/vercel
 ```
 
-## Creating Your First MCP Server
+Then, create the following files:
 
-Let's create a simple MCP server that provides a greeting tool.
+### Server File
 
-### 1. Create the server file
-
-Create a new file called `server.ts` (or `server.js` for JavaScript):
+Create a server file to define your [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) using the [official MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk):
 
 ```typescript title="server.ts"
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 
-// Create a new MCP server
 const server = new McpServer({
-  title: "My First MCP Server",
-  name: "greeting-server",
+  title: "My MCP Server",
+  name: "my-mcp-server",
   version: "1.0.0",
 });
 
-// Define a tool
 server.registerTool(
   "roll_dice",
   {
@@ -87,67 +77,67 @@ server.registerTool(
 export default server;
 ```
 
-### 2. Create the entry point
+### Entry Point File
 
-Create an `index.ts` file to handle the server with ModelFetch:
+Create an entry point file to run your [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) using the ModelFetch package for your runtime:
 
-```typescript title="index.ts"
-import handle, { getEndpoint } from "@modelfetch/node"; // or @modelfetch/bun, @modelfetch/deno, @modelfetch/vercel
-import server from "./server";
+```typescript title="src/index.ts" tab="Node.js"
+import handle from "@modelfetch/node"; // Choose your runtime
+import server from "./server"; // Import your server
 
-// Start the server (Node.js example)
-handle(server, (address) => {
-  console.log(`MCP Server is available at ${getEndpoint(address)}`);
-});
+handle(server); // Let ModelFetch handle all runtime-specific details
 ```
 
-### 3. Run the server
+```typescript title="src/index.ts" tab="Bun"
+import handle from "@modelfetch/bun"; // Choose your runtime
+import server from "./server.ts"; // Import your server
 
-Run your server with the appropriate command for your runtime.
+handle(server); // Let ModelFetch handle all runtime-specific details
+```
 
-## Understanding the Basics
+```typescript title="src/index.ts" tab="Deno"
+import handle from "@modelfetch/deno"; // Choose your runtime
+import server from "./server.ts"; // Import your server
 
-### Creating an MCP Server
+handle(server); // Let ModelFetch handle all runtime-specific details
+```
 
-The `McpServer` class from `@modelcontextprotocol/sdk` creates a new MCP server instance. You provide:
+```typescript title="src/index.ts" tab="Cloudflare"
+import handle from "@modelfetch/cloudflare"; // Choose your runtime
+import server from "./server"; // Import your server
 
-- **title**: A human-readable title for your server
-- **name**: A unique identifier for your server
-- **version**: The version of your server
+export default {
+  fetch: handle(server), // Let ModelFetch handle all runtime-specific details
+} satisfies ExportedHandler<Env>;
+```
 
-### Defining Tools
+```typescript title="app/[[...path]]/route.ts" tab="Vercel"
+import handle from "@modelfetch/vercel"; // Choose your runtime
+import server from "./server"; // Import your server
 
-Tools are the primary way MCP servers provide functionality. Each tool is defined using the `server.registerTool()` method with:
+const handler = handle(server); // Let ModelFetch handle all runtime-specific details
 
-- **Name**: A unique identifier for the tool
-- **Configuration**: An object containing:
-  - **title**: A human-readable title for the tool
-  - **description**: Explains what the tool does
-  - **inputSchema**: Zod schema defining the expected input
-- **Handler**: A function that processes requests and returns results
+export const GET = handler;
+export const POST = handler;
+export const DELETE = handler;
+```
 
-### Starting the Server
+<Callout>
+  See [Runtime Packages](/docs/runtimes) for runtime-specific guides, examples,
+  and API references.
+</Callout>
 
-The `handle()` function from ModelFetch starts the MCP server. It:
+## Further Reading
 
-- Sets up the streamable HTTP transport for MCP communication
-- Handles all the runtime-specific details
-- Provides a callback with the server endpoint information
-
-## Next Steps
-
-Now that you have a basic MCP server running, you can:
-
-- Learn about the [runtime-specific features](/runtimes)
-- Add more tools to your server
-- Implement resources for data access
-
-## TypeScript Support
-
-ModelFetch is built with TypeScript first in mind. You get:
-
-- Full type safety for tool parameters and responses
-- Autocompletion in your IDE
-- Type checking at compile time
-
-If you're using JavaScript, you'll still benefit from your IDE's IntelliSense through the included type definitions.
+<Cards>
+  <Card
+    title="Introduction"
+    description="Learn how ModelFetch simplifies building and deploying MCP servers across different runtimes"
+    href="/docs"
+  />
+  <Card
+    title="Runtime Packages"
+    description="Explore runtime-specific features and examples for Node.js, Bun, Deno, Cloudflare, and Vercel"
+    href="/docs/runtimes"
+  />
+</Cards>

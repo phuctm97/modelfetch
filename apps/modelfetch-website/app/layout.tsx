@@ -23,7 +23,7 @@ const siteTitle =
   "ModelFetch - Runtime-agnostic TypeScript/JavaScript SDK for MCP Servers";
 
 const siteDescription =
-  "ModelFetch is a delightful TypeScript/JavaScript SDK for building MCP servers and deploying them anywhere TypeScript/JavaScript runs.";
+  "ModelFetch is a delightful TypeScript/JavaScript SDK for building and deploying MCP servers anywhere TypeScript/JavaScript runs.";
 
 const siteUrl = "https://www.modelfetch.com";
 
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
   },

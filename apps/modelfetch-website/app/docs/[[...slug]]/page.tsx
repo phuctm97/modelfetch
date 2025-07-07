@@ -1,5 +1,6 @@
 import type { MDXComponents } from "mdx/types";
 
+import * as tabsComponents from "fumadocs-ui/components/tabs";
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import {
   DocsBody,
@@ -15,7 +16,10 @@ interface Props {
   params: Promise<{ slug?: string[] }>;
 }
 
-const components: MDXComponents = { ...defaultMdxComponents };
+const components: MDXComponents = {
+  ...defaultMdxComponents,
+  ...tabsComponents,
+};
 
 export function generateStaticParams() {
   return source.generateParams();
