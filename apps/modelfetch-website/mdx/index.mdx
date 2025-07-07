@@ -1,15 +1,15 @@
 ---
 title: Introduction
-description: Create, build, and deploy MCP servers anywhere TypeScript/JavaScript runs
+description: Deploy MCP servers anywhere TypeScript/JavaScript runs
 ---
 
-ModelFetch makes it effortless to deploy your MCP servers anywhere. Just pass your existing [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance to ModelFetch's `handle()` function, and it takes care of all the runtime-specific details. No need to learn new APIs or rewrite your code—if you've built an MCP server with the [official MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk), you're already ready to deploy with ModelFetch.
+ModelFetch makes it effortless to build and deploy MCP servers anywhere. Create your [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) with the [official MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk), then pass it to ModelFetch's [`handle()`](#the-handle-api) function — that's it. ModelFetch takes care of all runtime-specific details, letting you focus on building MCP features instead of wrestling with tedious platform differences.
 
 ## How It Works
 
 ModelFetch works with any [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance from the [official MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk). Here's all it takes:
 
-### 1. Create your MCP server
+### Create your `McpServer` with the official MCP TypeScript SDK
 
 ```typescript title="server.ts"
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
@@ -17,7 +17,7 @@ import { z } from "zod";
 
 const server = new McpServer({
   title: "My MCP Server",
-  name: "my-server",
+  name: "my-mcp-server",
   version: "1.0.0",
 });
 
@@ -41,41 +41,123 @@ server.registerTool(
 export default server;
 ```
 
-### 2. Add ModelFetch to deploy it anywhere
+<Callout title="Already have your server?">
+  If you already have an
+  [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server)
+  instance, you can continue to the next step without rewriting your server or
+  learning new APIs.
+</Callout>
 
-```typescript title="index.ts"
+### Run it anywhere with ModelFetch's `handle()` function
+
+```typescript title="src/index.ts" tab="Node.js"
 import handle from "@modelfetch/node"; // Choose your runtime
-import server from "./server";
+import server from "./server"; // Import your server
 
-// That's it! ModelFetch handles all runtime-specific details
-handle(server);
+handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
-Just two lines of code, and your MCP server runs on any supported platform. No need to learn platform-specific APIs or rewrite your server code.
+```typescript title="src/index.ts" tab="Bun"
+import handle from "@modelfetch/bun"; // Choose your runtime
+import server from "./server.ts"; // Import your server
 
-## Available Packages
+handle(server); // That's it — ModelFetch handles all runtime-specific details
+```
 
-ModelFetch provides runtime-specific packages for deploying MCP servers:
+```typescript title="src/index.ts" tab="Deno"
+import handle from "@modelfetch/deno"; // Choose your runtime
+import server from "./server.ts"; // Import your server
 
-- `@modelfetch/node` - Node.js runtime support
-- `@modelfetch/bun` - Bun runtime support
-- `@modelfetch/deno` - Deno runtime support
-- `@modelfetch/cloudflare` - Cloudflare Workers support
-- `@modelfetch/vercel` - Vercel Functions support
+handle(server); // That's it — ModelFetch handles all runtime-specific details
+```
 
-## Getting Started
+```typescript title="src/index.ts" tab="Cloudflare"
+import handle from "@modelfetch/cloudflare"; // Choose your runtime
+import server from "./server"; // Import your server
 
-Ready to build your first MCP server? Check out our [Getting Started guide](/getting-started) to learn how to install ModelFetch and create your first server.
+export default {
+  fetch: handle(server), // That's it — ModelFetch handles all runtime-specific details
+} satisfies ExportedHandler<Env>;
+```
+
+```typescript title="app/[[...path]]/route.ts" tab="Vercel"
+import handle from "@modelfetch/vercel"; // Choose your runtime
+import server from "./server"; // Import your server
+
+const handler = handle(server); // That's it — ModelFetch handles all runtime-specific details
+
+export const GET = handler;
+export const POST = handler;
+export const DELETE = handler;
+```
+
+<Callout title="Awesome, isn't it?" type="success">
+  That's just two lines of code to make your
+  [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server)
+  work across all supported platforms.
+</Callout>
+
+## The `handle()` Function
+
+Every runtime package exports a default `handle()` function that takes an [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance as its first parameter and handles all runtime-specific details:
+
+```typescript title="src/index.ts" tab="Node.js"
+import handle from "@modelfetch/node"; // Choose your runtime
+import server from "./server"; // Import your server
+
+handle(server); // Let ModelFetch handle all runtime-specific details
+```
+
+```typescript title="src/index.ts" tab="Bun"
+import handle from "@modelfetch/bun"; // Choose your runtime
+import server from "./server.ts"; // Import your server
+
+handle(server); // Let ModelFetch handle all runtime-specific details
+```
+
+```typescript title="src/index.ts" tab="Deno"
+import handle from "@modelfetch/deno"; // Choose your runtime
+import server from "./server.ts"; // Import your server
+
+handle(server); // Let ModelFetch handle all runtime-specific details
+```
+
+```typescript title="src/index.ts" tab="Cloudflare"
+import handle from "@modelfetch/cloudflare"; // Choose your runtime
+import server from "./server"; // Import your server
+
+export default {
+  fetch: handle(server), // Let ModelFetch handle all runtime-specific details
+} satisfies ExportedHandler<Env>;
+```
+
+```typescript title="app/[[...path]]/route.ts" tab="Vercel"
+import handle from "@modelfetch/vercel"; // Choose your runtime
+import server from "./server"; // Import your server
+
+const handler = handle(server); // Let ModelFetch handle all runtime-specific details
+
+export const GET = handler;
+export const POST = handler;
+export const DELETE = handler;
+```
+
+<Callout>
+  See [Runtime Packages](/docs/runtimes) for runtime-specific guides, examples,
+  and API references.
+</Callout>
+
+## Further Reading
 
 <Cards>
   <Card
     title="Getting Started"
-    href="/getting-started"
-    description="Install ModelFetch and build your first MCP server"
+    description="Set up your first MCP server in seconds with our CLI or follow the manual installation guide"
+    href="/docs/getting-started"
   />
   <Card
     title="Runtime Packages"
-    href="/runtimes"
-    description="Learn about runtime-specific packages"
+    description="Explore runtime-specific features and examples for Node.js, Bun, Deno, Cloudflare, and Vercel"
+    href="/docs/runtimes"
   />
 </Cards>

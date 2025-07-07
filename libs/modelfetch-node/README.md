@@ -4,100 +4,75 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub](https://img.shields.io/badge/GitHub-modelfetch-blue)](https://github.com/phuctm97/modelfetch)
 
-Node.js runtime adapter for building MCP servers with ModelFetch.
+Run simple MCP servers with Node.js.
 
 ## Installation
 
-```bash
+```bash title="Terminal"
 npm install @modelfetch/node
 ```
 
-## Quick Start
+## Usage
+
+### Start The Server
 
 ```typescript
-// server.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { z } from "zod";
+import handle from "@modelfetch/node";
+import server from "./server"; // Import your McpServer
 
-const server = new McpServer({
-  title: "My Node.js MCP Server",
-  name: "my-node-server",
-  version: "1.0.0",
-});
-
-server.registerTool(
-  "roll_dice",
-  {
-    title: "Roll Dice",
-    description: "Rolls an N-sided dice",
-    inputSchema: { sides: z.number().int().min(2) },
-  },
-  ({ sides }) => ({
-    content: [
-      {
-        type: "text",
-        text: `🎲 You rolled a ${1 + Math.floor(Math.random() * sides)}!`,
-      },
-    ],
-  }),
-);
-
-export default server;
+// Run as a Node.js HTTP server
+handle(server);
 ```
 
-```typescript
-// index.ts
-import handle, { getEndpoint } from "@modelfetch/node";
-import server from "./server";
+### Log The Endpoint
 
-// Start the server
-const nodeServer = handle(server);
-console.log(`Server running at: ${getEndpoint(nodeServer)}`);
+```typescript
+import handle, { getEndpoint } from "@modelfetch/node";
+import server from "./server"; // Import your McpServer
+
+// Run as a Node.js HTTP server
+handle(server, (address) => {
+  // Log the endpoint when the server starts listening
+  console.log(`MCP server is available at ${getEndpoint(address)}`);
+});
+```
+
+### Specify Custom Port
+
+```typescript
+import handle, { getEndpoint } from "@modelfetch/node";
+import server from "./server"; // Import your McpServer
+
+// Run as a Node.js HTTP server
+handle(
+  server,
+  (address) => {
+    console.log(`MCP server is available at ${getEndpoint(address)}`);
+  },
+  // Customize server options
+  { port: 8080 },
+);
 ```
 
 ## API Reference
 
-### `handle(server, options?)`
+### `handle(server, callback?, options?)`
 
-Starts the MCP server with Node.js-specific optimizations and returns a `http.Server` instance.
+Starts the MCP server
 
-- **server**: The MCP server instance from `@modelcontextprotocol/sdk`
-- **options**: Optional server options
-  - **port**: Port number (default: 3000)
-  - **hostname**: Hostname (default: "localhost")
+- **server**: Required [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance from [`@modelcontextprotocol/sdk`](https://github.com/modelcontextprotocol/typescript-sdk)
+- **callback**: Optional listening callback that receives the server [`AddressInfo`](https://nodejs.org/api/net.html#serveraddress)
+- **options**: Optional configuration object
+  - **port**: Custom port number (default: `3000`)
+  - **hostname**: Custom hostname (default: `"localhost"`)
+  - **createServer**: Custom server factory from `node:http`, `node:https`, or `node:http2`
+  - **serverOptions**: Custom server options from `node:http`, `node:https`, or `node:http2`
 
-Returns: `http.Server`
+### `getEndpoint(address)`
 
-```typescript
-const nodeServer = handle(server, {
-  port: 3000,
-  hostname: "localhost",
-});
-```
+Gets the MCP server endpoint from the server [`AddressInfo`](https://nodejs.org/api/net.html#serveraddress)
 
-### `getEndpoint(server)`
-
-Gets the MCP server endpoint URL for connecting clients.
-
-- **server**: The `http.Server` instance returned by `handle()`
-
-Returns: `string` - The complete endpoint URL
-
-```typescript
-const endpoint = getEndpoint(nodeServer); // "http://localhost:3000/mcp"
-```
-
-## Running Your Server
-
-```bash
-# Development with TypeScript
-npm install -D typescript @types/node tsx
-npx tsx index.ts
-
-# Production (compiled)
-npx tsc
-node dist/index.js
-```
+- **address**: Required server [`AddressInfo`](https://nodejs.org/api/net.html#serveraddress) from the listening callback
 
 ## Documentation
 

@@ -1,26 +1,26 @@
 ---
 title: Runtime Packages
-description: Deploy MCP servers on your preferred runtime
+description: Read runtime-specific guides, examples, and API references
 ---
 
-ModelFetch provides runtime-specific packages that handle the platform details while you focus on building your MCP server functionality. Each package maintains a consistent API across different runtimes.
+ModelFetch provides runtime-specific packages that handle tedious platform differences while you focus on building your MCP server capabilities. Each package maintains a [consistent API](/docs#the-handle-function) across different runtimes.
 
 ## Available Runtimes
 
 <Cards>
   <Card
     title="Node.js"
-    description="Build MCP servers for Node.js 18+"
+    description="Run simple MCP servers with Node.js"
     href="/docs/runtimes/node"
   />
   <Card
     title="Bun"
-    description="Lightning-fast MCP servers with Bun"
+    description="Run lightning-fast MCP servers with Bun"
     href="/docs/runtimes/bun"
   />
   <Card
     title="Deno"
-    description="Secure MCP servers with Deno v2"
+    description="Run secure MCP servers with Deno"
     href="/docs/runtimes/deno"
   />
   <Card
@@ -35,101 +35,16 @@ ModelFetch provides runtime-specific packages that handle the platform details w
   />
 </Cards>
 
-## Common API
-
-All runtime packages share the same simple API:
-
-```typescript
-import handle from "@modelfetch/runtime";
-import server from "./server";
-
-handle(server, (address) => {
-  console.log(`Server running at: ${address}`);
-});
-```
-
-## Installation
-
-Each runtime has its own package:
-
-### Node.js
-
-```npm
-npm install @modelfetch/node
-```
-
-### Bun
-
-```bash
-bun add @modelfetch/bun
-```
-
-### Deno
-
-```bash
-deno add npm:@modelfetch/deno
-```
-
-### Cloudflare
-
-```npm
-npm install @modelfetch/cloudflare
-```
-
-### Vercel
-
-```npm
-npm install @modelfetch/vercel
-```
-
-## Server Compatibility
-
-The MCP server code remains identical across all runtimes:
-
-```typescript
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { z } from "zod";
-
-const server = new McpServer({
-  title: "My MCP Server",
-  name: "my-server",
-  version: "1.0.0",
-});
-
-// Define tools, resources, and prompts
-server.registerTool(
-  "roll_dice",
-  {
-    title: "Roll Dice",
-    description: "Rolls an N-sided dice",
-    inputSchema: { sides: z.number().int().min(2) },
-  },
-  ({ sides }) => ({
-    content: [
-      {
-        type: "text",
-        text: `🎲 You rolled a ${1 + Math.floor(Math.random() * sides)}!`,
-      },
-    ],
-  }),
-);
-
-export default server;
-```
-
-Only the runtime handler import changes:
-
-- `@modelfetch/node` for Node.js
-- `@modelfetch/bun` for Bun
-- `@modelfetch/deno` for Deno
-- `@modelfetch/cloudflare` for Cloudflare Workers
-- `@modelfetch/vercel` for Vercel Functions
-
 ## Future Runtimes
 
-ModelFetch continues to expand runtime support. Additional runtimes will follow the same simple API pattern, making it easy to deploy your MCP servers anywhere.
+We plan to support these additional runtimes:
 
-## Next Steps
-
-- Choose a runtime and explore its specific documentation
-- Learn how to [get started](/docs/getting-started) with your first MCP server
+- **Netlify Functions** - Deploy to Netlify's serverless platform
+- **AWS Lambda** - Run on AWS's serverless compute service
+- **AWS Lambda@Edge** - Execute at CloudFront edge locations
+- **Azure Functions** - Deploy to Microsoft's serverless platform
+- **Google Cloud Run** - Run on Google's container platform
+- **Fastly Compute** - Deploy to Fastly's edge compute platform
+- **Supabase Functions** - Run alongside your Supabase backend
+- **Ali Function Compute** - Deploy to Alibaba Cloud's serverless service
+- **Service Worker** - Run in browser service workers

@@ -1,7 +1,10 @@
+import type { PropsWithChildren } from "react";
+
 import { SiGithub } from "@icons-pack/react-simple-icons";
+import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
 import Link from "next/link";
 
-import { CodeBlock } from "~/lib/code-block";
+import { RuntimeSelector } from "~/lib/runtime-selector";
 import { SearchButton } from "~/lib/search-button";
 import { ThemeSwitch } from "~/lib/theme-switch";
 import packageJson from "~/package.json";
@@ -11,13 +14,16 @@ import { Typing } from "./typing";
 
 import css from "./page.module.css";
 
-// ASCII art logo
 const asciiLogo = ` __  __           _      _ _____    _       _
 |  \\/  |         | |    | |  ___|  | |     | |
 | .  . | ___   __| | ___| | |_ ___| |_ ___| |__
 | |\\/| |/ _ \\ / _\` |/ _ \\ |  _/ _ \\ __/ __| '_ \\
 | |  | | (_) | (_| |  __/ | ||  __/ || (__| | | |
 \\_|  |_/\\___/ \\__,_|\\___|_\\_| \\___|\\__\\___|_| |_|`;
+
+function InlineBlock({ children }: PropsWithChildren) {
+  return <span className="inline-block">{children}</span>;
+}
 
 export default function Page() {
   return (
@@ -62,16 +68,10 @@ export default function Page() {
                   [INFO]
                 </span>{" "}
                 <span className="text-gray-600 dark:text-gray-400">
-                  ModelFetch is a delightful TypeScript/JavaScript SDK
-                  <span className="inline-block">
-                    for building MCP servers
-                  </span>{" "}
-                  <span className="inline-block">
-                    and deploying them anywhere
-                  </span>{" "}
-                  <span className="inline-block">
-                    TypeScript/JavaScript runs.
-                  </span>
+                  ModelFetch is a delightful TypeScript/JavaScript SDK for{" "}
+                  <InlineBlock>building and deploying</InlineBlock>{" "}
+                  <InlineBlock>MCP servers anywhere</InlineBlock>{" "}
+                  <InlineBlock>TypeScript/JavaScript runs.</InlineBlock>
                 </span>
               </div>
 
@@ -179,6 +179,15 @@ export default function Page() {
               </div>
             </section>
 
+            {/* How It Works Section */}
+            <section className="mb-16">
+              <h2 className="mb-8 text-center text-3xl font-bold text-[#0099cc] drop-shadow-[0_0_10px_rgba(0,153,204,0.5)] dark:text-[#00ffff] dark:drop-shadow-[0_0_10px_rgba(0,255,255,0.5)]">
+                <span className="mr-2">›</span>How It Works
+              </h2>
+
+              <RuntimeSelector />
+            </section>
+
             {/* Quick Start Section */}
             <section className="mb-16">
               <h2 className="mb-8 text-center text-3xl font-bold text-[#0099cc] drop-shadow-[0_0_10px_rgba(0,153,204,0.5)] dark:text-[#00ffff] dark:drop-shadow-[0_0_10px_rgba(0,255,255,0.5)]">
@@ -186,118 +195,28 @@ export default function Page() {
               </h2>
 
               <div className="space-y-8">
-                <div>
-                  <p className="mb-4 text-gray-400">
+                <div className="mx-auto max-w-2xl">
+                  <p className="mb-4 text-center text-gray-400">
                     <span className="text-[#008f00] dark:text-[#00ff00]">
                       ~
                     </span>{" "}
-                    Install ModelFetch runtime for your environment:
+                    Get started with ModelFetch{" "}
+                    <InlineBlock>in seconds</InlineBlock>{" "}
+                    <InlineBlock>using our CLI:</InlineBlock>
                   </p>
                   <div className="overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md transition-colors hover:border-[#008f00] dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00]">
                     <div className="flex items-center justify-between border-b border-gray-300 bg-gray-100 px-4 py-2 dark:border-[#333] dark:bg-[#2a2a2a]">
                       <span className="text-xs text-gray-600 dark:text-gray-500">
-                        install.sh
+                        terminal
                       </span>
                       <span className="text-xs text-[#008f00] dark:text-[#00ff00]">
                         ◉ bash
                       </span>
                     </div>
                     <div className="p-3 sm:p-4">
-                      <CodeBlock
-                        code={`# For Node.js
-npm install @modelfetch/node
-
-# For Bun
-bun add @modelfetch/bun
-
-# For Deno
-deno add npm:@modelfetch/deno
-
-# For Cloudflare
-npm install @modelfetch/cloudflare
-
-# For Vercel
-npm install @modelfetch/vercel`}
+                      <DynamicCodeBlock
+                        code="npx -y create-modelfetch@latest"
                         lang="bash"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <p className="mb-4 text-gray-400">
-                    <span className="text-[#008f00] dark:text-[#00ff00]">
-                      ~
-                    </span>{" "}
-                    Create your MCP server with the official MCP TypeScript SDK:
-                  </p>
-                  <div className="overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md transition-colors hover:border-[#008f00] dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00]">
-                    <div className="flex items-center justify-between border-b border-gray-300 bg-gray-100 px-4 py-2 dark:border-[#333] dark:bg-[#2a2a2a]">
-                      <span className="text-xs text-gray-600 dark:text-gray-500">
-                        server.ts
-                      </span>
-                      <span className="text-xs text-[#008f00] dark:text-[#00ff00]">
-                        ◉ typescript
-                      </span>
-                    </div>
-                    <div className="p-3 sm:p-4">
-                      <CodeBlock
-                        code={`import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { z } from "zod";
-
-const server = new McpServer({
-  title: "My MCP Server",
-  name: "my-mcp-server",
-  version: "1.0.0",
-});
-
-server.registerTool(
-  "roll_dice",
-  {
-    title: "Roll Dice",
-    description: "Rolls an N-sided dice",
-    inputSchema: { sides: z.number().int().min(2) },
-  },
-  ({ sides }) => ({
-    content: [
-      {
-        type: "text",
-        text: \`🎲 You rolled a \${1 + Math.floor(Math.random() * sides)}!\`,
-      },
-    ],
-  }),
-);
-
-export default server;`}
-                        lang="typescript"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <p className="mb-4 text-gray-400">
-                    <span className="text-[#008f00] dark:text-[#00ff00]">
-                      ~
-                    </span>{" "}
-                    Run your MCP server with the ModelFetch runtime handler:
-                  </p>
-                  <div className="overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md transition-colors hover:border-[#008f00] dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00]">
-                    <div className="flex items-center justify-between border-b border-gray-300 bg-gray-100 px-4 py-2 dark:border-[#333] dark:bg-[#2a2a2a]">
-                      <span className="text-xs text-gray-600 dark:text-gray-500">
-                        index.ts
-                      </span>
-                      <span className="text-xs text-[#008f00] dark:text-[#00ff00]">
-                        ◉ typescript
-                      </span>
-                    </div>
-                    <div className="p-3 sm:p-4">
-                      <CodeBlock
-                        code={`import handle from "@modelfetch/node";
-import server from "./server";
-
-handle(server);`}
-                        lang="typescript"
                       />
                     </div>
                   </div>

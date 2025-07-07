@@ -4,97 +4,68 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub](https://img.shields.io/badge/GitHub-modelfetch-blue)](https://github.com/phuctm97/modelfetch)
 
-Bun runtime adapter for building MCP servers with ModelFetch.
+Run lightning-fast MCP servers with Bun.
 
 ## Installation
 
-```bash
+```bash title="Terminal"
 bun add @modelfetch/bun
 ```
 
-## Quick Start
+## Usage
+
+### Start The Server
 
 ```typescript
-// server.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { z } from "zod";
+import handle from "@modelfetch/bun";
+import server from "./server.ts"; // Import your McpServer
 
-const server = new McpServer({
-  title: "My Bun MCP Server",
-  name: "my-bun-server",
-  version: "1.0.0",
-});
-
-server.registerTool(
-  "roll_dice",
-  {
-    title: "Roll Dice",
-    description: "Rolls an N-sided dice",
-    inputSchema: { sides: z.number().int().min(2) },
-  },
-  ({ sides }) => ({
-    content: [
-      {
-        type: "text",
-        text: `🎲 You rolled a ${1 + Math.floor(Math.random() * sides)}!`,
-      },
-    ],
-  }),
-);
-
-export default server;
+// Run as a Bun HTTP server
+handle(server);
 ```
 
-```typescript
-// index.ts
-import handle, { getEndpoint } from "@modelfetch/bun";
-import server from "./server";
+### Log The Endpoint
 
-// Start the server
+```typescript
+import handle, { getEndpoint } from "@modelfetch/bun";
+import server from "./server.ts"; // Import your McpServer
+
+// Run as a Bun HTTP server
 const bunServer = handle(server);
-console.log(`Server running at: ${getEndpoint(bunServer)}`);
+
+// Log the endpoint when the server starts listening
+console.log(`MCP server is available at ${getEndpoint(bunServer)}`);
+```
+
+### Specify Custom Port
+
+```typescript
+import handle, { getEndpoint } from "@modelfetch/bun";
+import server from "./server.ts"; // Import your McpServer
+
+// Run as a Bun HTTP server
+const bunServer = handle(server, {
+  // Customize server options
+  port: 8080,
+});
+
+console.log(`MCP server is available at ${getEndpoint(bunServer)}`);
 ```
 
 ## API Reference
 
 ### `handle(server, options?)`
 
-Starts the MCP server with Bun-specific optimizations and returns a `Bun.Server` instance.
+Starts the MCP server
 
-- **server**: The MCP server instance from `@modelcontextprotocol/sdk`
-- **options**: Optional `Bun.ServeOptions` (excluding the fetch handler)
-
-Returns: `Bun.Server`
-
-```typescript
-const bunServer = handle(server, {
-  port: 3000,
-  hostname: "localhost",
-});
-```
+- **server**: Required [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance from [`@modelcontextprotocol/sdk`](https://github.com/modelcontextprotocol/typescript-sdk)
+- **options**: Optional [`Bun.ServeOptions`](https://bun.sh/reference/bun/ServeOptions)
 
 ### `getEndpoint(server)`
 
-Gets the MCP server endpoint URL for connecting clients.
+Gets the MCP server endpoint from the [`Bun.Server`](https://bun.sh/reference/bun/Server) instance
 
-- **server**: The `Bun.Server` instance returned by `handle()`
-
-Returns: `string` - The complete endpoint URL
-
-```typescript
-const endpoint = getEndpoint(bunServer); // "http://localhost:3000/mcp"
-```
-
-## Running Your Server
-
-```bash
-# Development
-bun run index.ts
-
-# Production (bundled)
-bun build index.ts --target=bun --outdir=dist
-bun run dist/index.js
-```
+- **server**: Required [`Bun.Server`](https://bun.sh/reference/bun/Server) instance returned by the `handle()` function
 
 ## Documentation
 

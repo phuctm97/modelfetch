@@ -3,50 +3,30 @@ title: Cloudflare
 description: Deploy MCP servers to Cloudflare Workers
 ---
 
-The `@modelfetch/cloudflare` package provides ModelFetch support for deploying MCP servers to Cloudflare Workers.
+The `@modelfetch/cloudflare` package lets you deploy MCP servers to [Cloudflare Workers](https://workers.cloudflare.com/).
 
 ## Installation
 
-```npm
+```npm title="Terminal"
 npm install @modelfetch/cloudflare
 ```
 
-## Basic Usage
-
-### Cloudflare Workers
+## Usage
 
 ```typescript title="src/index.ts"
 import handle from "@modelfetch/cloudflare";
-import server from "./server";
+import server from "./server"; // Import your McpServer
 
+// Export as a Cloudflare Workers fetch handler
 export default {
   fetch: handle(server),
-};
+} satisfies ExportedHandler<Env>;
 ```
 
 ## API Reference
 
 ### `handle(server)`
 
-Creates a Cloudflare Workers fetch handler from a ModelFetch server.
+Creates a Cloudflare Workers fetch handler from an [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server)
 
-- **server**: The MCP server instance from `@modelcontextprotocol/sdk`
-
-Returns a fetch function compatible with Cloudflare Workers.
-
-#### Example
-
-```typescript
-import handle from "@modelfetch/cloudflare";
-import server from "./server";
-
-export default {
-  fetch: handle(server),
-};
-```
-
-## Next Steps
-
-- Read the [MCP SDK documentation](https://docs.mcp.io)
-- Explore [Cloudflare Workers documentation](https://developers.cloudflare.com/workers/)
-- Learn about [Workers best practices](https://developers.cloudflare.com/workers/best-practices/)
+- **server**: Required [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance from [`@modelcontextprotocol/sdk`](https://github.com/modelcontextprotocol/typescript-sdk)

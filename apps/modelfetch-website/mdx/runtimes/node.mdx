@@ -1,95 +1,74 @@
 ---
 title: Node.js
-description: Use ModelFetch with Node.js
+description: Run simple MCP servers with Node.js
 ---
 
-The `@modelfetch/node` package provides ModelFetch support for Node.js applications.
+The `@modelfetch/node` package lets you run MCP servers as traditional Node.js [HTTP servers](https://nodejs.org/api/http.html).
 
 ## Installation
 
-```npm
+```npm title="Terminal"
 npm install @modelfetch/node
 ```
 
-## Basic Usage
+## Usage
 
-```typescript title="server.ts"
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { z } from "zod";
+### Start The Server
 
-const server = new McpServer({
-  title: "My Node.js MCP Server",
-  name: "my-node-server",
-  version: "1.0.0",
-});
+```typescript title="src/index.ts"
+import handle from "@modelfetch/node";
+import server from "./server"; // Import your McpServer
 
-// Define your tools
-server.registerTool(
-  "roll_dice",
-  {
-    title: "Roll Dice",
-    description: "Rolls an N-sided dice",
-    inputSchema: { sides: z.number().int().min(2) },
-  },
-  ({ sides }) => ({
-    content: [
-      {
-        type: "text",
-        text: `🎲 You rolled a ${1 + Math.floor(Math.random() * sides)}!`,
-      },
-    ],
-  }),
-);
-
-export default server;
+// Run as a Node.js HTTP server
+handle(server);
 ```
 
-```typescript title="index.ts"
-import handle, { getEndpoint } from "@modelfetch/node";
-import server from "./server";
+### Log The Endpoint
 
-// Start the server
+```typescript title="src/index.ts"
+import handle, { getEndpoint } from "@modelfetch/node";
+import server from "./server"; // Import your McpServer
+
+// Run as a Node.js HTTP server
 handle(server, (address) => {
-  console.log(`Server running at: ${getEndpoint(address)}`);
+  // Log the endpoint when the server starts listening
+  console.log(`MCP server is available at ${getEndpoint(address)}`);
 });
+```
+
+### Specify Custom Port
+
+```typescript title="src/index.ts"
+import handle, { getEndpoint } from "@modelfetch/node";
+import server from "./server"; // Import your McpServer
+
+// Run as a Node.js HTTP server
+handle(
+  server,
+  (address) => {
+    console.log(`MCP server is available at ${getEndpoint(address)}`);
+  },
+  // Customize server options
+  { port: 8080 },
+);
 ```
 
 ## API Reference
 
-### `handle(server, callback?)`
+### `handle(server, callback?, options?)`
 
-Starts the MCP server on Node.js.
+Starts the MCP server
 
-- **server**: The MCP server instance from `@modelcontextprotocol/sdk`
-- **callback**: Optional callback that receives the server address
-
-```typescript
-import handle from "@modelfetch/node";
-import server from "./server";
-
-handle(server, (address) => {
-  console.log(`Server started at: ${address}`);
-});
-```
+- **server**: Required [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance from [`@modelcontextprotocol/sdk`](https://github.com/modelcontextprotocol/typescript-sdk)
+- **callback**: Optional listening callback that receives the server [`AddressInfo`](https://nodejs.org/api/net.html#serveraddress)
+- **options**: Optional configuration object
+  - **port**: Custom port number (default: `3000`)
+  - **hostname**: Custom hostname (default: `"localhost"`)
+  - **createServer**: Custom server factory from `node:http`, `node:https`, or `node:http2`
+  - **serverOptions**: Custom server options from `node:http`, `node:https`, or `node:http2`
 
 ### `getEndpoint(address)`
 
-Gets the MCP server endpoint for connecting clients.
+Gets the MCP server endpoint from the server [`AddressInfo`](https://nodejs.org/api/net.html#serveraddress)
 
-- **address**: Required. A Node.js `AddressInfo` object from the server callback
-
-```typescript
-import { getEndpoint } from "@modelfetch/node";
-import handle from "@modelfetch/node";
-import server from "./server";
-
-handle(server, (address) => {
-  const endpoint = getEndpoint(address);
-  console.log(`Connect to: ${endpoint}`);
-});
-```
-
-## Next Steps
-
-- Learn about [Bun runtime](/runtimes/bun)
-- Learn about [Deno runtime](/runtimes/deno)
+- **address**: Required server [`AddressInfo`](https://nodejs.org/api/net.html#serveraddress) from the listening callback

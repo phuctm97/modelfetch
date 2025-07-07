@@ -1,6 +1,6 @@
 <div align="center">
   <h1>ModelFetch</h1>
-  <p>ModelFetch is a delightful TypeScript/JavaScript SDK for building MCP servers and deploying them anywhere TypeScript/JavaScript runs.</p>
+  <p>ModelFetch is a delightful TypeScript/JavaScript SDK for building and deploying MCP servers anywhere TypeScript/JavaScript runs.</p>
 </div>
 
 ---

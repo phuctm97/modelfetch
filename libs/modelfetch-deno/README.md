@@ -4,139 +4,71 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub](https://img.shields.io/badge/GitHub-modelfetch-blue)](https://github.com/phuctm97/modelfetch)
 
-Deno runtime adapter for building MCP servers with ModelFetch.
+Run secure MCP servers with Deno.
 
 ## Installation
 
-```bash
+```bash title="Terminal"
 deno add npm:@modelfetch/deno
 ```
 
-## Quick Start
+## Usage
+
+### Start The Server
 
 ```typescript
-// server.ts
-import { McpServer } from "npm:@modelcontextprotocol/sdk@^1.15.0/server/mcp.js";
-import { z } from "npm:zod@^3.25.74";
+import handle from "npm:@modelfetch/deno";
+import server from "./server.ts"; // Import your McpServer
 
-const server = new McpServer({
-  title: "My Deno MCP Server",
-  name: "my-deno-server",
-  version: "1.0.0",
-});
-
-server.registerTool(
-  "roll_dice",
-  {
-    title: "Roll Dice",
-    description: "Rolls an N-sided dice",
-    inputSchema: { sides: z.number().int().min(2) },
-  },
-  ({ sides }) => ({
-    content: [
-      {
-        type: "text",
-        text: `🎲 You rolled a ${1 + Math.floor(Math.random() * sides)}!`,
-      },
-    ],
-  }),
-);
-
-export default server;
+// Run as a Deno HTTP server
+handle(server);
 ```
 
+### Log The Endpoint
+
 ```typescript
-// index.ts
 import handle, { getEndpoint } from "npm:@modelfetch/deno";
-import server from "./server.ts";
+import server from "./server.ts"; // Import your McpServer
 
-// Start the server
-const httpServer = handle(server);
-httpServer.finished.then(() => {
-  console.log("Server stopped");
+// Run as a Deno HTTP server
+handle(server, {
+  onListen: (address) => {
+    // Log the endpoint when the server starts listening
+    console.log(`MCP server is available at ${getEndpoint(address)}`);
+  },
 });
+```
 
-// Get the server address
-const address = httpServer.addr;
-if (address) {
-  console.log(`Server running at: ${getEndpoint(address)}`);
-}
+### Specify Custom Port
+
+```typescript
+import handle, { getEndpoint } from "npm:@modelfetch/deno";
+import server from "./server.ts"; // Import your McpServer
+
+// Run as a Deno HTTP server
+handle(server, {
+  // Customize server options
+  port: 8080,
+  onListen: (address) => {
+    console.log(`MCP server is available at ${getEndpoint(address)}`);
+  },
+});
 ```
 
 ## API Reference
 
 ### `handle(server, options?)`
 
-Starts the MCP server with Deno-specific optimizations and returns a `Deno.HttpServer` instance.
+Starts the MCP server
 
-- **server**: The MCP server instance from `@modelcontextprotocol/sdk`
-- **options**: Optional `Deno.ServeOptions` for configuring the HTTP server
-
-Returns: `Deno.HttpServer`
-
-```typescript
-const httpServer = handle(server, {
-  port: 3000,
-  hostname: "localhost",
-});
-```
+- **server**: Required [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance from [`@modelcontextprotocol/sdk`](https://github.com/modelcontextprotocol/typescript-sdk)
+- **options**: Optional [`Deno.ServeOptions`](https://docs.deno.com/api/deno/~/Deno.ServeOptions)
 
 ### `getEndpoint(address)`
 
-Gets the MCP server endpoint URL for connecting clients.
+Gets the MCP server endpoint from the server [`Deno.Addr`](https://docs.deno.com/api/deno/~/Deno.Addr)
 
-- **address**: A `Deno.Addr` object from the HTTP server
-
-Returns: `string` - The complete endpoint URL
-
-```typescript
-const endpoint = getEndpoint(httpServer.addr); // "http://localhost:3000/mcp"
-```
-
-## Running Your Server
-
-```bash
-# Development (with all permissions)
-deno run -A index.ts
-
-# Production (with specific permissions)
-deno run --allow-net index.ts
-
-# Compiled executable
-deno compile -A index.ts -o mcp-server
-./mcp-server
-```
-
-## Permissions
-
-Deno requires explicit permissions. For MCP servers, you typically need:
-
-- `--allow-net`: For the HTTP server
-- `--allow-read`: If reading files
-- `--allow-write`: If writing files
-- `--allow-env`: For environment variables
-- `-A`: Allow all (development only)
-
-## Configuration
-
-Optional `deno.json`:
-
-```json
-{
-  "compilerOptions": {
-    "strict": true
-  },
-  "imports": {
-    "@modelfetch/deno": "npm:@modelfetch/deno",
-    "@modelcontextprotocol/sdk": "npm:@modelcontextprotocol/sdk@^1.15.0",
-    "zod": "npm:zod@^3.25.74"
-  },
-  "tasks": {
-    "dev": "deno run -A index.ts",
-    "build": "deno compile -A index.ts"
-  }
-}
-```
+- **address**: Required server [`Deno.Addr`](https://docs.deno.com/api/deno/~/Deno.Addr) from the `onListen` callback
 
 ## Documentation
 
