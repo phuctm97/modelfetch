@@ -3,7 +3,7 @@ title: Introduction
 description: Deploy MCP servers anywhere TypeScript/JavaScript runs
 ---
 
-ModelFetch makes it effortless to build and deploy MCP servers anywhere. Create your [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) with the [official MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk), then pass it to ModelFetch's [`handle()`](#the-handle-api) function — that's it. ModelFetch takes care of all runtime-specific details, letting you focus on building MCP features instead of wrestling with tedious platform differences.
+ModelFetch makes it effortless to build and deploy MCP servers anywhere. Create your [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) with the [official MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk), then pass it to ModelFetch's [`handle()`](#the-handle-function) function — that's it. ModelFetch takes care of all runtime-specific details, letting you focus on building MCP features instead of wrestling with tedious platform differences.
 
 ## How It Works
 
@@ -92,7 +92,7 @@ export const DELETE = handler;
 ```
 
 <Callout title="Awesome, isn't it?" type="success">
-  That's just two lines of code to make your
+  That's just a few lines of code to make your
   [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server)
   work across all supported platforms.
 </Callout>

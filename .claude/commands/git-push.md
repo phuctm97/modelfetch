@@ -13,7 +13,7 @@ Execute the following steps in order:
 4. **Stage all changes**: Run `git add -A` to stage all changes (including any fixes from the above steps)
 5. **Review changes**: Run `git status` and `git diff` to review what will be committed
 6. **Create commit**: Generate an appropriate commit message based on the changes and create the commit
-7. **Push to remote**: Check the current branch with `git branch --show-current` and push the changes with `git push`
+7. **Push to remote**: Push the current branch to the remote repository with `git push`
 
 For the commit message:
 - Keep it concise and descriptive
