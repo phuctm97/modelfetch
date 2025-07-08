@@ -1,3 +1,13 @@
+## 0.7.1 (2025-07-08)
+
+### 🩹 Fixes
+
+- Add prepare-release-publish executor to clean package.json files before npm publishing ([#23](https://github.com/phuctm97/modelfetch/pull/23))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.7.0 (2025-07-07)
 
 ### 🚀 Features

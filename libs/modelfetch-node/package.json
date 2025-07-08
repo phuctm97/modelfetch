@@ -1,6 +1,6 @@
 {
   "name": "@modelfetch/node",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Node.js runtime adapter for MCP servers built with ModelFetch",
   "keywords": [
     "model-context-protocol",
