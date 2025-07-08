@@ -8,7 +8,7 @@ Run secure MCP servers with Deno.
 
 ## Installation
 
-```bash title="Terminal"
+```bash
 deno add npm:@modelfetch/deno
 ```
 
