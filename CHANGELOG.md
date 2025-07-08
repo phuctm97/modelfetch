@@ -1,3 +1,14 @@
+## 0.7.2 (2025-07-08)
+
+### 🩹 Fixes
+
+- Improve documentation clarity and add enhanced Claude command for pull request creation ([#26](https://github.com/phuctm97/modelfetch/pull/26))
+- Update README badges to use dynamic npm badges and improve documentation formatting across all packages ([#26](https://github.com/phuctm97/modelfetch/pull/26))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.7.1 (2025-07-08)
 
 ### 🩹 Fixes
