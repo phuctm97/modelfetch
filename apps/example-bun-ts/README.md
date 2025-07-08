@@ -112,8 +112,7 @@ server.registerPrompt(
 
 ## Reading Docs
 
-- [Model Context Protocol - Documentation](https://modelcontextprotocol.io)
 - [Model Context Protocol - TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
+- [Model Context Protocol - Documentation](https://modelcontextprotocol.io)
 - [ModelFetch - Website](https://www.modelfetch.com)
 - [ModelFetch - Documentation](https://www.modelfetch.com/docs)
-- [ModelFetch - GitHub](https://github.com/phuctm97/modelfetch)
