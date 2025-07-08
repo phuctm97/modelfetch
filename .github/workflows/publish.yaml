@@ -25,6 +25,7 @@ jobs:
           registry-url: https://registry.npmjs.org
       - run: pnpm install
       - run: pnpm exec nx run-many -t typecheck lint build
+      - run: pnpm exec nx run-many -t prepare-release-publish
       - run: pnpm exec nx release publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
