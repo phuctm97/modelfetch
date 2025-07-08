@@ -1,6 +1,6 @@
 import handle from "@modelfetch/cloudflare";
 
-import server from "./server.js";
+import server from "./server";
 
 export default {
   fetch: handle(server),

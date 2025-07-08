@@ -169,6 +169,11 @@ export const createNodesV2: CreateNodesV2 = [
             };
           }
         }
+        if (!packageJson.private) {
+          targets["prepare-release-publish"] = {
+            executor: "nx-10x:prepare-release-publish",
+          };
+        }
         return { projects: { [projectRoot]: { projectType, targets } } };
       },
       packageJsonFilePaths,

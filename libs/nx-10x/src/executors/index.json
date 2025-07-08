@@ -1,0 +1,9 @@
+{
+  "executors": {
+    "prepare-release-publish": {
+      "description": "Prepare for release publishing.",
+      "implementation": "./prepare-release-publish/index.ts",
+      "schema": "./prepare-release-publish/schema.json"
+    }
+  }
+}

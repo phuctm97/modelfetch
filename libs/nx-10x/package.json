@@ -12,5 +12,6 @@
     "create-eslint-config": "workspace:^",
     "type-fest": "^4.41.0"
   },
+  "executors": "./src/executors/index.json",
   "generators": "./src/generators/index.json"
 }
