@@ -3,11 +3,11 @@
 [![npm version](https://img.shields.io/npm/v/create-modelfetch.svg)](https://www.npmjs.com/package/create-modelfetch)
 [![npm license](https://img.shields.io/npm/l/create-modelfetch.svg)](https://www.npmjs.com/package/create-modelfetch)
 
-> CLI for scaffolding a new MCP server with ModelFetch
+Create a new MCP server in seconds.
 
 ## Overview
 
-`create-modelfetch` is a command-line tool that helps you quickly scaffold a new MCP server using the ModelFetch SDK. It provides an interactive setup experience with support for multiple runtimes, languages, and package managers.
+`create-modelfetch` is a CLI that helps you quickly scaffold a new MCP server using the ModelFetch SDK. It provides an interactive setup experience with support for multiple runtimes, languages, and package managers.
 
 ## Usage
 

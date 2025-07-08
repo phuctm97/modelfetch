@@ -23,7 +23,7 @@ const asciiLogo = `   __  __           _      _ _____    _       _
 // Package versions
 const packageVersions = {
   "@modelcontextprotocol/sdk": "1.15.0",
-  zod: "3.25.74",
+  zod: "3.25.76",
   tslib: "2.8.1",
   typescript: "5.8.3",
   "@modelfetch/node": packageJson.version,
@@ -33,7 +33,7 @@ const packageVersions = {
   "@types/bun": "1.2.18",
   "@modelfetch/deno": packageJson.version,
   "@modelfetch/cloudflare": packageJson.version,
-  wrangler: "4.23.0",
+  wrangler: "4.24.0",
   "@modelfetch/vercel": packageJson.version,
   next: "15.3.5",
   react: "19.1.0",
