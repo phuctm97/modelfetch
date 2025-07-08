@@ -194,42 +194,29 @@ export default function Page() {
                 <span className="mr-2">›</span>Quick Start
               </h2>
 
-              <div className="space-y-8">
-                <div className="mx-auto max-w-2xl">
-                  <p className="mb-4 text-center text-gray-400">
-                    <span className="text-[#008f00] dark:text-[#00ff00]">
-                      ~
-                    </span>{" "}
-                    Get started in seconds using our CLI:
-                  </p>
-                  <div className="overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md transition-colors hover:border-[#008f00] dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00]">
-                    <div className="flex items-center justify-between border-b border-gray-300 bg-gray-100 px-4 py-2 dark:border-[#333] dark:bg-[#2a2a2a]">
-                      <span className="text-xs text-gray-600 dark:text-gray-500">
-                        terminal
-                      </span>
-                      <span className="text-xs text-[#008f00] dark:text-[#00ff00]">
-                        ◉ bash
-                      </span>
-                    </div>
-                    <div className="p-3 sm:p-4">
-                      <DynamicCodeBlock
-                        code="npx -y create-modelfetch@latest"
-                        lang="bash"
-                      />
-                    </div>
-                  </div>
+              <div className="text-center">
+                <div className="mx-auto w-full rounded-lg border-2 border-[#008f00] bg-black p-4 shadow-lg sm:max-w-lg sm:p-6 dark:border-[#00ff00]">
+                  <DynamicCodeBlock
+                    code="npx -y create-modelfetch@latest"
+                    lang="bash"
+                  />
                 </div>
+
+                <p className="mt-6 text-gray-500 dark:text-gray-500">
+                  That&apos;s it. You&apos;re ready to build.
+                </p>
               </div>
             </section>
 
             {/* Status Section */}
             <section className="text-center">
-              <div className="inline-block rounded-lg border border-gray-300 bg-gray-100 p-4 sm:p-6 dark:border-[#333] dark:bg-[#1a1a1a]">
+              <div className="w-full rounded-lg border border-gray-300 bg-gray-100 p-4 sm:inline-block sm:w-auto sm:p-6 dark:border-[#333] dark:bg-[#1a1a1a]">
                 <p className="mb-6 text-gray-400">
                   <span className="text-[#0099cc] dark:text-[#00ffff]">
                     [INFO]
                   </span>{" "}
-                  Join us in building the future of MCP servers!
+                  Join us in building the future of{" "}
+                  <InlineBlock>MCP servers!</InlineBlock>
                 </p>
                 <Link
                   className="inline-flex items-center rounded bg-gray-700 px-6 py-3 font-bold text-white transition-all hover:scale-105 hover:bg-gray-800 hover:shadow-[0_0_20px_rgba(100,100,100,0.8)] dark:bg-gray-300 dark:text-black dark:hover:bg-gray-200 dark:hover:shadow-[0_0_20px_rgba(200,200,200,0.8)]"

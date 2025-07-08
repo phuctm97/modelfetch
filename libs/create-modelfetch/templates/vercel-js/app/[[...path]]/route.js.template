@@ -1,4 +1,5 @@
 import handle from "@modelfetch/vercel";
+
 import server from "./server.js";
 
 const handler = handle(server);

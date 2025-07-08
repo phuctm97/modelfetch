@@ -19,7 +19,7 @@
 ## 🚀 Features
 
 - **Multi-Runtime**: Write once, run anywhere: Node.js, Bun, Deno, Cloudflare Workers, Vercel Functions, etc.
-- **Official SDK**: Built on top of the official MCP TypeScript SDK to avoid lock-in, guarantee long-term support, and ensure up-to-date implementation
+- **Official SDK**: Built on top of the [official MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) to avoid lock-in, guarantee long-term support, and ensure up-to-date implementation
 - **Live Reload**: Development server with automatic reloading
 - **MCP Inspector**: Built-in integration for testing and debugging
 - **Modular Design**: Platform-specific package for optimal performance
@@ -36,7 +36,7 @@ npx -y create-modelfetch@latest
 
 ModelFetch works with any [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance from the [official MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk). Here's all it takes:
 
-### Create your [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) with the official MCP TypeScript SDK
+### Create your [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) with the [official MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
 
 ```typescript
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";

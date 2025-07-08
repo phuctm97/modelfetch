@@ -7,7 +7,7 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.15.0",
     "@modelfetch/deno": "workspace:^",
-    "zod": "^3.25.74"
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@types/deno": "^2.3.0",

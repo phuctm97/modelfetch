@@ -11,6 +11,6 @@
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-simple-import-sort": "12.1.1",
     "eslint-plugin-unicorn": "59.0.1",
-    "typescript-eslint": "8.35.1"
+    "typescript-eslint": "8.36.0"
   }
 }
