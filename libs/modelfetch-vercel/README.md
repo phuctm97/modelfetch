@@ -1,8 +1,8 @@
 # @modelfetch/vercel
 
 [![npm version](https://img.shields.io/npm/v/@modelfetch/vercel.svg)](https://www.npmjs.com/package/@modelfetch/vercel)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub](https://img.shields.io/badge/GitHub-modelfetch-blue)](https://github.com/phuctm97/modelfetch)
+[![npm license](https://img.shields.io/npm/l/@modelfetch/vercel.svg)](https://www.npmjs.com/package/@modelfetch/vercel)
+[![docs](https://img.shields.io/badge/docs-modelfetch.com-blue)](https://www.modelfetch.com/docs/runtimes/vercel)
 
 Deploy MCP servers to Vercel Functions.
 
@@ -69,11 +69,3 @@ export const runtime = "edge";
 Creates a Vercel-compatible Next.js App Router API route handler from an [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server)
 
 - **server**: Required [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance from [`@modelcontextprotocol/sdk`](https://github.com/modelcontextprotocol/typescript-sdk)
-
-## Documentation
-
-For complete documentation, examples, and guides, visit [www.modelfetch.com/docs/runtimes/vercel](https://www.modelfetch.com/docs/runtimes/vercel).
-
-## License
-
-MIT

@@ -1,5 +1,8 @@
 # create-modelfetch
 
+[![npm version](https://img.shields.io/npm/v/create-modelfetch.svg)](https://www.npmjs.com/package/create-modelfetch)
+[![npm license](https://img.shields.io/npm/l/create-modelfetch.svg)](https://www.npmjs.com/package/create-modelfetch)
+
 > CLI for scaffolding a new MCP server with ModelFetch
 
 ## Overview
@@ -71,7 +74,3 @@ yarn create modelfetch
 - **Interactive Setup**: Interactively creates and configures your project based on your preferences
 - **Automatic Detection**: Automatically detects and suggests your preferred package manager
 - **Automatic Installation**: Automatically installs dependencies using your preferred package manager
-
-## License
-
-MIT
