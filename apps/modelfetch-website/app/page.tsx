@@ -31,7 +31,7 @@ export default function Page() {
       <main
         className={`relative z-10 min-h-screen bg-[#f0f0f0] font-mono text-[#008f00] dark:bg-[#0a0a0a] dark:text-[#00ff00] ${css.scanlines} ${css.techGrid} ${css.main}`}
       >
-        <div className="container mx-auto px-4 py-16">
+        <div className="container mx-auto px-4 py-12">
           <div className="mx-auto max-w-4xl">
             {/* Terminal Header */}
             <div className="mb-8 flex items-center justify-between rounded-lg border border-gray-300 bg-gray-100 px-4 py-2 shadow-md dark:border-[#333] dark:bg-[#2a2a2a] dark:shadow-none">
@@ -50,7 +50,7 @@ export default function Page() {
             </div>
 
             {/* Hero Section */}
-            <section className="mb-16 text-center">
+            <section className="mb-12 text-center">
               <div className="mb-6 inline-block">
                 <pre className="text-xs leading-tight text-[#008f00] opacity-70 dark:text-[#00ff00] dark:opacity-50">
                   {asciiLogo}
@@ -105,46 +105,23 @@ export default function Page() {
 
             {/* Status Bar */}
             <div className="mb-12 text-center">
-              <div className="inline-block rounded border border-gray-300 bg-gray-100 px-4 py-2 dark:border-[#333] dark:bg-[#1a1a1a]">
-                {/* Mobile Layout (stacked) */}
-                <div className="block text-sm sm:hidden">
-                  <div className="flex flex-col items-center gap-1">
-                    <div className="flex items-center gap-2">
-                      <span className="animate-pulse text-[#0099cc] dark:text-[#00ffff]">
-                        ●
-                      </span>
-                      <span className="text-gray-700 dark:text-gray-400">
-                        STATUS: BETA
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <span className="text-gray-600 dark:text-gray-400">
-                        v{packageJson.version}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Desktop Layout (full) */}
-                <div className="hidden text-sm sm:flex sm:items-center sm:justify-center">
-                  <span className="animate-pulse text-[#0099cc] dark:text-[#00ffff]">
-                    ●
-                  </span>
-                  <span className="ml-2 text-gray-700 dark:text-gray-400">
-                    STATUS: BETA
-                  </span>
-                  <span className="mx-4 text-gray-400 dark:text-gray-600">
-                    |
-                  </span>
-                  <span className="text-gray-600 dark:text-gray-400">
-                    VERSION: {packageJson.version}
+              <Link
+                className="inline-block rounded border border-gray-300 bg-gray-100 px-4 py-2 text-sm transition-all hover:border-gray-400 hover:bg-gray-200 dark:border-[#333] dark:bg-[#1a1a1a] dark:hover:border-[#555] dark:hover:bg-[#2a2a2a]"
+                href="https://github.com/phuctm97/modelfetch/releases/latest"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <div className="flex items-center justify-center gap-2">
+                  <span className="animate-pulse text-green-500">●</span>
+                  <span className="text-gray-700 dark:text-gray-400">
+                    LATEST RELEASE: v{packageJson.version}
                   </span>
                 </div>
-              </div>
+              </Link>
             </div>
 
             {/* Features Section */}
-            <section className="mb-16">
+            <section className="mb-12">
               <h2 className="mb-8 text-center text-3xl font-bold text-[#0099cc] drop-shadow-[0_0_10px_rgba(0,153,204,0.5)] dark:text-[#00ffff] dark:drop-shadow-[0_0_10px_rgba(0,255,255,0.5)]">
                 <span className="mr-2">›</span>Why ModelFetch?
               </h2>
@@ -153,7 +130,7 @@ export default function Page() {
                   <h3 className="mb-3 text-xl font-semibold text-[#008f00] transition-colors group-hover:text-[#0099cc] dark:text-[#00ff00] dark:group-hover:text-[#00ffff]">
                     <span className="mr-2">◈</span>Multi-Runtime
                   </h3>
-                  <p className="text-gray-400">
+                  <p className="text-gray-600 dark:text-gray-400">
                     Write your MCP server once. Run it anywhere: Node.js, Bun,
                     Deno, Cloudflare Workers, Vercel Functions, etc.
                   </p>
@@ -162,7 +139,7 @@ export default function Page() {
                   <h3 className="mb-3 text-xl font-semibold text-[#008f00] transition-colors group-hover:text-[#0099cc] dark:text-[#00ff00] dark:group-hover:text-[#00ffff]">
                     <span className="mr-2">◈</span>Delightful DX
                   </h3>
-                  <p className="text-gray-400">
+                  <p className="text-gray-600 dark:text-gray-400">
                     Build your MCP server with tools designed for building MCP
                     servers: live reload, MCP Inspector, etc.
                   </p>
@@ -171,7 +148,7 @@ export default function Page() {
                   <h3 className="mb-3 text-xl font-semibold text-[#008f00] transition-colors group-hover:text-[#0099cc] dark:text-[#00ff00] dark:group-hover:text-[#00ffff]">
                     <span className="mr-2">◈</span>Official SDK
                   </h3>
-                  <p className="text-gray-400">
+                  <p className="text-gray-600 dark:text-gray-400">
                     Built on top of the official MCP TypeScript SDK to avoid
                     lock-in and ensure up-to-date implementation.
                   </p>
@@ -180,7 +157,7 @@ export default function Page() {
             </section>
 
             {/* How It Works Section */}
-            <section className="mb-16">
+            <section className="mb-12">
               <h2 className="mb-8 text-center text-3xl font-bold text-[#0099cc] drop-shadow-[0_0_10px_rgba(0,153,204,0.5)] dark:text-[#00ffff] dark:drop-shadow-[0_0_10px_rgba(0,255,255,0.5)]">
                 <span className="mr-2">›</span>How It Works
               </h2>
@@ -189,20 +166,51 @@ export default function Page() {
             </section>
 
             {/* Quick Start Section */}
-            <section className="mb-16">
+            <section className="mb-12">
               <h2 className="mb-8 text-center text-3xl font-bold text-[#0099cc] drop-shadow-[0_0_10px_rgba(0,153,204,0.5)] dark:text-[#00ffff] dark:drop-shadow-[0_0_10px_rgba(0,255,255,0.5)]">
                 <span className="mr-2">›</span>Quick Start
               </h2>
 
               <div className="text-center">
-                <div className="mx-auto w-full rounded-lg border-2 border-[#008f00] bg-black p-4 shadow-lg sm:max-w-lg sm:p-6 dark:border-[#00ff00]">
-                  <DynamicCodeBlock
-                    code="npx -y create-modelfetch@latest"
-                    lang="bash"
-                  />
+                <div className="group relative mx-auto w-full sm:max-w-lg">
+                  {/* Glowing box with matrix-style effects */}
+                  <div className="relative overflow-hidden rounded-lg border-2 border-[#008f00] bg-gray-900 p-6 shadow-[0_0_30px_rgba(0,143,0,0.3)] transition-all duration-300 group-hover:shadow-[0_0_50px_rgba(0,143,0,0.6)] dark:border-[#00ff00] dark:bg-black dark:shadow-[0_0_30px_rgba(0,255,0,0.3)] dark:group-hover:shadow-[0_0_50px_rgba(0,255,0,0.6)]">
+                    {/* Animated scanning line */}
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#008f00] to-transparent opacity-0 transition-all duration-1000 group-hover:translate-y-[200px] group-hover:opacity-100 dark:via-[#00ff00]" />
+
+                    {/* Matrix rain effect corners */}
+                    <div className="pointer-events-none absolute -top-2 -left-2 text-xs text-[#00ff00]/20 transition-all duration-300 group-hover:text-[#00ff00]/60 dark:text-[#00ff00]/20 dark:group-hover:text-[#00ff00]/60">
+                      10101
+                      <br />
+                      01010
+                      <br />
+                      11001
+                    </div>
+                    <div className="pointer-events-none absolute -top-2 -right-2 text-xs text-[#00ff00]/20 transition-all duration-300 group-hover:text-[#00ff00]/60 dark:text-[#00ff00]/20 dark:group-hover:text-[#00ff00]/60">
+                      10101
+                      <br />
+                      01010
+                      <br />
+                      11001
+                    </div>
+
+                    {/* Glitch effect on hover */}
+                    <div className="pointer-events-none absolute inset-0 bg-[#008f00]/5 opacity-0 mix-blend-screen transition-opacity duration-100 group-hover:animate-pulse dark:bg-[#00ff00]/5" />
+
+                    {/* Command prompt indicator */}
+                    <div className="mb-2 flex items-center gap-2 text-xs text-[#00ff00]/60 transition-all duration-300 group-hover:text-[#00ff00] dark:text-[#00ff00]/60 dark:group-hover:text-[#00ff00]">
+                      <span className="animate-pulse">▶</span>
+                      <span>EXECUTE COMMAND</span>
+                    </div>
+
+                    <DynamicCodeBlock
+                      code="npx -y create-modelfetch@latest"
+                      lang="bash"
+                    />
+                  </div>
                 </div>
 
-                <p className="mt-6 text-gray-500 dark:text-gray-500">
+                <p className="mt-6 text-gray-600 dark:text-gray-400">
                   That&apos;s it. You&apos;re ready to build.
                 </p>
               </div>
@@ -211,7 +219,7 @@ export default function Page() {
             {/* Status Section */}
             <section className="text-center">
               <div className="w-full rounded-lg border border-gray-300 bg-gray-100 p-4 sm:inline-block sm:w-auto sm:p-6 dark:border-[#333] dark:bg-[#1a1a1a]">
-                <p className="mb-6 text-gray-400">
+                <p className="mb-6 text-gray-600 dark:text-gray-400">
                   <span className="text-[#0099cc] dark:text-[#00ffff]">
                     [INFO]
                   </span>{" "}
@@ -231,7 +239,7 @@ export default function Page() {
             </section>
 
             {/* Footer Terminal */}
-            <div className="mt-16 text-center text-xs text-gray-500 dark:text-gray-600">
+            <div className="mt-12 text-center text-xs text-gray-500 dark:text-gray-600">
               <div>
                 <span className="text-[#008f00] dark:text-[#00ff00]">~</span>{" "}
                 echo &quot;Built with ❤️ by developers, for developers&quot;
