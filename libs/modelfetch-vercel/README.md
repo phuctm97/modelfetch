@@ -8,7 +8,7 @@ Deploy MCP servers to Vercel Functions.
 
 ## Installation
 
-```npm title="Terminal"
+```npm
 npm install @modelfetch/vercel
 ```
 
@@ -16,7 +16,7 @@ npm install @modelfetch/vercel
 
 ### Next.js App Router
 
-```typescript title="app/[[...path]]/route.ts"
+```typescript
 import handle from "@modelfetch/vercel";
 import server from "./server"; // Import your McpServer
 
@@ -30,7 +30,7 @@ export const DELETE = handler;
 
 ### Use Node.js or Fluid Compute
 
-```typescript title="app/[[...path]]/route.ts"
+```typescript
 import handle from "@modelfetch/vercel";
 import server from "./server"; // Import your McpServer
 
@@ -47,7 +47,7 @@ export const runtime = "nodejs";
 
 ### Use Edge Runtime
 
-```typescript title="app/[[...path]]/route.ts"
+```typescript
 import handle from "@modelfetch/vercel";
 import server from "./server"; // Import your McpServer
 

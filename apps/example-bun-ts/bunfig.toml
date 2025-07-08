@@ -1,2 +1,5 @@
 [install]
 auto = "disable"
+
+[install.lockfile]
+save = false

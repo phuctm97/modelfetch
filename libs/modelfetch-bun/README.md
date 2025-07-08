@@ -8,7 +8,7 @@ Run lightning-fast MCP servers with Bun.
 
 ## Installation
 
-```bash title="Terminal"
+```bash
 bun add @modelfetch/bun
 ```
 

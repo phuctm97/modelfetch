@@ -28,7 +28,6 @@ ModelFetch works with any [`McpServer`](https://github.com/modelcontextprotocol/
 ### Create your [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) with the official MCP TypeScript SDK
 
 ```typescript
-// server.ts
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 
@@ -96,7 +95,6 @@ export default {
 
 ```typescript
 // Vercel Functions
-// app/[[...path]]/route.ts
 import handle from "@modelfetch/vercel"; // Choose your runtime
 import server from "./server"; // Import your server
 
@@ -107,7 +105,7 @@ export const POST = handler;
 export const DELETE = handler;
 ```
 
-✨ That's just a few lines of code to make your [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) work across all supported platforms.
+That's just a few lines of code to make your [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) work across all supported platforms.
 
 ## ⚡ The [`handle()`](https://www.modelfetch.com/docs#the-handle-function) Function
 

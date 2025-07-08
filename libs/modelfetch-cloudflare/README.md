@@ -8,13 +8,13 @@ Deploy MCP servers to Cloudflare Workers.
 
 ## Installation
 
-```npm title="Terminal"
+```npm
 npm install @modelfetch/cloudflare
 ```
 
 ## Usage
 
-```typescript title="src/index.ts"
+```typescript
 import handle from "@modelfetch/cloudflare";
 import server from "./server"; // Import your McpServer
 

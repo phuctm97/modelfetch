@@ -8,7 +8,7 @@ Run simple MCP servers with Node.js.
 
 ## Installation
 
-```bash title="Terminal"
+```bash
 npm install @modelfetch/node
 ```
 
