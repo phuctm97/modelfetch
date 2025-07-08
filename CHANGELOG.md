@@ -1,3 +1,14 @@
+## 0.7.3 (2025-07-08)
+
+### 🩹 Fixes
+
+- Improve website UI/UX with enhanced visual effects and update SDK package documentation for clarity ([#28](https://github.com/phuctm97/modelfetch/pull/28))
+- Add comprehensive README documentation for all example applications and improve website documentation ([#28](https://github.com/phuctm97/modelfetch/pull/28))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.7.2 (2025-07-08)
 
 ### 🩹 Fixes
