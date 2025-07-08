@@ -1,8 +1,8 @@
 # @modelfetch/deno
 
 [![npm version](https://img.shields.io/npm/v/@modelfetch/deno.svg)](https://www.npmjs.com/package/@modelfetch/deno)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub](https://img.shields.io/badge/GitHub-modelfetch-blue)](https://github.com/phuctm97/modelfetch)
+[![npm license](https://img.shields.io/npm/l/@modelfetch/deno.svg)](https://www.npmjs.com/package/@modelfetch/deno)
+[![docs](https://img.shields.io/badge/docs-modelfetch.com-blue)](https://www.modelfetch.com/docs/runtimes/deno)
 
 Run secure MCP servers with Deno.
 
@@ -69,11 +69,3 @@ Starts the MCP server
 Gets the MCP server endpoint from the server [`Deno.Addr`](https://docs.deno.com/api/deno/~/Deno.Addr)
 
 - **address**: Required server [`Deno.Addr`](https://docs.deno.com/api/deno/~/Deno.Addr) from the `onListen` callback
-
-## Documentation
-
-For complete documentation, examples, and guides, visit [www.modelfetch.com/docs/runtimes/deno](https://www.modelfetch.com/docs/runtimes/deno).
-
-## License
-
-MIT

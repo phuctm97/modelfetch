@@ -1,8 +1,8 @@
 # @modelfetch/node
 
 [![npm version](https://img.shields.io/npm/v/@modelfetch/node.svg)](https://www.npmjs.com/package/@modelfetch/node)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub](https://img.shields.io/badge/GitHub-modelfetch-blue)](https://github.com/phuctm97/modelfetch)
+[![npm license](https://img.shields.io/npm/l/@modelfetch/node.svg)](https://www.npmjs.com/package/@modelfetch/node)
+[![docs](https://img.shields.io/badge/docs-modelfetch.com-blue)](https://www.modelfetch.com/docs/runtimes/node)
 
 Run simple MCP servers with Node.js.
 
@@ -73,11 +73,3 @@ Starts the MCP server
 Gets the MCP server endpoint from the server [`AddressInfo`](https://nodejs.org/api/net.html#serveraddress)
 
 - **address**: Required server [`AddressInfo`](https://nodejs.org/api/net.html#serveraddress) from the listening callback
-
-## Documentation
-
-For complete documentation, examples, and guides, visit [www.modelfetch.com/docs/runtimes/node](https://www.modelfetch.com/docs/runtimes/node).
-
-## License
-
-MIT

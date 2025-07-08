@@ -1,8 +1,8 @@
 # @modelfetch/bun
 
 [![npm version](https://img.shields.io/npm/v/@modelfetch/bun.svg)](https://www.npmjs.com/package/@modelfetch/bun)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub](https://img.shields.io/badge/GitHub-modelfetch-blue)](https://github.com/phuctm97/modelfetch)
+[![npm license](https://img.shields.io/npm/l/@modelfetch/bun.svg)](https://www.npmjs.com/package/@modelfetch/bun)
+[![docs](https://img.shields.io/badge/docs-modelfetch.com-blue)](https://www.modelfetch.com/docs/runtimes/bun)
 
 Run lightning-fast MCP servers with Bun.
 
@@ -66,11 +66,3 @@ Starts the MCP server
 Gets the MCP server endpoint from the [`Bun.Server`](https://bun.sh/reference/bun/Server) instance
 
 - **server**: Required [`Bun.Server`](https://bun.sh/reference/bun/Server) instance returned by the `handle()` function
-
-## Documentation
-
-For complete documentation, examples, and guides, visit [www.modelfetch.com/docs/runtimes/bun](https://www.modelfetch.com/docs/runtimes/bun).
-
-## License
-
-MIT

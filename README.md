@@ -1,6 +1,17 @@
 <div align="center">
   <h1>ModelFetch</h1>
   <p>ModelFetch is a delightful TypeScript/JavaScript SDK for building and deploying MCP servers anywhere TypeScript/JavaScript runs.</p>
+  <p>
+    <a href="https://github.com/phuctm97/modelfetch/releases/latest">
+      <img src="https://img.shields.io/github/v/release/phuctm97/modelfetch" alt="Release">
+    </a>
+    <a href="https://github.com/phuctm97/modelfetch/blob/main/LICENSE">
+      <img src="https://img.shields.io/github/license/phuctm97/modelfetch" alt="License">
+    </a>
+    <a href="https://www.modelfetch.com/docs">
+      <img src="https://img.shields.io/badge/docs-modelfetch.com-blue" alt="Documentation">
+    </a>
+  </p>
 </div>
 
 ---
