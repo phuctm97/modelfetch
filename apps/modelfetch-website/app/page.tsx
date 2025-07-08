@@ -200,9 +200,7 @@ export default function Page() {
                     <span className="text-[#008f00] dark:text-[#00ff00]">
                       ~
                     </span>{" "}
-                    Get started with ModelFetch{" "}
-                    <InlineBlock>in seconds</InlineBlock>{" "}
-                    <InlineBlock>using our CLI:</InlineBlock>
+                    Get started in seconds using our CLI:
                   </p>
                   <div className="overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md transition-colors hover:border-[#008f00] dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00]">
                     <div className="flex items-center justify-between border-b border-gray-300 bg-gray-100 px-4 py-2 dark:border-[#333] dark:bg-[#2a2a2a]">

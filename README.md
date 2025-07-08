@@ -13,21 +13,19 @@
 - **MCP Inspector**: Built-in integration for testing and debugging
 - **Modular Design**: Platform-specific package for optimal performance
 
-## 📦 Packages
+## 🏁 Quick Start
 
-ModelFetch provides runtime-specific packages for optimal performance:
+Get started in seconds using our `create-modelfetch` CLI:
 
-| Package                                                | Description                | Status   |
-| ------------------------------------------------------ | -------------------------- | -------- |
-| [`@modelfetch/node`](libs/modelfetch-node)             | Node.js runtime support    | ✅ Ready |
-| [`@modelfetch/bun`](libs/modelfetch-bun)               | Bun runtime support        | ✅ Ready |
-| [`@modelfetch/deno`](libs/modelfetch-deno)             | Deno runtime support       | ✅ Ready |
-| [`@modelfetch/cloudflare`](libs/modelfetch-cloudflare) | Cloudflare Workers support | ✅ Ready |
-| [`@modelfetch/vercel`](libs/modelfetch-vercel)         | Vercel Functions support   | ✅ Ready |
+```bash
+npx -y create-modelfetch@latest
+```
 
-## 💻 Example
+## 🔧 How It Works
 
-Here's a simple MCP server built with the official MCP TypeScript SDK and run with the ModelFetch runtime handler:
+ModelFetch works with any [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance from the [official MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk). Here's all it takes:
+
+### Create your [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) with the official MCP TypeScript SDK
 
 ```typescript
 // server.ts
@@ -60,21 +58,79 @@ server.registerTool(
 export default server;
 ```
 
-```typescript
-// index.ts
-import handle from "@modelfetch/node";
-import server from "./server";
+### Run it anywhere with ModelFetch's [`handle()`](https://www.modelfetch.com/docs#the-handle-function) function
 
-handle(server);
+```typescript
+// Node.js
+import handle from "@modelfetch/node"; // Choose your runtime
+import server from "./server"; // Import your server
+
+handle(server); // ModelFetch handles all runtime-specific details
 ```
 
-> [!TIP]
-> To run on a different runtime, simply replace `@modelfetch/node` with the corresponding package:
->
-> - `@modelfetch/bun` for Bun
-> - `@modelfetch/deno` for Deno
-> - `@modelfetch/cloudflare` for Cloudflare Workers
-> - `@modelfetch/vercel` for Vercel Functions
+```typescript
+// Bun
+import handle from "@modelfetch/bun"; // Choose your runtime
+import server from "./server.ts"; // Import your server
+
+handle(server); // ModelFetch handles all runtime-specific details
+```
+
+```typescript
+// Deno
+import handle from "@modelfetch/deno"; // Choose your runtime
+import server from "./server.ts"; // Import your server
+
+handle(server); // ModelFetch handles all runtime-specific details
+```
+
+```typescript
+// Cloudflare Workers
+import handle from "@modelfetch/cloudflare"; // Choose your runtime
+import server from "./server"; // Import your server
+
+export default {
+  fetch: handle(server), // ModelFetch handles all runtime-specific details
+} satisfies ExportedHandler<Env>;
+```
+
+```typescript
+// Vercel Functions
+// app/[[...path]]/route.ts
+import handle from "@modelfetch/vercel"; // Choose your runtime
+import server from "./server"; // Import your server
+
+const handler = handle(server); // ModelFetch handles all runtime-specific details
+
+export const GET = handler;
+export const POST = handler;
+export const DELETE = handler;
+```
+
+✨ That's just a few lines of code to make your [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) work across all supported platforms.
+
+## ⚡ The [`handle()`](https://www.modelfetch.com/docs#the-handle-function) Function
+
+Every runtime package exports a default [`handle()`](https://www.modelfetch.com/docs#the-handle-function) function that takes an [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance as its first parameter and handles all runtime-specific details:
+
+```typescript
+import handle from "@modelfetch/node"; // Choose your runtime
+import server from "./server"; // Import your server
+
+handle(server); // ModelFetch handles all runtime-specific details
+```
+
+## 📦 Available Runtimes
+
+ModelFetch provides runtime-specific packages that handle tedious platform differences while you focus on building your MCP server capabilities. Each package maintains a consistent API across different runtimes.
+
+| Package                                                | Description                              | Status   |
+| ------------------------------------------------------ | ---------------------------------------- | -------- |
+| [`@modelfetch/node`](libs/modelfetch-node)             | Run simple MCP servers with Node.js      | ✅ Ready |
+| [`@modelfetch/bun`](libs/modelfetch-bun)               | Run lightning-fast MCP servers with Bun  | ✅ Ready |
+| [`@modelfetch/deno`](libs/modelfetch-deno)             | Run secure MCP servers with Deno         | ✅ Ready |
+| [`@modelfetch/cloudflare`](libs/modelfetch-cloudflare) | Deploy MCP servers to Cloudflare Workers | ✅ Ready |
+| [`@modelfetch/vercel`](libs/modelfetch-vercel)         | Deploy MCP servers to Vercel Functions   | ✅ Ready |
 
 ## 🛠️ Development
 
