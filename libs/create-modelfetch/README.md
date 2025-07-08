@@ -3,11 +3,17 @@
 [![npm version](https://img.shields.io/npm/v/create-modelfetch.svg)](https://www.npmjs.com/package/create-modelfetch)
 [![npm license](https://img.shields.io/npm/l/create-modelfetch.svg)](https://www.npmjs.com/package/create-modelfetch)
 
-Create a new MCP server in seconds.
+Scaffold a new MCP server with ModelFetch.
 
-## Overview
+## Features
 
-`create-modelfetch` is a CLI that helps you quickly scaffold a new MCP server using the ModelFetch SDK. It provides an interactive setup experience with support for multiple runtimes, languages, and package managers.
+- **Multiple Runtimes**: Node.js, Bun, Deno, Cloudflare Workers, and Vercel Functions
+- **Multiple Languages**: TypeScript and JavaScript
+- **Multiple Package Managers**: `npm`, `pnpm`, `bun`, and `yarn`
+- **Multiple CLI Initializers**: `npx`, `npm init`, `npm create`, `pnpm dlx`, `pnpm create`, `bun x`, `bun create`, `deno`, and `yarn`
+- **Interactive Setup**: Interactively creates and configures your project based on your preferences
+- **Automatic Detection**: Automatically detects and suggests your preferred package manager
+- **Automatic Installation**: Automatically installs dependencies using your preferred package manager
 
 ## Usage
 
@@ -64,13 +70,3 @@ Using **yarn**:
 ```bash
 yarn create modelfetch
 ```
-
-## Features
-
-- **Multiple Runtimes**: Node.js, Bun, Deno, Cloudflare Workers, and Vercel Functions
-- **Multiple Languages**: TypeScript and JavaScript
-- **Multiple Package Managers**: `npm`, `pnpm`, `bun`, and `yarn`
-- **Multiple CLI Initializers**: `npx`, `npm init`, `npm create`, `pnpm dlx`, `pnpm create`, `bun x`, `bun create`, `deno`, and `yarn`
-- **Interactive Setup**: Interactively creates and configures your project based on your preferences
-- **Automatic Detection**: Automatically detects and suggests your preferred package manager
-- **Automatic Installation**: Automatically installs dependencies using your preferred package manager

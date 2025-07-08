@@ -76,7 +76,7 @@ export function RuntimeSelector() {
     <div className="space-y-8">
       {/* Step 1: Create your MCP server */}
       <div>
-        <p className="mb-4 text-gray-400">
+        <p className="mb-4 text-gray-600 dark:text-gray-400">
           <span className="text-[#008f00] dark:text-[#00ff00]">~</span> Create
           your MCP server with the official MCP TypeScript SDK:
         </p>
@@ -126,7 +126,7 @@ export default server;`}
 
       {/* Step 2: Run your MCP server */}
       <div>
-        <p className="mb-4 text-gray-400">
+        <p className="mb-4 text-gray-600 dark:text-gray-400">
           <span className="text-[#008f00] dark:text-[#00ff00]">~</span> Run your
           MCP server with the ModelFetch runtime handler:
         </p>
