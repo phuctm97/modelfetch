@@ -1,4 +1,4 @@
-# @modelfetch/bun
+# `@modelfetch/bun`
 
 [![npm version](https://img.shields.io/npm/v/@modelfetch/bun.svg)](https://www.npmjs.com/package/@modelfetch/bun)
 [![npm license](https://img.shields.io/npm/l/@modelfetch/bun.svg)](https://www.npmjs.com/package/@modelfetch/bun)

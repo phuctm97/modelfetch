@@ -1,4 +1,4 @@
-# @modelfetch/cloudflare
+# `@modelfetch/cloudflare`
 
 [![npm version](https://img.shields.io/npm/v/@modelfetch/cloudflare.svg)](https://www.npmjs.com/package/@modelfetch/cloudflare)
 [![npm license](https://img.shields.io/npm/l/@modelfetch/cloudflare.svg)](https://www.npmjs.com/package/@modelfetch/cloudflare)

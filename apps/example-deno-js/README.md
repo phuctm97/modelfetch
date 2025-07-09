@@ -1,6 +1,7 @@
 # Example Deno MCP Server (JavaScript)
 
-An MCP server built with [ModelFetch](https://www.modelfetch.com)
+> [!NOTE]
+> This is an internal example MCP server. To get started with [ModelFetch](https://www.modelfetch.com), please visit the [Getting Started documentation](https://www.modelfetch.com/docs/getting-started).
 
 ## Quick Start
 

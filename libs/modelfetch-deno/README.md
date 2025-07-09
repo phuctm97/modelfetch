@@ -1,4 +1,4 @@
-# @modelfetch/deno
+# `@modelfetch/deno`
 
 [![npm version](https://img.shields.io/npm/v/@modelfetch/deno.svg)](https://www.npmjs.com/package/@modelfetch/deno)
 [![npm license](https://img.shields.io/npm/l/@modelfetch/deno.svg)](https://www.npmjs.com/package/@modelfetch/deno)

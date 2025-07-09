@@ -1,4 +1,4 @@
-# @modelfetch/node
+# `@modelfetch/node`
 
 [![npm version](https://img.shields.io/npm/v/@modelfetch/node.svg)](https://www.npmjs.com/package/@modelfetch/node)
 [![npm license](https://img.shields.io/npm/l/@modelfetch/node.svg)](https://www.npmjs.com/package/@modelfetch/node)
