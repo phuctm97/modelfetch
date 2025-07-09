@@ -1,4 +1,4 @@
-# create-modelfetch
+# `create-modelfetch`
 
 [![npm version](https://img.shields.io/npm/v/create-modelfetch.svg)](https://www.npmjs.com/package/create-modelfetch)
 [![npm license](https://img.shields.io/npm/l/create-modelfetch.svg)](https://www.npmjs.com/package/create-modelfetch)

@@ -1,4 +1,4 @@
-# @modelfetch/vercel
+# `@modelfetch/vercel`
 
 [![npm version](https://img.shields.io/npm/v/@modelfetch/vercel.svg)](https://www.npmjs.com/package/@modelfetch/vercel)
 [![npm license](https://img.shields.io/npm/l/@modelfetch/vercel.svg)](https://www.npmjs.com/package/@modelfetch/vercel)
