@@ -1,3 +1,17 @@
+## 0.8.0 (2025-07-09)
+
+### 🚀 Features
+
+- Add example applications for Cloudflare Workers and Vercel Functions with both JavaScript and TypeScript variants ([#30](https://github.com/phuctm97/modelfetch/pull/30))
+
+### 🩹 Fixes
+
+- Add comprehensive README documentation for all packages and applications ([#30](https://github.com/phuctm97/modelfetch/pull/30))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.7.3 (2025-07-08)
 
 ### 🩹 Fixes
