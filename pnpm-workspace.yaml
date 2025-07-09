@@ -2,9 +2,10 @@ packages:
   - apps/*
   - libs/*
 onlyBuiltDependencies:
-  - nx
-  - unrs-resolver
-  - esbuild
-  - sharp
   - "@swc/core"
   - "@tailwindcss/oxide"
+  - esbuild
+  - nx
+  - sharp
+  - unrs-resolver
+  - workerd

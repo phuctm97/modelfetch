@@ -1,4 +1,4 @@
-# <%= projectTitle %>
+# Example Vercel MCP Server (JavaScript)
 
 An MCP server built with [ModelFetch](https://www.modelfetch.com)
 
@@ -9,7 +9,7 @@ An MCP server built with [ModelFetch](https://www.modelfetch.com)
 Start the MCP server:
 
 ```bash
-<%= packageManager %> start
+pnpm exec nx dev example-vercel-js
 ```
 
 ### Testing with the MCP Inspector
@@ -20,18 +20,17 @@ In a separate terminal, run the MCP Inspector to test your server:
 npx -y @modelcontextprotocol/inspector@latest
 ```
 
-Then, connect to your server at `http://localhost:8787/mcp` (or the endpoint shown in your server output).
+Then, connect to your server at `http://localhost:3000/mcp` (or the endpoint shown in your server output).
 
 ## Project Structure
 
 ```
-<%= projectName %>/
-├── src/
-│   ├── index.ts      # Project entry point
-│   └── server.ts     # MCP server implementation
-├── wrangler.jsonc
+example-vercel-js/
+├── app/
+│   └── [[...path]]/
+│       ├── route.js  # Project entry point
+│       └── server.js # MCP server implementation
 ├── package.json
-├── tsconfig.json
 └── README.md
 ```
 
@@ -41,7 +40,7 @@ Then, connect to your server at `http://localhost:8787/mcp` (or the endpoint sho
 
 Tools provide executable functions to LLMs:
 
-```typescript
+```javascript
 server.registerTool(
   "my_tool",
   {
@@ -64,7 +63,7 @@ server.registerTool(
 
 Resources expose data and content to LLMs:
 
-```typescript
+```javascript
 server.registerResource(
   "my_resource",
   "resource://my-resource",
@@ -88,7 +87,7 @@ server.registerResource(
 
 Prompts are reusable templates for interacting with LLMs:
 
-```typescript
+```javascript
 server.registerPrompt(
   "my_prompt",
   {
@@ -112,8 +111,7 @@ server.registerPrompt(
 
 ## Reading Docs
 
-- [Model Context Protocol - Documentation](https://modelcontextprotocol.io)
 - [Model Context Protocol - TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
+- [Model Context Protocol - Documentation](https://modelcontextprotocol.io)
 - [ModelFetch - Website](https://www.modelfetch.com)
 - [ModelFetch - Documentation](https://www.modelfetch.com/docs)
-- [ModelFetch - GitHub](https://github.com/phuctm97/modelfetch)

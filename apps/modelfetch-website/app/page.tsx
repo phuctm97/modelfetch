@@ -113,7 +113,7 @@ export default function Page() {
               >
                 <div className="flex items-center justify-center gap-2">
                   <span className="animate-pulse text-green-500">●</span>
-                  <span className="text-gray-700 dark:text-gray-400">
+                  <span className="text-gray-600 dark:text-gray-400">
                     LATEST RELEASE: v{packageJson.version}
                   </span>
                 </div>
@@ -239,7 +239,7 @@ export default function Page() {
             </section>
 
             {/* Footer Terminal */}
-            <div className="mt-12 text-center text-xs text-gray-500 dark:text-gray-600">
+            <div className="mt-12 text-center text-xs text-gray-600 dark:text-gray-400">
               <div>
                 <span className="text-[#008f00] dark:text-[#00ff00]">~</span>{" "}
                 echo &quot;Built with ❤️ by developers, for developers&quot;

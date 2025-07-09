@@ -4,3 +4,4 @@
 /.cursor/rules/nx-rules.mdc
 .claude
 next-env.d.ts
+worker-configuration.d.ts

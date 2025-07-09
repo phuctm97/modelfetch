@@ -33,6 +33,8 @@
     "**/dist": true,
     "**/.source": true,
     "**/next-env.d.ts": true,
-    "**/.next": true
+    "**/.next": true,
+    "**/worker-configuration.d.ts": true,
+    "**/.wrangler": true
   }
 }

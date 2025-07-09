@@ -14,15 +14,23 @@ function getProjectType(projectRoot: string): ProjectType | undefined {
   if (projectRoot.startsWith("libs")) return "library";
 }
 
-function getUpCommand(
+function getUpCommands(
   projectRoot: string,
   packageJson: PackageJson,
-): string | undefined {
+): string[] {
+  const commands: string[] = [];
   if (
     packageJson.dependencies?.["fumadocs-mdx"] ||
     packageJson.devDependencies?.["fumadocs-mdx"]
   )
-    return "fumadocs-mdx";
+    commands.push("fumadocs-mdx");
+  if (
+    (packageJson.dependencies?.wrangler ||
+      packageJson.devDependencies?.wrangler) &&
+    fs.existsSync(path.join(projectRoot, "tsconfig.json"))
+  )
+    commands.push("wrangler types");
+  return commands;
 }
 
 function getDefaultStartCommand(
@@ -147,11 +155,15 @@ export const createNodesV2: CreateNodesV2 = [
               };
             }
           }
-          const upCommand = getUpCommand(projectRoot, packageJson);
-          if (upCommand) {
+          const upCommands = getUpCommands(projectRoot, packageJson);
+          if (upCommands.length > 0) {
             targets.up = {
-              command: upCommand,
-              options: { cwd: "{projectRoot}" },
+              executor: "nx:run-commands",
+              options: {
+                cwd: "{projectRoot}",
+                commands: upCommands,
+                parallel: false,
+              },
             };
           }
         }

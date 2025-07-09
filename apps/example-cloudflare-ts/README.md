@@ -1,4 +1,4 @@
-# <%= projectTitle %>
+# Example Cloudflare MCP Server (TypeScript)
 
 An MCP server built with [ModelFetch](https://www.modelfetch.com)
 
@@ -9,7 +9,7 @@ An MCP server built with [ModelFetch](https://www.modelfetch.com)
 Start the MCP server:
 
 ```bash
-<%= packageManager %> start
+pnpm exec nx dev example-cloudflare-ts
 ```
 
 ### Testing with the MCP Inspector
@@ -25,7 +25,7 @@ Then, connect to your server at `http://localhost:8787/mcp` (or the endpoint sho
 ## Project Structure
 
 ```
-<%= projectName %>/
+example-cloudflare-ts/
 ├── src/
 │   ├── index.ts      # Project entry point
 │   └── server.ts     # MCP server implementation
@@ -112,8 +112,7 @@ server.registerPrompt(
 
 ## Reading Docs
 
-- [Model Context Protocol - Documentation](https://modelcontextprotocol.io)
 - [Model Context Protocol - TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
+- [Model Context Protocol - Documentation](https://modelcontextprotocol.io)
 - [ModelFetch - Website](https://www.modelfetch.com)
 - [ModelFetch - Documentation](https://www.modelfetch.com/docs)
-- [ModelFetch - GitHub](https://github.com/phuctm97/modelfetch)

@@ -1,0 +1,24 @@
+{
+  "include": ["**/*", "**/*.json", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", "out", "public"],
+  "references": [
+    {
+      "path": "../../libs/modelfetch"
+    },
+    {
+      "path": "../../libs/modelfetch-vercel"
+    }
+  ],
+  "extends": "../../tsconfig.next.json",
+  "compilerOptions": {
+    "sourceRoot": "/apps/example-vercel-ts",
+    "paths": {
+      "~/*": ["./*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  }
+}

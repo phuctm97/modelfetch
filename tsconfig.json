@@ -5,10 +5,16 @@
       "path": "./apps/example-bun-ts"
     },
     {
+      "path": "./apps/example-cloudflare-ts"
+    },
+    {
       "path": "./apps/example-deno-ts"
     },
     {
       "path": "./apps/example-node-ts"
+    },
+    {
+      "path": "./apps/example-vercel-ts"
     },
     {
       "path": "./apps/modelfetch-website"
