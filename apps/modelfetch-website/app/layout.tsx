@@ -28,6 +28,7 @@ const siteDescription =
 const siteUrl = "https://www.modelfetch.com";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     template: "%s | ModelFetch",
     default: siteTitle,
@@ -51,18 +52,6 @@ export const metadata: Metadata = {
     "Vercel",
     "Vercel Functions",
   ],
-  openGraph: {
-    title: siteTitle,
-    description: siteDescription,
-    url: siteUrl,
-    siteName: "ModelFetch",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteTitle,
-    description: siteDescription,
-  },
 };
 
 export default function Layout({ children }: PropsWithChildren) {

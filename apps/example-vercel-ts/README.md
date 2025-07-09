@@ -1,4 +1,4 @@
-# <%= projectTitle %>
+# Example Vercel MCP Server (TypeScript)
 
 An MCP server built with [ModelFetch](https://www.modelfetch.com)
 
@@ -9,7 +9,7 @@ An MCP server built with [ModelFetch](https://www.modelfetch.com)
 Start the MCP server:
 
 ```bash
-<%= packageManager %> start
+pnpm exec nx dev example-vercel-ts
 ```
 
 ### Testing with the MCP Inspector
@@ -20,16 +20,16 @@ In a separate terminal, run the MCP Inspector to test your server:
 npx -y @modelcontextprotocol/inspector@latest
 ```
 
-Then, connect to your server at `http://localhost:8787/mcp` (or the endpoint shown in your server output).
+Then, connect to your server at `http://localhost:3000/mcp` (or the endpoint shown in your server output).
 
 ## Project Structure
 
 ```
-<%= projectName %>/
-├── src/
-│   ├── index.ts      # Project entry point
-│   └── server.ts     # MCP server implementation
-├── wrangler.jsonc
+example-vercel-ts/
+├── app/
+│   └── [[...path]]/
+│       ├── route.ts  # Project entry point
+│       └── server.ts # MCP server implementation
 ├── package.json
 ├── tsconfig.json
 └── README.md
@@ -112,8 +112,7 @@ server.registerPrompt(
 
 ## Reading Docs
 
-- [Model Context Protocol - Documentation](https://modelcontextprotocol.io)
 - [Model Context Protocol - TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
+- [Model Context Protocol - Documentation](https://modelcontextprotocol.io)
 - [ModelFetch - Website](https://www.modelfetch.com)
 - [ModelFetch - Documentation](https://www.modelfetch.com/docs)
-- [ModelFetch - GitHub](https://github.com/phuctm97/modelfetch)

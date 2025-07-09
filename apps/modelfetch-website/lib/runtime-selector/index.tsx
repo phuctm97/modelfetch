@@ -82,7 +82,7 @@ export function RuntimeSelector() {
         </p>
         <div className="overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md transition-colors hover:border-[#008f00] dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00]">
           <div className="flex items-center justify-between border-b border-gray-300 bg-gray-100 px-4 py-2 dark:border-[#333] dark:bg-[#2a2a2a]">
-            <span className="text-xs text-gray-600 dark:text-gray-500">
+            <span className="text-xs text-gray-600 dark:text-gray-400">
               server.ts
             </span>
             <span className="text-xs text-[#008f00] dark:text-[#00ff00]">
@@ -140,7 +140,7 @@ export default server;`}
                 className={`rounded border-2 px-4 py-2 font-mono text-sm transition-all ${
                   selectedRuntime.id === runtime.id
                     ? "border-[#008f00] bg-[#008f00] text-white shadow-[0_0_10px_rgba(0,143,0,0.5)] dark:border-[#00ff00] dark:bg-[#00ff00] dark:text-black dark:shadow-[0_0_10px_rgba(0,255,0,0.5)]"
-                    : "border-gray-300 bg-white text-gray-700 hover:border-[#008f00] dark:border-[#333] dark:bg-[#1a1a1a] dark:text-gray-400 dark:hover:border-[#00ff00]"
+                    : "border-gray-300 bg-white text-gray-600 hover:border-[#008f00] dark:border-[#333] dark:bg-[#1a1a1a] dark:text-gray-400 dark:hover:border-[#00ff00]"
                 }`}
                 onClick={() => {
                   setSelectedRuntime(runtime);
@@ -157,7 +157,7 @@ export default server;`}
         <div className="mb-4">
           <div className="overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md transition-colors hover:border-[#008f00] dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00]">
             <div className="flex items-center justify-between border-b border-gray-300 bg-gray-100 px-4 py-2 dark:border-[#333] dark:bg-[#2a2a2a]">
-              <span className="text-xs text-gray-600 dark:text-gray-500">
+              <span className="text-xs text-gray-600 dark:text-gray-400">
                 install.sh
               </span>
               <span className="text-xs text-[#008f00] dark:text-[#00ff00]">
@@ -177,7 +177,7 @@ export default server;`}
         <div>
           <div className="overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md transition-colors hover:border-[#008f00] dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00]">
             <div className="flex items-center justify-between border-b border-gray-300 bg-gray-100 px-4 py-2 dark:border-[#333] dark:bg-[#2a2a2a]">
-              <span className="text-xs text-gray-600 dark:text-gray-500">
+              <span className="text-xs text-gray-600 dark:text-gray-400">
                 {selectedRuntime.id === "vercel"
                   ? "app/[[...path]]/route.ts"
                   : "src/index.ts"}

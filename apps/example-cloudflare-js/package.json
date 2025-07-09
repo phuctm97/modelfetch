@@ -1,0 +1,15 @@
+{
+  "name": "example-cloudflare-js",
+  "version": "0.7.3",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.15.0",
+    "@modelfetch/cloudflare": "workspace:^",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "modelfetch": "workspace:^",
+    "wrangler": "^4.24.0"
+  }
+}

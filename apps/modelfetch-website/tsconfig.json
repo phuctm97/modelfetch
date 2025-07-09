@@ -1,6 +1,6 @@
 {
   "include": ["**/*", "**/*.json", ".source/**/*.ts", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", "public"],
+  "exclude": ["node_modules", "out", "public"],
   "references": [],
   "extends": "../../tsconfig.next.json",
   "compilerOptions": {

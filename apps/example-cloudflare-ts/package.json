@@ -1,0 +1,16 @@
+{
+  "name": "example-cloudflare-ts",
+  "version": "0.7.3",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.15.0",
+    "@modelfetch/cloudflare": "workspace:^",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "create-eslint-config": "workspace:^",
+    "modelfetch": "workspace:^",
+    "wrangler": "^4.24.0"
+  }
+}

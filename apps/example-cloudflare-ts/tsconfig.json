@@ -1,0 +1,17 @@
+{
+  "include": ["worker-configuration.d.ts", "src"],
+  "references": [
+    {
+      "path": "../../libs/modelfetch"
+    },
+    {
+      "path": "../../libs/modelfetch-cloudflare"
+    }
+  ],
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "sourceRoot": "/apps/example-cloudflare-ts/src",
+    "rootDir": "src",
+    "outDir": "dist"
+  }
+}

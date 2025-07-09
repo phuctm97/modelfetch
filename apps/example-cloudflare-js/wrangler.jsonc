@@ -1,0 +1,5 @@
+{
+  "name": "example-cloudflare-js",
+  "main": "./src/index.js",
+  "compatibility_date": "2025-06-17",
+}
