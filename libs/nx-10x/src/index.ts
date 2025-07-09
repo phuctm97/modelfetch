@@ -154,6 +154,28 @@ export const createNodesV2: CreateNodesV2 = [
               continuous: true,
             };
           }
+          if (
+            Boolean(
+              (packageJson.dependencies?.["aws-cdk"] ?? "") ||
+                (packageJson.devDependencies?.["aws-cdk"] ?? ""),
+            ) &&
+            Boolean(
+              (packageJson.dependencies?.["aws-cdk-lib"] ?? "") ||
+                (packageJson.devDependencies?.["aws-cdk-lib"] ?? ""),
+            ) &&
+            fs.existsSync(path.join(projectRoot, "cdk.json"))
+          ) {
+            useDefaultStartCommand = false;
+            targets.deploy = {
+              command: "cdk deploy",
+              options: { cwd: "{projectRoot}" },
+              dependsOn: ["build", "^build"],
+            };
+            targets.destroy = {
+              command: "cdk destroy",
+              options: { cwd: "{projectRoot}" },
+            };
+          }
           if (useDefaultStartCommand) {
             const defaultStartCommand = getDefaultStartCommand(
               projectRoot,
@@ -189,7 +211,6 @@ export const createNodesV2: CreateNodesV2 = [
             targets[binName] = {
               command: `node ${binPath}`,
               options: { cwd: "{projectRoot}" },
-              continuous: true,
               dependsOn: ["build", "^build"],
             };
           }

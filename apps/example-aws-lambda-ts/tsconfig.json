@@ -1,0 +1,17 @@
+{
+  "include": ["src"],
+  "references": [
+    {
+      "path": "../../libs/modelfetch"
+    },
+    {
+      "path": "../../libs/modelfetch-aws-lambda"
+    }
+  ],
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "sourceRoot": "/apps/example-aws-lambda-ts/src",
+    "rootDir": "src",
+    "outDir": "dist"
+  }
+}
