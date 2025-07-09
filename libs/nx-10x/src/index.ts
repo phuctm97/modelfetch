@@ -90,32 +90,34 @@ export const createNodesV2: CreateNodesV2 = [
             packageJson.devDependencies?.next
           ) {
             useDefaultStartCommand = false;
-            targets.typecheck = {
-              cache: true,
-              command: "tsc --build",
-              options: { cwd: "{projectRoot}" },
-              inputs: [
-                "{projectRoot}/package.json",
-                "{workspaceRoot}/tsconfig.next.json",
-                "{workspaceRoot}/tsconfig.base.json",
-                "{projectRoot}/tsconfig.json",
-                ...[
-                  "ts",
-                  "tsx",
-                  "d.ts",
-                  "cts",
-                  "d.cts",
-                  "mts",
-                  "d.mts",
-                  "json",
-                ].map((ext) => `{projectRoot}/**/*.${ext}`),
-                { dependentTasksOutputFiles: "**/*.d.ts" },
-                { externalDependencies: ["typescript", "tslib"] },
-              ],
-              outputs: ["{projectRoot}/*.tsbuildinfo"],
-              dependsOn: ["build", "^typecheck"],
-              syncGenerators: ["@nx/js:typescript-sync"],
-            };
+            if (fs.existsSync(path.join(projectRoot, "tsconfig.json"))) {
+              targets.typecheck = {
+                cache: true,
+                command: "tsc --build",
+                options: { cwd: "{projectRoot}" },
+                inputs: [
+                  "{projectRoot}/package.json",
+                  "{workspaceRoot}/tsconfig.next.json",
+                  "{workspaceRoot}/tsconfig.base.json",
+                  "{projectRoot}/tsconfig.json",
+                  ...[
+                    "ts",
+                    "tsx",
+                    "d.ts",
+                    "cts",
+                    "d.cts",
+                    "mts",
+                    "d.mts",
+                    "json",
+                  ].map((ext) => `{projectRoot}/**/*.${ext}`),
+                  { dependentTasksOutputFiles: "**/*.d.ts" },
+                  { externalDependencies: ["typescript", "tslib"] },
+                ],
+                outputs: ["{projectRoot}/*.tsbuildinfo"],
+                dependsOn: ["build", "^typecheck"],
+                syncGenerators: ["@nx/js:typescript-sync"],
+              };
+            }
             targets.build = {
               cache: true,
               command: "next build",
@@ -139,6 +141,17 @@ export const createNodesV2: CreateNodesV2 = [
               options: { cwd: "{projectRoot}" },
               continuous: true,
               dependsOn: ["build"],
+            };
+          }
+          if (
+            packageJson.dependencies?.wrangler ||
+            packageJson.devDependencies?.wrangler
+          ) {
+            useDefaultStartCommand = false;
+            targets.dev = {
+              command: "wrangler dev",
+              options: { cwd: "{projectRoot}" },
+              continuous: true,
             };
           }
           if (useDefaultStartCommand) {
