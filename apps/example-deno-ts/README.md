@@ -28,11 +28,11 @@ Then, connect to your server at `http://localhost:8000/mcp` (or the endpoint sho
 ```
 example-deno-ts/
 ├── src/
-│   ├── index.ts      # Project entry point
+│   ├── index.ts      # Deno entry point
 │   └── server.ts     # MCP server implementation
-├── deno.json
-├── package.json
+├── deno.json         # Deno configuration file
 ├── tsconfig.json
+├── package.json
 └── README.md
 ```
 

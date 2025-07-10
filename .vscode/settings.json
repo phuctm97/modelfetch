@@ -35,6 +35,7 @@
     "**/next-env.d.ts": true,
     "**/.next": true,
     "**/worker-configuration.d.ts": true,
-    "**/.wrangler": true
+    "**/.wrangler": true,
+    "**/cdk.out": true
   }
 }

@@ -20,6 +20,7 @@ export default function createESLintConfig(...configs) {
         "**/.next",
         "**/worker-configuration.d.ts",
         "**/.wrangler",
+        "**/cdk.out",
       ],
     },
     js.configs.recommended,

@@ -1,0 +1,14 @@
+{
+  "include": ["src"],
+  "references": [
+    {
+      "path": "../modelfetch-core/tsconfig.lib.json"
+    }
+  ],
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "sourceRoot": "/libs/modelfetch-aws-lambda/src",
+    "rootDir": "src",
+    "outDir": "dist"
+  }
+}

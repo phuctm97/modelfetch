@@ -2,6 +2,9 @@
   "include": [],
   "references": [
     {
+      "path": "./apps/example-aws-lambda-ts"
+    },
+    {
       "path": "./apps/example-bun-ts"
     },
     {
@@ -24,6 +27,9 @@
     },
     {
       "path": "./libs/modelfetch"
+    },
+    {
+      "path": "./libs/modelfetch-aws-lambda"
     },
     {
       "path": "./libs/modelfetch-bun"

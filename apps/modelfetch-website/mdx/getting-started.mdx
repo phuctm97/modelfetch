@@ -13,7 +13,7 @@ npx -y create-modelfetch@latest
 
 The CLI will guide you through:
 
-1. **Choosing a runtime** - Node.js, Bun, Deno, Cloudflare Workers, or Vercel Functions
+1. **Choosing a runtime** - Node.js, Bun, Deno, Cloudflare Workers, Vercel Functions, or AWS Lambda
 2. **Selecting a language** - TypeScript or JavaScript
 3. **Picking a package manager** - npm, pnpm, bun, or yarn
 
@@ -39,6 +39,10 @@ npm install @modelfetch/cloudflare
 
 ```bash title="Terminal" tab="Vercel"
 npm install @modelfetch/vercel
+```
+
+```bash title="Terminal" tab="AWS Lambda"
+npm install @modelfetch/aws-lambda
 ```
 
 Then, create the following files:
@@ -122,6 +126,13 @@ export const POST = handler;
 export const DELETE = handler;
 ```
 
+```typescript title="src/index.ts" tab="AWS Lambda"
+import handle from "@modelfetch/aws-lambda"; // Choose your runtime
+import server from "./server"; // Import your server
+
+export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server); // Let ModelFetch handle all runtime-specific details
+```
+
 <Callout>
   See [Runtime Packages](/docs/runtimes) for runtime-specific guides, examples,
   and API references.
@@ -137,7 +148,7 @@ export const DELETE = handler;
   />
   <Card
     title="Runtime Packages"
-    description="Explore runtime-specific features and examples for Node.js, Bun, Deno, Cloudflare, and Vercel"
+    description="Explore runtime-specific guides for Node.js, Bun, Deno, Cloudflare, Vercel, and AWS Lambda"
     href="/docs/runtimes"
   />
 </Cards>

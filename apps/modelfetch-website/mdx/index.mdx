@@ -91,6 +91,13 @@ export const POST = handler;
 export const DELETE = handler;
 ```
 
+```typescript title="src/index.ts" tab="AWS Lambda"
+import handle from "@modelfetch/aws-lambda"; // Choose your runtime
+import server from "./server"; // Import your server
+
+export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server); // That's it — ModelFetch handles all runtime-specific details
+```
+
 <Callout title="Awesome, isn't it?" type="success">
   That's just a few lines of code to make your
   [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server)
@@ -142,6 +149,13 @@ export const POST = handler;
 export const DELETE = handler;
 ```
 
+```typescript title="src/index.ts" tab="AWS Lambda"
+import handle from "@modelfetch/aws-lambda"; // Choose your runtime
+import server from "./server"; // Import your server
+
+export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server); // Let ModelFetch handle all runtime-specific details
+```
+
 <Callout>
   See [Runtime Packages](/docs/runtimes) for runtime-specific guides, examples,
   and API references.
@@ -157,7 +171,7 @@ export const DELETE = handler;
   />
   <Card
     title="Runtime Packages"
-    description="Explore runtime-specific features and examples for Node.js, Bun, Deno, Cloudflare, and Vercel"
+    description="Explore runtime-specific guides for Node.js, Bun, Deno, Cloudflare, Vercel, and AWS Lambda"
     href="/docs/runtimes"
   />
 </Cards>

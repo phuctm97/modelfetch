@@ -1,0 +1,5 @@
+import handle from "@modelfetch/aws-lambda";
+
+import server from "./server.js";
+
+export const handler = handle(server);

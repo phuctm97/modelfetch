@@ -1,0 +1,130 @@
+# <%= projectTitle %>
+
+An MCP server built with [ModelFetch](https://www.modelfetch.com)
+
+## Quick Start
+
+### Deploy the MCP server
+
+Deploy your MCP server to AWS Lambda:
+
+```bash
+<%= packageManager %> run deploy
+```
+
+After deployment, the CDK output will show your MCP server URL.
+
+### Test with the MCP Inspector
+
+In a separate terminal, run the MCP Inspector to test your server:
+
+```bash
+npx -y @modelcontextprotocol/inspector@latest
+```
+
+Then, connect to your server at the URL shown in the CDK output (ends with `/mcp`).
+
+### Destroying the MCP server
+
+To delete the MCP server and all its AWS resources:
+
+```bash
+<%= packageManager %> run destroy
+```
+
+## Project Structure
+
+```
+<%= projectName %>/
+├── src/
+│   ├── index.ts      # AWS Lambda entry point
+│   └── server.ts     # MCP server implementation
+├── cdk.js            # AWS CDK entry point
+├── cdk.json          # AWS CDK configuration file
+├── tsconfig.json
+├── package.json
+└── README.md
+```
+
+## Adding Features
+
+### Tools
+
+Tools provide executable functions to LLMs:
+
+```typescript
+server.registerTool(
+  "my_tool",
+  {
+    title: "My Tool",
+    description: "What this tool does",
+    inputSchema: { param: z.string() },
+  },
+  ({ param }) => ({
+    content: [
+      {
+        type: "text",
+        text: `Result for ${param}`,
+      },
+    ],
+  }),
+);
+```
+
+### Resources
+
+Resources expose data and content to LLMs:
+
+```typescript
+server.registerResource(
+  "my_resource",
+  "resource://my-resource",
+  {
+    title: "My Resource",
+    description: "What this resource does",
+    mimeType: "text/plain",
+  },
+  (uri) => ({
+    contents: [
+      {
+        uri: uri.href,
+        text: "Content of my resource",
+      },
+    ],
+  }),
+);
+```
+
+### Prompts
+
+Prompts are reusable templates for interacting with LLMs:
+
+```typescript
+server.registerPrompt(
+  "my_prompt",
+  {
+    title: "My Prompt",
+    description: "What this prompt does",
+    argsSchema: { arg: z.string() },
+  },
+  ({ arg }) => ({
+    messages: [
+      {
+        role: "user",
+        content: {
+          type: "text",
+          text: `Prompt with ${arg}`,
+        },
+      },
+    ],
+  }),
+);
+```
+
+## Reading Docs
+
+- [Model Context Protocol - Documentation](https://modelcontextprotocol.io)
+- [Model Context Protocol - TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
+- [ModelFetch - Website](https://www.modelfetch.com)
+- [ModelFetch - Documentation](https://www.modelfetch.com/docs)
+- [ModelFetch - GitHub](https://github.com/phuctm97/modelfetch)

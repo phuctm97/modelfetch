@@ -28,9 +28,9 @@ Then, connect to your server at `http://localhost:3000/mcp` (or the endpoint sho
 ```
 example-bun-js/
 ├── src/
-│   ├── index.js      # Project entry point
+│   ├── index.js      # Bun entry point
 │   └── server.js     # MCP server implementation
-├── bunfig.toml
+├── bunfig.toml       # Bun configuration file
 ├── package.json
 └── README.md
 ```

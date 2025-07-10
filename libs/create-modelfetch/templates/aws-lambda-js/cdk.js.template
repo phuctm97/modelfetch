@@ -1,0 +1,29 @@
+import { App, CfnOutput, Stack } from "aws-cdk-lib";
+import {
+  FunctionUrlAuthType,
+  InvokeMode,
+  Runtime,
+} from "aws-cdk-lib/aws-lambda";
+import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
+
+class <%= awsCdkStack %> extends Stack {
+  constructor(scope, id, props) {
+    super(scope, id, props);
+
+    const nodejsFunction = new NodejsFunction(this, "NodejsFunction", {
+      entry: "src/index.js",
+      runtime: Runtime.NODEJS_22_X,
+    });
+
+    const functionUrl = nodejsFunction.addFunctionUrl({
+      authType: FunctionUrlAuthType.NONE,
+      invokeMode: InvokeMode.RESPONSE_STREAM,
+    });
+
+    new CfnOutput(this, "McpServerUrl", { value: `${functionUrl.url}mcp` });
+  }
+}
+
+const app = new App();
+
+new <%= awsCdkStack %>(app, "<%= awsCdkStack %>");

@@ -27,7 +27,7 @@ Then, connect to your server at `http://localhost:3000/mcp` (or the endpoint sho
 ```
 <%= projectName %>/
 ├── src/
-│   ├── index.ts      # Project entry point
+│   ├── index.ts      # Bun entry point
 │   └── server.ts     # MCP server implementation
 ├── package.json
 └── README.md

@@ -27,9 +27,9 @@ Then, connect to your server at `http://localhost:8000/mcp` (or the endpoint sho
 ```
 <%= projectName %>/
 ├── src/
-│   ├── index.ts      # Project entry point
+│   ├── index.ts      # Deno entry point
 │   └── server.ts     # MCP server implementation
-├── deno.json
+├── deno.json         # Deno configuration file
 └── README.md
 ```
 
