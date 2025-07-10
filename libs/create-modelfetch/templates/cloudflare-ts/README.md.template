@@ -27,9 +27,9 @@ Then, connect to your server at `http://localhost:8787/mcp` (or the endpoint sho
 ```
 <%= projectName %>/
 ├── src/
-│   ├── index.ts      # Cloudflare Workers entry point
+│   ├── index.ts      # Cloudflare entry point
 │   └── server.ts     # MCP server implementation
-├── wrangler.jsonc    # Cloudflare Workers configuration file
+├── wrangler.jsonc    # Cloudflare configuration file
 ├── tsconfig.json
 ├── package.json
 └── README.md

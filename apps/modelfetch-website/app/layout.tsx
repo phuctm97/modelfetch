@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     "Bun",
     "Deno",
     "Vercel",
-    "Cloudflare Workers",
+    "Cloudflare",
     "AWS Lambda",
   ],
 };

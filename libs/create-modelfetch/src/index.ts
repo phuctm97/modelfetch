@@ -230,7 +230,7 @@ async function main() {
       { value: "bun", label: "Bun" },
       { value: "deno", label: "Deno" },
       { value: "vercel", label: "Vercel" },
-      { value: "cloudflare", label: "Cloudflare Workers" },
+      { value: "cloudflare", label: "Cloudflare" },
       { value: "aws-lambda", label: "AWS Lambda" },
     ],
     initialValue: detectedRuntime,
