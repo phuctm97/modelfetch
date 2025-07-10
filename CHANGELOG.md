@@ -1,3 +1,17 @@
+## 0.10.0 (2025-07-10)
+
+### 🚀 Features
+
+- Add Cloudflare deployment and deletion support to nx-10x and create-modelfetch templates ([#33](https://github.com/phuctm97/modelfetch/pull/33))
+
+### 🩹 Fixes
+
+- Update runtime documentation for consistency and clarity across all packages ([#33](https://github.com/phuctm97/modelfetch/pull/33))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.9.0 (2025-07-10)
 
 ### 🚀 Features
