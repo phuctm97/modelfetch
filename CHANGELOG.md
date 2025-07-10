@@ -1,3 +1,13 @@
+## 0.10.1 (2025-07-10)
+
+### 🩹 Fixes
+
+- Fix AWS Lambda CDK entry paths and add gitignore templates ([#34](https://github.com/phuctm97/modelfetch/pull/34))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.10.0 (2025-07-10)
 
 ### 🚀 Features
