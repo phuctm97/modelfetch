@@ -1,0 +1,25 @@
+{
+  "name": "<%= projectName %>",
+  "version": "0.0.1",
+  "description": "<%= projectTitle %> (built with ModelFetch)",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "cdk deploy",
+    "destroy": "cdk destroy"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "<%= versions['@modelcontextprotocol/sdk'] %>",
+    "@modelfetch/aws-lambda": "<%= versions['@modelfetch/aws-lambda'] %>",
+    "tslib": "<%= versions['tslib'] %>",
+    "zod": "<%= versions['zod'] %>"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "<%= versions['@types/aws-lambda'] %>",
+    "@types/node": "<%= versions['@types/node'] %>",
+    "aws-cdk": "<%= versions['aws-cdk'] %>",
+    "aws-cdk-lib": "<%= versions['aws-cdk-lib'] %>",
+    "esbuild": "<%= versions['esbuild'] %>",
+    "typescript": "<%= versions['typescript'] %>"
+  }
+}

@@ -38,12 +38,12 @@ pnpm exec nx destroy example-aws-lambda-ts
 ```
 example-aws-lambda-ts/
 ├── src/
-│   ├── index.ts      # Project entry point
+│   ├── index.ts      # AWS Lambda entry point
 │   └── server.ts     # MCP server implementation
-├── cdk.js
-├── cdk.json
-├── package.json
+├── cdk.js            # AWS CDK entry point
+├── cdk.json          # AWS CDK configuration file
 ├── tsconfig.json
+├── package.json
 └── README.md
 ```
 

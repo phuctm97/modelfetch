@@ -29,7 +29,7 @@ Then, connect to your server at `http://localhost:3000/mcp` (or the endpoint sho
 example-vercel-js/
 ├── app/
 │   └── [[...path]]/
-│       ├── route.js  # Project entry point
+│       ├── route.js  # Next.js App Router catch-all API route
 │       └── server.js # MCP server implementation
 ├── package.json
 └── README.md

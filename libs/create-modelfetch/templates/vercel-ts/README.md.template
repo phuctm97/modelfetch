@@ -34,10 +34,10 @@ Then, connect to your server at `http://localhost:3000/mcp` (or the endpoint sho
 <%= projectName %>/
 ├── app/
 │   └── [[...path]]/
-│       ├── route.ts  # Project entry point
+│       ├── route.ts  # Next.js App Router catch-all API route
 │       └── server.ts # MCP server implementation
-├── package.json
 ├── tsconfig.json
+├── package.json
 └── README.md
 ```
 

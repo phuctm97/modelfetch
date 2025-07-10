@@ -28,7 +28,7 @@ Then, connect to your server at `http://localhost:3000/mcp` (or the endpoint sho
 ```
 example-node-js/
 ├── src/
-│   ├── index.js      # Project entry point
+│   ├── index.js      # Node.js entry point
 │   └── server.js     # MCP server implementation
 ├── package.json
 └── README.md

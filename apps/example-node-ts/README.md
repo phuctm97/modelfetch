@@ -28,10 +28,10 @@ Then, connect to your server at `http://localhost:3000/mcp` (or the endpoint sho
 ```
 example-node-ts/
 ├── src/
-│   ├── index.ts      # Project entry point
+│   ├── index.ts      # Node.js entry point
 │   └── server.ts     # MCP server implementation
-├── package.json
 ├── tsconfig.json
+├── package.json
 └── README.md
 ```
 

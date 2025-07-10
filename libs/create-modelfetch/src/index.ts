@@ -1,5 +1,5 @@
 import * as p from "@clack/prompts";
-import { capitalCase } from "change-case";
+import { capitalCase, pascalCase } from "change-case";
 import ejs from "ejs";
 import { exec } from "node:child_process";
 import { promises as fs } from "node:fs";
@@ -27,7 +27,7 @@ const packageVersions = {
   tslib: "2.8.1",
   typescript: "5.8.3",
   "@modelfetch/node": packageJson.version,
-  "@types/node": "22.16.0",
+  "@types/node": "22.16.2",
   tsx: "4.20.3",
   "@modelfetch/bun": packageJson.version,
   "@types/bun": "1.2.18",
@@ -40,12 +40,17 @@ const packageVersions = {
   "@types/react": "19.1.8",
   "react-dom": "19.1.0",
   "@types/react-dom": "19.1.6",
+  "@modelfetch/aws-lambda": packageJson.version,
+  "@types/aws-lambda": "8.10.150",
+  "aws-cdk-lib": "2.204.0",
+  "aws-cdk": "2.1020.2",
+  esbuild: "0.25.6",
 };
 
 // Cloudflare compatibility date
 const cloudflareCompatibilityDate = "2025-06-17";
 
-type Runtime = "node" | "bun" | "deno" | "cloudflare" | "vercel";
+type Runtime = "node" | "bun" | "deno" | "cloudflare" | "vercel" | "aws-lambda";
 type Language = "javascript" | "typescript";
 type PackageManager = "npm" | "pnpm" | "yarn" | "bun";
 
@@ -109,6 +114,9 @@ function getStartCommand(
     case "vercel": {
       return `${packageManager} run dev`;
     }
+    case "aws-lambda": {
+      return `${packageManager} run deploy`;
+    }
     default: {
       return `${packageManager} start`;
     }
@@ -128,6 +136,7 @@ async function copyTemplate(
   const ejsData = {
     projectName: options.name,
     projectTitle: options.title,
+    awsCdkStack: pascalCase(options.name) + "Stack",
     runtime: options.runtime,
     language: options.language,
     packageManager: options.packageManager,
@@ -222,6 +231,7 @@ async function main() {
       { value: "deno", label: "Deno" },
       { value: "cloudflare", label: "Cloudflare Workers" },
       { value: "vercel", label: "Vercel Functions" },
+      { value: "aws-lambda", label: "AWS Lambda" },
     ],
     initialValue: detectedRuntime,
   })) as Runtime;

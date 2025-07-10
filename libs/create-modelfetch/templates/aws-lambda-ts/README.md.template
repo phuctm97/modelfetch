@@ -4,15 +4,17 @@ An MCP server built with [ModelFetch](https://www.modelfetch.com)
 
 ## Quick Start
 
-### Running the MCP server
+### Deploy the MCP server
 
-Start the MCP server:
+Deploy your MCP server to AWS Lambda:
 
 ```bash
-deno task start
+<%= packageManager %> run deploy
 ```
 
-### Testing with the MCP Inspector
+After deployment, the CDK output will show your MCP server URL.
+
+### Test with the MCP Inspector
 
 In a separate terminal, run the MCP Inspector to test your server:
 
@@ -20,16 +22,27 @@ In a separate terminal, run the MCP Inspector to test your server:
 npx -y @modelcontextprotocol/inspector@latest
 ```
 
-Then, connect to your server at `http://localhost:8000/mcp` (or the endpoint shown in your server output).
+Then, connect to your server at the URL shown in the CDK output (ends with `/mcp`).
+
+### Destroying the MCP server
+
+To delete the MCP server and all its AWS resources:
+
+```bash
+<%= packageManager %> run destroy
+```
 
 ## Project Structure
 
 ```
 <%= projectName %>/
 ├── src/
-│   ├── index.js      # Deno entry point
-│   └── server.js     # MCP server implementation
-├── deno.json         # Deno configuration file
+│   ├── index.ts      # AWS Lambda entry point
+│   └── server.ts     # MCP server implementation
+├── cdk.js            # AWS CDK entry point
+├── cdk.json          # AWS CDK configuration file
+├── tsconfig.json
+├── package.json
 └── README.md
 ```
 
@@ -39,7 +52,7 @@ Then, connect to your server at `http://localhost:8000/mcp` (or the endpoint sho
 
 Tools provide executable functions to LLMs:
 
-```javascript
+```typescript
 server.registerTool(
   "my_tool",
   {
@@ -62,7 +75,7 @@ server.registerTool(
 
 Resources expose data and content to LLMs:
 
-```javascript
+```typescript
 server.registerResource(
   "my_resource",
   "resource://my-resource",
@@ -86,7 +99,7 @@ server.registerResource(
 
 Prompts are reusable templates for interacting with LLMs:
 
-```javascript
+```typescript
 server.registerPrompt(
   "my_prompt",
   {

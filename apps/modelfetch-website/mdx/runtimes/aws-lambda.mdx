@@ -1,20 +1,19 @@
-# `@modelfetch/aws-lambda`
+---
+title: AWS Lambda
+description: Deploy MCP servers to AWS Lambda
+---
 
-[![npm version](https://img.shields.io/npm/v/@modelfetch/aws-lambda.svg)](https://www.npmjs.com/package/@modelfetch/aws-lambda)
-[![npm license](https://img.shields.io/npm/l/@modelfetch/aws-lambda.svg)](https://www.npmjs.com/package/@modelfetch/aws-lambda)
-[![docs](https://img.shields.io/badge/docs-modelfetch.com-blue)](https://www.modelfetch.com/docs/runtimes/aws-lambda)
-
-Deploy MCP servers to AWS Lambda.
+The `@modelfetch/aws-lambda` package lets you deploy MCP servers to [AWS Lambda](https://aws.amazon.com/lambda).
 
 ## Installation
 
-```bash
+```npm title="Terminal"
 npm install @modelfetch/aws-lambda
 ```
 
 ## Usage
 
-```typescript
+```typescript title="src/index.ts"
 import handle from "@modelfetch/aws-lambda";
 import server from "./server"; // Import your McpServer
 

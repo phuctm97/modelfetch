@@ -27,7 +27,7 @@ Then, connect to your server at `http://localhost:3000/mcp` (or the endpoint sho
 ```
 <%= projectName %>/
 ├── src/
-│   ├── index.js      # Project entry point
+│   ├── index.js      # Bun entry point
 │   └── server.js     # MCP server implementation
 ├── package.json
 └── README.md
