@@ -11,7 +11,7 @@ class <%= awsCdkStack %> extends Stack {
     super(scope, id, props);
 
     const nodejsFunction = new NodejsFunction(this, "NodejsFunction", {
-      entry: "src/index.js",
+      entry: "./src/index.js",
       runtime: Runtime.NODEJS_22_X,
     });
 
