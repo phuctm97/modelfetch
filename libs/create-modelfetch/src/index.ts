@@ -111,7 +111,8 @@ function getStartCommand(
     case "deno": {
       return "deno task start";
     }
-    case "vercel": {
+    case "vercel":
+    case "cloudflare": {
       return `${packageManager} run dev`;
     }
     case "aws-lambda": {

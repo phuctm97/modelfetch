@@ -13,6 +13,16 @@ Start the MCP server:
 pnpm exec nx dev example-cloudflare-ts
 ```
 
+### Deploying the MCP server
+
+Deploy the MCP server to Cloudflare:
+
+```bash
+pnpm exec nx deploy example-cloudflare-ts
+```
+
+After deployment, the output will show your MCP server URL.
+
 ### Testing with the MCP Inspector
 
 In a separate terminal, run the MCP Inspector to test your server:
@@ -21,7 +31,15 @@ In a separate terminal, run the MCP Inspector to test your server:
 npx -y @modelcontextprotocol/inspector@latest
 ```
 
-Then, connect to your server at `http://localhost:8787/mcp` (or the endpoint shown in your server output).
+Then, connect to your server at `http://localhost:8787/mcp` (or the URL shown in the output).
+
+### Deleting the MCP server
+
+To delete the MCP server and all its Cloudflare resources:
+
+```bash
+pnpm exec nx delete example-cloudflare-ts
+```
 
 ## Project Structure
 
@@ -30,7 +48,7 @@ example-cloudflare-ts/
 ├── src/
 │   ├── index.ts      # Cloudflare entry point
 │   └── server.ts     # MCP server implementation
-├── wrangler.jsonc    # Cloudflare configuration file
+├── wrangler.jsonc    # Cloudflare configuration
 ├── tsconfig.json
 ├── package.json
 └── README.md

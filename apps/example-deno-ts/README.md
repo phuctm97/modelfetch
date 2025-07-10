@@ -30,7 +30,7 @@ example-deno-ts/
 ├── src/
 │   ├── index.ts      # Deno entry point
 │   └── server.ts     # MCP server implementation
-├── deno.json         # Deno configuration file
+├── deno.json         # Deno configuration
 ├── tsconfig.json
 ├── package.json
 └── README.md
