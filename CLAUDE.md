@@ -11,8 +11,9 @@ The SDK is built as a thin wrapper on top of `hono` and `@hono/mcp`, leveraging 
 - `@modelfetch/node` - Node.js runtime support
 - `@modelfetch/bun` - Bun runtime support
 - `@modelfetch/deno` - Deno runtime support
+- `@modelfetch/vercel` - Vercel runtime support
 - `@modelfetch/cloudflare` - Cloudflare Workers support
-- `@modelfetch/vercel` - Vercel Functions support
+- `@modelfetch/aws-lambda` - AWS Lambda support
 
 Each package acts as a thin wrapper around the equivalent Hono package, ensuring optimal performance and compatibility.
 
@@ -54,6 +55,12 @@ These projects are example applications powered by ModelFetch:
 - `example-bun-ts`: Bun application (TypeScript)
 - `example-deno-js`: Deno application (JavaScript)
 - `example-deno-ts`: Deno application (TypeScript)
+- `example-vercel-js`: Vercel application (JavaScript)
+- `example-vercel-ts`: Vercel application (TypeScript)
+- `example-cloudflare-js`: Cloudflare Workers application (JavaScript)
+- `example-cloudflare-ts`: Cloudflare Workers application (TypeScript)
+- `example-aws-lambda-js`: AWS Lambda application (JavaScript)
+- `example-aws-lambda-ts`: AWS Lambda application (TypeScript)
 
 ### Core Libraries
 
@@ -62,8 +69,9 @@ These projects are example applications powered by ModelFetch:
 - `@modelfetch/node`: Node.js runtime support
 - `@modelfetch/bun`: Bun runtime support
 - `@modelfetch/deno`: Deno runtime support
+- `@modelfetch/vercel`: Vercel runtime support
 - `@modelfetch/cloudflare`: Cloudflare Workers support
-- `@modelfetch/vercel`: Vercel Functions support
+- `@modelfetch/aws-lambda`: AWS Lambda support
 
 ### Supporting Libraries
 

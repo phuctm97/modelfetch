@@ -18,7 +18,7 @@
 
 ## 🚀 Features
 
-- **Multi-Runtime**: Write once, run anywhere: Node.js, Bun, Deno, Cloudflare Workers, Vercel Functions, etc.
+- **Multi-Runtime**: Write once, run anywhere: Node.js, Bun, Deno, Vercel, Cloudflare Workers, AWS Lambda, etc.
 - **Official SDK**: Built on top of the [official MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) to avoid lock-in, guarantee long-term support, and ensure up-to-date implementation
 - **Live Reload**: Development server with automatic reloading
 - **MCP Inspector**: Built-in integration for testing and debugging
@@ -95,6 +95,18 @@ handle(server); // ModelFetch handles all runtime-specific details
 ```
 
 ```typescript
+// Vercel
+import handle from "@modelfetch/vercel"; // Choose your runtime
+import server from "./server"; // Import your server
+
+const handler = handle(server); // ModelFetch handles all runtime-specific details
+
+export const GET = handler;
+export const POST = handler;
+export const DELETE = handler;
+```
+
+```typescript
 // Cloudflare Workers
 import handle from "@modelfetch/cloudflare"; // Choose your runtime
 import server from "./server"; // Import your server
@@ -105,15 +117,11 @@ export default {
 ```
 
 ```typescript
-// Vercel Functions
-import handle from "@modelfetch/vercel"; // Choose your runtime
+// AWS Lambda
+import handle from "@modelfetch/aws-lambda"; // Choose your runtime
 import server from "./server"; // Import your server
 
-const handler = handle(server); // ModelFetch handles all runtime-specific details
-
-export const GET = handler;
-export const POST = handler;
-export const DELETE = handler;
+export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server); // ModelFetch handles all runtime-specific details
 ```
 
 That's just a few lines of code to make your [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) work across all supported platforms.
@@ -138,8 +146,9 @@ ModelFetch provides runtime-specific packages that handle tedious platform diffe
 | [`@modelfetch/node`](libs/modelfetch-node)             | Run simple MCP servers with Node.js      | ✅ Ready |
 | [`@modelfetch/bun`](libs/modelfetch-bun)               | Run lightning-fast MCP servers with Bun  | ✅ Ready |
 | [`@modelfetch/deno`](libs/modelfetch-deno)             | Run secure MCP servers with Deno         | ✅ Ready |
+| [`@modelfetch/vercel`](libs/modelfetch-vercel)         | Deploy MCP servers to Vercel             | ✅ Ready |
 | [`@modelfetch/cloudflare`](libs/modelfetch-cloudflare) | Deploy MCP servers to Cloudflare Workers | ✅ Ready |
-| [`@modelfetch/vercel`](libs/modelfetch-vercel)         | Deploy MCP servers to Vercel Functions   | ✅ Ready |
+| [`@modelfetch/aws-lambda`](libs/modelfetch-aws-lambda) | Deploy MCP servers to AWS Lambda         | ✅ Ready |
 
 ## 🛠️ Development
 

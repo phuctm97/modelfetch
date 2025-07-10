@@ -4,7 +4,7 @@
 [![npm license](https://img.shields.io/npm/l/@modelfetch/vercel.svg)](https://www.npmjs.com/package/@modelfetch/vercel)
 [![docs](https://img.shields.io/badge/docs-modelfetch.com-blue)](https://www.modelfetch.com/docs/runtimes/vercel)
 
-Deploy MCP servers to Vercel Functions.
+Deploy MCP servers to Vercel.
 
 ## Installation
 

@@ -47,10 +47,9 @@ export const metadata: Metadata = {
     "Next.js",
     "Bun",
     "Deno",
-    "Cloudflare",
-    "Cloudflare Workers",
     "Vercel",
-    "Vercel Functions",
+    "Cloudflare Workers",
+    "AWS Lambda",
   ],
 };
 

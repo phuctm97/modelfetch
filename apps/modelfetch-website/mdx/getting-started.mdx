@@ -13,7 +13,7 @@ npx -y create-modelfetch@latest
 
 The CLI will guide you through:
 
-1. **Choosing a runtime** - Node.js, Bun, Deno, Cloudflare Workers, Vercel Functions, or AWS Lambda
+1. **Choosing a runtime** - Node.js, Bun, Deno, Vercel, Cloudflare Workers, or AWS Lambda
 2. **Selecting a language** - TypeScript or JavaScript
 3. **Picking a package manager** - npm, pnpm, bun, or yarn
 
@@ -33,12 +33,12 @@ bun add @modelfetch/bun
 deno add npm:@modelfetch/deno
 ```
 
-```bash title="Terminal" tab="Cloudflare"
-npm install @modelfetch/cloudflare
-```
-
 ```bash title="Terminal" tab="Vercel"
 npm install @modelfetch/vercel
+```
+
+```bash title="Terminal" tab="Cloudflare"
+npm install @modelfetch/cloudflare
 ```
 
 ```bash title="Terminal" tab="AWS Lambda"
@@ -106,15 +106,6 @@ import server from "./server.ts"; // Import your server
 handle(server); // Let ModelFetch handle all runtime-specific details
 ```
 
-```typescript title="src/index.ts" tab="Cloudflare"
-import handle from "@modelfetch/cloudflare"; // Choose your runtime
-import server from "./server"; // Import your server
-
-export default {
-  fetch: handle(server), // Let ModelFetch handle all runtime-specific details
-} satisfies ExportedHandler<Env>;
-```
-
 ```typescript title="app/[[...path]]/route.ts" tab="Vercel"
 import handle from "@modelfetch/vercel"; // Choose your runtime
 import server from "./server"; // Import your server
@@ -124,6 +115,15 @@ const handler = handle(server); // Let ModelFetch handle all runtime-specific de
 export const GET = handler;
 export const POST = handler;
 export const DELETE = handler;
+```
+
+```typescript title="src/index.ts" tab="Cloudflare"
+import handle from "@modelfetch/cloudflare"; // Choose your runtime
+import server from "./server"; // Import your server
+
+export default {
+  fetch: handle(server), // Let ModelFetch handle all runtime-specific details
+} satisfies ExportedHandler<Env>;
 ```
 
 ```typescript title="src/index.ts" tab="AWS Lambda"
@@ -148,7 +148,7 @@ export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server); // Le
   />
   <Card
     title="Runtime Packages"
-    description="Explore runtime-specific guides for Node.js, Bun, Deno, Cloudflare, Vercel, and AWS Lambda"
+    description="Explore runtime-specific guides for Node.js, Bun, Deno, Vercel, Cloudflare, and AWS Lambda"
     href="/docs/runtimes"
   />
 </Cards>

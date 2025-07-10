@@ -54,18 +54,6 @@ import server from "./server.ts";
 handle(server);`,
   },
   {
-    id: "cloudflare",
-    name: "Cloudflare",
-    icon: SiCloudflare,
-    installCommand: "npm install @modelfetch/cloudflare",
-    codeExample: `import handle from "@modelfetch/cloudflare";
-import server from "./server";
-
-export default {
-  fetch: handle(server),
-} satisfies ExportedHandler<Env>;`,
-  },
-  {
     id: "vercel",
     name: "Vercel",
     icon: SiVercel,
@@ -78,6 +66,18 @@ const handler = handle(server);
 export const GET = handler;
 export const POST = handler;
 export const DELETE = handler;`,
+  },
+  {
+    id: "cloudflare",
+    name: "Cloudflare",
+    icon: SiCloudflare,
+    installCommand: "npm install @modelfetch/cloudflare",
+    codeExample: `import handle from "@modelfetch/cloudflare";
+import server from "./server";
+
+export default {
+  fetch: handle(server),
+} satisfies ExportedHandler<Env>;`,
   },
   {
     id: "aws-lambda",

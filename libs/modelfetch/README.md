@@ -11,5 +11,6 @@
 - [@modelfetch/node](https://www.npmjs.com/package/@modelfetch/node) for Node.js
 - [@modelfetch/bun](https://www.npmjs.com/package/@modelfetch/bun) for Bun
 - [@modelfetch/deno](https://www.npmjs.com/package/@modelfetch/deno) for Deno
+- [@modelfetch/vercel](https://www.npmjs.com/package/@modelfetch/vercel) for Vercel
 - [@modelfetch/cloudflare](https://www.npmjs.com/package/@modelfetch/cloudflare) for Cloudflare Workers
-- [@modelfetch/vercel](https://www.npmjs.com/package/@modelfetch/vercel) for Vercel Functions
+- [@modelfetch/aws-lambda](https://www.npmjs.com/package/@modelfetch/aws-lambda) for AWS Lambda
