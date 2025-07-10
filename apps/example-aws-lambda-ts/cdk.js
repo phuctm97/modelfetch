@@ -11,7 +11,7 @@ class ModelFetchExampleAWSLambdaTypeScriptStack extends Stack {
     super(scope, id, props);
 
     const nodejsFunction = new NodejsFunction(this, "NodejsFunction", {
-      entry: "src/index.ts",
+      entry: "./src/index.ts",
       runtime: Runtime.NODEJS_22_X,
     });
 
