@@ -9,8 +9,18 @@ An MCP server built with [ModelFetch](https://www.modelfetch.com)
 Start the MCP server:
 
 ```bash
-<%= packageManager %> start
+<%= packageManager %> run dev
 ```
+
+### Deploying the MCP server
+
+Deploy the MCP server to Cloudflare:
+
+```bash
+<%= packageManager %> run deploy
+```
+
+After deployment, the output will show your MCP server URL.
 
 ### Testing with the MCP Inspector
 
@@ -20,16 +30,24 @@ In a separate terminal, run the MCP Inspector to test your server:
 npx -y @modelcontextprotocol/inspector@latest
 ```
 
-Then, connect to your server at `http://localhost:8787/mcp` (or the endpoint shown in your server output).
+Then, connect to your server at `http://localhost:8787/mcp` (or the URL shown in the output).
+
+### Deleting the MCP server
+
+To delete the MCP server and all its Cloudflare resources:
+
+```bash
+<%= packageManager %> run delete
+```
 
 ## Project Structure
 
 ```
 <%= projectName %>/
 ├── src/
-│   ├── index.ts      # Cloudflare Workers entry point
+│   ├── index.ts      # Cloudflare entry point
 │   └── server.ts     # MCP server implementation
-├── wrangler.jsonc    # Cloudflare Workers configuration file
+├── wrangler.jsonc    # Cloudflare configuration
 ├── tsconfig.json
 ├── package.json
 └── README.md

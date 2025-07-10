@@ -30,7 +30,7 @@ example-bun-ts/
 ├── src/
 │   ├── index.ts      # Bun entry point
 │   └── server.ts     # MCP server implementation
-├── bunfig.toml       # Bun configuration file
+├── bunfig.toml       # Bun configuration
 ├── tsconfig.json
 ├── package.json
 └── README.md

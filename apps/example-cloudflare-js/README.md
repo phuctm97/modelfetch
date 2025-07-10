@@ -13,6 +13,16 @@ Start the MCP server:
 pnpm exec nx dev example-cloudflare-js
 ```
 
+### Deploying the MCP server
+
+Deploy the MCP server to Cloudflare:
+
+```bash
+pnpm exec nx deploy example-cloudflare-js
+```
+
+After deployment, the output will show your MCP server URL.
+
 ### Testing with the MCP Inspector
 
 In a separate terminal, run the MCP Inspector to test your server:
@@ -21,16 +31,24 @@ In a separate terminal, run the MCP Inspector to test your server:
 npx -y @modelcontextprotocol/inspector@latest
 ```
 
-Then, connect to your server at `http://localhost:8787/mcp` (or the endpoint shown in your server output).
+Then, connect to your server at `http://localhost:8787/mcp` (or the URL shown in the output).
+
+### Deleting the MCP server
+
+To delete the MCP server and all its Cloudflare resources:
+
+```bash
+pnpm exec nx delete example-cloudflare-js
+```
 
 ## Project Structure
 
 ```
 example-cloudflare-js/
 ├── src/
-│   ├── index.js      # Cloudflare Workers entry point
+│   ├── index.js      # Cloudflare entry point
 │   └── server.js     # MCP server implementation
-├── wrangler.jsonc    # Cloudflare Workers configuration file
+├── wrangler.jsonc    # Cloudflare configuration
 ├── package.json
 └── README.md
 ```

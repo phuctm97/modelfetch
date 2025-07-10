@@ -25,7 +25,7 @@ npx -y @modelcontextprotocol/inspector@latest
 
 Then, connect to your server at the URL shown in the CDK output (ends with `/mcp`).
 
-### Destroying the MCP server
+### Deleting the MCP server
 
 To delete the MCP server and all its AWS resources:
 
@@ -41,7 +41,7 @@ example-aws-lambda-js/
 │   ├── index.js      # AWS Lambda entry point
 │   └── server.js     # MCP server implementation
 ├── cdk.js            # AWS CDK entry point
-├── cdk.json          # AWS CDK configuration file
+├── cdk.json          # AWS CDK configuration
 ├── package.json
 └── README.md
 ```

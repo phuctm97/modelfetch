@@ -29,7 +29,7 @@ Then, connect to your server at `http://localhost:8000/mcp` (or the endpoint sho
 ├── src/
 │   ├── index.js      # Deno entry point
 │   └── server.js     # MCP server implementation
-├── deno.json         # Deno configuration file
+├── deno.json         # Deno configuration
 └── README.md
 ```
 

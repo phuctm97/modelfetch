@@ -153,6 +153,15 @@ export const createNodesV2: CreateNodesV2 = [
               options: { cwd: "{projectRoot}" },
               continuous: true,
             };
+            targets.deploy = {
+              command: "wrangler deploy",
+              options: { cwd: "{projectRoot}" },
+              dependsOn: ["build", "^build"],
+            };
+            targets.delete = {
+              command: "wrangler delete",
+              options: { cwd: "{projectRoot}" },
+            };
           }
           if (
             Boolean(

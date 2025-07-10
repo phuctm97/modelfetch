@@ -111,7 +111,8 @@ function getStartCommand(
     case "deno": {
       return "deno task start";
     }
-    case "vercel": {
+    case "vercel":
+    case "cloudflare": {
       return `${packageManager} run dev`;
     }
     case "aws-lambda": {
@@ -230,7 +231,7 @@ async function main() {
       { value: "bun", label: "Bun" },
       { value: "deno", label: "Deno" },
       { value: "vercel", label: "Vercel" },
-      { value: "cloudflare", label: "Cloudflare Workers" },
+      { value: "cloudflare", label: "Cloudflare" },
       { value: "aws-lambda", label: "AWS Lambda" },
     ],
     initialValue: detectedRuntime,

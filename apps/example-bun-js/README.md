@@ -30,7 +30,7 @@ example-bun-js/
 ├── src/
 │   ├── index.js      # Bun entry point
 │   └── server.js     # MCP server implementation
-├── bunfig.toml       # Bun configuration file
+├── bunfig.toml       # Bun configuration
 ├── package.json
 └── README.md
 ```

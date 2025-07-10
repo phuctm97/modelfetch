@@ -30,7 +30,7 @@ example-deno-js/
 ├── src/
 │   ├── index.js      # Deno entry point
 │   └── server.js     # MCP server implementation
-├── deno.json         # Deno configuration file
+├── deno.json         # Deno configuration
 ├── package.json
 └── README.md
 ```

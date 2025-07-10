@@ -5,7 +5,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "wrangler dev"
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "delete": "wrangler delete"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "<%= versions['@modelcontextprotocol/sdk'] %>",
