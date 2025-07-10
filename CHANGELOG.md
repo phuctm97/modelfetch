@@ -1,3 +1,13 @@
+## 0.9.0 (2025-07-10)
+
+### 🚀 Features
+
+- Add AWS Lambda runtime support with @modelfetch/aws-lambda package and example applications ([#31](https://github.com/phuctm97/modelfetch/pull/31))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.8.0 (2025-07-09)
 
 ### 🚀 Features
