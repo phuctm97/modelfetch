@@ -1,7 +1,6 @@
-import type { ImageResponseOptions } from "next/server";
-
 import { ImageResponse } from "next/og";
 
+import { loadImageFonts } from "~/lib/load-image-fonts";
 import packageJson from "~/package.json";
 
 export const alt = `ModelFetch: Runtime-agnostic TypeScript/JavaScript SDK for building and deploying MCP servers anywhere - Multi-Runtime - Delightful DX - Official SDK - npx create-modelfetch@latest - https://github.com/phuctm97/modelfetch - v${packageJson.version}`;
@@ -11,28 +10,6 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/jpeg";
 
 export default async function Image() {
-  const fonts: ImageResponseOptions["fonts"] = [];
-  try {
-    const cssResponse = await fetch(
-      `https://fonts.googleapis.com/css2?family=Geist+Mono&text=${encodeURIComponent(
-        "ModelFetch INFO Runtime agnostic TypeScript JavaScript SDK for building and deploying MCP servers anywhere Multi Runtime Delightful DX Official SDK terminal github com phuctm97 modelfetch npx create latest 0123456789",
-      )}`,
-    );
-    if (cssResponse.ok) {
-      const cssText = await cssResponse.text();
-      const matches = /src: url\((.+)\) format\('(opentype|truetype)'\)/.exec(
-        cssText,
-      );
-      const match = matches?.[1];
-      if (match) {
-        const fontResponse = await fetch(match);
-        if (fontResponse.ok)
-          fonts.push({ name: "Geist", data: await fontResponse.arrayBuffer() });
-      }
-    }
-  } catch {
-    // Ignore
-  }
   return new ImageResponse(
     (
       <div
@@ -42,7 +19,6 @@ export default async function Image() {
           display: "flex",
           flexDirection: "column",
           backgroundColor: "#0a0a0a",
-          fontFamily: fonts.length > 0 ? "Geist, monospace" : "monospace",
         }}
       >
         {/* Terminal header */}
@@ -384,6 +360,12 @@ export default async function Image() {
         </div>
       </div>
     ),
-    { ...size, fonts },
+    {
+      ...size,
+      fonts: await loadImageFonts(
+        "Geist Mono",
+        "ModelFetch INFO Runtime agnostic TypeScript JavaScript SDK for building and deploying MCP servers anywhere Multi Runtime Delightful DX Official SDK terminal github com phuctm97 modelfetch npx create latest 0123456789",
+      ),
+    },
   );
 }
