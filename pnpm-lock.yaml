@@ -252,9 +252,6 @@ importers:
       '@modelfetch/node':
         specifier: workspace:^
         version: link:../../libs/modelfetch-node
-      hono:
-        specifier: ^4.6.16
-        version: 4.8.4
       zod:
         specifier: ^3.25.76
         version: 3.25.76
