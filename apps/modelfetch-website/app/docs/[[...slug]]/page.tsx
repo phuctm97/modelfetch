@@ -10,6 +10,7 @@ import {
 } from "fumadocs-ui/page";
 import { notFound } from "next/navigation";
 
+import { metadataImage } from "~/lib/metadata-image";
 import { source } from "~/lib/source";
 
 interface Props {
@@ -29,7 +30,10 @@ export async function generateMetadata(props: Props) {
   const params = await props.params;
   const page = source.getPage(params.slug);
   if (!page) notFound();
-  return { title: page.data.title, description: page.data.description };
+  return metadataImage.withImage(page.slugs, {
+    title: page.data.title,
+    description: page.data.description,
+  });
 }
 
 export default async function Page(props: Props) {

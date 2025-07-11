@@ -19,8 +19,8 @@
     "nx": "21.2.2",
     "prettier": "3.6.2",
     "prettier-plugin-packagejson": "2.5.18",
-    "prettier-plugin-tailwindcss": "0.6.13",
+    "prettier-plugin-tailwindcss": "0.6.14",
     "typescript": "5.8.3"
   },
-  "packageManager": "pnpm@10.12.4"
+  "packageManager": "pnpm@10.13.1"
 }

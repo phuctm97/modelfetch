@@ -1,4 +1,4 @@
-import type { Server } from "@modelfetch/core";
+import type { ServerOrConfig } from "@modelfetch/core";
 
 import { createApp } from "@modelfetch/core";
 
@@ -21,9 +21,9 @@ export function getEndpoint(address: Deno.Addr): string {
 export type Options = Deno.ServeOptions;
 
 export default function handle(
-  server: Server,
+  arg: ServerOrConfig,
   options?: Options,
 ): Deno.HttpServer {
-  const app = createApp(server);
+  const app = createApp(arg);
   return Deno.serve(options ?? {}, app.fetch);
 }

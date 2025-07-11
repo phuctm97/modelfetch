@@ -1,4 +1,4 @@
-import type { Server } from "@modelfetch/core";
+import type { ServerOrConfig } from "@modelfetch/core";
 import type { AddressInfo } from "node:net";
 import type { Except } from "type-fest";
 
@@ -29,10 +29,10 @@ export type Callback = Args[1];
 export type Options = Except<Args[0], "fetch">;
 
 export default function handle(
-  server: Server,
+  arg: ServerOrConfig,
   callback?: Callback,
   options?: Options,
 ) {
-  const app = createApp(server);
+  const app = createApp(arg);
   return serve({ ...options, fetch: app.fetch }, callback);
 }

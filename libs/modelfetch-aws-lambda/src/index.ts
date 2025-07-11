@@ -1,11 +1,11 @@
-import type { Server } from "@modelfetch/core";
+import type { ServerOrConfig } from "@modelfetch/core";
 
 import { createApp } from "@modelfetch/core";
 import { streamHandle } from "hono/aws-lambda";
 
 export default function handle(
-  server: Server,
+  arg: ServerOrConfig,
 ): ReturnType<typeof streamHandle> {
-  const app = createApp(server);
+  const app = createApp(arg);
   return streamHandle(app);
 }

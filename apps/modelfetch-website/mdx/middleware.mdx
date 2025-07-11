@@ -1,0 +1,212 @@
+---
+title: Middleware
+description: Add authentication, logging, and other cross-cutting concerns to your MCP servers
+---
+
+ModelFetch provides middleware support built on top of Hono's middleware system, allowing you to add authentication, logging, rate limiting, and other cross-cutting concerns to your MCP servers.
+
+## Basic Usage
+
+### Using Middleware Array
+
+The simplest way to add middleware is using the `middleware` array in your config:
+
+```typescript
+import handle from "@modelfetch/node";
+import { bearerAuth } from "hono/bearer-auth";
+import { logger } from "hono/logger";
+
+handle({
+  server: myMcpServer,
+  middleware: [logger(), bearerAuth({ token: "secret-token" })],
+});
+```
+
+### Using Pre/Post Hooks
+
+For more control, use the synchronous `pre` and `post` hooks to configure the Hono app:
+
+```typescript
+handle({
+  server: myMcpServer,
+  pre: (app) => {
+    // Configure middleware before MCP routes
+    app.use("*", logger());
+    app.use("/mcp/*", bearerAuth({ token: "secret" }));
+
+    // Add error handling
+    app.onError((err, c) => {
+      console.error("Error:", err);
+      return c.json({ error: "Internal Server Error" }, 500);
+    });
+  },
+  post: (app) => {
+    // Add additional routes after MCP routes
+    app.get("/health", (c) => c.json({ status: "ok" }));
+    app.get("/", (c) => c.text("MCP Server"));
+  },
+});
+```
+
+## Common Middleware Patterns
+
+### Authentication
+
+```typescript
+import { createMiddleware } from "hono/factory";
+
+const apiKeyAuth = createMiddleware(async (c, next) => {
+  const apiKey = c.req.header("X-API-Key");
+
+  if (!apiKey || apiKey !== process.env.API_KEY) {
+    return c.json({ error: "Invalid API key" }, 401);
+  }
+
+  await next();
+});
+
+handle({
+  server: myMcpServer,
+  middleware: [apiKeyAuth],
+});
+```
+
+### Request Logging
+
+```typescript
+const requestLogger = createMiddleware(async (c, next) => {
+  const start = Date.now();
+  await next();
+  const ms = Date.now() - start;
+
+  console.log(`${c.req.method} ${c.req.path} - ${c.res.status} ${ms}ms`);
+});
+```
+
+### CORS Configuration
+
+```typescript
+import { cors } from "hono/cors";
+
+handle({
+  server: myMcpServer,
+  pre: (app) => {
+    app.use(
+      "/mcp/*",
+      cors({
+        origin: ["https://app.example.com"],
+        allowHeaders: ["X-API-Key", "Content-Type"],
+        allowMethods: ["POST", "GET"],
+        credentials: true,
+      }),
+    );
+  },
+});
+```
+
+### Rate Limiting
+
+```typescript
+import { rateLimiter } from "hono/rate-limiter";
+
+handle({
+  server: myMcpServer,
+  pre: (app) => {
+    app.use(
+      "/mcp/*",
+      rateLimiter({
+        windowMs: 15 * 60 * 1000, // 15 minutes
+        limit: 100, // 100 requests per window
+        keyGenerator: (c) => c.req.header("X-API-Key") || c.ip,
+      }),
+    );
+  },
+});
+```
+
+## Advanced Usage
+
+### Middleware with External Services
+
+Note: Since hooks are synchronous, initialize external services before creating the server:
+
+```typescript
+// Initialize external services first
+const db = await connectToDatabase();
+
+// Then create the server with middleware
+handle({
+  server: myMcpServer,
+  pre: (app) => {
+    // Add database to context
+    app.use("*", async (c, next) => {
+      c.set("db", db);
+      await next();
+    });
+
+    // Authentication with database lookup
+    app.use("/mcp/*", async (c, next) => {
+      const token = c.req.header("Authorization")?.replace("Bearer ", "");
+
+      if (!token) {
+        return c.json({ error: "Missing token" }, 401);
+      }
+
+      const user = await db.users.findByToken(token);
+      if (!user) {
+        return c.json({ error: "Invalid token" }, 401);
+      }
+
+      c.set("user", user);
+      await next();
+    });
+  },
+});
+```
+
+### Combining Multiple Middleware Strategies
+
+```typescript
+handle({
+  server: myMcpServer,
+  pre: (app) => {
+    // Global middleware
+    app.use("*", logger());
+    app.use("*", compress());
+
+    // MCP-specific middleware
+    app.use("/mcp/*", cors());
+    app.use("/mcp/*", bearerAuth({ token: process.env.API_TOKEN }));
+
+    // Custom error handling
+    app.onError((err, c) => {
+      console.error(err);
+      return c.json({ error: "Internal Server Error" }, 500);
+    });
+  },
+  post: (app) => {
+    // Health and metrics endpoints
+    app.get("/health", (c) => c.json({ status: "ok" }));
+    app.get("/metrics", (c) => c.text(getPrometheusMetrics()));
+
+    // Documentation endpoint
+    app.get("/docs", (c) => c.html(getApiDocs()));
+  },
+});
+```
+
+## Runtime Support
+
+The middleware API is supported across all ModelFetch runtime packages.
+
+## Important Notes
+
+1. **Middleware Order**: Middleware is executed in the order it's added. Authentication should typically come before other middleware.
+
+2. **Path Specificity**: Use `/mcp/*` to apply middleware only to MCP routes, or `*` for all routes.
+
+3. **Context Extension**: Use `c.set()` and `c.get()` to pass data between middleware and handlers.
+
+4. **Error Handling**: Always include error handling middleware to catch and properly format errors.
+
+5. **Hooks are Synchronous**: The `pre` and `post` hooks are synchronous. If you need to perform async initialization (like connecting to a database), do it before creating the server instance.
