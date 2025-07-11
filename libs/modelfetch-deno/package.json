@@ -1,6 +1,6 @@
 {
   "name": "@modelfetch/deno",
-  "version": "0.10.1",
+  "version": "0.11.0",
   "description": "Deno runtime adapter for MCP servers built with ModelFetch",
   "keywords": [
     "model-context-protocol",

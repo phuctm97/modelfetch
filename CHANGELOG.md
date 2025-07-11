@@ -1,3 +1,13 @@
+## 0.11.0 (2025-07-11)
+
+### 🚀 Features
+
+- Add middleware support for authentication, logging, and other cross-cutting concerns in MCP servers ([acc0052](https://github.com/phuctm97/modelfetch/commit/acc0052))
+
+### ❤️ Thank You
+
+- phuctm97
+
 ## 0.10.1 (2025-07-10)
 
 ### 🩹 Fixes
