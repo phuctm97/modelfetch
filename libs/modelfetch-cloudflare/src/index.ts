@@ -1,8 +1,8 @@
-import type { Server } from "@modelfetch/core";
+import type { ServerOrConfig } from "@modelfetch/core";
 
 import { createApp } from "@modelfetch/core";
 
-export default function handle(server: Server) {
-  const app = createApp(server);
+export default function handle(arg: ServerOrConfig) {
+  const app = createApp(arg);
   return app.fetch;
 }

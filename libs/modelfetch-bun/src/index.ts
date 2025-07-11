@@ -1,4 +1,4 @@
-import type { Server } from "@modelfetch/core";
+import type { ServerOrConfig } from "@modelfetch/core";
 import type { Except } from "type-fest";
 
 import { createApp } from "@modelfetch/core";
@@ -16,7 +16,10 @@ export function getEndpoint(server: Bun.Server): string {
 
 export type Options = Except<Bun.ServeOptions, "fetch">;
 
-export default function handle(server: Server, options?: Options): Bun.Server {
-  const app = createApp(server);
+export default function handle(
+  arg: ServerOrConfig,
+  options?: Options,
+): Bun.Server {
+  const app = createApp(arg);
   return Bun.serve({ ...options, fetch: app.fetch });
 }
