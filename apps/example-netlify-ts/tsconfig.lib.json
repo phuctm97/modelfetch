@@ -1,0 +1,17 @@
+{
+  "include": ["netlify"],
+  "references": [
+    {
+      "path": "../../libs/modelfetch/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/modelfetch-netlify/tsconfig.lib.json"
+    }
+  ],
+  "extends": "../../tsconfig.deno.json",
+  "compilerOptions": {
+    "sourceRoot": "/apps/example-netlify-ts/netlify",
+    "rootDir": "netlify",
+    "outDir": "dist"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "imports": {
+    "@modelcontextprotocol/sdk": "npm:@modelcontextprotocol/sdk@<%= versions['@modelcontextprotocol/sdk'] %>",
+    "@modelfetch/netlify": "npm:@modelfetch/netlify@<%= versions['@modelfetch/netlify'] %>",
+    "tslib": "npm:tslib@<%= versions['tslib'] %>",
+    "zod": "npm:zod@<%= versions['zod'] %>"
+  },
+  "tasks": {
+    "dev": "netlify dev",
+    "deploy": "netlify deploy --prod"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "example-netlify-ts",
+  "version": "0.11.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.15.1",
+    "@modelfetch/netlify": "workspace:^",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "create-eslint-config": "workspace:^",
+    "modelfetch": "workspace:^"
+  }
+}

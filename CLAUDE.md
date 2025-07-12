@@ -14,6 +14,7 @@ The SDK is built as a thin wrapper on top of `hono` and `@hono/mcp`, leveraging 
 - `@modelfetch/vercel` - Vercel runtime support
 - `@modelfetch/cloudflare` - Cloudflare runtime support
 - `@modelfetch/aws-lambda` - AWS Lambda runtime support
+- `@modelfetch/netlify` - Netlify runtime support
 
 Each package acts as a thin wrapper around the equivalent Hono package, ensuring optimal performance and compatibility.
 
@@ -61,6 +62,8 @@ These projects are example applications powered by ModelFetch:
 - `example-cloudflare-ts`: Cloudflare application (TypeScript)
 - `example-aws-lambda-js`: AWS Lambda application (JavaScript)
 - `example-aws-lambda-ts`: AWS Lambda application (TypeScript)
+- `example-netlify-js`: Netlify application (JavaScript)
+- `example-netlify-ts`: Netlify application (TypeScript)
 
 ### Core Libraries
 
@@ -72,6 +75,7 @@ These projects are example applications powered by ModelFetch:
 - `@modelfetch/vercel`: Vercel runtime support
 - `@modelfetch/cloudflare`: Cloudflare runtime support
 - `@modelfetch/aws-lambda`: AWS Lambda runtime support
+- `@modelfetch/netlify`: Netlify runtime support
 
 ### Supporting Libraries
 

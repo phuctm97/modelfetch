@@ -163,6 +163,14 @@ export const createNodesV2: CreateNodesV2 = [
               options: { cwd: "{projectRoot}" },
             };
           }
+          if (fs.existsSync(path.join(projectRoot, "netlify.toml"))) {
+            useDefaultStartCommand = false;
+            targets.dev = {
+              command: "netlify dev",
+              options: { cwd: "{projectRoot}" },
+              continuous: true,
+            };
+          }
           if (
             Boolean(
               (packageJson.dependencies?.["aws-cdk"] ?? "") ||
