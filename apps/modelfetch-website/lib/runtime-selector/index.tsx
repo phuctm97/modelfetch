@@ -60,6 +60,16 @@ import server from "./server.ts";
 handle(server);`,
   },
   {
+    id: "aws-lambda",
+    name: "AWS Lambda",
+    icon: SiAws,
+    installCommand: "npm install @modelfetch/aws-lambda",
+    codeExample: `import handle from "@modelfetch/aws-lambda";
+import server from "./server";
+
+export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server);`,
+  },
+  {
     id: "vercel",
     name: "Vercel",
     icon: SiVercel,
@@ -86,20 +96,10 @@ export default {
 } satisfies ExportedHandler<Env>;`,
   },
   {
-    id: "aws-lambda",
-    name: "AWS Lambda",
-    icon: SiAws,
-    installCommand: "npm install @modelfetch/aws-lambda",
-    codeExample: `import handle from "@modelfetch/aws-lambda";
-import server from "./server";
-
-export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server);`,
-  },
-  {
     id: "netlify",
     name: "Netlify",
     icon: SiNetlify,
-    installCommand: "npm install @modelfetch/netlify",
+    installCommand: "deno add npm:@modelfetch/netlify",
     codeExample: `import handle from "@modelfetch/netlify";
 import server from "../server.ts";
 

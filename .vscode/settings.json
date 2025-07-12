@@ -24,7 +24,8 @@
   "files.exclude": {
     "pnpm-lock.yaml": true,
     ".nvmrc": true,
-    ".nx": true,
+    ".nx/cache": true,
+    ".nx/workspace-data": true,
     ".husky/_": true,
     ".github/instructions/nx.instructions.md": true,
     ".cursor/rules/nx-rules.mdc": true,
@@ -35,6 +36,7 @@
     "**/next-env.d.ts": true,
     "**/.next": true,
     "**/worker-configuration.d.ts": true,
+    "**/worker-configuration.d.ts.*": true,
     "**/.wrangler": true,
     "**/cdk.out": true,
     "**/.netlify": true,

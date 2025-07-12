@@ -29,7 +29,7 @@ Then, connect to your server at `http://localhost:8888/mcp` (or the URL shown in
 example-netlify-js/
 ├── netlify/
 │   ├── edge-functions/
-│   │   └── index.js  # Netlify entry point
+│   │   └── index.js  # Netlify Edge Function entry point
 │   └── server.js     # MCP server implementation
 ├── netlify.toml      # Netlify configuration
 ├── deno.json         # Deno configuration

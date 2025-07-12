@@ -4,9 +4,9 @@
     "node",
     "bun",
     "deno",
+    "aws-lambda",
     "vercel",
     "cloudflare",
-    "aws-lambda",
     "netlify"
   ]
 }
