@@ -1,3 +1,17 @@
+## 0.12.0 (2025-07-12)
+
+### 🚀 Features
+
+- Add Netlify runtime support with @modelfetch/netlify package and example applications ([#37](https://github.com/phuctm97/modelfetch/pull/37))
+
+### 🩹 Fixes
+
+- Replace static opengraph images with dynamic Next.js OG image generation for better customization and maintainability ([#37](https://github.com/phuctm97/modelfetch/pull/37))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.11.0 (2025-07-11)
 
 ### 🚀 Features
