@@ -1,3 +1,13 @@
+## 0.12.2 (2025-07-12)
+
+### 🩹 Fixes
+
+- Fix import map syntax for Netlify templates to use correct npm: URL format ([306c2b3](https://github.com/phuctm97/modelfetch/commit/306c2b3))
+
+### ❤️ Thank You
+
+- phuctm97
+
 ## 0.12.1 (2025-07-12)
 
 ### 🩹 Fixes
