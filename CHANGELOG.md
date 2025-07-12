@@ -1,3 +1,13 @@
+## 0.12.1 (2025-07-12)
+
+### 🩹 Fixes
+
+- Fix Netlify templates and update runtime documentation for consistency ([#38](https://github.com/phuctm97/modelfetch/pull/38))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.12.0 (2025-07-12)
 
 ### 🚀 Features
