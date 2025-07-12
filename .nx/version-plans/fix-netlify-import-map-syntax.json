@@ -1,0 +1,8 @@
+{
+  "versionPlans": {
+    "create-modelfetch": {
+      "version": "0.12.2",
+      "changelog": "Fix import map syntax for Netlify templates to use correct npm: URL format"
+    }
+  }
+}
