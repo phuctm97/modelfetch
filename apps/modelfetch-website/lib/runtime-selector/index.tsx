@@ -4,6 +4,7 @@ import {
   SiBun,
   SiCloudflare,
   SiDeno,
+  SiNetlify,
   SiNodedotjs,
   SiVercel,
 } from "@icons-pack/react-simple-icons";
@@ -94,7 +95,31 @@ import server from "./server";
 
 export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server);`,
   },
+  {
+    id: "netlify",
+    name: "Netlify",
+    icon: SiNetlify,
+    installCommand: "npm install @modelfetch/netlify",
+    codeExample: `import handle from "@modelfetch/netlify";
+import server from "../server.ts";
+
+export default handle(server);`,
+  },
 ];
+
+function getEntryPointPath(runtimeId: string): string {
+  switch (runtimeId) {
+    case "vercel": {
+      return "app/[[...path]]/route.ts";
+    }
+    case "netlify": {
+      return "netlify/edge-functions/index.ts";
+    }
+    default: {
+      return "src/index.ts";
+    }
+  }
+}
 
 export function RuntimeSelector() {
   const [selectedRuntime, setSelectedRuntime] = useState(runtimes[0]);
@@ -205,9 +230,7 @@ export default server;`}
           <div className="overflow-hidden rounded-lg border border-gray-300 bg-white shadow-md transition-colors hover:border-[#008f00] dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00]">
             <div className="flex items-center justify-between border-b border-gray-300 bg-gray-100 px-4 py-2 dark:border-[#333] dark:bg-[#2a2a2a]">
               <span className="text-xs text-gray-600 dark:text-gray-400">
-                {selectedRuntime.id === "vercel"
-                  ? "app/[[...path]]/route.ts"
-                  : "src/index.ts"}
+                {getEntryPointPath(selectedRuntime.id)}
               </span>
               <span className="text-xs text-[#008f00] dark:text-[#00ff00]">
                 ◉ typescript

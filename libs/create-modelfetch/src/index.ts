@@ -40,6 +40,7 @@ const packageVersions = {
   "@types/react": "19.1.8",
   "react-dom": "19.1.0",
   "@types/react-dom": "19.1.6",
+  "@modelfetch/netlify": packageJson.version,
   "@modelfetch/aws-lambda": packageJson.version,
   "@types/aws-lambda": "8.10.150",
   "aws-cdk-lib": "2.204.0",
@@ -50,7 +51,14 @@ const packageVersions = {
 // Cloudflare compatibility date
 const cloudflareCompatibilityDate = "2025-06-17";
 
-type Runtime = "node" | "bun" | "deno" | "cloudflare" | "vercel" | "aws-lambda";
+type Runtime =
+  | "node"
+  | "bun"
+  | "deno"
+  | "vercel"
+  | "cloudflare"
+  | "aws-lambda"
+  | "netlify";
 type Language = "javascript" | "typescript";
 type PackageManager = "npm" | "pnpm" | "yarn" | "bun";
 
@@ -110,6 +118,9 @@ function getStartCommand(
   switch (runtime) {
     case "deno": {
       return "deno task start";
+    }
+    case "netlify": {
+      return "deno task dev";
     }
     case "vercel":
     case "cloudflare": {
@@ -233,6 +244,7 @@ async function main() {
       { value: "vercel", label: "Vercel" },
       { value: "cloudflare", label: "Cloudflare" },
       { value: "aws-lambda", label: "AWS Lambda" },
+      { value: "netlify", label: "Netlify" },
     ],
     initialValue: detectedRuntime,
   })) as Runtime;
@@ -264,7 +276,8 @@ async function main() {
       packageManager = "bun";
       break;
     }
-    case "deno": {
+    case "deno":
+    case "netlify": {
       packageManager = "npm";
       installDeps = false; // Deno doesn't need to install dependencies
       break;

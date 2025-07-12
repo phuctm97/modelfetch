@@ -14,3 +14,4 @@
 - [@modelfetch/vercel](https://www.npmjs.com/package/@modelfetch/vercel) for Vercel
 - [@modelfetch/cloudflare](https://www.npmjs.com/package/@modelfetch/cloudflare) for Cloudflare
 - [@modelfetch/aws-lambda](https://www.npmjs.com/package/@modelfetch/aws-lambda) for AWS Lambda
+- [@modelfetch/netlify](https://www.npmjs.com/package/@modelfetch/netlify) for Netlify

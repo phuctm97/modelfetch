@@ -1,0 +1,5 @@
+import handle from "@modelfetch/netlify";
+
+import server from "../server.ts";
+
+export default handle(server);

@@ -13,7 +13,7 @@ npx -y create-modelfetch@latest
 
 The CLI will guide you through:
 
-1. **Choosing a runtime** - Node.js, Bun, Deno, Vercel, Cloudflare, or AWS Lambda
+1. **Choosing a runtime** - Node.js, Bun, Deno, Vercel, Cloudflare, AWS Lambda, or Netlify
 2. **Selecting a language** - TypeScript or JavaScript
 3. **Picking a package manager** - npm, pnpm, bun, or yarn
 
@@ -43,6 +43,10 @@ npm install @modelfetch/cloudflare
 
 ```bash title="Terminal" tab="AWS Lambda"
 npm install @modelfetch/aws-lambda
+```
+
+```bash title="Terminal" tab="Netlify"
+npm install @modelfetch/netlify
 ```
 
 Then, create the following files:
@@ -133,6 +137,13 @@ import server from "./server"; // Import your server
 export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server); // Let ModelFetch handle all runtime-specific details
 ```
 
+```typescript title="netlify/edge-functions/index.ts" tab="Netlify"
+import handle from "@modelfetch/netlify"; // Choose your runtime
+import server from "../server.ts"; // Import your server
+
+export default handle(server); // Let ModelFetch handle all runtime-specific details
+```
+
 <Callout>
   See [Runtime Packages](/docs/runtimes) for runtime-specific guides, examples,
   and API references.
@@ -148,7 +159,7 @@ export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server); // Le
   />
   <Card
     title="Runtime Packages"
-    description="Explore runtime-specific guides for Node.js, Bun, Deno, Vercel, Cloudflare, and AWS Lambda"
+    description="Explore runtime-specific guides for Node.js, Bun, Deno, Vercel, Cloudflare, AWS Lambda, and Netlify"
     href="/docs/runtimes"
   />
 </Cards>

@@ -6,17 +6,11 @@ An MCP server built with [ModelFetch](https://www.modelfetch.com)
 
 ### Running the MCP server
 
-1. Build the MCP server:
+Start the MCP server:
 
-   ```bash
-   <%= packageManager %> run build
-   ```
-
-2. Start the MCP server:
-
-   ```bash
-   <%= packageManager %> start
-   ```
+```bash
+<%= packageManager %> run dev
+```
 
 ### Testing with the MCP Inspector
 

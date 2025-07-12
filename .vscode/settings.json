@@ -36,6 +36,8 @@
     "**/.next": true,
     "**/worker-configuration.d.ts": true,
     "**/.wrangler": true,
-    "**/cdk.out": true
+    "**/cdk.out": true,
+    "**/.netlify": true,
+    "apps/example-netlify-*/apps": true
   }
 }
