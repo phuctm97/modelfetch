@@ -18,7 +18,7 @@ npm install @modelfetch/cloudflare
 import handle from "@modelfetch/cloudflare";
 import server from "./server"; // Import your McpServer
 
-// Export as a Cloudflare fetch handler
+// Export as a Cloudflare Worker fetch handler
 export default {
   fetch: handle(server),
 } satisfies ExportedHandler<Env>;
@@ -28,6 +28,6 @@ export default {
 
 ### `handle(server)`
 
-Creates a Cloudflare fetch handler from an [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server)
+Creates a Cloudflare Worker fetch handler from an [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server)
 
 - **server**: Required [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance from [`@modelcontextprotocol/sdk`](https://github.com/modelcontextprotocol/typescript-sdk)

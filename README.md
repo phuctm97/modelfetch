@@ -18,7 +18,7 @@
 
 ## 🚀 Features
 
-- **Multi-Runtime**: Write once, run anywhere: Node.js, Bun, Deno, Vercel, Cloudflare, AWS Lambda, Netlify, etc.
+- **Multi-Runtime**: Write once, run anywhere: Node.js, Bun, Deno, AWS Lambda, Vercel, Cloudflare, Netlify, etc.
 - **Official SDK**: Built on top of the [official MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) to avoid lock-in, guarantee long-term support, and ensure up-to-date implementation
 - **Live Reload**: Development server with automatic reloading
 - **MCP Inspector**: Built-in integration for testing and debugging
@@ -97,6 +97,15 @@ import server from "./server.ts"; // Import your server
 handle(server); // Let ModelFetch handle all runtime-specific details
 ```
 
+#### AWS Lambda
+
+```typescript
+import handle from "@modelfetch/aws-lambda"; // Choose your runtime
+import server from "./server"; // Import your server
+
+export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server); // Let ModelFetch handle all runtime-specific details
+```
+
 #### Vercel
 
 ```typescript
@@ -119,15 +128,6 @@ import server from "./server"; // Import your server
 export default {
   fetch: handle(server), // Let ModelFetch handle all runtime-specific details
 } satisfies ExportedHandler<Env>;
-```
-
-#### AWS Lambda
-
-```typescript
-import handle from "@modelfetch/aws-lambda"; // Choose your runtime
-import server from "./server"; // Import your server
-
-export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server); // Let ModelFetch handle all runtime-specific details
 ```
 
 #### Netlify
@@ -161,9 +161,9 @@ ModelFetch provides runtime-specific packages that handle tedious platform diffe
 | [`@modelfetch/node`](libs/modelfetch-node)             | Run simple MCP servers with Node.js     | ✅ Ready |
 | [`@modelfetch/bun`](libs/modelfetch-bun)               | Run lightning-fast MCP servers with Bun | ✅ Ready |
 | [`@modelfetch/deno`](libs/modelfetch-deno)             | Run secure MCP servers with Deno        | ✅ Ready |
+| [`@modelfetch/aws-lambda`](libs/modelfetch-aws-lambda) | Deploy MCP servers to AWS Lambda        | ✅ Ready |
 | [`@modelfetch/vercel`](libs/modelfetch-vercel)         | Deploy MCP servers to Vercel            | ✅ Ready |
 | [`@modelfetch/cloudflare`](libs/modelfetch-cloudflare) | Deploy MCP servers to Cloudflare        | ✅ Ready |
-| [`@modelfetch/aws-lambda`](libs/modelfetch-aws-lambda) | Deploy MCP servers to AWS Lambda        | ✅ Ready |
 | [`@modelfetch/netlify`](libs/modelfetch-netlify)       | Deploy MCP servers to Netlify           | ✅ Ready |
 
 ## 🛠️ Development

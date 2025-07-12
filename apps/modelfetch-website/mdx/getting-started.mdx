@@ -13,7 +13,7 @@ npx -y create-modelfetch@latest
 
 The CLI will guide you through:
 
-1. **Choosing a runtime** - Node.js, Bun, Deno, Vercel, Cloudflare, AWS Lambda, or Netlify
+1. **Choosing a runtime** - Node.js, Bun, Deno, AWS Lambda, Vercel, Cloudflare, or Netlify
 2. **Selecting a language** - TypeScript or JavaScript
 3. **Picking a package manager** - npm, pnpm, bun, or yarn
 
@@ -21,7 +21,7 @@ The CLI will guide you through:
 
 If you prefer to set up manually, install the ModelFetch package for your runtime:
 
-```bash title="Terminal" tab="Node.js"
+```npm title="Terminal" tab="Node.js"
 npm install @modelfetch/node
 ```
 
@@ -33,20 +33,20 @@ bun add @modelfetch/bun
 deno add npm:@modelfetch/deno
 ```
 
-```bash title="Terminal" tab="Vercel"
-npm install @modelfetch/vercel
-```
-
-```bash title="Terminal" tab="Cloudflare"
-npm install @modelfetch/cloudflare
-```
-
-```bash title="Terminal" tab="AWS Lambda"
+```npm title="Terminal" tab="AWS Lambda"
 npm install @modelfetch/aws-lambda
 ```
 
+```npm title="Terminal" tab="Vercel"
+npm install @modelfetch/vercel
+```
+
+```npm title="Terminal" tab="Cloudflare"
+npm install @modelfetch/cloudflare
+```
+
 ```bash title="Terminal" tab="Netlify"
-npm install @modelfetch/netlify
+deno add npm:@modelfetch/netlify
 ```
 
 Then, create the following files:
@@ -110,6 +110,13 @@ import server from "./server.ts"; // Import your server
 handle(server); // Let ModelFetch handle all runtime-specific details
 ```
 
+```typescript title="src/index.ts" tab="AWS Lambda"
+import handle from "@modelfetch/aws-lambda"; // Choose your runtime
+import server from "./server"; // Import your server
+
+export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server); // Let ModelFetch handle all runtime-specific details
+```
+
 ```typescript title="app/[[...path]]/route.ts" tab="Vercel"
 import handle from "@modelfetch/vercel"; // Choose your runtime
 import server from "./server"; // Import your server
@@ -128,13 +135,6 @@ import server from "./server"; // Import your server
 export default {
   fetch: handle(server), // Let ModelFetch handle all runtime-specific details
 } satisfies ExportedHandler<Env>;
-```
-
-```typescript title="src/index.ts" tab="AWS Lambda"
-import handle from "@modelfetch/aws-lambda"; // Choose your runtime
-import server from "./server"; // Import your server
-
-export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server); // Let ModelFetch handle all runtime-specific details
 ```
 
 ```typescript title="netlify/edge-functions/index.ts" tab="Netlify"
@@ -159,7 +159,7 @@ export default handle(server); // Let ModelFetch handle all runtime-specific det
   />
   <Card
     title="Runtime Packages"
-    description="Explore runtime-specific guides for Node.js, Bun, Deno, Vercel, Cloudflare, AWS Lambda, and Netlify"
+    description="Explore runtime-specific guides for Node.js, Bun, Deno, AWS Lambda, Vercel, Cloudflare, and Netlify"
     href="/docs/runtimes"
   />
 </Cards>

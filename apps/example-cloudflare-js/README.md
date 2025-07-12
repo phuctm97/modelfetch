@@ -46,7 +46,7 @@ pnpm exec nx delete example-cloudflare-js
 ```
 example-cloudflare-js/
 ├── src/
-│   ├── index.js      # Cloudflare entry point
+│   ├── index.js      # Cloudflare Worker entry point
 │   └── server.js     # MCP server implementation
 ├── wrangler.jsonc    # Cloudflare configuration
 ├── package.json

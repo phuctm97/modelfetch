@@ -1,3 +1,6 @@
+[functions]
+  deno_import_map = "./import_map.json"
+
 [[edge_functions]]
   function = "index"
   path = "/*"

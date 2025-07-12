@@ -32,20 +32,20 @@ const packageVersions = {
   "@modelfetch/bun": packageJson.version,
   "@types/bun": "1.2.18",
   "@modelfetch/deno": packageJson.version,
-  "@modelfetch/cloudflare": packageJson.version,
-  wrangler: "4.24.3",
+  "@modelfetch/aws-lambda": packageJson.version,
+  "@types/aws-lambda": "8.10.150",
+  "aws-cdk-lib": "2.204.0",
+  "aws-cdk": "2.1020.2",
+  esbuild: "0.25.6",
   "@modelfetch/vercel": packageJson.version,
   next: "15.3.5",
   react: "19.1.0",
   "@types/react": "19.1.8",
   "react-dom": "19.1.0",
   "@types/react-dom": "19.1.6",
+  "@modelfetch/cloudflare": packageJson.version,
+  wrangler: "4.24.3",
   "@modelfetch/netlify": packageJson.version,
-  "@modelfetch/aws-lambda": packageJson.version,
-  "@types/aws-lambda": "8.10.150",
-  "aws-cdk-lib": "2.204.0",
-  "aws-cdk": "2.1020.2",
-  esbuild: "0.25.6",
 };
 
 // Cloudflare compatibility date
@@ -55,9 +55,9 @@ type Runtime =
   | "node"
   | "bun"
   | "deno"
+  | "aws-lambda"
   | "vercel"
   | "cloudflare"
-  | "aws-lambda"
   | "netlify";
 type Language = "javascript" | "typescript";
 type PackageManager = "npm" | "pnpm" | "yarn" | "bun";
@@ -119,15 +119,15 @@ function getStartCommand(
     case "deno": {
       return "deno task start";
     }
-    case "netlify": {
-      return "deno task dev";
+    case "aws-lambda": {
+      return `${packageManager} run deploy`;
     }
     case "vercel":
     case "cloudflare": {
       return `${packageManager} run dev`;
     }
-    case "aws-lambda": {
-      return `${packageManager} run deploy`;
+    case "netlify": {
+      return "deno task dev";
     }
     default: {
       return `${packageManager} start`;
@@ -241,9 +241,9 @@ async function main() {
       { value: "node", label: "Node.js" },
       { value: "bun", label: "Bun" },
       { value: "deno", label: "Deno" },
+      { value: "aws-lambda", label: "AWS Lambda" },
       { value: "vercel", label: "Vercel" },
       { value: "cloudflare", label: "Cloudflare" },
-      { value: "aws-lambda", label: "AWS Lambda" },
       { value: "netlify", label: "Netlify" },
     ],
     initialValue: detectedRuntime,

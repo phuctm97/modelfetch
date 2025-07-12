@@ -45,7 +45,7 @@ To delete the MCP server and all its Cloudflare resources:
 ```
 <%= projectName %>/
 ├── src/
-│   ├── index.ts      # Cloudflare entry point
+│   ├── index.ts      # Cloudflare Worker entry point
 │   └── server.ts     # MCP server implementation
 ├── wrangler.jsonc    # Cloudflare configuration
 ├── tsconfig.json
