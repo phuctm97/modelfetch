@@ -1,5 +1,5 @@
 ---
-__default__: minor
+__default__: patch
 ---
 
-Add Netlify runtime support with Edge Functions integration and update runtime ordering consistency across documentation
+Fix Netlify templates and update runtime documentation for consistency
