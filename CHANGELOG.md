@@ -1,3 +1,13 @@
+## 0.12.3 (2025-07-13)
+
+### 🩹 Fixes
+
+- Add Next.js runtime adapter (alpha) ([#40](https://github.com/phuctm97/modelfetch/pull/40))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.12.2 (2025-07-12)
 
 ### 🩹 Fixes
