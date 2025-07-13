@@ -1,5 +1,5 @@
 ---
-__default__: minor
+__default__: patch
 ---
 
-Add Next.js runtime adapter for deploying MCP servers to Next.js applications
+Add Next.js runtime adapter (alpha)
