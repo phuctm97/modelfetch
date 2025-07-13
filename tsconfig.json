@@ -50,6 +50,9 @@
       "path": "./libs/modelfetch-netlify"
     },
     {
+      "path": "./libs/modelfetch-next"
+    },
+    {
       "path": "./libs/modelfetch-node"
     },
     {

@@ -132,16 +132,7 @@ export default function Page() {
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400">
                     Write your MCP server once. Run it anywhere: Node.js, Bun,
-                    Deno, AWS Lambda, Vercel, Cloudflare, Netlify, etc.
-                  </p>
-                </div>
-                <div className="group rounded border border-gray-300 bg-white p-4 shadow-md transition-all hover:border-[#008f00] hover:shadow-[0_0_20px_rgba(0,143,0,0.3)] sm:p-6 dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.3)]">
-                  <h3 className="mb-3 text-xl font-semibold text-[#008f00] transition-colors group-hover:text-[#0099cc] dark:text-[#00ff00] dark:group-hover:text-[#00ffff]">
-                    <span className="mr-2">◈</span>Delightful DX
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400">
-                    Build your MCP server with tools designed for building MCP
-                    servers: live reload, debugger, MCP Inspector, etc.
+                    Deno, Vercel, Cloudflare, Netlify, AWS Lambda.
                   </p>
                 </div>
                 <div className="group rounded border border-gray-300 bg-white p-4 shadow-md transition-all hover:border-[#008f00] hover:shadow-[0_0_20px_rgba(0,143,0,0.3)] sm:p-6 dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.3)]">
@@ -151,6 +142,15 @@ export default function Page() {
                   <p className="text-gray-600 dark:text-gray-400">
                     Built on top of the official MCP TypeScript SDK to avoid
                     lock-in and ensure up-to-date implementation.
+                  </p>
+                </div>
+                <div className="group rounded border border-gray-300 bg-white p-4 shadow-md transition-all hover:border-[#008f00] hover:shadow-[0_0_20px_rgba(0,143,0,0.3)] sm:p-6 dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.3)]">
+                  <h3 className="mb-3 text-xl font-semibold text-[#008f00] transition-colors group-hover:text-[#0099cc] dark:text-[#00ff00] dark:group-hover:text-[#00ffff]">
+                    <span className="mr-2">◈</span>Delightful DX
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400">
+                    Build your MCP server with tools designed for building MCP
+                    servers: live reload, debugger, MCP Inspector, etc.
                   </p>
                 </div>
               </div>

@@ -602,6 +602,19 @@ importers:
         specifier: workspace:^
         version: link:../create-eslint-config
 
+  libs/modelfetch-next:
+    dependencies:
+      '@modelfetch/core':
+        specifier: workspace:^
+        version: link:../modelfetch-core
+      hono:
+        specifier: ^4.8.4
+        version: 4.8.4
+    devDependencies:
+      create-eslint-config:
+        specifier: workspace:^
+        version: link:../create-eslint-config
+
   libs/modelfetch-node:
     dependencies:
       '@hono/node-server':
