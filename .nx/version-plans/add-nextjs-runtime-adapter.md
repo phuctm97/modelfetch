@@ -1,5 +1,5 @@
 ---
-__default__: minor
+__default__: patch
 ---
 
-Add Next.js runtime adapter and reorganize documentation structure
+Reorganize documentation structure
