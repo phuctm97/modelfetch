@@ -1,3 +1,13 @@
+## 0.12.4 (2025-07-16)
+
+### 🩹 Fixes
+
+- Reorganize documentation structure ([#41](https://github.com/phuctm97/modelfetch/pull/41))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.12.3 (2025-07-13)
 
 ### 🩹 Fixes
