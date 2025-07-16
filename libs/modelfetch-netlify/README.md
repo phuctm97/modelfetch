@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@modelfetch/netlify.svg)](https://www.npmjs.com/package/@modelfetch/netlify)
 [![npm license](https://img.shields.io/npm/l/@modelfetch/netlify.svg)](https://www.npmjs.com/package/@modelfetch/netlify)
-[![docs](https://img.shields.io/badge/docs-modelfetch.com-blue)](https://www.modelfetch.com/docs/runtimes/netlify)
+[![docs](https://img.shields.io/badge/docs-modelfetch.com-blue)](https://www.modelfetch.com/docs/runtime/netlify)
 
 Deploy MCP servers to Netlify.
 

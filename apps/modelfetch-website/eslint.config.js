@@ -1,7 +1,8 @@
 import createESLintConfig from "create-eslint-config";
 import importPaths from "eslint-config-import-paths";
 import react from "eslint-config-react";
-import { flatConfig } from "@next/eslint-plugin-next";
+import pkg from "@next/eslint-plugin-next";
+const { flatConfig } = pkg;
 
 const eslintConfig = createESLintConfig(
   importPaths,

@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@modelfetch/bun.svg)](https://www.npmjs.com/package/@modelfetch/bun)
 [![npm license](https://img.shields.io/npm/l/@modelfetch/bun.svg)](https://www.npmjs.com/package/@modelfetch/bun)
-[![docs](https://img.shields.io/badge/docs-modelfetch.com-blue)](https://www.modelfetch.com/docs/runtimes/bun)
+[![docs](https://img.shields.io/badge/docs-modelfetch.com-blue)](https://www.modelfetch.com/docs/runtime/bun)
 
 Run lightning-fast MCP servers with Bun.
 
