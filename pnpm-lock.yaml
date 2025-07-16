@@ -263,6 +263,74 @@ importers:
         specifier: workspace:^
         version: link:../../libs/modelfetch
 
+  apps/example-next-js:
+    dependencies:
+      '@modelcontextprotocol/sdk':
+        specifier: ^1.15.1
+        version: 1.15.1
+      '@modelfetch/next':
+        specifier: workspace:^
+        version: link:../../libs/modelfetch-next
+      next:
+        specifier: ^15.4.1
+        version: 15.4.1(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      react:
+        specifier: ^19.1.0
+        version: 19.1.0
+      react-dom:
+        specifier: ^19.1.0
+        version: 19.1.0(react@19.1.0)
+      zod:
+        specifier: ^3.25.76
+        version: 3.25.76
+    devDependencies:
+      modelfetch:
+        specifier: workspace:^
+        version: link:../../libs/modelfetch
+
+  apps/example-next-ts:
+    dependencies:
+      '@modelcontextprotocol/sdk':
+        specifier: ^1.15.1
+        version: 1.15.1
+      '@modelfetch/next':
+        specifier: workspace:^
+        version: link:../../libs/modelfetch-next
+      next:
+        specifier: ^15.4.1
+        version: 15.4.1(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      react:
+        specifier: ^19.1.0
+        version: 19.1.0
+      react-dom:
+        specifier: ^19.1.0
+        version: 19.1.0(react@19.1.0)
+      zod:
+        specifier: ^3.25.76
+        version: 3.25.76
+    devDependencies:
+      '@next/eslint-plugin-next':
+        specifier: ^15.4.1
+        version: 15.4.1
+      '@types/react':
+        specifier: ^19.1.8
+        version: 19.1.8
+      '@types/react-dom':
+        specifier: ^19.1.6
+        version: 19.1.6(@types/react@19.1.8)
+      create-eslint-config:
+        specifier: workspace:^
+        version: link:../../libs/create-eslint-config
+      eslint-config-import-paths:
+        specifier: workspace:^
+        version: link:../../libs/eslint-config-import-paths
+      eslint-config-react:
+        specifier: workspace:^
+        version: link:../../libs/eslint-config-react
+      modelfetch:
+        specifier: workspace:^
+        version: link:../../libs/modelfetch
+
   apps/example-node-js:
     dependencies:
       '@modelcontextprotocol/sdk':

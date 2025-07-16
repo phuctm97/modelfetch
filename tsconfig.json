@@ -17,6 +17,9 @@
       "path": "./apps/example-netlify-ts"
     },
     {
+      "path": "./apps/example-next-ts"
+    },
+    {
       "path": "./apps/example-node-ts"
     },
     {

@@ -9,6 +9,7 @@ This repository contains the source code of ModelFetch: a TypeScript/JavaScript 
 The SDK is built as a thin wrapper on top of `hono` and `@hono/mcp`, leveraging Hono's runtime-agnostic capabilities. The SDK provides multiple packages, each optimized for specific platforms/runtimes:
 
 - `@modelfetch/node` - Node.js runtime support
+- `@modelfetch/next` - Next.js runtime support
 - `@modelfetch/bun` - Bun runtime support
 - `@modelfetch/deno` - Deno runtime support
 - `@modelfetch/aws-lambda` - AWS Lambda runtime support
@@ -52,6 +53,8 @@ These projects are example applications powered by ModelFetch:
 
 - `example-node-js`: Node.js application (JavaScript)
 - `example-node-ts`: Node.js application (TypeScript)
+- `example-next-js`: Next.js application (JavaScript)
+- `example-next-ts`: Next.js application (TypeScript)
 - `example-bun-js`: Bun application (JavaScript)
 - `example-bun-ts`: Bun application (TypeScript)
 - `example-deno-js`: Deno application (JavaScript)
@@ -70,6 +73,7 @@ These projects are example applications powered by ModelFetch:
 - `modelfetch`: ModelFetch CLI tools (work in progress)
 - `@modelfetch/core`: ModelFetch core utilities
 - `@modelfetch/node`: Node.js runtime support
+- `@modelfetch/next`: Next.js runtime support
 - `@modelfetch/bun`: Bun runtime support
 - `@modelfetch/deno`: Deno runtime support
 - `@modelfetch/aws-lambda`: AWS Lambda runtime support
