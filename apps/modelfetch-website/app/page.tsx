@@ -78,7 +78,7 @@ export default function Page() {
               <div className="flex flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4">
                 <Link
                   className={`inline-flex items-center justify-center rounded bg-[#008f00] px-4 py-3 font-bold text-white transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(0,143,0,0.8)] sm:px-6 dark:bg-[#00ff00] dark:text-black dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.8)] ${css.glitch}`}
-                  href="/docs/getting-started"
+                  href="/docs/quick-start"
                 >
                   <span className="mr-2">▶</span>Get Started
                 </Link>

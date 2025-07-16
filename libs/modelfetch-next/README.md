@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@modelfetch/next.svg)](https://www.npmjs.com/package/@modelfetch/next)
 [![npm license](https://img.shields.io/npm/l/@modelfetch/next.svg)](https://www.npmjs.com/package/@modelfetch/next)
-[![docs](https://img.shields.io/badge/docs-modelfetch.com-blue)](https://www.modelfetch.com/docs/runtimes/next)
+[![docs](https://img.shields.io/badge/docs-modelfetch.com-blue)](https://www.modelfetch.com/docs/runtime/next)
 
 Run flexible MCP servers with Next.js.
 

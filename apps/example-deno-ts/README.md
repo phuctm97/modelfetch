@@ -1,7 +1,7 @@
 # Example Deno MCP Server (TypeScript)
 
 > [!NOTE]
-> This is an internal example MCP server. To get started with [ModelFetch](https://www.modelfetch.com), please visit the [Getting Started documentation](https://www.modelfetch.com/docs/getting-started).
+> This is an internal example MCP server. To get started with [ModelFetch](https://www.modelfetch.com), please visit the [Quick Start documentation](https://www.modelfetch.com/docs/quick-start).
 
 ## Quick Start
 
