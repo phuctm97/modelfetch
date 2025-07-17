@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This repository contains the source code of ModelFetch: a TypeScript/JavaScript SDK for building MCP (Model Context Protocol) servers with a delightful developer experience and deploying them anywhere TypeScript/JavaScript runs.
 
-The SDK is built as a thin wrapper on top of `hono` and `@hono/mcp`, leveraging Hono's runtime-agnostic capabilities. The SDK provides multiple packages, each optimized for specific platforms/runtimes:
+The SDK is built as a thin wrapper on top of `hono` and `@hono/mcp`, leveraging Hono's runtime-agnostic capabilities. The SDK provides runtime-specific packages to handle all runtime-specific details:
 
 - `@modelfetch/node` - Node.js runtime support
 - `@modelfetch/next` - Next.js runtime support
@@ -17,7 +17,7 @@ The SDK is built as a thin wrapper on top of `hono` and `@hono/mcp`, leveraging 
 - `@modelfetch/cloudflare` - Cloudflare runtime support
 - `@modelfetch/netlify` - Netlify runtime support
 
-Each package acts as a thin wrapper around the equivalent Hono package, ensuring optimal performance and compatibility.
+Each package acts as a thin wrapper around the equivalent Hono package, ensuring optimal performance and compatibility. Additionally, each package maintains a consistent API across different runtimes.
 
 The `modelfetch` CLI provides an exceptional developer experience with:
 

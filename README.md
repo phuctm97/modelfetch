@@ -76,7 +76,7 @@ export default server;
 import handle from "@modelfetch/node"; // Choose your runtime
 import server from "./server"; // Import your server
 
-handle(server); // Let ModelFetch handle all runtime-specific details
+handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
 #### Next.js
@@ -85,7 +85,7 @@ handle(server); // Let ModelFetch handle all runtime-specific details
 import handle from "@modelfetch/next"; // Choose your runtime
 import server from "./server"; // Import your server
 
-const handler = handle(server); // Let ModelFetch handle all runtime-specific details
+const handler = handle(server); // That's it — ModelFetch handles all runtime-specific details
 
 export const GET = handler;
 export const POST = handler;
@@ -98,7 +98,7 @@ export const DELETE = handler;
 import handle from "@modelfetch/bun"; // Choose your runtime
 import server from "./server.ts"; // Import your server
 
-handle(server); // Let ModelFetch handle all runtime-specific details
+handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
 #### Deno
@@ -107,7 +107,7 @@ handle(server); // Let ModelFetch handle all runtime-specific details
 import handle from "@modelfetch/deno"; // Choose your runtime
 import server from "./server.ts"; // Import your server
 
-handle(server); // Let ModelFetch handle all runtime-specific details
+handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
 #### AWS Lambda
@@ -116,7 +116,7 @@ handle(server); // Let ModelFetch handle all runtime-specific details
 import handle from "@modelfetch/aws-lambda"; // Choose your runtime
 import server from "./server"; // Import your server
 
-export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server); // Let ModelFetch handle all runtime-specific details
+export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
 #### Vercel
@@ -125,7 +125,7 @@ export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server); // Le
 import handle from "@modelfetch/vercel"; // Choose your runtime
 import server from "./server"; // Import your server
 
-const handler = handle(server); // Let ModelFetch handle all runtime-specific details
+const handler = handle(server); // That's it — ModelFetch handles all runtime-specific details
 
 export const GET = handler;
 export const POST = handler;
@@ -139,7 +139,7 @@ import handle from "@modelfetch/cloudflare"; // Choose your runtime
 import server from "./server"; // Import your server
 
 export default {
-  fetch: handle(server), // Let ModelFetch handle all runtime-specific details
+  fetch: handle(server), // That's it — ModelFetch handles all runtime-specific details
 } satisfies ExportedHandler<Env>;
 ```
 
@@ -149,7 +149,7 @@ export default {
 import handle from "@modelfetch/netlify"; // Choose your runtime
 import server from "../server.ts"; // Import your server
 
-export default handle(server); // Let ModelFetch handle all runtime-specific details
+export default handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
 That's just a few lines of code to make your [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) work across all supported platforms.
@@ -162,7 +162,7 @@ Every runtime package exports a default [`handle()`](https://www.modelfetch.com/
 import handle from "@modelfetch/node"; // Choose your runtime
 import server from "./server"; // Import your server
 
-handle(server); // Let ModelFetch handle all runtime-specific details
+handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
 ## 📦 Available Runtimes
