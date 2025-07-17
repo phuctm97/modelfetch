@@ -57,6 +57,17 @@ import server from "./server"; // Import your server
 handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
+```typescript title="app/[[...path]]/route.ts" tab="Next.js"
+import handle from "@modelfetch/next"; // Choose your runtime
+import server from "./server"; // Import your server
+
+const handler = handle(server); // That's it — ModelFetch handles all runtime-specific details
+
+export const GET = handler;
+export const POST = handler;
+export const DELETE = handler;
+```
+
 ```typescript title="src/index.ts" tab="Bun"
 import handle from "@modelfetch/bun"; // Choose your runtime
 import server from "./server.ts"; // Import your server
@@ -122,6 +133,17 @@ import server from "./server"; // Import your server
 handle(server); // Let ModelFetch handle all runtime-specific details
 ```
 
+```typescript title="app/[[...path]]/route.ts" tab="Next.js"
+import handle from "@modelfetch/next"; // Choose your runtime
+import server from "./server"; // Import your server
+
+const handler = handle(server); // Let ModelFetch handle all runtime-specific details
+
+export const GET = handler;
+export const POST = handler;
+export const DELETE = handler;
+```
+
 ```typescript title="src/index.ts" tab="Bun"
 import handle from "@modelfetch/bun"; // Choose your runtime
 import server from "./server.ts"; // Import your server
@@ -185,7 +207,7 @@ export default handle(server); // Let ModelFetch handle all runtime-specific det
   />
   <Card
     title="Runtime"
-    description="Explore runtime-specific guides for Node.js, Bun, Deno, AWS Lambda, Vercel, Cloudflare, and Netlify"
+    description="Explore runtime APIs: Node.js, Next.js, Bun, Deno, AWS Lambda, Vercel, Cloudflare, and Netlify"
     href="/docs/runtime"
   />
 </Cards>

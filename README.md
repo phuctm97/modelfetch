@@ -18,7 +18,7 @@
 
 ## 🚀 Features
 
-- **Multi-Runtime**: Write once, run anywhere: Node.js, Bun, Deno, AWS Lambda, Vercel, Cloudflare, Netlify, etc.
+- **Multi-Runtime**: Write once, run anywhere: Node.js, Next.js, Bun, Deno, AWS Lambda, Vercel, Cloudflare, etc.
 - **Official SDK**: Built on top of the [official MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) to avoid lock-in, guarantee long-term support, and ensure up-to-date implementation
 - **Live Reload**: Development server with automatic reloading
 - **MCP Inspector**: Built-in integration for testing and debugging
@@ -77,6 +77,19 @@ import handle from "@modelfetch/node"; // Choose your runtime
 import server from "./server"; // Import your server
 
 handle(server); // Let ModelFetch handle all runtime-specific details
+```
+
+#### Next.js
+
+```typescript
+import handle from "@modelfetch/next"; // Choose your runtime
+import server from "./server"; // Import your server
+
+const handler = handle(server); // Let ModelFetch handle all runtime-specific details
+
+export const GET = handler;
+export const POST = handler;
+export const DELETE = handler;
 ```
 
 #### Bun
@@ -159,6 +172,7 @@ ModelFetch provides runtime-specific packages that handle tedious platform diffe
 | Package                                                | Description                             | Status   |
 | ------------------------------------------------------ | --------------------------------------- | -------- |
 | [`@modelfetch/node`](libs/modelfetch-node)             | Run simple MCP servers with Node.js     | ✅ Ready |
+| [`@modelfetch/next`](libs/modelfetch-next)             | Run flexible MCP servers with Next.js   | ✅ Ready |
 | [`@modelfetch/bun`](libs/modelfetch-bun)               | Run lightning-fast MCP servers with Bun | ✅ Ready |
 | [`@modelfetch/deno`](libs/modelfetch-deno)             | Run secure MCP servers with Deno        | ✅ Ready |
 | [`@modelfetch/aws-lambda`](libs/modelfetch-aws-lambda) | Deploy MCP servers to AWS Lambda        | ✅ Ready |

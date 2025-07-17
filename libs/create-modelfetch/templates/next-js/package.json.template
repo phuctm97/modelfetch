@@ -1,0 +1,21 @@
+{
+  "name": "<%= projectName %>",
+  "version": "0.0.1",
+  "description": "<%= projectTitle %> (built with ModelFetch)",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "<%= versions['@modelcontextprotocol/sdk'] %>",
+    "@modelfetch/next": "<%= versions['@modelfetch/next'] %>",
+    "next": "<%= versions['next'] %>",
+    "react": "<%= versions['react'] %>",
+    "react-dom": "<%= versions['react-dom'] %>",
+    "tslib": "<%= versions['tslib'] %>",
+    "zod": "<%= versions['zod'] %>"
+  }
+}
