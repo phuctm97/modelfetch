@@ -2,6 +2,7 @@
   "title": "Runtime",
   "pages": [
     "node",
+    "next",
     "bun",
     "deno",
     "aws-lambda",

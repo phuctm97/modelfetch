@@ -13,7 +13,7 @@ npx -y create-modelfetch@latest
 
 The CLI will guide you through:
 
-1. **Choosing a runtime** - Node.js, Bun, Deno, AWS Lambda, Vercel, Cloudflare, or Netlify
+1. **Choosing a runtime** - Node.js, Next.js, Bun, Deno, AWS Lambda, Vercel, Cloudflare, or Netlify
 2. **Selecting a language** - TypeScript or JavaScript
 3. **Picking a package manager** - npm, pnpm, bun, or yarn
 
@@ -23,6 +23,10 @@ If you prefer to set up manually, install the ModelFetch package for your runtim
 
 ```npm title="Terminal" tab="Node.js"
 npm install @modelfetch/node
+```
+
+```npm title="Terminal" tab="Next.js"
+npm install @modelfetch/next
 ```
 
 ```bash title="Terminal" tab="Bun"
@@ -96,6 +100,17 @@ import server from "./server"; // Import your server
 handle(server); // Let ModelFetch handle all runtime-specific details
 ```
 
+```typescript title="app/[[...path]]/route.ts" tab="Next.js"
+import handle from "@modelfetch/next"; // Choose your runtime
+import server from "./server"; // Import your server
+
+const handler = handle(server); // Let ModelFetch handle all runtime-specific details
+
+export const GET = handler;
+export const POST = handler;
+export const DELETE = handler;
+```
+
 ```typescript title="src/index.ts" tab="Bun"
 import handle from "@modelfetch/bun"; // Choose your runtime
 import server from "./server.ts"; // Import your server
@@ -159,7 +174,7 @@ export default handle(server); // Let ModelFetch handle all runtime-specific det
   />
   <Card
     title="Runtime"
-    description="Explore runtime-specific guides for Node.js, Bun, Deno, AWS Lambda, Vercel, Cloudflare, and Netlify"
+    description="Explore runtime-specific guides for Node.js, Next.js, Bun, Deno, AWS Lambda, Vercel, Cloudflare, and Netlify"
     href="/docs/runtime"
   />
 </Cards>

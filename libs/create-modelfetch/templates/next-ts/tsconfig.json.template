@@ -1,0 +1,21 @@
+{
+  "include": ["**/*", "**/*.json", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", "out", "public"],
+  "compilerOptions": {
+    "plugins": [{ "name": "next" }],
+    "moduleResolution": "bundler",
+    "module": "esnext",
+    "jsx": "preserve",
+    "target": "es2022",
+    "lib": ["dom", "dom.iterable", "es2023"],
+    "strict": true,
+    "incremental": true,
+    "verbatimModuleSyntax": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "importHelpers": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "noEmit": true
+  }
+}

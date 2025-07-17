@@ -7,7 +7,7 @@ Scaffold a new MCP server with ModelFetch.
 
 ## Features
 
-- **Multiple Runtimes**: Node.js, Bun, Deno, AWS Lambda, Vercel, Cloudflare, and Netlify
+- **Multiple Runtimes**: Node.js, Next.js, Bun, Deno, AWS Lambda, Vercel, Cloudflare, and Netlify
 - **Multiple Languages**: TypeScript and JavaScript
 - **Multiple Package Managers**: `npm`, `pnpm`, `bun`, and `yarn`
 - **Multiple CLI Initializers**: `npx`, `npm init`, `npm create`, `pnpm dlx`, `pnpm create`, `bun x`, `bun create`, `deno`, and `yarn`

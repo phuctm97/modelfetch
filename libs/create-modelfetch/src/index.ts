@@ -29,6 +29,7 @@ const packageVersions = {
   "@modelfetch/node": packageJson.version,
   "@types/node": "22.16.4",
   tsx: "4.20.3",
+  "@modelfetch/next": packageJson.version,
   "@modelfetch/bun": packageJson.version,
   "@types/bun": "1.2.18",
   "@modelfetch/deno": packageJson.version,
@@ -53,6 +54,7 @@ const cloudflareCompatibilityDate = "2025-06-17";
 
 type Runtime =
   | "node"
+  | "next"
   | "bun"
   | "deno"
   | "aws-lambda"
@@ -122,6 +124,7 @@ function getStartCommand(
     case "aws-lambda": {
       return `${packageManager} run deploy`;
     }
+    case "next":
     case "vercel":
     case "cloudflare": {
       return `${packageManager} run dev`;
@@ -239,6 +242,7 @@ async function main() {
     message: "Which runtime would you like to use?",
     options: [
       { value: "node", label: "Node.js" },
+      { value: "next", label: "Next.js" },
       { value: "bun", label: "Bun" },
       { value: "deno", label: "Deno" },
       { value: "aws-lambda", label: "AWS Lambda" },
