@@ -3,7 +3,7 @@ title: Overview
 description: Run MCP servers anywhere TypeScript/JavaScript runs
 ---
 
-ModelFetch makes it effortless to build and deploy MCP servers anywhere. Create your [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) with the [official MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk), then pass it to ModelFetch's [`handle()`](#the-handle-function) function — that's it. ModelFetch takes care of all runtime-specific details, letting you focus on building MCP features instead of wrestling with tedious platform differences.
+ModelFetch makes it effortless to build and deploy MCP servers anywhere. Create your [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) with the [official MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk), then pass it to ModelFetch's [`handle()`](#the-handle-function) function — that's it. ModelFetch takes care of all runtime-specific details, letting you focus on building your MCP server capabilities instead of wrestling with tedious platform differences.
 
 ## How It Works
 
@@ -130,14 +130,14 @@ Every runtime package exports a default `handle()` function that takes an [`McpS
 import handle from "@modelfetch/node"; // Choose your runtime
 import server from "./server"; // Import your server
 
-handle(server); // Let ModelFetch handle all runtime-specific details
+handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
 ```typescript title="app/[[...path]]/route.ts" tab="Next.js"
 import handle from "@modelfetch/next"; // Choose your runtime
 import server from "./server"; // Import your server
 
-const handler = handle(server); // Let ModelFetch handle all runtime-specific details
+const handler = handle(server); // That's it — ModelFetch handles all runtime-specific details
 
 export const GET = handler;
 export const POST = handler;
@@ -148,28 +148,28 @@ export const DELETE = handler;
 import handle from "@modelfetch/bun"; // Choose your runtime
 import server from "./server.ts"; // Import your server
 
-handle(server); // Let ModelFetch handle all runtime-specific details
+handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
 ```typescript title="src/index.ts" tab="Deno"
 import handle from "@modelfetch/deno"; // Choose your runtime
 import server from "./server.ts"; // Import your server
 
-handle(server); // Let ModelFetch handle all runtime-specific details
+handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
 ```typescript title="src/index.ts" tab="AWS Lambda"
 import handle from "@modelfetch/aws-lambda"; // Choose your runtime
 import server from "./server"; // Import your server
 
-export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server); // Let ModelFetch handle all runtime-specific details
+export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
 ```typescript title="app/[[...path]]/route.ts" tab="Vercel"
 import handle from "@modelfetch/vercel"; // Choose your runtime
 import server from "./server"; // Import your server
 
-const handler = handle(server); // Let ModelFetch handle all runtime-specific details
+const handler = handle(server); // That's it — ModelFetch handles all runtime-specific details
 
 export const GET = handler;
 export const POST = handler;
@@ -181,7 +181,7 @@ import handle from "@modelfetch/cloudflare"; // Choose your runtime
 import server from "./server"; // Import your server
 
 export default {
-  fetch: handle(server), // Let ModelFetch handle all runtime-specific details
+  fetch: handle(server), // That's it — ModelFetch handles all runtime-specific details
 } satisfies ExportedHandler<Env>;
 ```
 
@@ -189,25 +189,10 @@ export default {
 import handle from "@modelfetch/netlify"; // Choose your runtime
 import server from "../server.ts"; // Import your server
 
-export default handle(server); // Let ModelFetch handle all runtime-specific details
+export default handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
 <Callout>
-  See [Runtime](/docs/runtime) for runtime-specific guides, examples, and API
-  references.
+  See [Runtime](/docs/runtime) for all runtime-specific guides, examples, and
+  API references.
 </Callout>
-
-## Further Reading
-
-<Cards>
-  <Card
-    title="Quick Start"
-    description="Set up your first MCP server in seconds using our CLI or follow the manual installation guide"
-    href="/docs/quick-start"
-  />
-  <Card
-    title="Runtime"
-    description="Explore runtime APIs: Node.js, Next.js, Bun, Deno, AWS Lambda, Vercel, Cloudflare, and Netlify"
-    href="/docs/runtime"
-  />
-</Cards>

@@ -26,6 +26,6 @@ export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server);
 
 ### `handle(server)`
 
-Creates an AWS Lambda streaming handler from an [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server)
+Creates an AWS Lambda streaming handler from an [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance
 
 - **server**: Required [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance from [`@modelcontextprotocol/sdk`](https://github.com/modelcontextprotocol/typescript-sdk)
