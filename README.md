@@ -18,7 +18,7 @@
 
 ## 🚀 Features
 
-- **Multi-Runtime**: Write once, run anywhere: Node.js, Next.js, Bun, Deno, AWS Lambda, Vercel, Cloudflare, and Netlify
+- **Multi-Runtime**: Write once, run anywhere: Node.js, Next.js, Bun, Deno, AWS Lambda, Vercel, Cloudflare, etc.
 - **Official SDK**: Built on top of the [official MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) to avoid lock-in, guarantee long-term support, and ensure up-to-date implementation
 - **Live Reload**: Development server with automatic reloading
 - **MCP Inspector**: Built-in integration for testing and debugging
