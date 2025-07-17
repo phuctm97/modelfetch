@@ -1,3 +1,13 @@
+## 0.12.5 (2025-07-17)
+
+### 🩹 Fixes
+
+- Add Next.js templates to create-modelfetch CLI ([#42](https://github.com/phuctm97/modelfetch/pull/42))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.12.4 (2025-07-16)
 
 ### 🩹 Fixes
