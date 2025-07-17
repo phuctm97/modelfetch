@@ -1,3 +1,13 @@
+## 0.12.6 (2025-07-17)
+
+### 🩹 Fixes
+
+- Update documentation across website and runtime packages ([#43](https://github.com/phuctm97/modelfetch/pull/43))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.12.5 (2025-07-17)
 
 ### 🩹 Fixes

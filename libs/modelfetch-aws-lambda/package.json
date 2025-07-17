@@ -1,6 +1,6 @@
 {
   "name": "@modelfetch/aws-lambda",
-  "version": "0.12.5",
+  "version": "0.12.6",
   "description": "AWS Lambda runtime adapter for MCP servers built with ModelFetch",
   "keywords": [
     "model-context-protocol",
