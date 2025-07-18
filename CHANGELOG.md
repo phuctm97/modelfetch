@@ -1,3 +1,13 @@
+## 0.13.1 (2025-07-18)
+
+### 🩹 Fixes
+
+- Enable AWS Lambda streaming mode with response streaming support and update templates and documentation ([#45](https://github.com/phuctm97/modelfetch/pull/45))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.13.0 (2025-07-18)
 
 ### 🚀 Features
