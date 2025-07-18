@@ -4,12 +4,12 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.15.1",
+    "@modelcontextprotocol/sdk": "^1.16.0",
     "@modelfetch/aws-lambda": "workspace:^",
     "zod": "^3.25.76"
   },
   "devDependencies": {
-    "aws-cdk": "^2.1020.2",
+    "aws-cdk": "^2.1021.0",
     "aws-cdk-lib": "^2.206.0",
     "constructs": "^10.4.2",
     "esbuild": "^0.25.6",

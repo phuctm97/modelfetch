@@ -4,12 +4,12 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.15.1",
+    "@modelcontextprotocol/sdk": "^1.16.0",
     "@modelfetch/cloudflare": "workspace:^",
     "zod": "^3.25.76"
   },
   "devDependencies": {
     "modelfetch": "workspace:^",
-    "wrangler": "^4.24.4"
+    "wrangler": "^4.25.0"
   }
 }

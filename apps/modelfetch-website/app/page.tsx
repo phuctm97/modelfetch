@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from "react";
 
-import { SiGithub } from "@icons-pack/react-simple-icons";
+import { SiDiscord, SiGithub } from "@icons-pack/react-simple-icons";
 import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
 import Link from "next/link";
 
@@ -86,11 +86,11 @@ export default function Page() {
                   className="inline-flex items-center justify-center rounded border-2 border-[#0099cc] px-4 py-3 text-[#0099cc] transition-all hover:bg-[#0099cc] hover:text-white hover:shadow-[0_0_20px_rgba(0,153,204,0.8)] sm:px-6 dark:border-[#00ffff] dark:text-[#00ffff] dark:hover:bg-[#00ffff] dark:hover:text-black dark:hover:shadow-[0_0_20px_rgba(0,255,255,0.8)]"
                   href="/docs"
                 >
-                  <span className="mr-2">◆</span>View Docs
+                  <span className="mr-2">◆</span>Read Docs
                 </Link>
               </div>
 
-              <div className="mt-4 text-center">
+              <div className="mt-4 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4">
                 <Link
                   className="inline-flex items-center text-gray-600 underline decoration-gray-400 underline-offset-4 transition-all hover:text-gray-800 hover:decoration-gray-800 dark:text-gray-400 dark:decoration-gray-600 dark:hover:text-gray-200 dark:hover:decoration-gray-200"
                   href="https://github.com/phuctm97/modelfetch"
@@ -98,7 +98,16 @@ export default function Page() {
                   target="_blank"
                 >
                   <SiGithub className="mr-2 h-4 w-4" />
-                  View on GitHub →
+                  View GitHub repository
+                </Link>
+                <Link
+                  className="inline-flex items-center text-gray-600 underline decoration-gray-400 underline-offset-4 transition-all hover:text-gray-800 hover:decoration-gray-800 dark:text-gray-400 dark:decoration-gray-600 dark:hover:text-gray-200 dark:hover:decoration-gray-200"
+                  href="https://discord.gg/SwM4Mvzaur"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <SiDiscord className="mr-2 h-4 w-4" />
+                  Join Discord community
                 </Link>
               </div>
             </section>
@@ -226,15 +235,26 @@ export default function Page() {
                   Join us in building the future of{" "}
                   <InlineBlock>MCP servers!</InlineBlock>
                 </p>
-                <Link
-                  className="inline-flex items-center rounded bg-gray-700 px-6 py-3 font-bold text-white transition-all hover:scale-105 hover:bg-gray-800 hover:shadow-[0_0_20px_rgba(100,100,100,0.8)] dark:bg-gray-300 dark:text-black dark:hover:bg-gray-200 dark:hover:shadow-[0_0_20px_rgba(200,200,200,0.8)]"
-                  href="https://github.com/phuctm97/modelfetch"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <SiGithub className="mr-4 h-5 w-5" />
-                  Star on GitHub →
-                </Link>
+                <div className="flex flex-col gap-3">
+                  <Link
+                    className="inline-flex items-center justify-center rounded bg-gray-700 px-6 py-3 font-bold text-white transition-all hover:scale-105 hover:bg-gray-800 hover:shadow-[0_0_20px_rgba(100,100,100,0.8)] dark:bg-gray-300 dark:text-black dark:hover:bg-gray-200 dark:hover:shadow-[0_0_20px_rgba(200,200,200,0.8)]"
+                    href="https://github.com/phuctm97/modelfetch"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <SiGithub className="mr-4 h-5 w-5" />
+                    Star GitHub repository
+                  </Link>
+                  <Link
+                    className="inline-flex items-center justify-center rounded bg-[#5865F2] px-6 py-3 font-bold text-white transition-all hover:scale-105 hover:bg-[#4752C4] hover:shadow-[0_0_20px_rgba(88,101,242,0.8)]"
+                    href="https://discord.gg/SwM4Mvzaur"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <SiDiscord className="mr-4 h-5 w-5" />
+                    Join Discord community
+                  </Link>
+                </div>
               </div>
             </section>
 
