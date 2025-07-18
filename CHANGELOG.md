@@ -1,3 +1,13 @@
+## 0.13.0 (2025-07-18)
+
+### 🚀 Features
+
+- Improve AWS Lambda runtime support with updated CDK configurations and enhanced documentation ([0e2b6f7](https://github.com/phuctm97/modelfetch/commit/0e2b6f7))
+
+### ❤️ Thank You
+
+- phuctm97
+
 ## 0.12.6 (2025-07-17)
 
 ### 🩹 Fixes
