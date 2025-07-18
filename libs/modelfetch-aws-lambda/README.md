@@ -18,7 +18,7 @@ npm install @modelfetch/aws-lambda
 import handle from "@modelfetch/aws-lambda";
 import server from "./server"; // Import your McpServer
 
-// Export as an AWS Lambda streaming handler
+// Export as an AWS Lambda handler
 export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server);
 ```
 
@@ -26,6 +26,6 @@ export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server);
 
 ### `handle(server)`
 
-Creates an AWS Lambda streaming handler from an [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance
+Creates an AWS Lambda handler from an [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance
 
 - **server**: Required [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance from [`@modelcontextprotocol/sdk`](https://github.com/modelcontextprotocol/typescript-sdk)
