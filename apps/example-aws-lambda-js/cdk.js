@@ -1,9 +1,5 @@
 import { App, CfnOutput, Duration, Stack } from "aws-cdk-lib";
-import {
-  FunctionUrlAuthType,
-  InvokeMode,
-  Runtime,
-} from "aws-cdk-lib/aws-lambda";
+import { FunctionUrlAuthType, Runtime } from "aws-cdk-lib/aws-lambda";
 import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
 
 class ModelFetchExampleAWSLambdaJavaScriptStack extends Stack {
@@ -18,7 +14,6 @@ class ModelFetchExampleAWSLambdaJavaScriptStack extends Stack {
 
     const functionUrl = nodejsFunction.addFunctionUrl({
       authType: FunctionUrlAuthType.NONE,
-      invokeMode: InvokeMode.RESPONSE_STREAM,
     });
 
     new CfnOutput(this, "McpServerUrl", { value: `${functionUrl.url}mcp` });
