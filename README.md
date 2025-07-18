@@ -116,7 +116,7 @@ handle(server); // That's it — ModelFetch handles all runtime-specific details
 import handle from "@modelfetch/aws-lambda"; // Choose your runtime
 import server from "./server"; // Import your server
 
-export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server); // That's it — ModelFetch handles all runtime-specific details
+export const handler: AWSLambda.Handler = handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
 #### Vercel

@@ -18,7 +18,7 @@ import handle from "@modelfetch/aws-lambda";
 import server from "./server"; // Import your McpServer
 
 // Export as an AWS Lambda handler
-export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server);
+export const handler: AWSLambda.Handler = handle(server);
 ```
 
 ## API Reference
