@@ -6,6 +6,7 @@
   "tailwindCSS.experimental.configFile": {
     "apps/modelfetch-website/app/layout.css": "apps/modelfetch-website/**"
   },
+  "json.validate.enable": false,
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "eslint.workingDirectories": [{ "mode": "auto" }],
