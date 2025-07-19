@@ -1,5 +1,5 @@
 ---
-__default__: minor
+__default__: patch
 ---
 
 Improve JSR publishing support with automatic LICENSE copying and enhanced configuration file handling
