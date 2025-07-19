@@ -1,5 +1,5 @@
 ---
-__default__: minor
+__default__: patch
 ---
 
-Add JSR (JavaScript Registry) publishing support for ModelFetch packages
+Add JSR publishing support for `@modelfetch/core` package
