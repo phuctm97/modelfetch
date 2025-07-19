@@ -1,8 +1,17 @@
 import type { ExecutorContext } from "@nx/devkit";
 import type { PackageJson } from "type-fest";
 
+import { existsSync } from "node:fs";
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+
+interface JsrJson
+  extends Pick<PackageJson, "name" | "version" | "license" | "exports"> {
+  publish?: {
+    include?: string[];
+    exclude?: string[];
+  };
+}
 
 export default async function prepareReleasePublish(
   options: object,
@@ -10,11 +19,10 @@ export default async function prepareReleasePublish(
 ): Promise<{ success: boolean }> {
   if (!context.projectName) return { success: false };
   const project = context.projectsConfigurations.projects[context.projectName];
+  const packageJsonPath = path.join(context.root, project.root, "package.json");
+  const jsrJsonPath = path.join(context.root, project.root, "jsr.json");
   const packageJson = JSON.parse(
-    await readFile(
-      path.join(context.root, project.root, "package.json"),
-      "utf8",
-    ),
+    await readFile(packageJsonPath, "utf8"),
   ) as PackageJson;
   for (const key of ["scripts", "devDependencies"])
     if (key in packageJson) delete packageJson[key];
@@ -30,9 +38,17 @@ export default async function prepareReleasePublish(
       }
     }
   }
-  await writeFile(
-    path.join(context.root, project.root, "package.json"),
-    JSON.stringify(packageJson),
-  );
+  await writeFile(packageJsonPath, JSON.stringify(packageJson));
+  if (existsSync(jsrJsonPath)) {
+    const jsrJson = JSON.parse(await readFile(jsrJsonPath, "utf8")) as JsrJson;
+    jsrJson.name = packageJson.name;
+    jsrJson.version = packageJson.version;
+    jsrJson.license = packageJson.license;
+    if (!jsrJson.exports && !jsrJson.publish) {
+      jsrJson.exports = packageJson.exports;
+      jsrJson.publish = { include: packageJson.files };
+    }
+    await writeFile(jsrJsonPath, JSON.stringify(jsrJson));
+  }
   return { success: true };
 }
