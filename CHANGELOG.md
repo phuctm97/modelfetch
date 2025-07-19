@@ -1,3 +1,13 @@
+## 0.13.3 (2025-07-19)
+
+### 🩹 Fixes
+
+- Update JSR configuration for modelfetch-core and simplify prepare-release-publish executor ([#48](https://github.com/phuctm97/modelfetch/pull/48))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.13.2 (2025-07-19)
 
 ### 🩹 Fixes
