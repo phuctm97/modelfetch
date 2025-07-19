@@ -1,3 +1,13 @@
+## 0.13.2 (2025-07-19)
+
+### 🩹 Fixes
+
+- Add JSR publishing support for `@modelfetch/core` package ([#47](https://github.com/phuctm97/modelfetch/pull/47))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.13.1 (2025-07-18)
 
 ### 🩹 Fixes
