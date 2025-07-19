@@ -20,7 +20,6 @@ export default async function prepareReleasePublish(
   if (!context.projectName) return { success: false };
   const project = context.projectsConfigurations.projects[context.projectName];
   const packageJsonPath = path.join(context.root, project.root, "package.json");
-  const jsrJsonPath = path.join(context.root, project.root, "jsr.json");
   const packageJson = JSON.parse(
     await readFile(packageJsonPath, "utf8"),
   ) as PackageJson;
@@ -39,15 +38,12 @@ export default async function prepareReleasePublish(
     }
   }
   await writeFile(packageJsonPath, JSON.stringify(packageJson));
+  const jsrJsonPath = path.join(context.root, project.root, "jsr.json");
   if (existsSync(jsrJsonPath)) {
     const jsrJson = JSON.parse(await readFile(jsrJsonPath, "utf8")) as JsrJson;
     jsrJson.name = packageJson.name;
     jsrJson.version = packageJson.version;
     jsrJson.license = packageJson.license;
-    if (!jsrJson.exports && !jsrJson.publish) {
-      jsrJson.exports = packageJson.exports;
-      jsrJson.publish = { include: packageJson.files };
-    }
     await writeFile(jsrJsonPath, JSON.stringify(jsrJson));
   }
   return { success: true };
