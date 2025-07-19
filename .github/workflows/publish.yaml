@@ -23,6 +23,7 @@ jobs:
           cache: pnpm
           node-version-file: .nvmrc
           registry-url: https://registry.npmjs.org
+      - uses: denoland/setup-deno@v2
       - run: pnpm install
       - run: pnpm exec nx run-many -t typecheck lint build
       - run: pnpm exec nx run-many -t prepare-release-publish
@@ -30,3 +31,4 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
+      - run: pnpm exec nx run-many -t jsr-release-publish
