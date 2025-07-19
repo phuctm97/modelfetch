@@ -1,3 +1,13 @@
+## 0.13.4 (2025-07-19)
+
+### 🩹 Fixes
+
+- Improve JSR publishing support with automatic LICENSE copying and enhanced configuration file handling ([#49](https://github.com/phuctm97/modelfetch/pull/49))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.13.3 (2025-07-19)
 
 ### 🩹 Fixes
