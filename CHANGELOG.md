@@ -1,3 +1,15 @@
+## 0.13.6 (2025-07-20)
+
+### 🩹 Fixes
+
+- Change release commit message format from "Release" to "Publish" ([#51](https://github.com/phuctm97/modelfetch/pull/51))
+- Increase Next.js build memory limit to prevent out-of-memory errors ([#51](https://github.com/phuctm97/modelfetch/pull/51))
+- Add JSR support for @modelfetch/deno package ([#51](https://github.com/phuctm97/modelfetch/pull/51))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.13.5 (2025-07-20)
 
 ### 🩹 Fixes
