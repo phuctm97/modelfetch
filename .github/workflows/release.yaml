@@ -23,6 +23,8 @@ jobs:
           node-version-file: .nvmrc
       - run: pnpm install
       - run: pnpm exec nx run-many -t typecheck lint build
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
       - run: pnpm exec nx release --skip-publish
         env:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}

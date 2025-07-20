@@ -274,6 +274,9 @@ importers:
       next:
         specifier: ^15.4.1
         version: 15.4.1(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next-config:
+        specifier: workspace:^
+        version: link:../../libs/next-config
       react:
         specifier: ^19.1.0
         version: 19.1.0
@@ -299,6 +302,9 @@ importers:
       next:
         specifier: ^15.4.1
         version: 15.4.1(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next-config:
+        specifier: workspace:^
+        version: link:../../libs/next-config
       react:
         specifier: ^19.1.0
         version: 19.1.0
@@ -380,6 +386,9 @@ importers:
       next:
         specifier: ^15.4.1
         version: 15.4.1(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next-config:
+        specifier: workspace:^
+        version: link:../../libs/next-config
       react:
         specifier: ^19.1.0
         version: 19.1.0
@@ -405,6 +414,9 @@ importers:
       next:
         specifier: ^15.4.1
         version: 15.4.1(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next-config:
+        specifier: workspace:^
+        version: link:../../libs/next-config
       react:
         specifier: ^19.1.0
         version: 19.1.0
@@ -457,6 +469,9 @@ importers:
       next:
         specifier: ^15.4.1
         version: 15.4.1(@babel/core@7.28.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next-config:
+        specifier: workspace:^
+        version: link:../../libs/next-config
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -711,6 +726,8 @@ importers:
       create-eslint-config:
         specifier: workspace:^
         version: link:../create-eslint-config
+
+  libs/next-config: {}
 
   libs/nx-10x:
     dependencies:
