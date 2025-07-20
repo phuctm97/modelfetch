@@ -42,7 +42,7 @@ export default async function prepareReleasePublish(
     if (deps) {
       for (const [depName, depVersion] of Object.entries(deps)) {
         if (
-          depVersion?.startsWith("workspace:") &&
+          depVersion?.startsWith(workspaceVersionProtocol) &&
           depName in context.projectsConfigurations.projects
         ) {
           const depProject = context.projectsConfigurations.projects[depName];
