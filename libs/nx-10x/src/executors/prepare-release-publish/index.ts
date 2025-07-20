@@ -42,8 +42,8 @@ export default async function prepareReleasePublish(
     if (deps) {
       for (const [depName, depVersion] of Object.entries(deps)) {
         if (
-          depVersion?.startsWith(workspaceVersionProtocol) &&
-          depName in context.projectsConfigurations.projects
+          depName in context.projectsConfigurations.projects &&
+          depVersion?.startsWith(workspaceVersionProtocol)
         ) {
           const depProject = context.projectsConfigurations.projects[depName];
           const depPackageJsonPath = path.join(
