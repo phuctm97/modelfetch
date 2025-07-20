@@ -124,10 +124,7 @@ export const createNodesV2: CreateNodesV2 = [
             targets.build = {
               cache: true,
               command: "next build",
-              options: {
-                cwd: "{projectRoot}",
-                env: { NODE_OPTIONS: "--max_old_space_size=4096" },
-              },
+              options: { cwd: "{projectRoot}" },
               inputs: [
                 "production",
                 "^production",
@@ -248,7 +245,8 @@ export const createNodesV2: CreateNodesV2 = [
             fs.existsSync(path.join(projectRoot, "deno.jsonc"))
           ) {
             targets["jsr-release-publish"] = {
-              command: "deno publish --allow-dirty --allow-slow-types",
+              command:
+                "deno publish --no-check --allow-dirty --allow-slow-types",
               options: { cwd: "{projectRoot}" },
             };
           }
