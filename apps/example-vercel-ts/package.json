@@ -1,6 +1,6 @@
 {
   "name": "example-vercel-ts",
-  "version": "0.13.6",
+  "version": "0.13.7",
   "private": true,
   "type": "module",
   "dependencies": {

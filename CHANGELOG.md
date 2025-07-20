@@ -1,3 +1,13 @@
+## 0.13.7 (2025-07-20)
+
+### 🩹 Fixes
+
+- Optimize build performance in CI and improve JSR publishing with --no-check flag ([#52](https://github.com/phuctm97/modelfetch/pull/52))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.13.6 (2025-07-20)
 
 ### 🩹 Fixes
