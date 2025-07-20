@@ -6,7 +6,7 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.16.0",
     "@modelfetch/next": "workspace:^",
-    "next": "^15.4.1",
+    "next": "^15.4.2",
     "next-config": "workspace:^",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

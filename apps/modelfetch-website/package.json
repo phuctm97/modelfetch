@@ -9,7 +9,7 @@
     "fumadocs-mdx": "^11.6.11",
     "fumadocs-ui": "^15.6.4",
     "lucide-react": "^0.525.0",
-    "next": "^15.4.1",
+    "next": "^15.4.2",
     "next-config": "workspace:^",
     "next-themes": "^0.4.6",
     "react": "^19.1.0",
@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@icons-pack/react-simple-icons": "^13.5.0",
-    "@next/eslint-plugin-next": "^15.4.1",
+    "@next/eslint-plugin-next": "^15.4.2",
     "@tailwindcss/postcss": "^4.1.11",
     "@types/mdx": "^2.0.13",
     "@types/react": "^19.1.8",

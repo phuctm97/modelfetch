@@ -12,7 +12,7 @@
     "aws-cdk": "^2.1021.0",
     "aws-cdk-lib": "^2.206.0",
     "constructs": "^10.4.2",
-    "esbuild": "^0.25.6",
+    "esbuild": "^0.25.8",
     "modelfetch": "workspace:^"
   }
 }
