@@ -40,7 +40,7 @@
     "dist"
   ],
   "dependencies": {
-    "@hono/node-server": "^1.16.0",
+    "@hono/node-server": "^1.17.1",
     "@modelfetch/core": "workspace:^",
     "type-fest": "^4.41.0"
   },

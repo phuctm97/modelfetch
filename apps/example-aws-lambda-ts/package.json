@@ -9,12 +9,12 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.150",
+    "@types/aws-lambda": "^8.10.152",
     "aws-cdk": "^2.1021.0",
     "aws-cdk-lib": "^2.206.0",
     "constructs": "^10.4.2",
     "create-eslint-config": "workspace:^",
-    "esbuild": "^0.25.6",
+    "esbuild": "^0.25.8",
     "modelfetch": "workspace:^"
   }
 }

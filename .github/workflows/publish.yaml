@@ -26,6 +26,8 @@ jobs:
       - uses: denoland/setup-deno@v2
       - run: pnpm install
       - run: pnpm exec nx run-many -t typecheck lint build
+        env:
+          NODE_OPTIONS: --max-old-space-size=4096
       - run: pnpm exec nx run-many -t prepare-release-publish
       - run: pnpm exec nx release publish
         env:

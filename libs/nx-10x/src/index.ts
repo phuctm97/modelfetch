@@ -124,7 +124,10 @@ export const createNodesV2: CreateNodesV2 = [
             targets.build = {
               cache: true,
               command: "next build",
-              options: { cwd: "{projectRoot}" },
+              options: {
+                cwd: "{projectRoot}",
+                env: { NEXT_TELEMETRY_DISABLED: "1" },
+              },
               inputs: [
                 "production",
                 "^production",
