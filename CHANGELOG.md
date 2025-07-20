@@ -1,3 +1,13 @@
+## 0.13.8 (2025-07-20)
+
+### 🩹 Fixes
+
+- Add shared next-config library to standardize Next.js configurations across all applications ([#53](https://github.com/phuctm97/modelfetch/pull/53))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.13.7 (2025-07-20)
 
 ### 🩹 Fixes
