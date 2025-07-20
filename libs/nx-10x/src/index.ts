@@ -124,7 +124,10 @@ export const createNodesV2: CreateNodesV2 = [
             targets.build = {
               cache: true,
               command: "next build",
-              options: { cwd: "{projectRoot}" },
+              options: {
+                cwd: "{projectRoot}",
+                env: { NODE_OPTIONS: "--max_old_space_size=4096" },
+              },
               inputs: [
                 "production",
                 "^production",

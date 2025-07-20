@@ -28,6 +28,6 @@
     "versionPlans": true,
     "projects": ["*"],
     "changelog": { "workspaceChangelog": { "createRelease": "github" } },
-    "git": { "commitMessage": "Release v{version}" }
+    "git": { "commitMessage": "Publish v{version}" }
   }
 }
