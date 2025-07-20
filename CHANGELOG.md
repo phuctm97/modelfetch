@@ -1,3 +1,13 @@
+## 0.13.5 (2025-07-20)
+
+### 🩹 Fixes
+
+- Add JSR publishing support for @modelfetch/netlify and fix workspace dependency resolution in release executor ([#50](https://github.com/phuctm97/modelfetch/pull/50))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.13.4 (2025-07-19)
 
 ### 🩹 Fixes
