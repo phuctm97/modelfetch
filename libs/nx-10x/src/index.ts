@@ -50,10 +50,7 @@ function getDefaultStartCommand(
     entryPoint.endsWith(".cjs") ||
     entryPoint.endsWith(".mjs");
   if (!isTypeScript && !isJavaScript) return;
-  if (
-    fs.existsSync(path.join(projectRoot, "deno.json")) ||
-    fs.existsSync(path.join(projectRoot, "deno.jsonc"))
-  )
+  if (fs.existsSync(path.join(projectRoot, "deno.json")))
     return `deno run -A ${entryPoint}`;
   if (fs.existsSync(path.join(projectRoot, "bunfig.toml"))) return "bun .";
   if (packageJson.dependencies?.tsx || packageJson.devDependencies?.tsx)
@@ -243,17 +240,12 @@ export const createNodesV2: CreateNodesV2 = [
           targets["prepare-release-publish"] = {
             executor: "nx-10x:prepare-release-publish",
           };
-          if (
-            fs.existsSync(path.join(projectRoot, "jsr.json")) ||
-            fs.existsSync(path.join(projectRoot, "deno.json")) ||
-            fs.existsSync(path.join(projectRoot, "deno.jsonc"))
-          ) {
+          if (fs.existsSync(path.join(projectRoot, "deno.json"))) {
             targets["jsr-release-publish"] = {
               command:
                 "deno publish --no-check --allow-dirty --allow-slow-types",
               options: { cwd: "{projectRoot}" },
             };
-            tags.push("jsr");
           }
         }
         return { projects: { [projectRoot]: { projectType, targets, tags } } };
