@@ -1,6 +1,6 @@
 {
   "name": "example-node-ts",
-  "version": "0.13.10",
+  "version": "0.13.11",
   "private": true,
   "type": "module",
   "main": "./src/index.ts",
