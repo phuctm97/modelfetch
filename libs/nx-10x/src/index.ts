@@ -245,6 +245,7 @@ export const createNodesV2: CreateNodesV2 = [
               command:
                 "deno publish --no-check --allow-dirty --allow-slow-types",
               options: { cwd: "{projectRoot}" },
+              dependsOn: ["^jsr-release-publish"],
             };
           }
         }
