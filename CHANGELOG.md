@@ -1,3 +1,14 @@
+## 0.13.14 (2025-07-21)
+
+### 🩹 Fixes
+
+- Update Deno package installation commands to use JSR registry instead of npm ([#60](https://github.com/phuctm97/modelfetch/pull/60))
+- Migrate from jsr.json to deno.json configuration for better Deno ecosystem compatibility ([#60](https://github.com/phuctm97/modelfetch/pull/60))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.13.13 (2025-07-21)
 
 ### 🩹 Fixes

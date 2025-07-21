@@ -1,6 +1,6 @@
 {
   "name": "example-next-ts",
-  "version": "0.13.13",
+  "version": "0.13.14",
   "private": true,
   "type": "module",
   "dependencies": {
