@@ -10,7 +10,7 @@ const workspaceVersionProtocol = "workspace:";
 interface DenoJson
   extends Pick<PackageJson, "name" | "version" | "license" | "exports"> {
   imports?: Record<string, string>;
-  publish?: { include?: string[]; exclude?: string[] };
+  nodeModulesDir?: "none" | "auto" | "manual";
 }
 
 export default async function prepareReleasePublish(
@@ -112,6 +112,7 @@ export default async function prepareReleasePublish(
       await readFile(denoJsonPath, "utf8"),
     ) as DenoJson;
     denoJson.imports = denoImports;
+    denoJson.nodeModulesDir = "none";
     denoJson.name = packageJson.name;
     denoJson.version = packageJson.version;
     denoJson.license = packageJson.license;
