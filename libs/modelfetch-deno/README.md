@@ -10,7 +10,7 @@ Run secure MCP servers with Deno.
 ## Installation
 
 ```bash
-deno add npm:@modelfetch/deno
+deno add jsr:@modelfetch/deno
 ```
 
 ## Usage

@@ -53,7 +53,7 @@ handle(server);`,
     id: "deno",
     name: "Deno",
     icon: SiDeno,
-    installCommand: "deno add npm:@modelfetch/deno",
+    installCommand: "deno add jsr:@modelfetch/deno",
     codeExample: `import handle from "@modelfetch/deno";
 import server from "./server.ts";
 
@@ -99,7 +99,7 @@ export default {
     id: "netlify",
     name: "Netlify",
     icon: SiNetlify,
-    installCommand: "deno add npm:@modelfetch/netlify",
+    installCommand: "npm install @modelfetch/netlify",
     codeExample: `import handle from "@modelfetch/netlify";
 import server from "../server.ts";
 

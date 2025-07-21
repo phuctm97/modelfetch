@@ -240,7 +240,7 @@ export const createNodesV2: CreateNodesV2 = [
           targets["prepare-release-publish"] = {
             executor: "nx-10x:prepare-release-publish",
           };
-          if (fs.existsSync(path.join(projectRoot, "jsr.json"))) {
+          if (fs.existsSync(path.join(projectRoot, "deno.json"))) {
             targets["jsr-release-publish"] = {
               command:
                 "deno publish --no-check --allow-dirty --allow-slow-types",
