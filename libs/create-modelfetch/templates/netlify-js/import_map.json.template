@@ -1,8 +1,8 @@
 {
   "imports": {
-    "@modelcontextprotocol/sdk/": "npm:/@modelcontextprotocol/sdk@<%= versions['@modelcontextprotocol/sdk'] %>/",
-    "@modelfetch/netlify": "npm:@modelfetch/netlify@<%= versions['@modelfetch/netlify'] %>",
-    "tslib": "npm:tslib@<%= versions['tslib'] %>",
-    "zod": "npm:zod@<%= versions['zod'] %>"
+    "@modelcontextprotocol/sdk/": "https://esm.sh/@modelcontextprotocol/sdk@<%= versions['@modelcontextprotocol/sdk'] %>/",
+    "@modelfetch/netlify": "https://esm.sh/@modelfetch/netlify@<%= versions['@modelfetch/netlify'] %>",
+    "tslib": "https://esm.sh/tslib@<%= versions['tslib'] %>",
+    "zod": "https://esm.sh/zod@<%= versions['zod'] %>"
   }
 }
