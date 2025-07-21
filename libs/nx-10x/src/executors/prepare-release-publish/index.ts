@@ -7,8 +7,9 @@ import path from "node:path";
 
 const workspaceVersionProtocol = "workspace:";
 
-interface DenoJson
-  extends Pick<PackageJson, "name" | "version" | "license" | "exports"> {
+type JsrJson = Pick<PackageJson, "name" | "version" | "license" | "exports">;
+
+interface DenoJson extends JsrJson {
   imports?: Record<string, string>;
   nodeModulesDir?: "none" | "auto" | "manual";
 }
@@ -82,9 +83,7 @@ export default async function prepareReleasePublish(
               }
               if (
                 !depPackageJson.private &&
-                existsSync(
-                  path.join(context.root, depProject.root, "deno.json"),
-                )
+                existsSync(path.join(context.root, depProject.root, "jsr.json"))
               )
                 denoImports[depName] = `jsr:${depName}@${deps[depName]}`;
             }
@@ -106,21 +105,26 @@ export default async function prepareReleasePublish(
     }
   }
   await writeFile(packageJsonPath, JSON.stringify(packageJson));
-  const denoJsonPath = path.join(context.root, project.root, "deno.json");
-  if (existsSync(denoJsonPath)) {
-    const denoJson = JSON.parse(
-      await readFile(denoJsonPath, "utf8"),
-    ) as DenoJson;
-    denoJson.imports = denoImports;
-    denoJson.nodeModulesDir = "none";
-    denoJson.name = packageJson.name;
-    denoJson.version = packageJson.version;
-    denoJson.license = packageJson.license;
-    await writeFile(denoJsonPath, JSON.stringify(denoJson));
-    await copyFile(
-      path.join(context.root, "LICENSE"),
-      path.join(context.root, project.root, "LICENSE"),
-    );
+  const jsrJsonPath = path.join(context.root, project.root, "jsr.json");
+  if (existsSync(jsrJsonPath)) {
+    const jsrJson = JSON.parse(await readFile(jsrJsonPath, "utf8")) as JsrJson;
+    jsrJson.name = packageJson.name;
+    jsrJson.version = packageJson.version;
+    jsrJson.license = packageJson.license;
+    await writeFile(jsrJsonPath, JSON.stringify(jsrJson));
+    if (Object.keys(denoImports).length > 0) {
+      const denoJsonPath = path.join(context.root, project.root, "deno.json");
+      const denoJson = existsSync(denoJsonPath)
+        ? (JSON.parse(await readFile(denoJsonPath, "utf8")) as DenoJson)
+        : {};
+      denoJson.imports = denoImports;
+      denoJson.nodeModulesDir = "none";
+      await writeFile(denoJsonPath, JSON.stringify(denoJson));
+      await copyFile(
+        path.join(context.root, "LICENSE"),
+        path.join(context.root, project.root, "LICENSE"),
+      );
+    }
   }
   return { success: true };
 }

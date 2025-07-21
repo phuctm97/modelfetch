@@ -1,17 +1,18 @@
 {
+  "json.validate.enable": false,
+  "deno.enable": false,
   "nxConsole.commonNxCommands": ["run-many", "run", "reset"],
   "nxConsole.generatorAllowlist": ["nx-10x:*"],
   "nxConsole.projectViewingStyle": "tree",
   "nxConsole.generateAiAgentRules": true,
-  "tailwindCSS.experimental.configFile": {
-    "apps/modelfetch-website/app/layout.css": "apps/modelfetch-website/**"
-  },
-  "json.validate.enable": false,
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "eslint.workingDirectories": [{ "mode": "auto" }],
-  "editor.codeActionsOnSave": { "source.fixAll": "always" },
+  "tailwindCSS.experimental.configFile": {
+    "apps/modelfetch-website/app/layout.css": "apps/modelfetch-website/**"
+  },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": { "source.fixAll": "always" },
   "editor.formatOnSave": true,
   "files.trimTrailingWhitespace": true,
   "files.trimFinalNewlines": true,
