@@ -1,6 +1,6 @@
 {
   "name": "@modelfetch/netlify",
-  "version": "0.13.9",
+  "version": "0.13.10",
   "description": "Netlify runtime adapter for MCP servers built with ModelFetch",
   "keywords": [
     "model-context-protocol",

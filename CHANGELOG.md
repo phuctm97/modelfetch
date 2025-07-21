@@ -1,3 +1,13 @@
+## 0.13.10 (2025-07-21)
+
+### 🩹 Fixes
+
+- Improve JSR publishing support by auto-generating deno.json imports and adding project tags ([#55](https://github.com/phuctm97/modelfetch/pull/55))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.13.9 (2025-07-21)
 
 ### 🩹 Fixes
