@@ -1,3 +1,13 @@
+## 0.13.9 (2025-07-21)
+
+### 🩹 Fixes
+
+- Fix Netlify templates to use esm.sh instead of npm: specifiers for compatibility with Netlify Edge Functions ([#54](https://github.com/phuctm97/modelfetch/pull/54))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.13.8 (2025-07-20)
 
 ### 🩹 Fixes
