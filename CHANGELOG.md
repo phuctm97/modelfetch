@@ -1,3 +1,13 @@
+## 0.13.13 (2025-07-21)
+
+### 🩹 Fixes
+
+- Update JSR publishing configuration to use jsr.json instead of deno.json ([#59](https://github.com/phuctm97/modelfetch/pull/59))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.13.12 (2025-07-21)
 
 ### 🩹 Fixes
