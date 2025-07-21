@@ -15,6 +15,19 @@ interface JsrJson
   };
 }
 
+function updateJsrJsonFromPackageJson(
+  jsrJson: JsrJson,
+  packageJson: PackageJson,
+): void {
+  jsrJson.name = packageJson.name;
+  jsrJson.version = packageJson.version;
+  jsrJson.license = packageJson.license;
+}
+
+interface DenoJson extends JsrJson {
+  imports?: Record<string, string>;
+}
+
 export default async function prepareReleasePublish(
   options: object,
   context: ExecutorContext,
@@ -33,6 +46,7 @@ export default async function prepareReleasePublish(
     "bundledDependencies",
   ])
     if (key in packageJson) delete packageJson[key];
+  const denoImports: Record<string, string> = {};
   for (const depType of [
     "dependencies",
     "peerDependencies",
@@ -82,6 +96,8 @@ export default async function prepareReleasePublish(
                 }
               }
             }
+            if (depProject.tags?.includes("jsr"))
+              denoImports[depName] = `jsr:${depName}@${deps[depName]}`;
           }
         }
       }
@@ -100,25 +116,50 @@ export default async function prepareReleasePublish(
     }
   }
   await writeFile(packageJsonPath, JSON.stringify(packageJson));
-  let isPublishingToJSR = false;
-  for (const name of ["jsr.json", "deno.json", "deno.jsonc"]) {
-    const jsrJsonPath = path.join(context.root, project.root, name);
-    if (existsSync(jsrJsonPath)) {
-      isPublishingToJSR = true;
-      const jsrJson = JSON.parse(
-        await readFile(jsrJsonPath, "utf8"),
-      ) as JsrJson;
-      jsrJson.name = packageJson.name;
-      jsrJson.version = packageJson.version;
-      jsrJson.license = packageJson.license;
-      await writeFile(jsrJsonPath, JSON.stringify(jsrJson));
+  if (project.tags?.includes("jsr")) {
+    let isPublishingToJSR = false;
+    let hasDenoJson = false;
+    for (const name of ["jsr.json", "deno.json", "deno.jsonc"]) {
+      const jsrJsonPath = path.join(context.root, project.root, name);
+      if (existsSync(jsrJsonPath)) {
+        isPublishingToJSR = true;
+        if (name === "deno.json" || name === "deno.jsonc") hasDenoJson = true;
+        const jsrJson = JSON.parse(
+          await readFile(jsrJsonPath, "utf8"),
+        ) as JsrJson;
+        updateJsrJsonFromPackageJson(jsrJson, packageJson);
+        await writeFile(jsrJsonPath, JSON.stringify(jsrJson));
+      }
     }
-  }
-  if (isPublishingToJSR) {
-    await copyFile(
-      path.join(context.root, "LICENSE"),
-      path.join(context.root, project.root, "LICENSE"),
-    );
+    if (isPublishingToJSR) {
+      if (Object.keys(denoImports).length > 0) {
+        if (!hasDenoJson) {
+          const denoJson: DenoJson = {};
+          updateJsrJsonFromPackageJson(denoJson, packageJson);
+          await writeFile(
+            path.join(context.root, project.root, "deno.json"),
+            JSON.stringify(denoJson),
+          );
+        }
+        for (const name of ["deno.json", "deno.jsonc"]) {
+          const denoJsonPath = path.join(context.root, project.root, name);
+          if (existsSync(denoJsonPath)) {
+            const denoJson = JSON.parse(
+              await readFile(denoJsonPath, "utf8"),
+            ) as DenoJson;
+            updateJsrJsonFromPackageJson(denoJson, packageJson);
+            denoJson.imports ??= {};
+            for (const [depName, depImport] of Object.entries(denoImports))
+              denoJson.imports[depName] ??= depImport;
+            await writeFile(denoJsonPath, JSON.stringify(denoJson));
+          }
+        }
+      }
+      await copyFile(
+        path.join(context.root, "LICENSE"),
+        path.join(context.root, project.root, "LICENSE"),
+      );
+    }
   }
   return { success: true };
 }

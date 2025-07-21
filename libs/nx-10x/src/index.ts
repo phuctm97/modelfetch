@@ -72,6 +72,7 @@ export const createNodesV2: CreateNodesV2 = [
         const projectRoot = path.dirname(packageJsonFilePath);
         const projectType = getProjectType(projectRoot);
         const targets: Record<string, TargetConfiguration> = {};
+        const tags: string[] = [];
         if (fs.existsSync(path.join(projectRoot, "eslint.config.js"))) {
           targets.lint = {
             cache: true,
@@ -252,9 +253,10 @@ export const createNodesV2: CreateNodesV2 = [
                 "deno publish --no-check --allow-dirty --allow-slow-types",
               options: { cwd: "{projectRoot}" },
             };
+            tags.push("jsr");
           }
         }
-        return { projects: { [projectRoot]: { projectType, targets } } };
+        return { projects: { [projectRoot]: { projectType, targets, tags } } };
       },
       packageJsonFilePaths,
       options,
