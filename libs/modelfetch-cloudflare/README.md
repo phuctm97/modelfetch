@@ -8,7 +8,7 @@ Deploy MCP servers to Cloudflare.
 
 ## Installation
 
-```npm
+```bash
 npm install @modelfetch/cloudflare
 ```
 

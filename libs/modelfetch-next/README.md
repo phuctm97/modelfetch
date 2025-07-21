@@ -8,7 +8,7 @@ Run flexible MCP servers with Next.js.
 
 ## Installation
 
-```npm
+```bash
 npm install @modelfetch/next
 ```
 

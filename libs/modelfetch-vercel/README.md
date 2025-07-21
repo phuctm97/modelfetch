@@ -8,7 +8,7 @@ Deploy MCP servers to Vercel.
 
 ## Installation
 
-```npm
+```bash
 npm install @modelfetch/vercel
 ```
 

@@ -10,7 +10,7 @@ Deploy MCP servers to Netlify.
 ## Installation
 
 ```bash
-deno add npm:@modelfetch/netlify
+npm install @modelfetch/netlify
 ```
 
 ## Usage
