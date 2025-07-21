@@ -16,7 +16,7 @@ deno add npm:@modelfetch/deno
 ### Start The Server
 
 ```typescript title="src/index.ts"
-import handle from "npm:@modelfetch/deno";
+import handle from "@modelfetch/deno";
 import server from "./server.ts"; // Import your McpServer
 
 // Run as a Deno HTTP server
@@ -26,7 +26,7 @@ handle(server);
 ### Log The Endpoint
 
 ```typescript title="src/index.ts"
-import handle, { getEndpoint } from "npm:@modelfetch/deno";
+import handle, { getEndpoint } from "@modelfetch/deno";
 import server from "./server.ts"; // Import your McpServer
 
 // Run as a Deno HTTP server
@@ -41,7 +41,7 @@ handle(server, {
 ### Specify Custom Port
 
 ```typescript title="src/index.ts"
-import handle, { getEndpoint } from "npm:@modelfetch/deno";
+import handle, { getEndpoint } from "@modelfetch/deno";
 import server from "./server.ts"; // Import your McpServer
 
 // Run as a Deno HTTP server

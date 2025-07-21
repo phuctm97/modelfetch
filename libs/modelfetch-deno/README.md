@@ -1,6 +1,7 @@
 # `@modelfetch/deno`
 
 [![npm version](https://img.shields.io/npm/v/@modelfetch/deno.svg)](https://www.npmjs.com/package/@modelfetch/deno)
+[![jsr version](https://img.shields.io/jsr/v/@modelfetch/deno.svg)](https://jsr.io/@modelfetch/deno)
 [![npm license](https://img.shields.io/npm/l/@modelfetch/deno.svg)](https://www.npmjs.com/package/@modelfetch/deno)
 [![docs](https://img.shields.io/badge/docs-modelfetch.com-blue)](https://www.modelfetch.com/docs/runtime/deno)
 
@@ -17,7 +18,7 @@ deno add npm:@modelfetch/deno
 ### Start The Server
 
 ```typescript
-import handle from "npm:@modelfetch/deno";
+import handle from "@modelfetch/deno";
 import server from "./server.ts"; // Import your McpServer
 
 // Run as a Deno HTTP server
@@ -27,7 +28,7 @@ handle(server);
 ### Log The Endpoint
 
 ```typescript
-import handle, { getEndpoint } from "npm:@modelfetch/deno";
+import handle, { getEndpoint } from "@modelfetch/deno";
 import server from "./server.ts"; // Import your McpServer
 
 // Run as a Deno HTTP server
@@ -42,7 +43,7 @@ handle(server, {
 ### Specify Custom Port
 
 ```typescript
-import handle, { getEndpoint } from "npm:@modelfetch/deno";
+import handle, { getEndpoint } from "@modelfetch/deno";
 import server from "./server.ts"; // Import your McpServer
 
 // Run as a Deno HTTP server

@@ -1,6 +1,7 @@
 # `@modelfetch/netlify`
 
 [![npm version](https://img.shields.io/npm/v/@modelfetch/netlify.svg)](https://www.npmjs.com/package/@modelfetch/netlify)
+[![jsr version](https://img.shields.io/jsr/v/@modelfetch/netlify.svg)](https://jsr.io/@modelfetch/netlify)
 [![npm license](https://img.shields.io/npm/l/@modelfetch/netlify.svg)](https://www.npmjs.com/package/@modelfetch/netlify)
 [![docs](https://img.shields.io/badge/docs-modelfetch.com-blue)](https://www.modelfetch.com/docs/runtime/netlify)
 

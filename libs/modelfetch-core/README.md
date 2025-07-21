@@ -1,6 +1,7 @@
 # `@modelfetch/core`
 
 [![npm version](https://img.shields.io/npm/v/@modelfetch/core.svg)](https://www.npmjs.com/package/@modelfetch/core)
+[![jsr version](https://img.shields.io/jsr/v/@modelfetch/core.svg)](https://jsr.io/@modelfetch/core)
 [![npm license](https://img.shields.io/npm/l/@modelfetch/core.svg)](https://www.npmjs.com/package/@modelfetch/core)
 [![docs](https://img.shields.io/badge/docs-modelfetch.com-blue)](https://www.modelfetch.com/docs)
 

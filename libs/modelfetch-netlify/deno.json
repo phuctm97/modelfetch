@@ -1,4 +1,0 @@
-{
-  "publish": { "include": ["src", "LICENSE", "README.md"] },
-  "exports": "./src/index.ts"
-}
