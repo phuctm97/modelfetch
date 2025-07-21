@@ -1,6 +1,6 @@
 {
   "name": "@modelfetch/next",
-  "version": "0.13.11",
+  "version": "0.13.12",
   "description": "Next.js runtime adapter for MCP servers built with ModelFetch",
   "keywords": [
     "model-context-protocol",

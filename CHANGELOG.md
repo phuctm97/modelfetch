@@ -1,3 +1,13 @@
+## 0.13.12 (2025-07-21)
+
+### 🩹 Fixes
+
+- Improve JSR publishing by adding nodeModulesDir configuration and proper task dependencies ([#58](https://github.com/phuctm97/modelfetch/pull/58))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.13.11 (2025-07-21)
 
 ### 🩹 Fixes
