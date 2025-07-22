@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from "react";
 
-import { SiDiscord, SiGithub } from "@icons-pack/react-simple-icons";
+import { SiDiscord, SiGithub, SiYoutube } from "@icons-pack/react-simple-icons";
 import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
 import Link from "next/link";
 
@@ -90,7 +90,7 @@ export default function Page() {
                 </Link>
               </div>
 
-              <div className="mt-4 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4">
+              <div className="mt-4 flex flex-col items-center gap-3 md:flex-row md:justify-center md:gap-4">
                 <Link
                   className="inline-flex items-center text-gray-600 underline decoration-gray-400 underline-offset-4 transition-all hover:text-gray-800 hover:decoration-gray-800 dark:text-gray-400 dark:decoration-gray-600 dark:hover:text-gray-200 dark:hover:decoration-gray-200"
                   href="https://github.com/phuctm97/modelfetch"
@@ -108,6 +108,15 @@ export default function Page() {
                 >
                   <SiDiscord className="mr-2 h-4 w-4" />
                   Join Discord community
+                </Link>
+                <Link
+                  className="inline-flex items-center text-gray-600 underline decoration-gray-400 underline-offset-4 transition-all hover:text-gray-800 hover:decoration-gray-800 dark:text-gray-400 dark:decoration-gray-600 dark:hover:text-gray-200 dark:hover:decoration-gray-200"
+                  href="https://www.youtube.com/@modelfetch"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <SiYoutube className="mr-2 h-4 w-4" />
+                  Watch YouTube channel
                 </Link>
               </div>
             </section>
@@ -243,7 +252,7 @@ export default function Page() {
                     target="_blank"
                   >
                     <SiGithub className="mr-4 h-5 w-5" />
-                    Star GitHub repository
+                    View GitHub repository
                   </Link>
                   <Link
                     className="inline-flex items-center justify-center rounded bg-[#5865F2] px-6 py-3 font-bold text-white transition-all hover:scale-105 hover:bg-[#4752C4] hover:shadow-[0_0_20px_rgba(88,101,242,0.8)]"
@@ -253,6 +262,15 @@ export default function Page() {
                   >
                     <SiDiscord className="mr-4 h-5 w-5" />
                     Join Discord community
+                  </Link>
+                  <Link
+                    className="inline-flex items-center justify-center rounded bg-[#FF0000] px-6 py-3 font-bold text-white transition-all hover:scale-105 hover:bg-[#CC0000] hover:shadow-[0_0_20px_rgba(255,0,0,0.8)]"
+                    href="https://www.youtube.com/@modelfetch"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <SiYoutube className="mr-4 h-5 w-5" />
+                    Watch YouTube channel
                   </Link>
                 </div>
               </div>
