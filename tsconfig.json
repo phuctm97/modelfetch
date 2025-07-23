@@ -50,6 +50,9 @@
       "path": "./libs/modelfetch-deno"
     },
     {
+      "path": "./libs/modelfetch-fastly"
+    },
+    {
       "path": "./libs/modelfetch-netlify"
     },
     {

@@ -9,3 +9,6 @@ dist
 .wrangler
 cdk.out
 .netlify
+/apps/example-netlify-*/apps
+/apps/example-fastly-*/bin
+/apps/example-fastly-*/pkg

@@ -175,6 +175,19 @@ export const createNodesV2: CreateNodesV2 = [
               continuous: true,
             };
           }
+          if (fs.existsSync(path.join(projectRoot, "fastly.toml"))) {
+            useDefaultStartCommand = false;
+            targets.dev = {
+              command: "fastly compute serve",
+              options: { cwd: "{projectRoot}" },
+              continuous: true,
+            };
+            targets.deploy = {
+              command: "fastly compute publish",
+              options: { cwd: "{projectRoot}" },
+              dependsOn: ["build", "^build"],
+            };
+          }
           if (
             Boolean(
               (packageJson.dependencies?.["aws-cdk"] ?? "") ||
