@@ -1,3 +1,13 @@
+## 0.14.1 (2025-07-25)
+
+### 🩹 Fixes
+
+- Add gitignore templates and fix deploy command for Fastly templates ([#62](https://github.com/phuctm97/modelfetch/pull/62))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.14.0 (2025-07-25)
 
 ### 🚀 Features
