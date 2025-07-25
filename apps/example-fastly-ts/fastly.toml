@@ -1,0 +1,13 @@
+# This file describes a Fastly Compute package. To learn more visit:
+# https://www.fastly.com/documentation/reference/compute/fastly-toml
+
+authors = []
+description = ""
+language = "javascript"
+manifest_version = 3
+name = "Example Fastly MCP Server (TypeScript)"
+
+[local_server]
+
+[scripts]
+  build = "js-compute-runtime ./dist/index.js"

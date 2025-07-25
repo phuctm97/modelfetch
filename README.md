@@ -18,7 +18,7 @@
 
 ## 🚀 Features
 
-- **Multi-Runtime**: Write once, run anywhere: Node.js, Next.js, Bun, Deno, AWS Lambda, Vercel, Cloudflare, etc.
+- **Multi-Runtime**: Write once, run anywhere: Node.js, Next.js, Bun, Deno, AWS Lambda, Vercel, Cloudflare, Netlify, Fastly, etc.
 - **Official SDK**: Built on top of the [official MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) to avoid lock-in, guarantee long-term support, and ensure up-to-date implementation
 - **Live Reload**: Development server with automatic reloading
 - **MCP Inspector**: Built-in integration for testing and debugging
@@ -152,6 +152,15 @@ import server from "../server.ts"; // Import your server
 export default handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
+#### Fastly
+
+```typescript
+import handle from "@modelfetch/fastly"; // Choose your runtime
+import server from "./server"; // Import your server
+
+handle(server); // That's it — ModelFetch handles all runtime-specific details
+```
+
 That's just a few lines of code to make your [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) work across all supported platforms.
 
 ## ⚡ The [`handle()`](https://www.modelfetch.com/docs#the-handle-function) Function
@@ -179,6 +188,7 @@ ModelFetch provides runtime-specific packages that handle tedious platform diffe
 | [`@modelfetch/vercel`](libs/modelfetch-vercel)         | Deploy MCP servers to Vercel            | ✅ Ready |
 | [`@modelfetch/cloudflare`](libs/modelfetch-cloudflare) | Deploy MCP servers to Cloudflare        | ✅ Ready |
 | [`@modelfetch/netlify`](libs/modelfetch-netlify)       | Deploy MCP servers to Netlify           | ✅ Ready |
+| [`@modelfetch/fastly`](libs/modelfetch-fastly)         | Deploy MCP servers to Fastly            | ✅ Ready |
 
 ## 🛠️ Development
 

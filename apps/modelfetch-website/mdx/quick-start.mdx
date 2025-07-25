@@ -13,7 +13,7 @@ npx -y create-modelfetch@latest
 
 The CLI will guide you through:
 
-1. **Choosing a runtime** - Node.js, Next.js, Bun, Deno, AWS Lambda, Vercel, Cloudflare, or Netlify
+1. **Choosing a runtime** - Node.js, Next.js, Bun, Deno, AWS Lambda, Vercel, Cloudflare, Netlify, or Fastly
 2. **Selecting a language** - TypeScript or JavaScript
 3. **Picking a package manager** - npm, pnpm, bun, or yarn
 
@@ -51,6 +51,10 @@ npm install @modelfetch/cloudflare
 
 ```npm title="Terminal" tab="Netlify"
 npm install @modelfetch/netlify
+```
+
+```npm title="Terminal" tab="Fastly"
+npm install @modelfetch/fastly
 ```
 
 Then, create the following files:
@@ -157,6 +161,13 @@ import handle from "@modelfetch/netlify"; // Choose your runtime
 import server from "../server.ts"; // Import your server
 
 export default handle(server); // That's it — ModelFetch handles all runtime-specific details
+```
+
+```typescript title="src/index.ts" tab="Fastly"
+import handle from "@modelfetch/fastly"; // Choose your runtime
+import server from "./server"; // Import your server
+
+handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
 <Callout>

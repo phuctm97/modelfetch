@@ -4,14 +4,14 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.16.0",
+    "@modelcontextprotocol/sdk": "^1.17.0",
     "@modelfetch/aws-lambda": "workspace:^",
     "zod": "^3.25.76"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.152",
-    "aws-cdk": "^2.1021.0",
-    "aws-cdk-lib": "^2.206.0",
+    "aws-cdk": "^2.1022.0",
+    "aws-cdk-lib": "^2.207.0",
     "constructs": "^10.4.2",
     "create-eslint-config": "workspace:^",
     "esbuild": "^0.25.8",
