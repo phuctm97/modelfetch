@@ -149,8 +149,8 @@ export default function Page() {
                     <span className="mr-2">◈</span>Multi-Runtime
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400">
-                    Write your MCP server once. Run it anywhere: Node.js, Bun,
-                    Deno, Vercel, Cloudflare, Netlify, AWS Lambda.
+                    Write your MCP server once. Run it anywhere: Node.js,
+                    Next.js, Bun, Deno, AWS Lambda, Cloudflare, etc.
                   </p>
                 </div>
                 <div className="group rounded border border-gray-300 bg-white p-4 shadow-md transition-all hover:border-[#008f00] hover:shadow-[0_0_20px_rgba(0,143,0,0.3)] sm:p-6 dark:border-[#333] dark:bg-[#1a1a1a] dark:shadow-none dark:hover:border-[#00ff00] dark:hover:shadow-[0_0_20px_rgba(0,255,0,0.3)]">

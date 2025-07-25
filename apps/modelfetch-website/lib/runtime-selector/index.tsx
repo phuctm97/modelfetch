@@ -4,7 +4,9 @@ import {
   SiBun,
   SiCloudflare,
   SiDeno,
+  SiFastly,
   SiNetlify,
+  SiNextdotjs,
   SiNodedotjs,
   SiVercel,
 } from "@icons-pack/react-simple-icons";
@@ -38,6 +40,20 @@ const runtimes = [
 import server from "./server";
 
 handle(server);`,
+  },
+  {
+    id: "next",
+    name: "Next.js",
+    icon: SiNextdotjs,
+    installCommand: "npm install @modelfetch/next",
+    codeExample: `import handle from "@modelfetch/next";
+import server from "./server";
+
+const handler = handle(server);
+
+export const GET = handler;
+export const POST = handler;
+export const DELETE = handler;`,
   },
   {
     id: "bun",
@@ -105,10 +121,21 @@ import server from "../server.ts";
 
 export default handle(server);`,
   },
+  {
+    id: "fastly",
+    name: "Fastly",
+    icon: SiFastly,
+    installCommand: "npm install @modelfetch/fastly",
+    codeExample: `import handle from "@modelfetch/fastly";
+import server from "./server";
+
+handle(server);`,
+  },
 ];
 
 function getEntryPointPath(runtimeId: string): string {
   switch (runtimeId) {
+    case "next":
     case "vercel": {
       return "app/[[...path]]/route.ts";
     }

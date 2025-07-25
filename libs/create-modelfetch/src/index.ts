@@ -47,6 +47,8 @@ const packageVersions = {
   "@modelfetch/cloudflare": packageJson.version,
   wrangler: "4.25.0",
   "@modelfetch/netlify": packageJson.version,
+  "@modelfetch/fastly": packageJson.version,
+  "@fastly/js-compute": "3.34.0",
 };
 
 // Cloudflare compatibility date
@@ -60,7 +62,8 @@ type Runtime =
   | "aws-lambda"
   | "vercel"
   | "cloudflare"
-  | "netlify";
+  | "netlify"
+  | "fastly";
 type Language = "javascript" | "typescript";
 type PackageManager = "npm" | "pnpm" | "yarn" | "bun";
 
@@ -249,6 +252,7 @@ async function main() {
       { value: "vercel", label: "Vercel" },
       { value: "cloudflare", label: "Cloudflare" },
       { value: "netlify", label: "Netlify" },
+      { value: "fastly", label: "Fastly" },
     ],
     initialValue: detectedRuntime,
   })) as Runtime;

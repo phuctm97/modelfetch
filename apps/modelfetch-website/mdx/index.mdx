@@ -116,6 +116,13 @@ import server from "../server.ts"; // Import your server
 export default handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
+```typescript title="src/index.ts" tab="Fastly"
+import handle from "@modelfetch/fastly"; // Choose your runtime
+import server from "./server"; // Import your server
+
+handle(server); // That's it — ModelFetch handles all runtime-specific details
+```
+
 <Callout title="Awesome, isn't it?" type="success">
   That's just a few lines of code to make your
   [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server)
@@ -190,6 +197,13 @@ import handle from "@modelfetch/netlify"; // Choose your runtime
 import server from "../server.ts"; // Import your server
 
 export default handle(server); // That's it — ModelFetch handles all runtime-specific details
+```
+
+```typescript title="src/index.ts" tab="Fastly"
+import handle from "@modelfetch/fastly"; // Choose your runtime
+import server from "./server"; // Import your server
+
+handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
 <Callout>

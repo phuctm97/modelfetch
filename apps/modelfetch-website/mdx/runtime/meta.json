@@ -8,6 +8,7 @@
     "aws-lambda",
     "vercel",
     "cloudflare",
-    "netlify"
+    "netlify",
+    "fastly"
   ]
 }
