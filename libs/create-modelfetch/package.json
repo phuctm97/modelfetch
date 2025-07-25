@@ -49,7 +49,7 @@
     "change-case": "^5.4.4",
     "ejs": "^3.1.10",
     "picocolors": "^1.1.1",
-    "validate-npm-package-name": "^6.0.1"
+    "validate-npm-package-name": "^6.0.2"
   },
   "devDependencies": {
     "@types/ejs": "^3.1.5",

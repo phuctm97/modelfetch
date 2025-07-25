@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.16.0",
+    "@modelcontextprotocol/sdk": "^1.17.0",
     "@modelfetch/vercel": "workspace:^",
-    "next": "^15.4.2",
+    "next": "^15.4.4",
     "next-config": "workspace:^",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
