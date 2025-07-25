@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "fastly compute serve",
-    "deploy": "fastly compute deploy"
+    "deploy": "fastly compute publish"
   },
   "dependencies": {
     "@fastly/js-compute": "<%= versions['@fastly/js-compute'] %>",
