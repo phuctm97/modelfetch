@@ -1,3 +1,13 @@
+## 0.14.0 (2025-07-25)
+
+### 🚀 Features
+
+- Add Fastly runtime support with @modelfetch/fastly package and example applications ([#61](https://github.com/phuctm97/modelfetch/pull/61))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.13.14 (2025-07-21)
 
 ### 🩹 Fixes
