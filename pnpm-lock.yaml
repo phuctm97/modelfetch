@@ -247,6 +247,28 @@ importers:
         specifier: workspace:^
         version: link:../../libs/modelfetch
 
+  apps/example-fastly-ts:
+    dependencies:
+      '@fastly/js-compute':
+        specifier: ^3.34.0
+        version: 3.34.0
+      '@modelcontextprotocol/sdk':
+        specifier: ^1.16.0
+        version: 1.16.0
+      '@modelfetch/fastly':
+        specifier: workspace:^
+        version: link:../../libs/modelfetch-fastly
+      zod:
+        specifier: ^3.25.76
+        version: 3.25.76
+    devDependencies:
+      create-eslint-config:
+        specifier: workspace:^
+        version: link:../../libs/create-eslint-config
+      modelfetch:
+        specifier: workspace:^
+        version: link:../../libs/modelfetch
+
   apps/example-netlify-js:
     dependencies:
       '@modelcontextprotocol/sdk':

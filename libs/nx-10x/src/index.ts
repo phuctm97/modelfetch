@@ -181,6 +181,7 @@ export const createNodesV2: CreateNodesV2 = [
               command: "fastly compute serve",
               options: { cwd: "{projectRoot}" },
               continuous: true,
+              dependsOn: ["build", "^build"],
             };
             targets.deploy = {
               command: "fastly compute publish",

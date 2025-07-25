@@ -1,0 +1,16 @@
+{
+  "name": "example-fastly-ts",
+  "version": "0.13.14",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@fastly/js-compute": "^3.34.0",
+    "@modelcontextprotocol/sdk": "^1.16.0",
+    "@modelfetch/fastly": "workspace:^",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "create-eslint-config": "workspace:^",
+    "modelfetch": "workspace:^"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "include": ["src"],
+  "references": [
+    {
+      "path": "../../libs/modelfetch/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/modelfetch-fastly/tsconfig.lib.json"
+    }
+  ],
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "sourceRoot": "/apps/example-fastly-ts/src",
+    "rootDir": "src",
+    "outDir": "dist"
+  }
+}
