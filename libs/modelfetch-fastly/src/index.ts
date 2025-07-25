@@ -1,3 +1,5 @@
+import "abortcontroller-polyfill/dist/polyfill-patch-fetch";
+
 import type { ServerOrConfig } from "@modelfetch/core";
 
 import { createApp } from "@modelfetch/core";

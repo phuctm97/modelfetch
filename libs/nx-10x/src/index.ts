@@ -177,7 +177,7 @@ export const createNodesV2: CreateNodesV2 = [
           }
           if (fs.existsSync(path.join(projectRoot, "fastly.toml"))) {
             useDefaultStartCommand = false;
-            targets.dev = {
+            targets.start = {
               command: "fastly compute serve",
               options: { cwd: "{projectRoot}" },
               continuous: true,
