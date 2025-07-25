@@ -6,7 +6,6 @@ description = ""
 language = "javascript"
 manifest_version = 3
 name = "Example Fastly MCP Server (TypeScript)"
-service_id = "JX3p6ti1efkf2rgF9wqVz4"
 
 [local_server]
 
