@@ -17,7 +17,7 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
-    "@icons-pack/react-simple-icons": "^13.6.0",
+    "@icons-pack/react-simple-icons": "^13.7.0",
     "@next/eslint-plugin-next": "^15.4.4",
     "@tailwindcss/postcss": "^4.1.11",
     "@types/mdx": "^2.0.13",
