@@ -1,3 +1,5 @@
-import { app } from "@azure/functions";
+import handle from "@modelfetch/azure-functions";
 
-app.setup({ enableHttpStream: true });
+import server from "./server.js";
+
+handle(server);

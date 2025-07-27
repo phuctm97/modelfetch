@@ -1,6 +1,7 @@
-# <%= projectTitle %>
+# Example Azure Functions MCP Server (JavaScript)
 
-An MCP server built with [ModelFetch](https://www.modelfetch.com)
+> [!NOTE]
+> This is an internal example MCP server. To get started with [ModelFetch](https://www.modelfetch.com), please visit the [Quick Start documentation](https://www.modelfetch.com/docs/quick-start).
 
 ## Quick Start
 
@@ -9,7 +10,7 @@ An MCP server built with [ModelFetch](https://www.modelfetch.com)
 Start the MCP server:
 
 ```bash
-deno task start
+pnpm exec nx start example-azure-functions-js
 ```
 
 ### Testing with the MCP Inspector
@@ -20,16 +21,18 @@ In a separate terminal, run the MCP Inspector to test your server:
 npx -y @modelcontextprotocol/inspector@latest
 ```
 
-Then, connect to your server at `http://localhost:8000/mcp` (or the URL shown in the output).
+Then, connect to your server at `http://localhost:7071/mcp` (or the URL shown in the output).
 
 ## Project Structure
 
 ```
-<%= projectName %>/
+example-azure-functions-js/
 ├── src/
-│   ├── index.js      # Deno entry point
+│   ├── index.js      # Azure Functions entry point
 │   └── server.js     # MCP server implementation
-├── deno.json         # Deno configuration
+├── host.json         # Azure Functions host configuration
+├── local.settings.json # Local development settings
+├── package.json
 └── README.md
 ```
 
@@ -110,8 +113,8 @@ server.registerPrompt(
 
 ## Reading Docs
 
-- [Model Context Protocol - Documentation](https://modelcontextprotocol.io)
 - [Model Context Protocol - TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
+- [Model Context Protocol - Documentation](https://modelcontextprotocol.io)
 - [ModelFetch - Website](https://www.modelfetch.com)
 - [ModelFetch - Documentation](https://www.modelfetch.com/docs)
-- [ModelFetch - GitHub](https://github.com/phuctm97/modelfetch)
+- [Azure Functions - Documentation](https://docs.microsoft.com/en-us/azure/azure-functions/)

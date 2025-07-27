@@ -116,6 +116,19 @@ importers:
       '@azure/functions':
         specifier: ^4.7.2
         version: 4.7.2
+      '@modelcontextprotocol/sdk':
+        specifier: ^1.17.0
+        version: 1.17.0
+      '@modelfetch/azure-functions':
+        specifier: workspace:^
+        version: link:../../libs/modelfetch-azure-functions
+      zod:
+        specifier: ^3.25.76
+        version: 3.25.76
+    devDependencies:
+      modelfetch:
+        specifier: workspace:^
+        version: link:../../libs/modelfetch
 
   apps/example-bun-js:
     dependencies:
@@ -653,6 +666,25 @@ importers:
 
   libs/modelfetch-aws-lambda:
     dependencies:
+      '@modelfetch/core':
+        specifier: workspace:^
+        version: link:../modelfetch-core
+      hono:
+        specifier: ^4.8.9
+        version: 4.8.9
+    devDependencies:
+      create-eslint-config:
+        specifier: workspace:^
+        version: link:../create-eslint-config
+
+  libs/modelfetch-azure-functions:
+    dependencies:
+      '@azure/functions':
+        specifier: ^4.7.2
+        version: 4.7.2
+      '@marplex/hono-azurefunc-adapter':
+        specifier: ^1.0.1
+        version: 1.0.1
       '@modelfetch/core':
         specifier: workspace:^
         version: link:../modelfetch-core
@@ -2163,6 +2195,9 @@ packages:
     resolution: {integrity: sha512-gnRDk5FXCD9fa0AjlAj9otCsZL9QJzVrpYZk9KjOEoP5XR1TEE2F9/rGbajh1UVjPnD3jUlNLRJMH0YHTlA65A==}
     peerDependencies:
       react: ^18.x || ^19.x
+
+  '@marplex/hono-azurefunc-adapter@1.0.1':
+    resolution: {integrity: sha512-2hW13KsHj7SYLJ7sjfkenPVLmJZrDnHwhTmN+1KtS8nou7MhSqNNdnd3eIMSA7O6rk7d+tupWGso0Tz69nIbnw==}
 
   '@mdx-js/mdx@3.1.0':
     resolution: {integrity: sha512-/QxEhPAvGwbQmy1Px8F899L5Uc2KZ6JtXwlCgJmjSTBedwOZkByYcBG4GceIGPXRDsmfxhHazuS+hlOShRLeDw==}
@@ -7823,6 +7858,8 @@ snapshots:
   '@mantine/hooks@8.2.1(react@19.1.0)':
     dependencies:
       react: 19.1.0
+
+  '@marplex/hono-azurefunc-adapter@1.0.1': {}
 
   '@mdx-js/mdx@3.1.0(acorn@8.15.0)':
     dependencies:

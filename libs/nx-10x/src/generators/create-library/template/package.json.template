@@ -10,6 +10,9 @@
       "import": "./dist/index.js"
     }
   },
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "create-eslint-config": "workspace:^"
   }

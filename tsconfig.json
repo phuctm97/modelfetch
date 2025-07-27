@@ -41,6 +41,9 @@
       "path": "./libs/modelfetch-aws-lambda"
     },
     {
+      "path": "./libs/modelfetch-azure-functions"
+    },
+    {
       "path": "./libs/modelfetch-bun"
     },
     {
