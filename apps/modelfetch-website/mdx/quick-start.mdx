@@ -13,7 +13,7 @@ npx -y create-modelfetch@latest
 
 The CLI will guide you through:
 
-1. **Choosing a runtime** - Node.js, Next.js, Bun, Deno, AWS Lambda, Vercel, Cloudflare, Netlify, or Fastly
+1. **Choosing a runtime** - Node.js, Next.js, Bun, Deno, AWS Lambda, Azure Functions, Vercel, Cloudflare, Netlify, or Fastly
 2. **Selecting a language** - TypeScript or JavaScript
 3. **Picking a package manager** - npm, pnpm, bun, or yarn
 
@@ -39,6 +39,10 @@ deno add jsr:@modelfetch/deno
 
 ```npm title="Terminal" tab="AWS Lambda"
 npm install @modelfetch/aws-lambda
+```
+
+```npm title="Terminal" tab="Azure Functions"
+npm install @modelfetch/azure-functions
 ```
 
 ```npm title="Terminal" tab="Vercel"
@@ -134,6 +138,13 @@ import handle from "@modelfetch/aws-lambda"; // Choose your runtime
 import server from "./server"; // Import your server
 
 export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server); // That's it — ModelFetch handles all runtime-specific details
+```
+
+```typescript title="src/index.ts" tab="Azure Functions"
+import handle from "@modelfetch/azure-functions"; // Choose your runtime
+import server from "./server.js"; // Import your server
+
+handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
 ```typescript title="app/[[...path]]/route.ts" tab="Vercel"

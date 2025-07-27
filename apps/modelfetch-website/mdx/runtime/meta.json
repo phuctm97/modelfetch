@@ -6,6 +6,7 @@
     "bun",
     "deno",
     "aws-lambda",
+    "azure-functions",
     "vercel",
     "cloudflare",
     "netlify",

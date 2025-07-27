@@ -19,6 +19,7 @@
   "files.insertFinalNewline": true,
   "files.associations": {
     ".nxignore": "ignore",
+    ".funcignore": "ignore",
     "*.css": "tailwindcss",
     "*.template": "ejs",
     "**/.husky/*": "shellscript"

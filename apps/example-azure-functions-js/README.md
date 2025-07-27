@@ -28,10 +28,10 @@ Then, connect to your server at `http://localhost:7071/mcp` (or the URL shown in
 ```
 example-azure-functions-js/
 ├── src/
-│   ├── index.js      # Azure Functions entry point
-│   └── server.js     # MCP server implementation
-├── host.json         # Azure Functions host configuration
-├── local.settings.json # Azure Functions local settings
+│   ├── index.js              # Azure Functions entry point
+│   └── server.js             # MCP server implementation
+├── host.json                 # Azure Functions host configuration
+├── local.settings.json       # Azure Functions local settings
 ├── package.json
 └── README.md
 ```

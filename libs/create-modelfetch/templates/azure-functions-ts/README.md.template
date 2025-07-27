@@ -1,7 +1,6 @@
-# Example Azure Functions MCP Server (TypeScript)
+# <%= projectTitle %>
 
-> [!NOTE]
-> This is an internal example MCP server. To get started with [ModelFetch](https://www.modelfetch.com), please visit the [Quick Start documentation](https://www.modelfetch.com/docs/quick-start).
+An MCP server built with [ModelFetch](https://www.modelfetch.com)
 
 ## Quick Start
 
@@ -10,7 +9,7 @@
 Start the MCP server:
 
 ```bash
-pnpm exec nx start example-azure-functions-ts
+<%= packageManager %> start
 ```
 
 ### Testing with the MCP Inspector
@@ -26,7 +25,7 @@ Then, connect to your server at `http://localhost:7071/mcp` (or the URL shown in
 ## Project Structure
 
 ```
-example-azure-functions-ts/
+<%= projectName %>/
 ├── src/
 │   ├── index.ts              # Azure Functions entry point
 │   └── server.ts             # MCP server implementation
@@ -114,7 +113,8 @@ server.registerPrompt(
 
 ## Reading Docs
 
-- [Model Context Protocol - TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
 - [Model Context Protocol - Documentation](https://modelcontextprotocol.io)
+- [Model Context Protocol - TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
 - [ModelFetch - Website](https://www.modelfetch.com)
 - [ModelFetch - Documentation](https://www.modelfetch.com/docs)
+- [ModelFetch - GitHub](https://github.com/phuctm97/modelfetch)
