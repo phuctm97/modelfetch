@@ -6,8 +6,7 @@
   "type": "module",
   "main": "./dist/index.js",
   "scripts": {
-    "start": "func start",
-    "build": "tsc --build"
+    "start": "tsc -b && func start"
   },
   "dependencies": {
     "@azure/functions": "<%= versions['@azure/functions'] %>",
