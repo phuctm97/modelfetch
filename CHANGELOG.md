@@ -1,3 +1,13 @@
+## 0.15.0 (2025-07-27)
+
+### 🚀 Features
+
+- Add Azure Functions runtime support with TypeScript and JavaScript examples ([#64](https://github.com/phuctm97/modelfetch/pull/64))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.14.1 (2025-07-25)
 
 ### 🩹 Fixes
