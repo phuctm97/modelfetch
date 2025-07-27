@@ -1,0 +1,10 @@
+{
+  "name": "example-azure-functions-js",
+  "version": "0.14.1",
+  "private": true,
+  "type": "module",
+  "main": "src/{index.js,functions/*.js}",
+  "dependencies": {
+    "@azure/functions": "^4.7.2"
+  }
+}
