@@ -34,7 +34,7 @@ This workspace follows Nx best practices as outlined in @.cursor/rules/nx-rules.
 ### Workspace Configurations
 
 - Node.js version: @.nvmrc
-- TypeScript configurations: @tsconfig.base.json @tsconfig.bun.json @tsconfig.deno.json @tsconfig.next.json
+- TypeScript configurations: @tsconfig.base.json @tsconfig.node.json @tsconfig.bun.json @tsconfig.deno.json @tsconfig.next.json
 - TypeScript project references are used to improve the performance of TypeScript-related features
   - All TypeScript projects are referenced in the root @tsconfig.json
   - When adding or removing a TypeScript project as a local dependency to another TypeScript project, update the target project's `tsconfig.json` to add or remove the dependency project in its `references`
