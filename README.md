@@ -123,7 +123,7 @@ export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server); // Th
 
 ```typescript
 import handle from "@modelfetch/azure-functions"; // Choose your runtime
-import server from "./server"; // Import your server
+import server from "./server.js"; // Import your server
 
 handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
