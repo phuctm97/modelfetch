@@ -1,0 +1,22 @@
+{
+  "name": "<%= projectName %>",
+  "version": "0.0.1",
+  "description": "<%= projectTitle %> (built with ModelFetch)",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "scripts": {
+    "start": "tsc -b && func start"
+  },
+  "dependencies": {
+    "@azure/functions": "<%= versions['@azure/functions'] %>",
+    "@modelcontextprotocol/sdk": "<%= versions['@modelcontextprotocol/sdk'] %>",
+    "@modelfetch/azure-functions": "<%= versions['@modelfetch/azure-functions'] %>",
+    "tslib": "<%= versions['tslib'] %>",
+    "zod": "<%= versions['zod'] %>"
+  },
+  "devDependencies": {
+    "@types/node": "<%= versions['@types/node'] %>",
+    "typescript": "<%= versions['typescript'] %>"
+  }
+}

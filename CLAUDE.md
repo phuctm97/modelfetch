@@ -13,6 +13,7 @@ The SDK is built as a thin wrapper on top of `hono` and `@hono/mcp`, leveraging 
 - `@modelfetch/bun` - Bun runtime support
 - `@modelfetch/deno` - Deno runtime support
 - `@modelfetch/aws-lambda` - AWS Lambda runtime support
+- `@modelfetch/azure-functions` - Azure Functions runtime support
 - `@modelfetch/vercel` - Vercel runtime support
 - `@modelfetch/cloudflare` - Cloudflare runtime support
 - `@modelfetch/netlify` - Netlify runtime support
@@ -34,7 +35,7 @@ This workspace follows Nx best practices as outlined in @.cursor/rules/nx-rules.
 ### Workspace Configurations
 
 - Node.js version: @.nvmrc
-- TypeScript configurations: @tsconfig.base.json @tsconfig.bun.json @tsconfig.deno.json @tsconfig.next.json
+- TypeScript configurations: @tsconfig.base.json @tsconfig.node.json @tsconfig.bun.json @tsconfig.deno.json @tsconfig.next.json
 - TypeScript project references are used to improve the performance of TypeScript-related features
   - All TypeScript projects are referenced in the root @tsconfig.json
   - When adding or removing a TypeScript project as a local dependency to another TypeScript project, update the target project's `tsconfig.json` to add or remove the dependency project in its `references`
@@ -62,6 +63,8 @@ These projects are example applications powered by ModelFetch:
 - `example-deno-ts`: Deno application (TypeScript)
 - `example-aws-lambda-js`: AWS Lambda application (JavaScript)
 - `example-aws-lambda-ts`: AWS Lambda application (TypeScript)
+- `example-azure-functions-js`: Azure Functions application (JavaScript)
+- `example-azure-functions-ts`: Azure Functions application (TypeScript)
 - `example-vercel-js`: Vercel application (JavaScript)
 - `example-vercel-ts`: Vercel application (TypeScript)
 - `example-cloudflare-js`: Cloudflare application (JavaScript)
@@ -80,6 +83,7 @@ These projects are example applications powered by ModelFetch:
 - `@modelfetch/bun`: Bun runtime support
 - `@modelfetch/deno`: Deno runtime support
 - `@modelfetch/aws-lambda`: AWS Lambda runtime support
+- `@modelfetch/azure-functions`: Azure Functions runtime support
 - `@modelfetch/vercel`: Vercel runtime support
 - `@modelfetch/cloudflare`: Cloudflare runtime support
 - `@modelfetch/netlify`: Netlify runtime support

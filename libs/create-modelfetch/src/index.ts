@@ -49,6 +49,8 @@ const packageVersions = {
   "@modelfetch/netlify": packageJson.version,
   "@modelfetch/fastly": packageJson.version,
   "@fastly/js-compute": "3.34.0",
+  "@modelfetch/azure-functions": packageJson.version,
+  "@azure/functions": "4.7.2",
 };
 
 // Cloudflare compatibility date
@@ -60,6 +62,7 @@ type Runtime =
   | "bun"
   | "deno"
   | "aws-lambda"
+  | "azure-functions"
   | "vercel"
   | "cloudflare"
   | "netlify"
@@ -249,6 +252,7 @@ async function main() {
       { value: "bun", label: "Bun" },
       { value: "deno", label: "Deno" },
       { value: "aws-lambda", label: "AWS Lambda" },
+      { value: "azure-functions", label: "Azure Functions" },
       { value: "vercel", label: "Vercel" },
       { value: "cloudflare", label: "Cloudflare" },
       { value: "netlify", label: "Netlify" },

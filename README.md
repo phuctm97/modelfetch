@@ -18,7 +18,7 @@
 
 ## 🚀 Features
 
-- **Multi-Runtime**: Write once, run anywhere: Node.js, Next.js, Bun, Deno, AWS Lambda, Vercel, Cloudflare, Netlify, Fastly, etc.
+- **Multi-Runtime**: Write once, run anywhere: Node.js, Next.js, Bun, Deno, AWS Lambda, Azure Functions, Vercel, Cloudflare, Netlify, and Fastly
 - **Official SDK**: Built on top of the [official MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) to avoid lock-in, guarantee long-term support, and ensure up-to-date implementation
 - **Live Reload**: Development server with automatic reloading
 - **MCP Inspector**: Built-in integration for testing and debugging
@@ -119,6 +119,15 @@ import server from "./server"; // Import your server
 export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
+#### Azure Functions
+
+```typescript
+import handle from "@modelfetch/azure-functions"; // Choose your runtime
+import server from "./server.js"; // Import your server
+
+handle(server); // That's it — ModelFetch handles all runtime-specific details
+```
+
 #### Vercel
 
 ```typescript
@@ -178,17 +187,18 @@ handle(server); // That's it — ModelFetch handles all runtime-specific details
 
 ModelFetch provides runtime-specific packages that handle tedious platform differences while you focus on building your MCP server capabilities. Each package maintains a [consistent API](https://www.modelfetch.com/docs#the-handle-function) across different runtimes.
 
-| Package                                                | Description                             | Status   |
-| ------------------------------------------------------ | --------------------------------------- | -------- |
-| [`@modelfetch/node`](libs/modelfetch-node)             | Run simple MCP servers with Node.js     | ✅ Ready |
-| [`@modelfetch/next`](libs/modelfetch-next)             | Run flexible MCP servers with Next.js   | ✅ Ready |
-| [`@modelfetch/bun`](libs/modelfetch-bun)               | Run lightning-fast MCP servers with Bun | ✅ Ready |
-| [`@modelfetch/deno`](libs/modelfetch-deno)             | Run secure MCP servers with Deno        | ✅ Ready |
-| [`@modelfetch/aws-lambda`](libs/modelfetch-aws-lambda) | Deploy MCP servers to AWS Lambda        | ✅ Ready |
-| [`@modelfetch/vercel`](libs/modelfetch-vercel)         | Deploy MCP servers to Vercel            | ✅ Ready |
-| [`@modelfetch/cloudflare`](libs/modelfetch-cloudflare) | Deploy MCP servers to Cloudflare        | ✅ Ready |
-| [`@modelfetch/netlify`](libs/modelfetch-netlify)       | Deploy MCP servers to Netlify           | ✅ Ready |
-| [`@modelfetch/fastly`](libs/modelfetch-fastly)         | Deploy MCP servers to Fastly            | ✅ Ready |
+| Package                                                          | Description                             | Status   |
+| ---------------------------------------------------------------- | --------------------------------------- | -------- |
+| [`@modelfetch/node`](libs/modelfetch-node)                       | Run simple MCP servers with Node.js     | ✅ Ready |
+| [`@modelfetch/next`](libs/modelfetch-next)                       | Run flexible MCP servers with Next.js   | ✅ Ready |
+| [`@modelfetch/bun`](libs/modelfetch-bun)                         | Run lightning-fast MCP servers with Bun | ✅ Ready |
+| [`@modelfetch/deno`](libs/modelfetch-deno)                       | Run secure MCP servers with Deno        | ✅ Ready |
+| [`@modelfetch/aws-lambda`](libs/modelfetch-aws-lambda)           | Deploy MCP servers to AWS Lambda        | ✅ Ready |
+| [`@modelfetch/azure-functions`](libs/modelfetch-azure-functions) | Deploy MCP servers to Azure Functions   | ✅ Ready |
+| [`@modelfetch/vercel`](libs/modelfetch-vercel)                   | Deploy MCP servers to Vercel            | ✅ Ready |
+| [`@modelfetch/cloudflare`](libs/modelfetch-cloudflare)           | Deploy MCP servers to Cloudflare        | ✅ Ready |
+| [`@modelfetch/netlify`](libs/modelfetch-netlify)                 | Deploy MCP servers to Netlify           | ✅ Ready |
+| [`@modelfetch/fastly`](libs/modelfetch-fastly)                   | Deploy MCP servers to Fastly            | ✅ Ready |
 
 ## 🛠️ Development
 

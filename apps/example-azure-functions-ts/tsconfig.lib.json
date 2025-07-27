@@ -1,0 +1,17 @@
+{
+  "include": ["src"],
+  "references": [
+    {
+      "path": "../../libs/modelfetch/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/modelfetch-azure-functions/tsconfig.lib.json"
+    }
+  ],
+  "extends": "../../tsconfig.node.json",
+  "compilerOptions": {
+    "sourceRoot": "/apps/example-azure-functions-ts/src",
+    "rootDir": "src",
+    "outDir": "dist"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "example-azure-functions-ts",
+  "version": "0.14.1",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "dependencies": {
+    "@azure/functions": "^4.7.2",
+    "@modelcontextprotocol/sdk": "^1.17.0",
+    "@modelfetch/azure-functions": "workspace:^",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "create-eslint-config": "workspace:^",
+    "modelfetch": "workspace:^"
+  }
+}

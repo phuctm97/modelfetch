@@ -190,14 +190,10 @@ export const createNodesV2: CreateNodesV2 = [
             };
           }
           if (
-            Boolean(
-              (packageJson.dependencies?.["aws-cdk"] ?? "") ||
-                (packageJson.devDependencies?.["aws-cdk"] ?? ""),
-            ) &&
-            Boolean(
-              (packageJson.dependencies?.["aws-cdk-lib"] ?? "") ||
-                (packageJson.devDependencies?.["aws-cdk-lib"] ?? ""),
-            ) &&
+            (packageJson.dependencies?.["aws-cdk"] ||
+              packageJson.devDependencies?.["aws-cdk"]) &&
+            (packageJson.dependencies?.["aws-cdk-lib"] ||
+              packageJson.devDependencies?.["aws-cdk-lib"]) &&
             fs.existsSync(path.join(projectRoot, "cdk.json"))
           ) {
             useDefaultStartCommand = false;
@@ -209,6 +205,19 @@ export const createNodesV2: CreateNodesV2 = [
             targets.destroy = {
               command: "cdk destroy",
               options: { cwd: "{projectRoot}" },
+            };
+          }
+          if (
+            (packageJson.dependencies?.["@azure/functions"] ||
+              packageJson.devDependencies?.["@azure/functions"]) &&
+            fs.existsSync(path.join(projectRoot, "host.json"))
+          ) {
+            useDefaultStartCommand = false;
+            targets.start = {
+              command: "func start",
+              options: { cwd: "{projectRoot}" },
+              continuous: true,
+              dependsOn: ["build", "^build"],
             };
           }
           if (useDefaultStartCommand) {

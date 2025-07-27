@@ -48,9 +48,11 @@ export const metadata: Metadata = {
     "Bun",
     "Deno",
     "AWS Lambda",
+    "Azure Functions",
     "Vercel",
     "Cloudflare",
     "Netlify",
+    "Fastly",
   ],
 };
 
