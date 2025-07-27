@@ -1,4 +1,4 @@
-# Example Azure Functions MCP Server (JavaScript)
+# Example Azure Functions MCP Server (TypeScript)
 
 > [!NOTE]
 > This is an internal example MCP server. To get started with [ModelFetch](https://www.modelfetch.com), please visit the [Quick Start documentation](https://www.modelfetch.com/docs/quick-start).
@@ -10,7 +10,7 @@
 Start the MCP server:
 
 ```bash
-pnpm exec nx start example-azure-functions-js
+pnpm exec nx start example-azure-functions-ts
 ```
 
 ### Testing with the MCP Inspector
@@ -26,12 +26,13 @@ Then, connect to your server at `http://localhost:7071/mcp` (or the URL shown in
 ## Project Structure
 
 ```
-example-azure-functions-js/
+example-azure-functions-ts/
 ├── src/
-│   ├── index.js      # Azure Functions entry point
-│   └── server.js     # MCP server implementation
+│   ├── index.ts      # Azure Functions entry point
+│   └── server.ts     # MCP server implementation
 ├── host.json         # Azure Functions host configuration
 ├── local.settings.json # Azure Functions local settings
+├── tsconfig.json
 ├── package.json
 └── README.md
 ```
@@ -42,7 +43,7 @@ example-azure-functions-js/
 
 Tools provide executable functions to LLMs:
 
-```javascript
+```typescript
 server.registerTool(
   "my_tool",
   {
@@ -65,7 +66,7 @@ server.registerTool(
 
 Resources expose data and content to LLMs:
 
-```javascript
+```typescript
 server.registerResource(
   "my_resource",
   "resource://my-resource",
@@ -89,7 +90,7 @@ server.registerResource(
 
 Prompts are reusable templates for interacting with LLMs:
 
-```javascript
+```typescript
 server.registerPrompt(
   "my_prompt",
   {

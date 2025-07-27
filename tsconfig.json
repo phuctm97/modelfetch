@@ -5,6 +5,9 @@
       "path": "./apps/example-aws-lambda-ts"
     },
     {
+      "path": "./apps/example-azure-functions-ts"
+    },
+    {
       "path": "./apps/example-bun-ts"
     },
     {
