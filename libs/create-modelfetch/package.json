@@ -1,6 +1,6 @@
 {
   "name": "create-modelfetch",
-  "version": "0.15.1",
+  "version": "0.15.2",
   "description": "CLI for scaffolding a new MCP server with ModelFetch",
   "keywords": [
     "model-context-protocol",

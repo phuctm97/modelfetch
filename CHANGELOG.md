@@ -1,3 +1,13 @@
+## 0.15.2 (2025-07-28)
+
+### 🩹 Fixes
+
+- Fix template formatting by adding missing newlines and reorganizing entries ([#66](https://github.com/phuctm97/modelfetch/pull/66))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.15.1 (2025-07-28)
 
 ### 🩹 Fixes
