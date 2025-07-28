@@ -1,5 +1,6 @@
-.DS_Store
 .git*
+.DS_Store
+.vscode
 local.settings.json
 __blobstorage__
 __queuestorage__
