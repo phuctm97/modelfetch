@@ -1,5 +1,5 @@
 ---
-__default__: minor
+__default__: patch
 ---
 
-Add Azure Functions runtime support for ModelFetch SDK
+Add VSCode configuration and function ignore files for Azure Functions templates
