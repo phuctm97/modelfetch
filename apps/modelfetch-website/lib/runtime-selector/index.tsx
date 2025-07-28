@@ -91,26 +91,6 @@ import server from "./server.ts";
 handle(server);`,
   },
   {
-    id: "aws-lambda",
-    name: "AWS Lambda",
-    icon: SiAws,
-    installCommand: "npm install @modelfetch/aws-lambda",
-    codeExample: `import handle from "@modelfetch/aws-lambda";
-import server from "./server";
-
-export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server);`,
-  },
-  {
-    id: "azure-functions",
-    name: "Azure Functions",
-    icon: SiAzure,
-    installCommand: "npm install @modelfetch/azure-functions",
-    codeExample: `import handle from "@modelfetch/azure-functions";
-import server from "./server.js";
-
-handle(server);`,
-  },
-  {
     id: "vercel",
     name: "Vercel",
     icon: SiVercel,
@@ -153,6 +133,26 @@ export default handle(server);`,
     installCommand: "npm install @modelfetch/fastly",
     codeExample: `import handle from "@modelfetch/fastly";
 import server from "./server";
+
+handle(server);`,
+  },
+  {
+    id: "aws-lambda",
+    name: "AWS Lambda",
+    icon: SiAws,
+    installCommand: "npm install @modelfetch/aws-lambda",
+    codeExample: `import handle from "@modelfetch/aws-lambda";
+import server from "./server";
+
+export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server);`,
+  },
+  {
+    id: "azure-functions",
+    name: "Azure Functions",
+    icon: SiAzure,
+    installCommand: "npm install @modelfetch/azure-functions",
+    codeExample: `import handle from "@modelfetch/azure-functions";
+import server from "./server.js";
 
 handle(server);`,
   },

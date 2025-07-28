@@ -61,12 +61,12 @@ type Runtime =
   | "next"
   | "bun"
   | "deno"
-  | "aws-lambda"
-  | "azure-functions"
   | "vercel"
   | "cloudflare"
   | "netlify"
-  | "fastly";
+  | "fastly"
+  | "aws-lambda"
+  | "azure-functions";
 type Language = "javascript" | "typescript";
 type PackageManager = "npm" | "pnpm" | "yarn" | "bun";
 
@@ -251,12 +251,12 @@ async function main() {
       { value: "next", label: "Next.js" },
       { value: "bun", label: "Bun" },
       { value: "deno", label: "Deno" },
-      { value: "aws-lambda", label: "AWS Lambda" },
-      { value: "azure-functions", label: "Azure Functions" },
       { value: "vercel", label: "Vercel" },
       { value: "cloudflare", label: "Cloudflare" },
       { value: "netlify", label: "Netlify" },
       { value: "fastly", label: "Fastly" },
+      { value: "aws-lambda", label: "AWS Lambda" },
+      { value: "azure-functions", label: "Azure Functions" },
     ],
     initialValue: detectedRuntime,
   })) as Runtime;
