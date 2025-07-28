@@ -1,3 +1,13 @@
+## 0.15.1 (2025-07-28)
+
+### 🩹 Fixes
+
+- Add VSCode configuration and function ignore files for Azure Functions templates ([#65](https://github.com/phuctm97/modelfetch/pull/65))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.15.0 (2025-07-27)
 
 ### 🚀 Features
