@@ -5,11 +5,11 @@
     "next",
     "bun",
     "deno",
-    "aws-lambda",
-    "azure-functions",
     "vercel",
     "cloudflare",
     "netlify",
-    "fastly"
+    "fastly",
+    "aws-lambda",
+    "azure-functions"
   ]
 }

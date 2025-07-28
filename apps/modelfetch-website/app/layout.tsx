@@ -47,12 +47,12 @@ export const metadata: Metadata = {
     "Next.js",
     "Bun",
     "Deno",
-    "AWS Lambda",
-    "Azure Functions",
     "Vercel",
     "Cloudflare",
     "Netlify",
     "Fastly",
+    "AWS Lambda",
+    "Azure Functions",
   ],
 };
 

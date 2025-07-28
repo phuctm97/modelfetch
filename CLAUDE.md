@@ -12,12 +12,12 @@ The SDK is built as a thin wrapper on top of `hono` and `@hono/mcp`, leveraging 
 - `@modelfetch/next` - Next.js runtime support
 - `@modelfetch/bun` - Bun runtime support
 - `@modelfetch/deno` - Deno runtime support
-- `@modelfetch/aws-lambda` - AWS Lambda runtime support
-- `@modelfetch/azure-functions` - Azure Functions runtime support
 - `@modelfetch/vercel` - Vercel runtime support
 - `@modelfetch/cloudflare` - Cloudflare runtime support
 - `@modelfetch/netlify` - Netlify runtime support
 - `@modelfetch/fastly` - Fastly runtime support
+- `@modelfetch/aws-lambda` - AWS Lambda runtime support
+- `@modelfetch/azure-functions` - Azure Functions runtime support
 
 Each package acts as a thin wrapper around the equivalent Hono package, ensuring optimal performance and compatibility. Additionally, each package maintains a consistent API across different runtimes.
 
@@ -61,10 +61,6 @@ These projects are example applications powered by ModelFetch:
 - `example-bun-ts`: Bun application (TypeScript)
 - `example-deno-js`: Deno application (JavaScript)
 - `example-deno-ts`: Deno application (TypeScript)
-- `example-aws-lambda-js`: AWS Lambda application (JavaScript)
-- `example-aws-lambda-ts`: AWS Lambda application (TypeScript)
-- `example-azure-functions-js`: Azure Functions application (JavaScript)
-- `example-azure-functions-ts`: Azure Functions application (TypeScript)
 - `example-vercel-js`: Vercel application (JavaScript)
 - `example-vercel-ts`: Vercel application (TypeScript)
 - `example-cloudflare-js`: Cloudflare application (JavaScript)
@@ -73,6 +69,10 @@ These projects are example applications powered by ModelFetch:
 - `example-netlify-ts`: Netlify application (TypeScript)
 - `example-fastly-js`: Fastly application (JavaScript)
 - `example-fastly-ts`: Fastly application (TypeScript)
+- `example-aws-lambda-js`: AWS Lambda application (JavaScript)
+- `example-aws-lambda-ts`: AWS Lambda application (TypeScript)
+- `example-azure-functions-js`: Azure Functions application (JavaScript)
+- `example-azure-functions-ts`: Azure Functions application (TypeScript)
 
 ### Core Libraries
 
@@ -82,12 +82,12 @@ These projects are example applications powered by ModelFetch:
 - `@modelfetch/next`: Next.js runtime support
 - `@modelfetch/bun`: Bun runtime support
 - `@modelfetch/deno`: Deno runtime support
-- `@modelfetch/aws-lambda`: AWS Lambda runtime support
-- `@modelfetch/azure-functions`: Azure Functions runtime support
 - `@modelfetch/vercel`: Vercel runtime support
 - `@modelfetch/cloudflare`: Cloudflare runtime support
 - `@modelfetch/netlify`: Netlify runtime support
 - `@modelfetch/fastly`: Fastly runtime support
+- `@modelfetch/aws-lambda`: AWS Lambda runtime support
+- `@modelfetch/azure-functions`: Azure Functions runtime support
 
 ### Supporting Libraries
 

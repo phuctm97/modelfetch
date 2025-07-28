@@ -13,7 +13,7 @@ npx -y create-modelfetch@latest
 
 The CLI will guide you through:
 
-1. **Choosing a runtime** - Node.js, Next.js, Bun, Deno, AWS Lambda, Azure Functions, Vercel, Cloudflare, Netlify, or Fastly
+1. **Choosing a runtime** - Node.js, Next.js, Bun, Deno, Vercel, Cloudflare, Netlify, Fastly, AWS Lambda, or Azure Functions
 2. **Selecting a language** - TypeScript or JavaScript
 3. **Picking a package manager** - npm, pnpm, bun, or yarn
 
@@ -37,14 +37,6 @@ bun add @modelfetch/bun
 deno add jsr:@modelfetch/deno
 ```
 
-```npm title="Terminal" tab="AWS Lambda"
-npm install @modelfetch/aws-lambda
-```
-
-```npm title="Terminal" tab="Azure Functions"
-npm install @modelfetch/azure-functions
-```
-
 ```npm title="Terminal" tab="Vercel"
 npm install @modelfetch/vercel
 ```
@@ -59,6 +51,14 @@ npm install @modelfetch/netlify
 
 ```npm title="Terminal" tab="Fastly"
 npm install @modelfetch/fastly
+```
+
+```npm title="Terminal" tab="AWS Lambda"
+npm install @modelfetch/aws-lambda
+```
+
+```npm title="Terminal" tab="Azure Functions"
+npm install @modelfetch/azure-functions
 ```
 
 Then, create the following files:
@@ -133,20 +133,6 @@ import server from "./server.ts"; // Import your server
 handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
-```typescript title="src/index.ts" tab="AWS Lambda"
-import handle from "@modelfetch/aws-lambda"; // Choose your runtime
-import server from "./server"; // Import your server
-
-export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server); // That's it — ModelFetch handles all runtime-specific details
-```
-
-```typescript title="src/index.ts" tab="Azure Functions"
-import handle from "@modelfetch/azure-functions"; // Choose your runtime
-import server from "./server.js"; // Import your server
-
-handle(server); // That's it — ModelFetch handles all runtime-specific details
-```
-
 ```typescript title="app/[[...path]]/route.ts" tab="Vercel"
 import handle from "@modelfetch/vercel"; // Choose your runtime
 import server from "./server"; // Import your server
@@ -177,6 +163,20 @@ export default handle(server); // That's it — ModelFetch handles all runtime-s
 ```typescript title="src/index.ts" tab="Fastly"
 import handle from "@modelfetch/fastly"; // Choose your runtime
 import server from "./server"; // Import your server
+
+handle(server); // That's it — ModelFetch handles all runtime-specific details
+```
+
+```typescript title="src/index.ts" tab="AWS Lambda"
+import handle from "@modelfetch/aws-lambda"; // Choose your runtime
+import server from "./server"; // Import your server
+
+export const handler: AWSLambda.LambdaFunctionURLHandler = handle(server); // That's it — ModelFetch handles all runtime-specific details
+```
+
+```typescript title="src/index.ts" tab="Azure Functions"
+import handle from "@modelfetch/azure-functions"; // Choose your runtime
+import server from "./server.js"; // Import your server
 
 handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
