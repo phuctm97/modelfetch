@@ -11,7 +11,7 @@ export interface Server {
 
 export interface Config {
   server: Server;
-  path?: string;
+  base?: string;
   middleware?: MiddlewareHandler[];
   pre?: (app: Hono) => void;
   post?: (app: Hono) => void;
@@ -24,19 +24,20 @@ export function createApp(arg: ServerOrConfig): App {
 
   const app = new Hono();
 
-  if (config.pre) config.pre(app);
+  const router = config.base ? app.basePath(config.base) : app;
 
-  const path = config.path ?? "/mcp";
+  if (config.pre) config.pre(router);
 
-  if (config.middleware) for (const fn of config.middleware) app.use(path, fn);
+  if (config.middleware)
+    for (const fn of config.middleware) router.use("/mcp", fn);
 
-  app.all(path, async (c) => {
+  router.all("/mcp", async (c) => {
     const transport = new StreamableHTTPTransport();
     await config.server.connect(transport);
     return transport.handleRequest(c);
   });
 
-  if (config.post) config.post(app);
+  if (config.post) config.post(router);
 
   return app;
 }
