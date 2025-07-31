@@ -1,3 +1,17 @@
+## 0.16.0 (2025-07-31)
+
+### 🚀 Features
+
+- Add base configuration option to customize MCP server base path ([#69](https://github.com/phuctm97/modelfetch/pull/69))
+
+### 🩹 Fixes
+
+- Add Node.js engine requirement (>=20.10) to create-modelfetch package ([#69](https://github.com/phuctm97/modelfetch/pull/69))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.15.2 (2025-07-28)
 
 ### 🩹 Fixes
