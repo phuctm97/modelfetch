@@ -220,6 +220,30 @@ export const createNodesV2: CreateNodesV2 = [
               dependsOn: ["build", "^build"],
             };
           }
+          if (
+            packageJson.dependencies?.["@modelfetch/gcore"] ||
+            packageJson.devDependencies?.["@modelfetch/gcore"]
+          ) {
+            useDefaultStartCommand = false;
+            targets["build-wasm"] = {
+              cache: true,
+              command: `fastedge-build ${fs.existsSync(path.join(projectRoot, "tsconfig.json")) ? "./dist/index.js" : "./src/index.js"} ./dist/index.wasm`,
+              options: { cwd: "{projectRoot}" },
+              inputs: [
+                "production",
+                "^production",
+                { dependentTasksOutputFiles: "**/*.js" },
+                { externalDependencies: ["typescript", "tslib"] },
+              ],
+              outputs: ["{projectRoot}/dist/index.wasm"],
+              dependsOn: ["build", "^build"],
+            };
+            targets.deploy = {
+              executor: "nx-10x:deploy-gcore-fastedge",
+              options: { cwd: "{projectRoot}" },
+              dependsOn: ["build-wasm"],
+            };
+          }
           if (useDefaultStartCommand) {
             const defaultStartCommand = getDefaultStartCommand(
               projectRoot,

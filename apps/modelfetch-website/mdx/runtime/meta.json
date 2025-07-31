@@ -9,6 +9,7 @@
     "cloudflare",
     "netlify",
     "fastly",
+    "gcore",
     "aws-lambda",
     "azure-functions"
   ]

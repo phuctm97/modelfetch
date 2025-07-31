@@ -116,6 +116,13 @@ import server from "./server"; // Import your server
 handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
+```typescript title="src/index.ts" tab="Gcore"
+import handle from "@modelfetch/gcore"; // Choose your runtime
+import server from "./server"; // Import your server
+
+handle(server); // That's it — ModelFetch handles all runtime-specific details
+```
+
 ```typescript title="src/index.ts" tab="AWS Lambda"
 import handle from "@modelfetch/aws-lambda"; // Choose your runtime
 import server from "./server"; // Import your server
@@ -201,6 +208,13 @@ export default handle(server); // That's it — ModelFetch handles all runtime-s
 
 ```typescript title="src/index.ts" tab="Fastly"
 import handle from "@modelfetch/fastly"; // Choose your runtime
+import server from "./server"; // Import your server
+
+handle(server); // That's it — ModelFetch handles all runtime-specific details
+```
+
+```typescript title="src/index.ts" tab="Gcore"
+import handle from "@modelfetch/gcore"; // Choose your runtime
 import server from "./server"; // Import your server
 
 handle(server); // That's it — ModelFetch handles all runtime-specific details

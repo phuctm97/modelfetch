@@ -49,6 +49,8 @@ const packageVersions = {
   "@modelfetch/netlify": packageJson.version,
   "@modelfetch/fastly": packageJson.version,
   "@fastly/js-compute": "3.34.0",
+  "@modelfetch/gcore": packageJson.version,
+  "@gcoredev/fastedge-sdk-js": "1.2.2",
   "@modelfetch/azure-functions": packageJson.version,
   "@azure/functions": "4.7.2",
 };
@@ -65,6 +67,7 @@ type Runtime =
   | "cloudflare"
   | "netlify"
   | "fastly"
+  | "gcore"
   | "aws-lambda"
   | "azure-functions";
 type Language = "javascript" | "typescript";
@@ -127,7 +130,8 @@ function getStartCommand(
     case "deno": {
       return "deno task start";
     }
-    case "aws-lambda": {
+    case "aws-lambda":
+    case "gcore": {
       return `${packageManager} run deploy`;
     }
     case "next":
@@ -255,6 +259,7 @@ async function main() {
       { value: "cloudflare", label: "Cloudflare" },
       { value: "netlify", label: "Netlify" },
       { value: "fastly", label: "Fastly" },
+      { value: "gcore", label: "Gcore" },
       { value: "aws-lambda", label: "AWS Lambda" },
       { value: "azure-functions", label: "Azure Functions" },
     ],

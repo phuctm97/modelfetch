@@ -1,0 +1,20 @@
+{
+  "name": "<%= projectName %>",
+  "version": "0.0.1",
+  "description": "<%= projectTitle %> (built with ModelFetch)",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "fastedge-build ./src/index.js ./dist/index.wasm",
+    "deploy": "echo 'Use Gcore CLI to deploy your FastEdge HTTP application'"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "<%= versions['@modelcontextprotocol/sdk'] %>",
+    "@modelfetch/gcore": "<%= versions['@modelfetch/gcore'] %>",
+    "tslib": "<%= versions['tslib'] %>",
+    "zod": "<%= versions['zod'] %>"
+  },
+  "devDependencies": {
+    "@gcoredev/fastedge-sdk-js": "<%= versions['@gcoredev/fastedge-sdk-js'] %>"
+  }
+}

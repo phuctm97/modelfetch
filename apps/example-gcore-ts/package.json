@@ -1,0 +1,16 @@
+{
+  "name": "example-gcore-ts",
+  "version": "0.16.1",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.0",
+    "@modelfetch/gcore": "workspace:^",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@gcoredev/fastedge-sdk-js": "^1.2.2",
+    "create-eslint-config": "workspace:^",
+    "modelfetch": "workspace:^"
+  }
+}
