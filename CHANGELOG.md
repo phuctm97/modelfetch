@@ -1,3 +1,13 @@
+## 0.16.1 (2025-07-31)
+
+### 🩹 Fixes
+
+- Update Node.js version to 22.17 and update project dependencies ([#70](https://github.com/phuctm97/modelfetch/pull/70))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.16.0 (2025-07-31)
 
 ### 🚀 Features
