@@ -11,6 +11,6 @@
   "devDependencies": {
     "create-eslint-config": "workspace:^",
     "modelfetch": "workspace:^",
-    "wrangler": "^4.26.0"
+    "wrangler": "^4.26.1"
   }
 }
