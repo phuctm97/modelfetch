@@ -10,8 +10,8 @@
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.152",
-    "aws-cdk": "^2.1022.0",
-    "aws-cdk-lib": "^2.207.0",
+    "aws-cdk": "^2.1023.0",
+    "aws-cdk-lib": "^2.208.0",
     "constructs": "^10.4.2",
     "create-eslint-config": "workspace:^",
     "esbuild": "^0.25.8",
