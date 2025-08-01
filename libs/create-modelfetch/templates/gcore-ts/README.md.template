@@ -31,6 +31,7 @@ Then, connect to your server at the URL shown in the output.
 ├── src/
 │   ├── index.ts      # Gcore FastEdge HTTP application
 │   └── server.ts     # MCP server implementation
+├── deploy.js         # Gcore FastEdge deployment script
 ├── tsconfig.json
 ├── package.json
 └── README.md
