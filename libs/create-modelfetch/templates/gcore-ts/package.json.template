@@ -1,0 +1,20 @@
+{
+  "name": "<%= projectName %>",
+  "version": "0.0.1",
+  "description": "<%= projectTitle %> (built with ModelFetch)",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "tsc -b && fastedge-build ./dist/index.js ./dist/index.wasm && node deploy.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "<%= versions['@modelcontextprotocol/sdk'] %>",
+    "@modelfetch/gcore": "<%= versions['@modelfetch/gcore'] %>",
+    "tslib": "<%= versions['tslib'] %>",
+    "zod": "<%= versions['zod'] %>"
+  },
+  "devDependencies": {
+    "@gcoredev/fastedge-sdk-js": "<%= versions['@gcoredev/fastedge-sdk-js'] %>",
+    "typescript": "<%= versions['typescript'] %>"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "include": ["src"],
+  "references": [
+    {
+      "path": "../../libs/modelfetch/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/modelfetch-gcore/tsconfig.lib.json"
+    }
+  ],
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "sourceRoot": "/apps/example-gcore-ts/src",
+    "rootDir": "src",
+    "outDir": "dist"
+  }
+}

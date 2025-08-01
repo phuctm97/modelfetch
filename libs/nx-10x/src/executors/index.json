@@ -4,6 +4,11 @@
       "description": "Prepare for release publishing.",
       "implementation": "./prepare-release-publish/index.ts",
       "schema": "./prepare-release-publish/schema.json"
+    },
+    "deploy-gcore-fastedge": {
+      "description": "Deploy a Gcore FastEdge application",
+      "implementation": "./deploy-gcore-fastedge/index.ts",
+      "schema": "./deploy-gcore-fastedge/schema.json"
     }
   }
 }

@@ -18,7 +18,7 @@
 
 ## 🚀 Features
 
-- **Multi-Runtime**: Write once, run anywhere: Node.js, Next.js, Bun, Deno, Vercel, Cloudflare, Netlify, Fastly, AWS Lambda, and Azure Functions
+- **Multi-Runtime**: Write once, run anywhere: Node.js, Next.js, Bun, Deno, Vercel, Cloudflare, Netlify, Fastly, Gcore, AWS Lambda, and Azure Functions
 - **Official SDK**: Built on top of the [official MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) to avoid lock-in, guarantee long-term support, and ensure up-to-date implementation
 - **Live Reload**: Development server with automatic reloading
 - **MCP Inspector**: Built-in integration for testing and debugging
@@ -152,6 +152,15 @@ import server from "./server"; // Import your server
 handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
+#### Gcore
+
+```typescript
+import handle from "@modelfetch/gcore"; // Choose your runtime
+import server from "./server"; // Import your server
+
+handle(server); // That's it — ModelFetch handles all runtime-specific details
+```
+
 #### AWS Lambda
 
 ```typescript
@@ -197,6 +206,7 @@ ModelFetch provides runtime-specific packages that handle tedious platform diffe
 | [`@modelfetch/cloudflare`](libs/modelfetch-cloudflare)           | Deploy MCP servers to Cloudflare        | ✅ Ready |
 | [`@modelfetch/netlify`](libs/modelfetch-netlify)                 | Deploy MCP servers to Netlify           | ✅ Ready |
 | [`@modelfetch/fastly`](libs/modelfetch-fastly)                   | Deploy MCP servers to Fastly            | ✅ Ready |
+| [`@modelfetch/gcore`](libs/modelfetch-gcore)                     | Deploy MCP servers to Gcore             | ✅ Ready |
 | [`@modelfetch/aws-lambda`](libs/modelfetch-aws-lambda)           | Deploy MCP servers to AWS Lambda        | ✅ Ready |
 | [`@modelfetch/azure-functions`](libs/modelfetch-azure-functions) | Deploy MCP servers to Azure Functions   | ✅ Ready |
 

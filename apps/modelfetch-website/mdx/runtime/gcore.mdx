@@ -1,0 +1,30 @@
+---
+title: Gcore
+description: Deploy MCP servers to Gcore
+---
+
+The `@modelfetch/gcore` package lets you deploy MCP servers to [Gcore](https://gcore.com).
+
+## Installation
+
+```npm title="Terminal"
+npm install @modelfetch/gcore
+```
+
+## Usage
+
+```typescript title="src/index.ts"
+import handle from "@modelfetch/gcore";
+import server from "./server"; // Import your McpServer
+
+// Run as a Gcore FastEdge HTTP application
+handle(server);
+```
+
+## API Reference
+
+### `handle(server)`
+
+Starts the MCP server
+
+- **server**: Required [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance from [`@modelcontextprotocol/sdk`](https://github.com/modelcontextprotocol/typescript-sdk)

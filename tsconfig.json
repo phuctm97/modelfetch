@@ -20,6 +20,9 @@
       "path": "./apps/example-fastly-ts"
     },
     {
+      "path": "./apps/example-gcore-ts"
+    },
+    {
       "path": "./apps/example-netlify-ts"
     },
     {
@@ -60,6 +63,9 @@
     },
     {
       "path": "./libs/modelfetch-fastly"
+    },
+    {
+      "path": "./libs/modelfetch-gcore"
     },
     {
       "path": "./libs/modelfetch-netlify"

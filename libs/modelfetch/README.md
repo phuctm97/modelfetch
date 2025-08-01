@@ -16,5 +16,6 @@
 - [@modelfetch/cloudflare](https://www.npmjs.com/package/@modelfetch/cloudflare) for Cloudflare
 - [@modelfetch/netlify](https://www.npmjs.com/package/@modelfetch/netlify) for Netlify
 - [@modelfetch/fastly](https://www.npmjs.com/package/@modelfetch/fastly) for Fastly
+- [@modelfetch/gcore](https://www.npmjs.com/package/@modelfetch/gcore) for Gcore
 - [@modelfetch/aws-lambda](https://www.npmjs.com/package/@modelfetch/aws-lambda) for AWS Lambda
 - [@modelfetch/azure-functions](https://www.npmjs.com/package/@modelfetch/azure-functions) for Azure Functions

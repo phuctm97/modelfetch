@@ -1,0 +1,78 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+
+const packageJson = JSON.parse(await readFile("package.json", "utf8"));
+const appName = packageJson.name || path.basename(process.cwd());
+const apiKey = process.env.GCORE_API_KEY;
+
+if (!apiKey) {
+  throw new Error("GCORE_API_KEY environment variable is required");
+}
+
+const uploadResponse = await fetch(
+  "https://api.gcore.com/fastedge/v1/binaries/raw",
+  {
+    method: "POST",
+    headers: {
+      authorization: `apikey ${apiKey}`,
+      "content-type": "application/octet-stream",
+    },
+    body: await readFile(path.resolve("dist", "index.wasm")),
+  }
+);
+
+if (!uploadResponse.ok) {
+  throw new Error(
+    `Failed to upload binary: ${uploadResponse.status} ${await uploadResponse.text()}`
+  );
+}
+
+const uploadResult = await uploadResponse.json();
+
+const listUrl = new URL("https://api.gcore.com/fastedge/v1/apps");
+listUrl.searchParams.set("name", appName);
+
+const listResponse = await fetch(listUrl, {
+  method: "GET",
+  headers: { authorization: `apikey ${apiKey}` },
+});
+
+let app = null;
+if (listResponse.ok) {
+  const listResult = await listResponse.json();
+  app = listResult.apps.find((a) => a.name === appName);
+} else if (listResponse.status !== 404) {
+  throw new Error(
+    `Failed to list applications: ${listResponse.status} ${await listResponse.text()}`
+  );
+}
+
+const deployResponse = await (app
+  ? fetch(`https://api.gcore.com/fastedge/v1/apps/${app.id}`, {
+      method: "PATCH",
+      headers: {
+        authorization: `apikey ${apiKey}`,
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ binary: uploadResult.id, status: 1 }),
+    })
+  : fetch("https://api.gcore.com/fastedge/v1/apps", {
+      method: "POST",
+      headers: {
+        authorization: `apikey ${apiKey}`,
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        name: appName,
+        binary: uploadResult.id,
+        status: 1,
+      }),
+    }));
+
+if (!deployResponse.ok) {
+  throw new Error(
+    `Failed to ${app ? "update" : "create"} application: ${deployResponse.status} ${await deployResponse.text()}`
+  );
+}
+
+console.log((await deployResponse.json()).url);

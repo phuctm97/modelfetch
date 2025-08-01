@@ -5,6 +5,7 @@ import {
   SiCloudflare,
   SiDeno,
   SiFastly,
+  SiGcore,
   SiNetlify,
   SiNextdotjs,
   SiNodedotjs,
@@ -132,6 +133,16 @@ export default handle(server);`,
     icon: SiFastly,
     installCommand: "npm install @modelfetch/fastly",
     codeExample: `import handle from "@modelfetch/fastly";
+import server from "./server";
+
+handle(server);`,
+  },
+  {
+    id: "gcore",
+    name: "Gcore",
+    icon: SiGcore,
+    installCommand: "npm install @modelfetch/gcore",
+    codeExample: `import handle from "@modelfetch/gcore";
 import server from "./server";
 
 handle(server);`,
