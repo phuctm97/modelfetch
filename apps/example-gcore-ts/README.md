@@ -23,7 +23,7 @@ In a separate terminal, run the MCP Inspector to test your server:
 npx -y @modelcontextprotocol/inspector@latest
 ```
 
-Then, connect to your server at the URL shown in the output.
+Then, connect to your server at the URL shown in the output (ends with `/mcp`).
 
 ## Project Structure
 

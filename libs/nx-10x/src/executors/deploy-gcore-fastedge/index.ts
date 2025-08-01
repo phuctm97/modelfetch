@@ -80,6 +80,6 @@ export default async function deployGcoreFastedgeExecutor(
   const createOrUpdateResult = (await createOrUpdateResponse.json()) as {
     url: string;
   };
-  logger.info(`URL: ${createOrUpdateResult.url}`);
+  logger.info(`URL: ${createOrUpdateResult.url}/mcp`);
   return { success: true };
 }

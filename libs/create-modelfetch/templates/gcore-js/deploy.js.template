@@ -75,4 +75,4 @@ if (!deployResponse.ok) {
   );
 }
 
-console.log((await deployResponse.json()).url);
+console.log((await deployResponse.json()).url + "/mcp");
