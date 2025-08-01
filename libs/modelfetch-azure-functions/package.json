@@ -1,6 +1,6 @@
 {
   "name": "@modelfetch/azure-functions",
-  "version": "0.16.1",
+  "version": "0.17.0",
   "description": "Azure Functions runtime adapter for MCP servers built with ModelFetch",
   "keywords": [
     "model-context-protocol",

@@ -1,3 +1,17 @@
+## 0.17.0 (2025-08-01)
+
+### 🚀 Features
+
+- Add Gcore runtime support with @modelfetch/gcore package, example applications, and deployment executor ([9b1ac1e](https://github.com/phuctm97/modelfetch/commit/9b1ac1e))
+
+### 🩹 Fixes
+
+- Fix Gcore deployment URL output to include /mcp endpoint and update documentation ([9b1ac1e](https://github.com/phuctm97/modelfetch/commit/9b1ac1e))
+
+### ❤️ Thank You
+
+- phuctm97
+
 ## 0.16.1 (2025-07-31)
 
 ### 🩹 Fixes
