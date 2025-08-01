@@ -4,13 +4,13 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.17.0",
+    "@modelcontextprotocol/sdk": "^1.17.1",
     "@modelfetch/cloudflare": "workspace:^",
     "zod": "^3.25.76"
   },
   "devDependencies": {
     "create-eslint-config": "workspace:^",
     "modelfetch": "workspace:^",
-    "wrangler": "^4.26.1"
+    "wrangler": "^4.27.0"
   }
 }

@@ -22,7 +22,7 @@ const asciiLogo = `   __  __           _      _ _____    _       _
 
 // Package versions
 const packageVersions = {
-  "@modelcontextprotocol/sdk": "1.17.0",
+  "@modelcontextprotocol/sdk": "1.17.1",
   zod: "3.25.76",
   tslib: "2.8.1",
   typescript: "5.8.3",
@@ -45,14 +45,14 @@ const packageVersions = {
   "react-dom": "19.1.1",
   "@types/react-dom": "19.1.7",
   "@modelfetch/cloudflare": packageJson.version,
-  wrangler: "4.26.1",
+  wrangler: "4.27.0",
   "@modelfetch/netlify": packageJson.version,
   "@modelfetch/fastly": packageJson.version,
   "@fastly/js-compute": "3.34.0",
   "@modelfetch/gcore": packageJson.version,
   "@gcoredev/fastedge-sdk-js": "1.2.2",
   "@modelfetch/azure-functions": packageJson.version,
-  "@azure/functions": "4.7.2",
+  "@azure/functions": "4.7.2-preview",
 };
 
 // Cloudflare compatibility date

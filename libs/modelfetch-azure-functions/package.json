@@ -40,7 +40,7 @@
     "dist"
   ],
   "dependencies": {
-    "@azure/functions": "^4.7.2",
+    "@azure/functions": "^4.7.2-preview",
     "@marplex/hono-azurefunc-adapter": "^1.0.1",
     "@modelfetch/core": "workspace:^",
     "hono": "^4.8.10"
