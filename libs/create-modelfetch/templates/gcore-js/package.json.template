@@ -5,8 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "fastedge-build ./src/index.js ./dist/index.wasm",
-    "deploy": "echo 'Use Gcore CLI to deploy your FastEdge HTTP application'"
+    "deploy": "fastedge-build ./src/index.js ./dist/index.wasm && node deploy.js"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "<%= versions['@modelcontextprotocol/sdk'] %>",
