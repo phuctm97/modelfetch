@@ -1,13 +1,10 @@
 {
-  "name": "example-azure-functions-js",
+  "name": "example-supabase-js",
   "version": "0.17.0",
   "private": true,
   "type": "module",
-  "main": "./src/index.js",
   "dependencies": {
-    "@azure/functions": "4.7.2-preview",
     "@modelcontextprotocol/sdk": "^1.17.1",
-    "@modelfetch/azure-functions": "workspace:^",
     "zod": "^3.25.76"
   },
   "devDependencies": {

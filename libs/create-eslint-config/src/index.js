@@ -22,6 +22,8 @@ export default function createESLintConfig(...configs) {
         "**/.wrangler",
         "**/cdk.out",
         "**/.netlify",
+        "**/.branches",
+        "**/.temp",
       ],
     },
     js.configs.recommended,

@@ -9,7 +9,7 @@
     "fumadocs-core": "^15.6.7",
     "fumadocs-mdx": "^11.7.3",
     "fumadocs-ui": "^15.6.7",
-    "lucide-react": "^0.535.0",
+    "lucide-react": "^0.536.0",
     "next": "^15.4.5",
     "next-config": "workspace:^",
     "next-themes": "^0.4.6",

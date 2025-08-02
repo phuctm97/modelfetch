@@ -13,11 +13,11 @@ importers:
         version: 2.8.1
     devDependencies:
       '@nx/devkit':
-        specifier: 21.3.10
-        version: 21.3.10(nx@21.3.10(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17)))
+        specifier: 21.3.11
+        version: 21.3.11(nx@21.3.11(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17)))
       '@nx/js':
-        specifier: 21.3.10
-        version: 21.3.10(@babel/traverse@7.28.0)(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17))(nx@21.3.10(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17)))
+        specifier: 21.3.11
+        version: 21.3.11(@babel/traverse@7.28.0)(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17))(nx@21.3.11(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17)))
       '@swc-node/register':
         specifier: 1.10.10
         version: 1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3)
@@ -34,8 +34,8 @@ importers:
         specifier: 9.1.7
         version: 9.1.7
       nx:
-        specifier: 21.3.10
-        version: 21.3.10(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17))
+        specifier: 21.3.11
+        version: 21.3.11(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17))
       prettier:
         specifier: 3.6.2
         version: 3.6.2
@@ -114,8 +114,8 @@ importers:
   apps/example-azure-functions-js:
     dependencies:
       '@azure/functions':
-        specifier: ^4.7.2-preview
-        version: 4.7.3
+        specifier: 4.7.2-preview
+        version: 4.7.2-preview
       '@modelcontextprotocol/sdk':
         specifier: ^1.17.1
         version: 1.17.1
@@ -133,8 +133,8 @@ importers:
   apps/example-azure-functions-ts:
     dependencies:
       '@azure/functions':
-        specifier: ^4.7.2-preview
-        version: 4.7.3
+        specifier: 4.7.2-preview
+        version: 4.7.2-preview
       '@modelcontextprotocol/sdk':
         specifier: ^1.17.1
         version: 1.17.1
@@ -498,6 +498,19 @@ importers:
         specifier: ^4.20.3
         version: 4.20.3
 
+  apps/example-supabase-js:
+    dependencies:
+      '@modelcontextprotocol/sdk':
+        specifier: ^1.17.1
+        version: 1.17.1
+      zod:
+        specifier: ^3.25.76
+        version: 3.25.76
+    devDependencies:
+      modelfetch:
+        specifier: workspace:^
+        version: link:../../libs/modelfetch
+
   apps/example-vercel-js:
     dependencies:
       '@modelcontextprotocol/sdk':
@@ -590,8 +603,8 @@ importers:
         specifier: ^15.6.7
         version: 15.6.7(@types/react-dom@19.1.7(@types/react@19.1.9))(@types/react@19.1.9)(next@15.4.5(@babel/core@7.28.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(tailwindcss@4.1.11)
       lucide-react:
-        specifier: ^0.535.0
-        version: 0.535.0(react@19.1.1)
+        specifier: ^0.536.0
+        version: 0.536.0(react@19.1.1)
       next:
         specifier: ^15.4.5
         version: 15.4.5(@babel/core@7.28.0)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
@@ -736,8 +749,8 @@ importers:
         specifier: workspace:^
         version: link:../modelfetch-core
       hono:
-        specifier: ^4.8.10
-        version: 4.8.10
+        specifier: ^4.8.12
+        version: 4.8.12
     devDependencies:
       create-eslint-config:
         specifier: workspace:^
@@ -746,8 +759,8 @@ importers:
   libs/modelfetch-azure-functions:
     dependencies:
       '@azure/functions':
-        specifier: ^4.7.2-preview
-        version: 4.7.3
+        specifier: 4.7.2-preview
+        version: 4.7.2-preview
       '@marplex/hono-azurefunc-adapter':
         specifier: ^1.0.1
         version: 1.0.1
@@ -755,8 +768,8 @@ importers:
         specifier: workspace:^
         version: link:../modelfetch-core
       hono:
-        specifier: ^4.8.10
-        version: 4.8.10
+        specifier: ^4.8.12
+        version: 4.8.12
     devDependencies:
       create-eslint-config:
         specifier: workspace:^
@@ -784,8 +797,8 @@ importers:
         specifier: workspace:^
         version: link:../modelfetch-core
       hono:
-        specifier: ^4.8.10
-        version: 4.8.10
+        specifier: ^4.8.12
+        version: 4.8.12
     devDependencies:
       create-eslint-config:
         specifier: workspace:^
@@ -795,10 +808,10 @@ importers:
     dependencies:
       '@hono/mcp':
         specifier: ^0.1.1
-        version: 0.1.1(@modelcontextprotocol/sdk@1.17.1)(hono@4.8.10)
+        version: 0.1.1(@modelcontextprotocol/sdk@1.17.1)(hono@4.8.12)
       hono:
-        specifier: ^4.8.10
-        version: 4.8.10
+        specifier: ^4.8.12
+        version: 4.8.12
     devDependencies:
       create-eslint-config:
         specifier: workspace:^
@@ -826,8 +839,8 @@ importers:
         specifier: ^1.7.8
         version: 1.7.8
       hono:
-        specifier: ^4.8.10
-        version: 4.8.10
+        specifier: ^4.8.12
+        version: 4.8.12
     devDependencies:
       create-eslint-config:
         specifier: workspace:^
@@ -839,8 +852,8 @@ importers:
         specifier: workspace:^
         version: link:../modelfetch-core
       hono:
-        specifier: ^4.8.10
-        version: 4.8.10
+        specifier: ^4.8.12
+        version: 4.8.12
     devDependencies:
       create-eslint-config:
         specifier: workspace:^
@@ -852,8 +865,8 @@ importers:
         specifier: workspace:^
         version: link:../modelfetch-core
       hono:
-        specifier: ^4.8.10
-        version: 4.8.10
+        specifier: ^4.8.12
+        version: 4.8.12
     devDependencies:
       create-eslint-config:
         specifier: workspace:^
@@ -865,8 +878,8 @@ importers:
         specifier: workspace:^
         version: link:../modelfetch-core
       hono:
-        specifier: ^4.8.10
-        version: 4.8.10
+        specifier: ^4.8.12
+        version: 4.8.12
     devDependencies:
       create-eslint-config:
         specifier: workspace:^
@@ -875,8 +888,8 @@ importers:
   libs/modelfetch-node:
     dependencies:
       '@hono/node-server':
-        specifier: ^1.18.0
-        version: 1.18.0(hono@4.8.10)
+        specifier: ^1.18.1
+        version: 1.18.1(hono@4.8.12)
       '@modelfetch/core':
         specifier: workspace:^
         version: link:../modelfetch-core
@@ -894,8 +907,8 @@ importers:
         specifier: workspace:^
         version: link:../modelfetch-core
       hono:
-        specifier: ^4.8.10
-        version: 4.8.10
+        specifier: ^4.8.12
+        version: 4.8.12
     devDependencies:
       create-eslint-config:
         specifier: workspace:^
@@ -942,10 +955,13 @@ packages:
       - jsonschema
       - semver
 
-  '@azure/functions@4.7.3':
-    resolution: {integrity: sha512-NwizjL8qcujVq+Yl3iL6TvtEC9v4CWZgipd0UPa5PvM2a5Uiqd1Uk8wGCYPhfskGy+1YpBLyQje1SRdlLzB6Jw==}
+  '@azure/functions-extensions-base@0.2.0-preview':
+    resolution: {integrity: sha512-kwbtV16ahkM3w9Vzp6Aof8gy4TkmIgGxfbPGKBQ0pd804fsp+eeWxQlgbal5+4l4dzMLSkzXC7mkURM1cyihnA==}
     engines: {node: '>=18.0'}
-    deprecated: Incompatible with Node 18
+
+  '@azure/functions@4.7.2-preview':
+    resolution: {integrity: sha512-pRIcxTz1e5RGaKKRdLXgfjAKfrmjLMod+S5TUx3eG7Ga1yDYjC/R4lbYNQXgqSI5Pr8YwkFBE2/G32Na9VLFAQ==}
+    engines: {node: '>=20.0'}
 
   '@babel/code-frame@7.27.1':
     resolution: {integrity: sha512-cjQ7ZlQ0Mv3b47hABuTevyTuYN4i+loJKGeV9flcCgIK37cCXRh+L1bd3iBHlynerhQ7BhCkn2BPbQUL+rGqFg==}
@@ -1990,6 +2006,10 @@ packages:
     resolution: {integrity: sha512-Ul5l+lHEcw3L5+k8POx6r74mxEYKG5kOb6Xpy2gCRW6zweT6TEhAf8vhxGgjhqrd/VO/Dirhsb+1hNpD1ue9hw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
+  '@fastify/busboy@2.1.1':
+    resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
+    engines: {node: '>=14'}
+
   '@fastly/js-compute@3.34.0':
     resolution: {integrity: sha512-gHAj6MMzZkQWk6uXCipLnH+hluMTdlsNdvS59M7MMkM6gCcfF3xkglX9NB4i7Gv6T4lCwVCT5+bacS85699jVg==}
     hasBin: true
@@ -2023,8 +2043,8 @@ packages:
       '@modelcontextprotocol/sdk': ^1.12.0
       hono: '>=4.0.0'
 
-  '@hono/node-server@1.18.0':
-    resolution: {integrity: sha512-CJ0H3/ouk/JWnyiuYOJLdpuWhO2D2BTNigHaFixnW3CrwZb+E+4s/KoFkcikHXcVmXoxaLJx1nlGa3JChEFtFA==}
+  '@hono/node-server@1.18.1':
+    resolution: {integrity: sha512-O3puG/b7owYYmoQ2XPBf3SxBz6Dhk5VmWFhbaBU8/5wcUaXUPS0goxaI2Zfyg+Cu14ILJHEU7IFRw7miFxuXxg==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: ^4
@@ -2511,71 +2531,71 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@nx/devkit@21.3.10':
-    resolution: {integrity: sha512-4g7A5iKE+3WwxtmdoBPLcEV5gyBn2Kix10WviMgA42DPGdYRrek2QJU6CmgXOCg4sK9EHIUQOthiQkpIjD1smg==}
+  '@nx/devkit@21.3.11':
+    resolution: {integrity: sha512-JOV8TAa9K5+ZwTA/EUi0g5qcKEg5vmi0AyOUsrNUHlv3BgQnwZtPLDDTPPZ+ezq24o6YzgwueZWj3CLEdMHEDg==}
     peerDependencies:
-      nx: 21.3.10
+      nx: 21.3.11
 
-  '@nx/js@21.3.10':
-    resolution: {integrity: sha512-KgUJVPKCOg2z6OliCsdrxR+Q+28+whGAYWGvu8B0gyWWIRsgcvFtq33O1+/DP3A9oKI5f5ALkMBmiYsD90P5aQ==}
+  '@nx/js@21.3.11':
+    resolution: {integrity: sha512-aN8g1TP3FMN6MFLvMrZNaoqSwAkBFH1PunKQV17w4nlPkimWICaCP2DhY5W3VoOpjQBbhQoqrRt4mVfgnEpyvA==}
     peerDependencies:
       verdaccio: ^6.0.5
     peerDependenciesMeta:
       verdaccio:
         optional: true
 
-  '@nx/nx-darwin-arm64@21.3.10':
-    resolution: {integrity: sha512-umYmO5xE9e7BtVzOYWurjeZEpqO/KnFDl+sLf58EzKOBf+tWDp1PVTpmuYhPxjlH6WkVaYCTA62L3SkIahKZ+w==}
+  '@nx/nx-darwin-arm64@21.3.11':
+    resolution: {integrity: sha512-qXZrW6kfsfGG9n4cWugR2v8ys7P1SsbQuFahlbNSTd7g+ZxozaOnc7tyxW9XuY84KQ35HwP/QSu1E13fK5CXwQ==}
     cpu: [arm64]
     os: [darwin]
 
-  '@nx/nx-darwin-x64@21.3.10':
-    resolution: {integrity: sha512-f2vl8ba5IyG/3fhvrUARg/xKviONhg5FHmev5krSIRYdFXsCNgI8qX251/Wxr7zjABnARdwfEZcWMTY4QRXovA==}
+  '@nx/nx-darwin-x64@21.3.11':
+    resolution: {integrity: sha512-6NJEIGRITpFZYptJtr/wdnVuidAS/wONMMSwX5rgAqh5A9teI0vxZVOgG6n5f6NQyqEDvZ9ytcIvLsQWA4kJFg==}
     cpu: [x64]
     os: [darwin]
 
-  '@nx/nx-freebsd-x64@21.3.10':
-    resolution: {integrity: sha512-Tl0haFCRj+1Updj+KZYOxdhNlrp0CUiGIGo0n3S4ruuwtqSmSdwPb7ZGIvIHSQloX2k7CP/oRQw68HoUmsnIyA==}
+  '@nx/nx-freebsd-x64@21.3.11':
+    resolution: {integrity: sha512-9VZOM9mutzuZCUgijHXrIl3NgKt2CWuH/awLqDS8ijhLs6WfI5TYTa+mFwx90dfZZ4y/jy6XWXa2Ee3OShf7Hg==}
     cpu: [x64]
     os: [freebsd]
 
-  '@nx/nx-linux-arm-gnueabihf@21.3.10':
-    resolution: {integrity: sha512-3siCCKhlaBp3a56KbkPyixoW7m/H1Cx6vfMxBHro3qqG8m7NYQ5Iy/Ih8G1ghAhr1KoKeXMPAoEglZVbFXDypQ==}
+  '@nx/nx-linux-arm-gnueabihf@21.3.11':
+    resolution: {integrity: sha512-a05tAySKDEWt0TGoSnWp/l5+HL/CDJQkHfI9pXho85oDSkVRzhOInAn1EeZB/F+Q3PnJFsMHMhbuu2/nm3uYJA==}
     cpu: [arm]
     os: [linux]
 
-  '@nx/nx-linux-arm64-gnu@21.3.10':
-    resolution: {integrity: sha512-9Phr9FBVDr86QQ32Qxf7GyfBpgPfYDf0TWkWZe/EhR3UijoCM3a2WMyoLWxhl+oTkjxQVBP7adqToh7Da0hyuQ==}
+  '@nx/nx-linux-arm64-gnu@21.3.11':
+    resolution: {integrity: sha512-MPeivf0ptNpzQYvww6zHIqVbE5dTT2isl/WqzGyy7NgSeYDpFXmouDCQaeKxo5WytMVRCvCw/NnWTQuCK6TjnA==}
     cpu: [arm64]
     os: [linux]
 
-  '@nx/nx-linux-arm64-musl@21.3.10':
-    resolution: {integrity: sha512-TxgwIXOFrCbBz3xlP+aCil+KaHH6pRLA+JW4RD0ZMes/iP+99R+/+gKznw7CEkpXkzX194gGTe2NlM45129uEg==}
+  '@nx/nx-linux-arm64-musl@21.3.11':
+    resolution: {integrity: sha512-/hJpc4VJsbxDEreXt5Ka9HJ3TBEHgIa9y/i+H9MmWOeapCdH1Edhx58Heuv9OaX7kK8Y8q0cSicv0dJCghiTjA==}
     cpu: [arm64]
     os: [linux]
 
-  '@nx/nx-linux-x64-gnu@21.3.10':
-    resolution: {integrity: sha512-UNIEt/i4OpGvjS8ds/m2lv/4C6SmaWTzIfok59TL/8BG0ab5x/lADdKd6OBbvhmDiBdz+As3uLiCN03uRsz95Q==}
+  '@nx/nx-linux-x64-gnu@21.3.11':
+    resolution: {integrity: sha512-pTBHuloqTxpTHa/fdKjHkFFsfW16mEcTp37HDtoQpjPfcd9nO8CYO8OClaewr9khNqCnSbCLfSoIg/alnb7BWw==}
     cpu: [x64]
     os: [linux]
 
-  '@nx/nx-linux-x64-musl@21.3.10':
-    resolution: {integrity: sha512-/ETUG3auZjQmWliaHQQFr/cqb493HGShDrcJYa0Zd67TZeUHsYY5lc71u6pA7d+aP/r51RToamxpDK0cGmqINQ==}
+  '@nx/nx-linux-x64-musl@21.3.11':
+    resolution: {integrity: sha512-OhFjURB68rd6xld8t8fiNpopF2E7v+8/jfbpsku9c0gdV2UhzoxCeZwooe7qhQjCcjVO8JNOs4dAf7qs1VtpMw==}
     cpu: [x64]
     os: [linux]
 
-  '@nx/nx-win32-arm64-msvc@21.3.10':
-    resolution: {integrity: sha512-xBOzmfjB695KkFZ3a2IblN/Vb6I9LlDbIV2I1X/Ks8jdK0q1Fh+mqZWDfOUuBr5oKcUPD5pZiH/vpr5mBssLig==}
+  '@nx/nx-win32-arm64-msvc@21.3.11':
+    resolution: {integrity: sha512-pGE2Td13oEj7aeogwCL+2fjmpabQVSduKfGOTlt4YoMlM0w0bXYSWqwiGBMKbMA50qkhnVapwwkuWF38PgCIxg==}
     cpu: [arm64]
     os: [win32]
 
-  '@nx/nx-win32-x64-msvc@21.3.10':
-    resolution: {integrity: sha512-TZPwjF1adI8FCJp7MmgXNtnwuW1AOBSiPEHLz2RM8cJKBc7rlmXw/MWhnYhz2lkZQ+vpndoLGtpinYo5cp/NQA==}
+  '@nx/nx-win32-x64-msvc@21.3.11':
+    resolution: {integrity: sha512-KJqLL/Zyx96hs+7pKbo/fsU7ZTFSLeZLnYQu05o6fvJJ5I1+p85t212/7vkbKKWJncyMospQdzLr3zLG3A/u8A==}
     cpu: [x64]
     os: [win32]
 
-  '@nx/workspace@21.3.10':
-    resolution: {integrity: sha512-pMT3gqU1KsLcSSUpq+W80d61WrjoDKvbj8/8c26F4BbZt7y9QGzwPS3ZAMdMm16h5SGKcRWxw+WE68yF2C2vtw==}
+  '@nx/workspace@21.3.11':
+    resolution: {integrity: sha512-DD2iu9Ip/faNQ5MXZk+UbbBxGofYKjzHsXKRvMNQ/OAVzP/u9z2CPXEmRKlRAEQoy1lInmyopwfEUWwK1v4x0g==}
 
   '@orama/orama@3.1.11':
     resolution: {integrity: sha512-Szki0cgFiXE5F9RLx2lUyEtJllnuCSQ4B8RLDwIjXkVit6qZjoDAxH+xhJs29MjKLDz0tbPLdKFa6QrQ/qoGGA==}
@@ -4834,8 +4854,8 @@ packages:
   hast-util-whitespace@3.0.0:
     resolution: {integrity: sha512-88JUN06ipLwsnv+dVn+OIYOvAuvBMy/Qoi6O7mQHxdPXpjy+Cd6xRkWwux7DKO+4sYILtLBRIKgsdpS2gQc7qw==}
 
-  hono@4.8.10:
-    resolution: {integrity: sha512-DRMYbR3aFk6YET1FCSAFbgF2cWYTz5j0YAFYPECx9fmrbKBDAYnWU+YCgRTpOaatxMYN6e68U/2IG39zRP4W/A==}
+  hono@4.8.12:
+    resolution: {integrity: sha512-MQSKk1Mg7b74k8l+A025LfysnLtXDKkE4pLaSsYRQC5iy85lgZnuyeQ1Wynair9mmECzoLu+FtJtqNZSoogBDQ==}
     engines: {node: '>=16.9.0'}
 
   hosted-git-info@2.8.9:
@@ -5292,8 +5312,8 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  lucide-react@0.535.0:
-    resolution: {integrity: sha512-2E3+YWGLpjZ8ejIYrdqxVjWMSMiRQHmU6xZYE9xA2SC5j2m0NeB4/acjhRdhxbfniBKoNEukDDQnmShTxwOQ4g==}
+  lucide-react@0.536.0:
+    resolution: {integrity: sha512-2PgvNa9v+qz4Jt/ni8vPLt4jwoFybXHuubQT8fv4iCW5TjDxkbZjNZZHa485ad73NSEn/jdsEtU57eE1g+ma8A==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -5633,8 +5653,8 @@ packages:
     resolution: {integrity: sha512-tt6PvKu4WyzPwWUzy/hvPFqn+uwXO0K1ZHka8az3NnrhWJDmSqI8ncWq0fkL0k/lmmi5tAC11FXwXuh0rFbt1A==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  nx@21.3.10:
-    resolution: {integrity: sha512-am85Vntk1UQVzGjFltNzrb9b7Lhz8nPDRXkC0BJXBoG6w0T9Qf8k/3bwbo8nzZgREdVIUFO5dvOZ6gWUZw/UFA==}
+  nx@21.3.11:
+    resolution: {integrity: sha512-nj2snZ3mHZnbHcoB3NUdxbch9L1sQKV1XccLs1B79fmI/N5oOgWgctm/bWoZH2UH5b4A8ZLAMTsC6YnSJGbcaw==}
     hasBin: true
     peerDependencies:
       '@swc-node/register': ^1.8.0
@@ -6618,6 +6638,10 @@ packages:
   undici-types@7.8.0:
     resolution: {integrity: sha512-9UJ2xGDvQ43tYyVMpuHlsgApydB8ZKfVYTsLDhXkFL/6gfkp+U8xTGdh8pMJv1SpZna0zxG1DwsKZsreLbXBxw==}
 
+  undici@5.29.0:
+    resolution: {integrity: sha512-raqeBD6NQK4SkWhQzeYKd1KmIG6dllBOTt55Rmkt4HtI9mwdWtJljnrXjAFUBLTSN67HWrOIZ3EPF4kjUw80Bg==}
+    engines: {node: '>=14.0'}
+
   undici@7.13.0:
     resolution: {integrity: sha512-l+zSMssRqrzDcb3fjMkjjLGmuiiK2pMIcV++mJaAc9vhjSGpvM7h43QgP+OAMb1GImHmbPyG2tBXeuyG5iY4gA==}
     engines: {node: '>=20.18.1'}
@@ -6865,11 +6889,14 @@ snapshots:
 
   '@aws-cdk/cloud-assembly-schema@45.2.0': {}
 
-  '@azure/functions@4.7.3':
+  '@azure/functions-extensions-base@0.2.0-preview': {}
+
+  '@azure/functions@4.7.2-preview':
     dependencies:
+      '@azure/functions-extensions-base': 0.2.0-preview
       cookie: 0.7.2
       long: 4.0.0
-      undici: 7.13.0
+      undici: 5.29.0
 
   '@babel/code-frame@7.27.1':
     dependencies:
@@ -7917,6 +7944,8 @@ snapshots:
       '@eslint/core': 0.15.1
       levn: 0.4.1
 
+  '@fastify/busboy@2.1.1': {}
+
   '@fastly/js-compute@3.34.0':
     dependencies:
       '@bytecodealliance/jco': 1.13.0
@@ -7964,14 +7993,14 @@ snapshots:
       prompts: 2.4.2
       regexpu-core: 5.3.2
 
-  '@hono/mcp@0.1.1(@modelcontextprotocol/sdk@1.17.1)(hono@4.8.10)':
+  '@hono/mcp@0.1.1(@modelcontextprotocol/sdk@1.17.1)(hono@4.8.12)':
     dependencies:
       '@modelcontextprotocol/sdk': 1.17.1
-      hono: 4.8.10
+      hono: 4.8.12
 
-  '@hono/node-server@1.18.0(hono@4.8.10)':
+  '@hono/node-server@1.18.1(hono@4.8.12)':
     dependencies:
-      hono: 4.8.10
+      hono: 4.8.12
 
   '@humanfs/core@0.19.1': {}
 
@@ -8375,19 +8404,19 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.19.1
 
-  '@nx/devkit@21.3.10(nx@21.3.10(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17)))':
+  '@nx/devkit@21.3.11(nx@21.3.11(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17)))':
     dependencies:
       ejs: 3.1.10
       enquirer: 2.3.6
       ignore: 5.3.2
       minimatch: 9.0.3
-      nx: 21.3.10(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17))
+      nx: 21.3.11(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17))
       semver: 7.7.2
       tmp: 0.2.3
       tslib: 2.8.1
       yargs-parser: 21.1.1
 
-  '@nx/js@21.3.10(@babel/traverse@7.28.0)(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17))(nx@21.3.10(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17)))':
+  '@nx/js@21.3.11(@babel/traverse@7.28.0)(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17))(nx@21.3.11(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17)))':
     dependencies:
       '@babel/core': 7.28.0
       '@babel/plugin-proposal-decorators': 7.28.0(@babel/core@7.28.0)
@@ -8396,8 +8425,8 @@ snapshots:
       '@babel/preset-env': 7.28.0(@babel/core@7.28.0)
       '@babel/preset-typescript': 7.27.1(@babel/core@7.28.0)
       '@babel/runtime': 7.28.2
-      '@nx/devkit': 21.3.10(nx@21.3.10(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17)))
-      '@nx/workspace': 21.3.10(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17))
+      '@nx/devkit': 21.3.11(nx@21.3.11(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17)))
+      '@nx/workspace': 21.3.11(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17))
       '@zkochan/js-yaml': 0.0.7
       babel-plugin-const-enum: 1.2.0(@babel/core@7.28.0)
       babel-plugin-macros: 3.1.0
@@ -8426,43 +8455,43 @@ snapshots:
       - nx
       - supports-color
 
-  '@nx/nx-darwin-arm64@21.3.10':
+  '@nx/nx-darwin-arm64@21.3.11':
     optional: true
 
-  '@nx/nx-darwin-x64@21.3.10':
+  '@nx/nx-darwin-x64@21.3.11':
     optional: true
 
-  '@nx/nx-freebsd-x64@21.3.10':
+  '@nx/nx-freebsd-x64@21.3.11':
     optional: true
 
-  '@nx/nx-linux-arm-gnueabihf@21.3.10':
+  '@nx/nx-linux-arm-gnueabihf@21.3.11':
     optional: true
 
-  '@nx/nx-linux-arm64-gnu@21.3.10':
+  '@nx/nx-linux-arm64-gnu@21.3.11':
     optional: true
 
-  '@nx/nx-linux-arm64-musl@21.3.10':
+  '@nx/nx-linux-arm64-musl@21.3.11':
     optional: true
 
-  '@nx/nx-linux-x64-gnu@21.3.10':
+  '@nx/nx-linux-x64-gnu@21.3.11':
     optional: true
 
-  '@nx/nx-linux-x64-musl@21.3.10':
+  '@nx/nx-linux-x64-musl@21.3.11':
     optional: true
 
-  '@nx/nx-win32-arm64-msvc@21.3.10':
+  '@nx/nx-win32-arm64-msvc@21.3.11':
     optional: true
 
-  '@nx/nx-win32-x64-msvc@21.3.10':
+  '@nx/nx-win32-x64-msvc@21.3.11':
     optional: true
 
-  '@nx/workspace@21.3.10(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17))':
+  '@nx/workspace@21.3.11(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17))':
     dependencies:
-      '@nx/devkit': 21.3.10(nx@21.3.10(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17)))
+      '@nx/devkit': 21.3.11(nx@21.3.11(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17)))
       '@zkochan/js-yaml': 0.0.7
       chalk: 4.1.2
       enquirer: 2.3.6
-      nx: 21.3.10(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17))
+      nx: 21.3.11(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17))
       picomatch: 4.0.2
       tslib: 2.8.1
       yargs-parser: 21.1.1
@@ -10891,7 +10920,7 @@ snapshots:
     dependencies:
       '@types/hast': 3.0.4
 
-  hono@4.8.10: {}
+  hono@4.8.12: {}
 
   hosted-git-info@2.8.9: {}
 
@@ -11282,7 +11311,7 @@ snapshots:
     dependencies:
       yallist: 3.1.1
 
-  lucide-react@0.535.0(react@19.1.1):
+  lucide-react@0.536.0(react@19.1.1):
     dependencies:
       react: 19.1.1
 
@@ -11880,7 +11909,7 @@ snapshots:
 
   npm-to-yarn@3.0.1: {}
 
-  nx@21.3.10(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17)):
+  nx@21.3.11(@swc-node/register@1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3))(@swc/core@1.12.11(@swc/helpers@0.5.17)):
     dependencies:
       '@napi-rs/wasm-runtime': 0.2.4
       '@yarnpkg/lockfile': 1.1.0
@@ -11918,16 +11947,16 @@ snapshots:
       yargs: 17.7.2
       yargs-parser: 21.1.1
     optionalDependencies:
-      '@nx/nx-darwin-arm64': 21.3.10
-      '@nx/nx-darwin-x64': 21.3.10
-      '@nx/nx-freebsd-x64': 21.3.10
-      '@nx/nx-linux-arm-gnueabihf': 21.3.10
-      '@nx/nx-linux-arm64-gnu': 21.3.10
-      '@nx/nx-linux-arm64-musl': 21.3.10
-      '@nx/nx-linux-x64-gnu': 21.3.10
-      '@nx/nx-linux-x64-musl': 21.3.10
-      '@nx/nx-win32-arm64-msvc': 21.3.10
-      '@nx/nx-win32-x64-msvc': 21.3.10
+      '@nx/nx-darwin-arm64': 21.3.11
+      '@nx/nx-darwin-x64': 21.3.11
+      '@nx/nx-freebsd-x64': 21.3.11
+      '@nx/nx-linux-arm-gnueabihf': 21.3.11
+      '@nx/nx-linux-arm64-gnu': 21.3.11
+      '@nx/nx-linux-arm64-musl': 21.3.11
+      '@nx/nx-linux-x64-gnu': 21.3.11
+      '@nx/nx-linux-x64-musl': 21.3.11
+      '@nx/nx-win32-arm64-msvc': 21.3.11
+      '@nx/nx-win32-x64-msvc': 21.3.11
       '@swc-node/register': 1.10.10(@swc/core@1.12.11(@swc/helpers@0.5.17))(@swc/types@0.1.23)(typescript@5.8.3)
       '@swc/core': 1.12.11(@swc/helpers@0.5.17)
     transitivePeerDependencies:
@@ -13091,6 +13120,10 @@ snapshots:
   undici-types@6.21.0: {}
 
   undici-types@7.8.0: {}
+
+  undici@5.29.0:
+    dependencies:
+      '@fastify/busboy': 2.1.1
 
   undici@7.13.0: {}
 
