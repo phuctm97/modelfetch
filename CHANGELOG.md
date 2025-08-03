@@ -1,3 +1,13 @@
+## 0.18.0 (2025-08-03)
+
+### 🚀 Features
+
+- Add Supabase runtime support with @modelfetch/supabase package, example applications, and CLI templates ([#73](https://github.com/phuctm97/modelfetch/pull/73))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.17.0 (2025-08-01)
 
 ### 🚀 Features
