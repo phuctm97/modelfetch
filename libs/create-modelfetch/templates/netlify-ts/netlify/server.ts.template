@@ -66,4 +66,3 @@ server.registerPrompt(
 );
 
 export default server;
-

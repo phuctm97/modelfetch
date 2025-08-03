@@ -27,4 +27,3 @@ policy = "per_worker"
 [functions.mcp-server]
 verify_jwt = false
 entrypoint = "./functions/mcp-server/index.ts"
-

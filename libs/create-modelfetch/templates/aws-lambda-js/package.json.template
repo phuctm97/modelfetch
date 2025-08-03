@@ -20,4 +20,3 @@
     "esbuild": "<%= versions['esbuild'] %>"
   }
 }
-

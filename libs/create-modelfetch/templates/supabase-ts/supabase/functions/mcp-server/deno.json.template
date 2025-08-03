@@ -6,4 +6,3 @@
     "zod": "npm:zod@<%= versions['zod'] %>"
   }
 }
-

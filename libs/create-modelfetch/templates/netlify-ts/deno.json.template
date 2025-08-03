@@ -5,4 +5,3 @@
     "deploy": "netlify deploy --prod"
   }
 }
-
