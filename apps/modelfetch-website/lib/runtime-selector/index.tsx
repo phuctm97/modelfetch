@@ -142,7 +142,7 @@ handle(server);`,
     id: "supabase",
     name: "Supabase",
     icon: SiSupabase,
-    installCommand: "npm install @modelfetch/supabase",
+    installCommand: "deno add jsr:@modelfetch/supabase",
     codeExample: `import handle from "@modelfetch/supabase";
 import server from "./server.ts";
 

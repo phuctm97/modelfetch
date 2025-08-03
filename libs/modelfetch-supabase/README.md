@@ -9,7 +9,7 @@ Deploy MCP servers to Supabase.
 ## Installation
 
 ```bash
-npm install @modelfetch/supabase
+deno add jsr:@modelfetch/supabase
 ```
 
 ## Usage
