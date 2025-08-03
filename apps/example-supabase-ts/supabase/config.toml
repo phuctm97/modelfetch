@@ -1,4 +1,4 @@
-project_id = "example-supabase-js"
+project_id = "example-supabase-ts"
 
 [auth]
 enabled = false
@@ -26,4 +26,4 @@ policy = "per_worker"
 
 [functions.mcp-server]
 verify_jwt = false
-entrypoint = "./functions/mcp-server/index.js"
+entrypoint = "./functions/mcp-server/index.ts"

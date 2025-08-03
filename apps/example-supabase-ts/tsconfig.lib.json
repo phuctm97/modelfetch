@@ -1,0 +1,17 @@
+{
+  "include": ["supabase"],
+  "references": [
+    {
+      "path": "../../libs/modelfetch/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/modelfetch-supabase/tsconfig.lib.json"
+    }
+  ],
+  "extends": "../../tsconfig.deno.json",
+  "compilerOptions": {
+    "sourceRoot": "/apps/example-supabase-ts/supabase",
+    "rootDir": "supabase",
+    "outDir": "dist"
+  }
+}

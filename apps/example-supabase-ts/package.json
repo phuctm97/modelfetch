@@ -1,5 +1,5 @@
 {
-  "name": "example-supabase-js",
+  "name": "example-supabase-ts",
   "version": "0.17.0",
   "private": true,
   "type": "module",
@@ -9,6 +9,7 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@types/deno": "^2.3.0",
     "modelfetch": "workspace:^"
   }
 }

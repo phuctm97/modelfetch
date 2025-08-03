@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "@modelcontextprotocol/sdk/": "npm:/@modelcontextprotocol/sdk@^1.17.1/",
+    "zod": "npm:zod@^3.25.76",
+    "@hono/mcp": "npm:@hono/mcp@^0.1.1",
+    "hono": "npm:hono@^4.8.12",
+    "tslib": "npm:tslib@^2.8.1",
+    "@modelfetch/core": "../../../../../libs/modelfetch-core/src/index.ts",
+    "@modelfetch/supabase": "../../../../../libs/modelfetch-supabase/src/index.ts"
+  }
+}
