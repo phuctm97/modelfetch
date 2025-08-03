@@ -116,6 +116,13 @@ import server from "./server"; // Import your server
 handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
+```typescript title="supabase/functions/mcp-server/index.ts" tab="Supabase"
+import handle from "@modelfetch/supabase"; // Choose your runtime
+import server from "./server.ts"; // Import your server
+
+handle("mcp-server", server); // That's it — ModelFetch handles all runtime-specific details
+```
+
 ```typescript title="src/index.ts" tab="Gcore"
 import handle from "@modelfetch/gcore"; // Choose your runtime
 import server from "./server"; // Import your server
@@ -211,6 +218,13 @@ import handle from "@modelfetch/fastly"; // Choose your runtime
 import server from "./server"; // Import your server
 
 handle(server); // That's it — ModelFetch handles all runtime-specific details
+```
+
+```typescript title="supabase/functions/mcp-server/index.ts" tab="Supabase"
+import handle from "@modelfetch/supabase"; // Choose your runtime
+import server from "./server.ts"; // Import your server
+
+handle("mcp-server", server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
 ```typescript title="src/index.ts" tab="Gcore"

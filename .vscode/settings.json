@@ -43,6 +43,8 @@
     "**/.wrangler": true,
     "**/cdk.out": true,
     "**/.netlify": true,
+    "**/.branches": true,
+    "**/.temp": true,
     "apps/example-netlify-*/apps": true,
     "apps/example-fastly-*/bin": true,
     "apps/example-fastly-*/pkg": true

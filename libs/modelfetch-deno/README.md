@@ -1,8 +1,8 @@
 # `@modelfetch/deno`
 
-[![npm version](https://img.shields.io/npm/v/@modelfetch/deno.svg)](https://www.npmjs.com/package/@modelfetch/deno)
-[![jsr version](https://img.shields.io/jsr/v/@modelfetch/deno.svg)](https://jsr.io/@modelfetch/deno)
-[![npm license](https://img.shields.io/npm/l/@modelfetch/deno.svg)](https://www.npmjs.com/package/@modelfetch/deno)
+[![npm version](https://img.shields.io/npm/v/@modelfetch/deno)](https://www.npmjs.com/package/@modelfetch/deno)
+[![jsr version](https://img.shields.io/jsr/v/@modelfetch/deno)](https://jsr.io/@modelfetch/deno)
+[![npm license](https://img.shields.io/npm/l/@modelfetch/deno)](https://www.npmjs.com/package/@modelfetch/deno)
 [![docs](https://img.shields.io/badge/docs-modelfetch.com-blue)](https://www.modelfetch.com/docs/runtime/deno)
 
 Run secure MCP servers with Deno.

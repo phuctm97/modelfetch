@@ -1,13 +1,13 @@
 # `create-modelfetch`
 
-[![npm version](https://img.shields.io/npm/v/create-modelfetch.svg)](https://www.npmjs.com/package/create-modelfetch)
-[![npm license](https://img.shields.io/npm/l/create-modelfetch.svg)](https://www.npmjs.com/package/create-modelfetch)
+[![npm version](https://img.shields.io/npm/v/create-modelfetch)](https://www.npmjs.com/package/create-modelfetch)
+[![npm license](https://img.shields.io/npm/l/create-modelfetch)](https://www.npmjs.com/package/create-modelfetch)
 
 Scaffold a new MCP server with ModelFetch.
 
 ## Features
 
-- **Multiple Runtimes**: Node.js, Next.js, Bun, Deno, Vercel, Cloudflare, Netlify, Fastly, Gcore, AWS Lambda, and Azure Functions
+- **Multiple Runtimes**: Node.js, Next.js, Bun, Deno, Vercel, Cloudflare, Netlify, Fastly, Supabase, Gcore, AWS Lambda, and Azure Functions
 - **Multiple Languages**: TypeScript and JavaScript
 - **Multiple Package Managers**: `npm`, `pnpm`, `bun`, and `yarn`
 - **Multiple CLI Initializers**: `npx`, `npm init`, `npm create`, `pnpm dlx`, `pnpm create`, `bun x`, `bun create`, `deno`, and `yarn`

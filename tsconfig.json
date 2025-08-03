@@ -32,6 +32,9 @@
       "path": "./apps/example-node-ts"
     },
     {
+      "path": "./apps/example-supabase-ts"
+    },
+    {
       "path": "./apps/example-vercel-ts"
     },
     {
@@ -75,6 +78,9 @@
     },
     {
       "path": "./libs/modelfetch-node"
+    },
+    {
+      "path": "./libs/modelfetch-supabase"
     },
     {
       "path": "./libs/modelfetch-vercel"

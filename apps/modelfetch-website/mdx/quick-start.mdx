@@ -13,7 +13,7 @@ npx -y create-modelfetch@latest
 
 The CLI will guide you through:
 
-1. **Choosing a runtime** - Node.js, Next.js, Bun, Deno, Vercel, Cloudflare, Netlify, Fastly, Gcore, AWS Lambda, or Azure Functions
+1. **Choosing a runtime** - Node.js, Next.js, Bun, Deno, Vercel, Cloudflare, Netlify, Fastly, Supabase, Gcore, AWS Lambda, or Azure Functions
 2. **Selecting a language** - TypeScript or JavaScript
 3. **Picking a package manager** - npm, pnpm, bun, or yarn
 
@@ -51,6 +51,10 @@ npm install @modelfetch/netlify
 
 ```npm title="Terminal" tab="Fastly"
 npm install @modelfetch/fastly
+```
+
+```bash title="Terminal" tab="Supabase"
+deno add jsr:@modelfetch/supabase
 ```
 
 ```npm title="Terminal" tab="Gcore"
@@ -169,6 +173,13 @@ import handle from "@modelfetch/fastly"; // Choose your runtime
 import server from "./server"; // Import your server
 
 handle(server); // That's it — ModelFetch handles all runtime-specific details
+```
+
+```typescript title="supabase/functions/mcp-server/index.ts" tab="Supabase"
+import handle from "@modelfetch/supabase"; // Choose your runtime
+import server from "./server.ts"; // Import your server
+
+handle("mcp-server", server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
 ```typescript title="src/index.ts" tab="Gcore"

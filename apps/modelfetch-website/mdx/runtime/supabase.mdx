@@ -1,0 +1,31 @@
+---
+title: Supabase
+description: Deploy MCP servers to Supabase
+---
+
+The `@modelfetch/supabase` package lets you deploy MCP servers to [Supabase](https://supabase.com).
+
+## Installation
+
+```bash title="Terminal"
+deno add jsr:@modelfetch/supabase
+```
+
+## Usage
+
+```typescript title="supabase/functions/mcp-server/index.ts"
+import handle from "@modelfetch/supabase";
+import server from "./server.ts"; // Import your McpServer
+
+// Run as a Supabase Edge Function
+handle("mcp-server", server);
+```
+
+## API Reference
+
+### `handle(name, server)`
+
+Starts the MCP server
+
+- **name**: Required [Supabase Edge Function](https://supabase.com/docs/guides/functions) name
+- **server**: Required [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance from [`@modelcontextprotocol/sdk`](https://github.com/modelcontextprotocol/typescript-sdk)

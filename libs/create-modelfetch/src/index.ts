@@ -53,6 +53,7 @@ const packageVersions = {
   "@gcoredev/fastedge-sdk-js": "1.2.2",
   "@modelfetch/azure-functions": packageJson.version,
   "@azure/functions": "4.7.2-preview",
+  "@modelfetch/supabase": packageJson.version,
 };
 
 // Cloudflare compatibility date
@@ -67,6 +68,7 @@ type Runtime =
   | "cloudflare"
   | "netlify"
   | "fastly"
+  | "supabase"
   | "gcore"
   | "aws-lambda"
   | "azure-functions";
@@ -141,6 +143,9 @@ function getStartCommand(
     }
     case "netlify": {
       return "deno task dev";
+    }
+    case "supabase": {
+      return "supabase start";
     }
     default: {
       return `${packageManager} start`;
@@ -259,6 +264,7 @@ async function main() {
       { value: "cloudflare", label: "Cloudflare" },
       { value: "netlify", label: "Netlify" },
       { value: "fastly", label: "Fastly" },
+      { value: "supabase", label: "Supabase" },
       { value: "gcore", label: "Gcore" },
       { value: "aws-lambda", label: "AWS Lambda" },
       { value: "azure-functions", label: "Azure Functions" },
@@ -294,7 +300,8 @@ async function main() {
       break;
     }
     case "deno":
-    case "netlify": {
+    case "netlify":
+    case "supabase": {
       packageManager = "npm";
       installDeps = false; // Deno doesn't need to install dependencies
       break;

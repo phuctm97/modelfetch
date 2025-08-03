@@ -1,0 +1,5 @@
+import handle from "@modelfetch/supabase";
+
+import server from "./server.js";
+
+handle("mcp-server", server);
