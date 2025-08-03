@@ -42,8 +42,9 @@ example-supabase-ts/
 │           ├── deno.json        # Deno configuration
 │           ├── index.ts         # Supabase Edge Function entry point
 │           └── server.ts        # MCP server implementation
-├── package.json
 ├── tsconfig.json
+├── tsconfig.lib.json
+├── package.json
 └── README.md
 ```
 
