@@ -24,3 +24,4 @@ class <%= awsCdkStack %> extends Stack {
 const app = new App();
 
 new <%= awsCdkStack %>(app, "<%= awsCdkStack %>");
+

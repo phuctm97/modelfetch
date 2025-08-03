@@ -52,6 +52,7 @@ export const metadata: Metadata = {
     "Cloudflare",
     "Netlify",
     "Fastly",
+    "Supabase",
     "Gcore",
     "AWS Lambda",
     "Azure Functions",

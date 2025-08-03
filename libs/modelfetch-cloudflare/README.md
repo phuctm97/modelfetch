@@ -1,7 +1,7 @@
 # `@modelfetch/cloudflare`
 
-[![npm version](https://img.shields.io/npm/v/@modelfetch/cloudflare.svg)](https://www.npmjs.com/package/@modelfetch/cloudflare)
-[![npm license](https://img.shields.io/npm/l/@modelfetch/cloudflare.svg)](https://www.npmjs.com/package/@modelfetch/cloudflare)
+[![npm version](https://img.shields.io/npm/v/@modelfetch/cloudflare)](https://www.npmjs.com/package/@modelfetch/cloudflare)
+[![npm license](https://img.shields.io/npm/l/@modelfetch/cloudflare)](https://www.npmjs.com/package/@modelfetch/cloudflare)
 [![docs](https://img.shields.io/badge/docs-modelfetch.com-blue)](https://www.modelfetch.com/docs/runtime/cloudflare)
 
 Deploy MCP servers to Cloudflare.

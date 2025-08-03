@@ -1,7 +1,7 @@
 # `@modelfetch/aws-lambda`
 
-[![npm version](https://img.shields.io/npm/v/@modelfetch/aws-lambda.svg)](https://www.npmjs.com/package/@modelfetch/aws-lambda)
-[![npm license](https://img.shields.io/npm/l/@modelfetch/aws-lambda.svg)](https://www.npmjs.com/package/@modelfetch/aws-lambda)
+[![npm version](https://img.shields.io/npm/v/@modelfetch/aws-lambda)](https://www.npmjs.com/package/@modelfetch/aws-lambda)
+[![npm license](https://img.shields.io/npm/l/@modelfetch/aws-lambda)](https://www.npmjs.com/package/@modelfetch/aws-lambda)
 [![docs](https://img.shields.io/badge/docs-modelfetch.com-blue)](https://www.modelfetch.com/docs/runtime/aws-lambda)
 
 Deploy MCP servers to AWS Lambda.

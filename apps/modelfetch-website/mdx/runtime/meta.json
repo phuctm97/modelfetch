@@ -9,6 +9,7 @@
     "cloudflare",
     "netlify",
     "fastly",
+    "supabase",
     "gcore",
     "aws-lambda",
     "azure-functions"

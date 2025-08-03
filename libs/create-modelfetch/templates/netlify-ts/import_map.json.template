@@ -6,3 +6,4 @@
     "zod": "https://esm.sh/zod@<%= versions['zod'] %>"
   }
 }
+

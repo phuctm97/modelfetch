@@ -8,3 +8,4 @@ manifest_version = 3
 name = "<%= projectTitle %>"
 
 [local_server]
+

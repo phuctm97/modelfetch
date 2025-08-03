@@ -18,3 +18,4 @@
     "@types/bun": "<%= versions['@types/bun'] %>"
   }
 }
+

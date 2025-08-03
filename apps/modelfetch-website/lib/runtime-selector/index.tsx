@@ -9,6 +9,7 @@ import {
   SiNetlify,
   SiNextdotjs,
   SiNodedotjs,
+  SiSupabase,
   SiVercel,
 } from "@icons-pack/react-simple-icons";
 import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock";
@@ -138,6 +139,16 @@ import server from "./server";
 handle(server);`,
   },
   {
+    id: "supabase",
+    name: "Supabase",
+    icon: SiSupabase,
+    installCommand: "npm install @modelfetch/supabase",
+    codeExample: `import handle from "@modelfetch/supabase";
+import server from "./server.ts";
+
+handle("mcp-server", server);`,
+  },
+  {
     id: "gcore",
     name: "Gcore",
     icon: SiGcore,
@@ -177,6 +188,9 @@ function getEntryPointPath(runtimeId: string): string {
     }
     case "netlify": {
       return "netlify/edge-functions/index.ts";
+    }
+    case "supabase": {
+      return "supabase/functions/mcp-server/index.ts";
     }
     default: {
       return "src/index.ts";

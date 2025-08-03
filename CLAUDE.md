@@ -16,6 +16,7 @@ The SDK is built as a thin wrapper on top of `hono` and `@hono/mcp`, leveraging 
 - `@modelfetch/cloudflare` - Cloudflare runtime support
 - `@modelfetch/netlify` - Netlify runtime support
 - `@modelfetch/fastly` - Fastly runtime support
+- `@modelfetch/supabase` - Supabase runtime support
 - `@modelfetch/gcore` - Gcore runtime support
 - `@modelfetch/aws-lambda` - AWS Lambda runtime support
 - `@modelfetch/azure-functions` - Azure Functions runtime support
@@ -70,6 +71,8 @@ These projects are example applications powered by ModelFetch:
 - `example-netlify-ts`: Netlify application (TypeScript)
 - `example-fastly-js`: Fastly application (JavaScript)
 - `example-fastly-ts`: Fastly application (TypeScript)
+- `example-supabase-js`: Supabase application (JavaScript)
+- `example-supabase-ts`: Supabase application (TypeScript)
 - `example-gcore-js`: Gcore application (JavaScript)
 - `example-gcore-ts`: Gcore application (TypeScript)
 - `example-aws-lambda-js`: AWS Lambda application (JavaScript)
@@ -89,6 +92,7 @@ These projects are example applications powered by ModelFetch:
 - `@modelfetch/cloudflare`: Cloudflare runtime support
 - `@modelfetch/netlify`: Netlify runtime support
 - `@modelfetch/fastly`: Fastly runtime support
+- `@modelfetch/supabase`: Supabase runtime support
 - `@modelfetch/gcore`: Gcore runtime support
 - `@modelfetch/aws-lambda`: AWS Lambda runtime support
 - `@modelfetch/azure-functions`: Azure Functions runtime support

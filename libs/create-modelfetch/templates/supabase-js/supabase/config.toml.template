@@ -1,0 +1,31 @@
+project_id = "<%= projectName %>"
+
+[auth]
+enabled = false
+
+[api]
+enabled = false
+
+[studio]
+enabled = false
+
+[realtime]
+enabled = false
+
+[storage]
+enabled = false
+
+[inbucket]
+enabled = false
+
+[analytics]
+enabled = false
+
+[edge_runtime]
+policy = "per_worker"
+
+[functions.mcp-server]
+verify_jwt = false
+entrypoint = "./functions/mcp-server/index.js"
+
+
