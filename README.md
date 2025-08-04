@@ -201,7 +201,7 @@ import server from "./server"; // Import your server
 handle(server); // That's it — ModelFetch handles all runtime-specific details
 ```
 
-## 📦 Available Runtimes
+## 📦 Runtimes
 
 ModelFetch provides runtime-specific packages that handle tedious platform differences while you focus on building your MCP server capabilities. Each package maintains a [consistent API](https://www.modelfetch.com/docs#the-handle-function) across different runtimes.
 

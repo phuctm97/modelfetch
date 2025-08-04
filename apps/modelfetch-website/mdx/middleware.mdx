@@ -48,7 +48,7 @@ handle({
 });
 ```
 
-## Common Middleware Patterns
+## Common Patterns
 
 ### Authentication
 
@@ -123,90 +123,3 @@ handle({
   },
 });
 ```
-
-## Advanced Usage
-
-### Middleware with External Services
-
-Note: Since hooks are synchronous, initialize external services before creating the server:
-
-```typescript
-// Initialize external services first
-const db = await connectToDatabase();
-
-// Then create the server with middleware
-handle({
-  server: myMcpServer,
-  pre: (app) => {
-    // Add database to context
-    app.use("*", async (c, next) => {
-      c.set("db", db);
-      await next();
-    });
-
-    // Authentication with database lookup
-    app.use("/mcp/*", async (c, next) => {
-      const token = c.req.header("Authorization")?.replace("Bearer ", "");
-
-      if (!token) {
-        return c.json({ error: "Missing token" }, 401);
-      }
-
-      const user = await db.users.findByToken(token);
-      if (!user) {
-        return c.json({ error: "Invalid token" }, 401);
-      }
-
-      c.set("user", user);
-      await next();
-    });
-  },
-});
-```
-
-### Combining Multiple Middleware Strategies
-
-```typescript
-handle({
-  server: myMcpServer,
-  pre: (app) => {
-    // Global middleware
-    app.use("*", logger());
-    app.use("*", compress());
-
-    // MCP-specific middleware
-    app.use("/mcp/*", cors());
-    app.use("/mcp/*", bearerAuth({ token: process.env.API_TOKEN }));
-
-    // Custom error handling
-    app.onError((err, c) => {
-      console.error(err);
-      return c.json({ error: "Internal Server Error" }, 500);
-    });
-  },
-  post: (app) => {
-    // Health and metrics endpoints
-    app.get("/health", (c) => c.json({ status: "ok" }));
-    app.get("/metrics", (c) => c.text(getPrometheusMetrics()));
-
-    // Documentation endpoint
-    app.get("/docs", (c) => c.html(getApiDocs()));
-  },
-});
-```
-
-## Runtime Support
-
-The middleware API is supported across all runtime packages.
-
-## Important Notes
-
-1. **Middleware Order**: Middleware is executed in the order it's added. Authentication should typically come before other middleware.
-
-2. **Path Specificity**: Use `/mcp/*` to apply middleware only to MCP routes, or `*` for all routes.
-
-3. **Context Extension**: Use `c.set()` and `c.get()` to pass data between middleware and handlers.
-
-4. **Error Handling**: Always include error handling middleware to catch and properly format errors.
-
-5. **Hooks are Synchronous**: The `pre` and `post` hooks are synchronous. If you need to perform async initialization (like connecting to a database), do it before creating the server instance.

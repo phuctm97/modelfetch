@@ -122,7 +122,7 @@ export default {
     id: "netlify",
     name: "Netlify",
     icon: SiNetlify,
-    installCommand: "npm install @modelfetch/netlify",
+    installCommand: "deno add jsr:@modelfetch/netlify",
     codeExample: `import handle from "@modelfetch/netlify";
 import server from "../server.ts";
 

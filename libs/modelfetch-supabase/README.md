@@ -28,5 +28,5 @@ Deno.serve(handle("mcp-server", server));
 
 Starts the MCP server
 
-- **name**: Required [Supabase Edge Function](https://supabase.com/docs/guides/functions) name
+- **name**: Required Supabase Edge Function name
 - **server**: Required [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance from [`@modelcontextprotocol/sdk`](https://github.com/modelcontextprotocol/typescript-sdk)
