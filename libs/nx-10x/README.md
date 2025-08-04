@@ -15,7 +15,8 @@ Add to `nx.json`:
   "sync": {
     "globalGenerators": [
       "nx-10x:format-typescript-configs",
-      "nx-10x:update-package-manifests"
+      "nx-10x:update-package-manifests",
+      "nx-10x:update-supabase-imports"
     ]
   }
 }
@@ -24,7 +25,7 @@ Add to `nx.json`:
 ### Generators
 
 ```bash
-# Create a new library
+# Create a library
 pnpm exec nx g nx-10x:create-library
 ```
 
@@ -33,9 +34,13 @@ pnpm exec nx g nx-10x:create-library
 ```json
 {
   "targets": {
-    // Prepare an npm package for publishing during release process
+    // Prepare for release publishing
     "prepare-release-publish": {
       "executor": "nx-10x:prepare-release-publish"
+    },
+    // Deploy a Gcore FastEdge application
+    "deploy-gcore-fastedge": {
+      "executor": "nx-10x:deploy-gcore-fastedge"
     }
   }
 }

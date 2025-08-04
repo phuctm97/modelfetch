@@ -6,7 +6,7 @@
       "schema": "./prepare-release-publish/schema.json"
     },
     "deploy-gcore-fastedge": {
-      "description": "Deploy a Gcore FastEdge application",
+      "description": "Deploy a Gcore FastEdge application.",
       "implementation": "./deploy-gcore-fastedge/index.ts",
       "schema": "./deploy-gcore-fastedge/schema.json"
     }
