@@ -21,7 +21,8 @@
     "globalGenerators": [
       "@nx/js:typescript-sync",
       "nx-10x:format-tsconfigs",
-      "nx-10x:update-package-manifests"
+      "nx-10x:update-package-manifests",
+      "nx-10x:update-supabase-imports"
     ]
   },
   "release": {
