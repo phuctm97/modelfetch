@@ -14,7 +14,7 @@ Add to `nx.json`:
   "plugins": ["nx-10x"],
   "sync": {
     "globalGenerators": [
-      "nx-10x:format-tsconfigs",
+      "nx-10x:format-typescript-configs",
       "nx-10x:update-package-manifests"
     ]
   }

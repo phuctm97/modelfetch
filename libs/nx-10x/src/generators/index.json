@@ -5,10 +5,10 @@
       "factory": "./create-library/index.ts",
       "schema": "./create-library/schema.json"
     },
-    "format-tsconfigs": {
-      "description": "Format TypeScript configuration files.",
-      "factory": "./format-tsconfigs/index.ts",
-      "schema": "./format-tsconfigs/schema.json"
+    "format-typescript-configs": {
+      "description": "Format TypeScript configuration (tsconfig.json) files.",
+      "factory": "./format-typescript-configs/index.ts",
+      "schema": "./format-typescript-configs/schema.json"
     },
     "update-package-manifests": {
       "description": "Update package manifest (package.json) files.",

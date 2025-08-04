@@ -31,7 +31,7 @@ function formatConfigs(tree: Tree, root?: string) {
   }
 }
 
-export default async function formatTsConfigs(
+export default async function formatTypeScriptConfigs(
   tree: Tree,
 ): Promise<SyncGeneratorResult> {
   const { projects } = readProjectsConfigurationFromProjectGraph(
