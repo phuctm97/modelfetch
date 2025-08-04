@@ -1,3 +1,14 @@
+## 0.18.1 (2025-08-04)
+
+### 🩹 Fixes
+
+- Improve opengraph image styling with better visual hierarchy and enhanced terminal aesthetics ([#75](https://github.com/phuctm97/modelfetch/pull/75))
+- Update documentation to add supported platforms section and improve installation instructions ([#75](https://github.com/phuctm97/modelfetch/pull/75))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.18.0 (2025-08-03)
 
 ### 🚀 Features

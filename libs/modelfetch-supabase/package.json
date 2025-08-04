@@ -1,6 +1,6 @@
 {
   "name": "@modelfetch/supabase",
-  "version": "0.18.0",
+  "version": "0.18.1",
   "description": "Supabase runtime adapter for MCP servers built with ModelFetch",
   "keywords": [
     "model-context-protocol",
