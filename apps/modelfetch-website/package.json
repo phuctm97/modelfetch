@@ -6,9 +6,9 @@
   "dependencies": {
     "@mantine/hooks": "^8.2.2",
     "@vercel/analytics": "^1.5.0",
-    "fumadocs-core": "^15.6.8",
+    "fumadocs-core": "^15.6.9",
     "fumadocs-mdx": "^11.7.3",
-    "fumadocs-ui": "^15.6.8",
+    "fumadocs-ui": "^15.6.9",
     "lucide-react": "^0.536.0",
     "next": "^15.4.5",
     "next-config": "workspace:^",
