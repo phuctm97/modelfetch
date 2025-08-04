@@ -56,7 +56,5 @@ export default async function updatePackageManifests(
   for (const project of Object.values(projects))
     updatePackageManifest(tree, project.root);
   await formatFiles(tree);
-  return {
-    outOfSyncMessage: "Some package.json files are out of sync.",
-  };
+  return { outOfSyncMessage: "Some package.json files are out of sync." };
 }
