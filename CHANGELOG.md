@@ -1,3 +1,18 @@
+## 0.19.0 (2025-08-05)
+
+### 🚀 Features
+
+- Add configurable path option to modelfetch-core for customizing MCP endpoint paths ([#79](https://github.com/phuctm97/modelfetch/pull/79))
+
+### 🩹 Fixes
+
+- Add Claude Code command to update dependencies ([#79](https://github.com/phuctm97/modelfetch/pull/79))
+- Add Nx generator to automatically sync Supabase function imports with package.json versions ([#79](https://github.com/phuctm97/modelfetch/pull/79))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.18.1 (2025-08-04)
 
 ### 🩹 Fixes
