@@ -1,6 +1,6 @@
 {
   "name": "@modelfetch/cloudflare",
-  "version": "0.19.1",
+  "version": "0.19.2",
   "description": "Cloudflare runtime adapter for MCP servers built with ModelFetch",
   "keywords": [
     "model-context-protocol",

@@ -1,3 +1,15 @@
+## 0.19.2 (2025-08-05)
+
+### 🩹 Fixes
+
+- Upgrade TypeScript from 5.8.3 to 5.9.2 ([#81](https://github.com/phuctm97/modelfetch/pull/81))
+- Refactor and add Nx generators for TypeScript configs, Cloudflare worker types, and template files ([#81](https://github.com/phuctm97/modelfetch/pull/81))
+- Add JSDoc documentation and JSR badges to ModelFetch runtime packages ([#81](https://github.com/phuctm97/modelfetch/pull/81))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.19.1 (2025-08-05)
 
 ### 🩹 Fixes
