@@ -1,3 +1,13 @@
+## 0.19.1 (2025-08-05)
+
+### 🩹 Fixes
+
+- Add comprehensive JSDoc documentation to @modelfetch/core module and update nx-10x README formatting ([#80](https://github.com/phuctm97/modelfetch/pull/80))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.19.0 (2025-08-05)
 
 ### 🚀 Features
