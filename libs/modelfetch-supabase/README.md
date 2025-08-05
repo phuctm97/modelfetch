@@ -1,6 +1,7 @@
 # `@modelfetch/supabase`
 
 [![npm version](https://img.shields.io/npm/v/@modelfetch/supabase)](https://www.npmjs.com/package/@modelfetch/supabase)
+[![jsr version](https://img.shields.io/jsr/v/@modelfetch/supabase)](https://jsr.io/@modelfetch/supabase)
 [![npm license](https://img.shields.io/npm/l/@modelfetch/supabase)](https://www.npmjs.com/package/@modelfetch/supabase)
 [![docs](https://img.shields.io/badge/docs-modelfetch.com-blue)](https://www.modelfetch.com/docs/runtime/supabase)
 

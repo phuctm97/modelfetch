@@ -37,21 +37,19 @@ function update(
       ...projectPackageJson.devDependencies,
     };
     const imports: Record<string, string> = { ...denoJson.imports };
-    let hasChanges = false;
-    for (const [dep, currentImport] of Object.entries(denoJson.imports)) {
-      if (!currentImport.startsWith("npm:")) continue;
-      const packageName = dep.endsWith("/") ? dep.slice(0, -1) : dep;
+    for (const [depName, depImport] of Object.entries(denoJson.imports)) {
+      if (!depImport.startsWith("npm:")) continue;
+      const packageName = depName.endsWith("/")
+        ? depName.slice(0, -1)
+        : depName;
       const packageVersion = deps[packageName];
       if (!packageVersion || packageVersion.startsWith("workspace:")) continue;
-      const expectedImport = dep.endsWith("/")
+      imports[depName] = depName.endsWith("/")
         ? `npm:/${packageName}@${packageVersion}/`
         : `npm:${packageName}@${packageVersion}`;
-      if (currentImport !== expectedImport) {
-        imports[dep] = expectedImport;
-        hasChanges = true;
-      }
     }
-    if (hasChanges) writeJson(tree, denoJsonPath, { ...denoJson, imports });
+    denoJson.imports = imports;
+    writeJson(tree, denoJsonPath, denoJson);
   }
 }
 

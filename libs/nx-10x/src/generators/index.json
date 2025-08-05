@@ -5,10 +5,10 @@
       "factory": "./create-library/index.ts",
       "schema": "./create-library/schema.json"
     },
-    "format-typescript-configs": {
-      "description": "Format TypeScript configuration (tsconfig.json) files.",
-      "factory": "./format-typescript-configs/index.ts",
-      "schema": "./format-typescript-configs/schema.json"
+    "update-cloudflare-worker-types": {
+      "description": "Update Cloudflare worker types in templates.",
+      "factory": "./update-cloudflare-worker-types/index.ts",
+      "schema": "./update-cloudflare-worker-types/schema.json"
     },
     "update-package-manifests": {
       "description": "Update package manifest (package.json) files.",
@@ -19,6 +19,16 @@
       "description": "Update Supabase imports to match package.json versions.",
       "factory": "./update-supabase-imports/index.ts",
       "schema": "./update-supabase-imports/schema.json"
+    },
+    "update-template-files": {
+      "description": "Update *.template files.",
+      "factory": "./update-template-files/index.ts",
+      "schema": "./update-template-files/schema.json"
+    },
+    "update-ts-configs": {
+      "description": "Update TypeScript configuration (tsconfig.json) files.",
+      "factory": "./update-ts-configs/index.ts",
+      "schema": "./update-ts-configs/schema.json"
     }
   }
 }

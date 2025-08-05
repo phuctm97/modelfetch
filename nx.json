@@ -20,9 +20,11 @@
   "sync": {
     "globalGenerators": [
       "@nx/js:typescript-sync",
-      "nx-10x:format-typescript-configs",
+      "nx-10x:update-cloudflare-worker-types",
       "nx-10x:update-package-manifests",
-      "nx-10x:update-supabase-imports"
+      "nx-10x:update-supabase-imports",
+      "nx-10x:update-template-files",
+      "nx-10x:update-ts-configs"
     ]
   },
   "release": {
