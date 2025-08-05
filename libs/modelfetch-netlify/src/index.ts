@@ -34,6 +34,7 @@
  */
 
 import type { ServerOrConfig } from "@modelfetch/core";
+import type { EdgeFunction } from "@netlify/edge-functions";
 
 import { createApp } from "@modelfetch/core";
 import { handle as handler } from "hono/netlify";
@@ -41,7 +42,7 @@ import { handle as handler } from "hono/netlify";
 /**
  * Creates a Netlify Edge Function handler from an McpServer instance.
  */
-export default function handle(arg: ServerOrConfig) {
+export default function handle(arg: ServerOrConfig): EdgeFunction {
   const app = createApp(arg);
   return handler(app);
 }
