@@ -102,11 +102,7 @@ These projects are example applications powered by ModelFetch:
 - `nx-10x`: Custom Nx plugin for internal Nx generators, executors, projects, targets, and configurations
 - `create-eslint-config`, `eslint-config-import-paths`, `eslint-config-react`: Shared ESLint utilities and configurations
 
-## Nx Generators
-
-When creating applications or libraries, always prefer using the custom generators provided by `nx-10x` over the built-in Nx generators. The `nx-10x` generators are specifically tailored for this workspace's conventions and requirements.
-
-## Code Style Conventions
+## Best Practices
 
 ### CSS Module Imports
 
@@ -178,6 +174,47 @@ function Component({ text, delay = 50 }: ComponentProps) {
 }
 ```
 
+### Nx Sync Generators
+
+When writing Nx sync generators, follow this important principle:
+
+- **Do not** compare files or check if changes are necessary
+- **Simply write** files to their desired state
+- Nx automatically handles tree comparison and determines if the workspace is out of sync
+
+Example:
+
+```typescript
+// ✅ Good - Just write the desired state
+export default async function mySyncGenerator(
+  tree: Tree,
+): Promise<SyncGeneratorResult> {
+  const content = generateContent();
+  tree.write(targetPath, content);
+
+  await formatFiles(tree);
+  return {
+    outOfSyncMessage: "Some files are out of sync.",
+  };
+}
+
+// ❌ Bad - Don't compare before writing
+export default async function mySyncGenerator(
+  tree: Tree,
+): Promise<SyncGeneratorResult> {
+  const newContent = generateContent();
+  const oldContent = tree.read(targetPath, "utf8");
+
+  if (newContent !== oldContent) {
+    // Unnecessary!
+    tree.write(targetPath, newContent);
+  }
+  // ...
+}
+```
+
+This approach is more efficient, simpler, and reliable since Nx's tree comparison is battle-tested.
+
 ## Development Commands
 
 ### Building Projects
@@ -228,6 +265,10 @@ Note: If `nx sync` (which runs within `pnpm -w format`) reports files are out of
 ### Commit Messages
 
 This project does NOT use conventional commits. Write clear, descriptive commit messages without prefixes like `fix:`, `feat:`, `chore:`, etc.
+
+### Nx Generators
+
+When creating applications or libraries, always prefer using the custom generators provided by `nx-10x` over the built-in Nx generators. The `nx-10x` generators are specifically tailored for this workspace's conventions and requirements.
 
 ### External Documentation
 

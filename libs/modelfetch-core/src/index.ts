@@ -1,29 +1,29 @@
 /**
- * Core utilities for MCP servers built with ModelFetch.
- *
  * This module provides the foundational components for creating MCP servers that can be deployed
  * across various JavaScript/TypeScript runtimes.
  *
- * @example
+ * @example Basic Example
  * ```ts
  * import { createApp } from "@modelfetch/core";
  * import server from "./server";
  *
- * // Basic usage
- * const basicApp = createApp(server);
+ * const app = createApp(server);
+ * ```
  *
- * // Advanced usage
- * const advancedApp = createApp({
+ * @example Advanced Example
+ * ```ts
+ * import { createApp } from "@modelfetch/core";
+ * import server from "./server";
+ *
+ * const app = createApp({
  *   server,
  *   base: "/api",
  *   path: "/mcp",
  *   middleware: [authMiddleware, loggingMiddleware],
  *   pre: (app) => {
- *     // Configure routes before MCP endpoint
  *     app.get("/health", (c) => c.text("OK"));
  *   },
  *   post: (app) => {
- *     // Configure routes after MCP endpoint
  *     app.notFound((c) => c.text("Not found", 404));
  *   }
  * });

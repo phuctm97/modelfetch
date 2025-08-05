@@ -20,14 +20,14 @@ Execute the following steps in order:
    - Update the exact versions to the latest available versions
    - Apply the following exceptions:
      - `zod`: Keep at latest version 3.x.x (do not upgrade to version 4 or higher)
-     - `typescript`: Keep at latest version 5.8.x (do not upgrade to 5.9 or higher)
+     - `typescript`: Keep at latest version 5.9.x (do not upgrade to 5.9 or higher)
      - `@types/node`: Keep at latest version 22.x.x (do not upgrade to 23 or higher)
 
 5. **Update packageVersions in create-modelfetch**:
    - Read `libs/create-modelfetch/src/index.ts`
    - Check the current versions of all packages in the workspace by running `pnpm list --depth=0` in relevant project directories
    - Update the `packageVersions` object with the new exact versions that are installed
-   - Make sure to respect the same exceptions (zod v3, typescript v5.8, @types/node v22)
+   - Make sure to respect the same exceptions (zod v3, typescript v5.9, @types/node v22)
 
 6. **Install updated dependencies**: After manually updating any exact versions, run `pnpm install` to install the updated dependencies
 

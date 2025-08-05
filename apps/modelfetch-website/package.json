@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@mantine/hooks": "^8.2.2",
+    "@mantine/hooks": "^8.2.3",
     "@vercel/analytics": "^1.5.0",
     "fumadocs-core": "^15.6.9",
     "fumadocs-mdx": "^11.7.3",
