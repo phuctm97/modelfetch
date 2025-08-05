@@ -5,9 +5,7 @@
 
 ## Usage
 
-### Configuration
-
-Add to `nx.json`:
+### `nx.json`
 
 ```json
 {
@@ -25,7 +23,6 @@ Add to `nx.json`:
 ### Generators
 
 ```bash
-# Create a library
 pnpm exec nx g nx-10x:create-library
 ```
 
@@ -34,11 +31,9 @@ pnpm exec nx g nx-10x:create-library
 ```json
 {
   "targets": {
-    // Prepare for release publishing
     "prepare-release-publish": {
       "executor": "nx-10x:prepare-release-publish"
     },
-    // Deploy a Gcore FastEdge application
     "deploy-gcore-fastedge": {
       "executor": "nx-10x:deploy-gcore-fastedge"
     }
