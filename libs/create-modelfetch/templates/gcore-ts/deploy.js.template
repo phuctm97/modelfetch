@@ -75,4 +75,5 @@ if (!deployResponse.ok) {
   );
 }
 
-console.log((await deployResponse.json()).url + "/mcp");
+const { url } = await deployResponse.json();
+console.log(`MCP Server URL: ${url}`);

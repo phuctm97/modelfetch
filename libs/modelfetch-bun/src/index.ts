@@ -11,7 +11,7 @@ export function getEndpoint(server: Bun.Server): string {
     server.hostname === "127.0.0.1"
       ? "localhost"
       : server.hostname;
-  return `http://${hostname}:${server.port}/mcp`;
+  return `http://${hostname}:${server.port}`;
 }
 
 export type Options = Except<Bun.ServeOptions, "fetch">;

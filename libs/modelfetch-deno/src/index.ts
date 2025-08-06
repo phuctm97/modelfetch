@@ -44,7 +44,7 @@ export function getEndpoint(address: Deno.Addr): string {
       address.hostname === "127.0.0.1"
         ? "localhost"
         : address.hostname;
-    return `http://${hostname}:${address.port}/mcp`;
+    return `http://${hostname}:${address.port}`;
   }
   throw new Error(
     `'${address.transport}' transport is not supported (only TCP and UDP transports are supported)`,

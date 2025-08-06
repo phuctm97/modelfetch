@@ -21,7 +21,7 @@ export function getEndpoint(address: AddressInfo): string {
         ? "localhost"
         : address.address;
   }
-  return `http://${hostname}:${address.port}/mcp`;
+  return `http://${hostname}:${address.port}`;
 }
 
 export type Callback = Args[1];

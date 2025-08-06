@@ -21,7 +21,7 @@ class ModelFetchExampleAWSLambdaJavaScriptStack extends Stack {
       invokeMode: InvokeMode.RESPONSE_STREAM,
     });
 
-    new CfnOutput(this, "McpServerUrl", { value: `${functionUrl.url}mcp` });
+    new CfnOutput(this, "McpServerUrl", { value: functionUrl.url });
   }
 }
 

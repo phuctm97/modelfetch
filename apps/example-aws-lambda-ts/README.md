@@ -7,31 +7,29 @@
 
 ### Deploying the MCP server
 
-Deploy the MCP server to AWS Lambda:
+Deploy your MCP server to AWS Lambda:
 
 ```bash
 pnpm exec nx deploy example-aws-lambda-ts
 ```
 
-After deployment, the CDK output will show your MCP server URL.
+### Destroying the MCP server
+
+Destroy your MCP server and all its AWS resources:
+
+```bash
+pnpm exec nx destroy example-aws-lambda-ts
+```
 
 ### Testing with the MCP Inspector
 
-In a separate terminal, run the MCP Inspector to test your server:
+Run the MCP Inspector locally:
 
 ```bash
 npx -y @modelcontextprotocol/inspector@latest
 ```
 
-Then, connect to your server at the URL shown in the CDK output (ends with `/mcp`).
-
-### Deleting the MCP server
-
-To delete the MCP server and all its AWS resources:
-
-```bash
-pnpm exec nx destroy example-aws-lambda-ts
-```
+Then, connect to your MCP server using Streamable HTTP transport (default URL: `<mcp-server-url>/mcp`).
 
 ## Project Structure
 
