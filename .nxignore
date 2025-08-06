@@ -2,7 +2,6 @@
 /.nx
 /.husky
 /.vscode
-/.github
 /.gitattributes
 /.nvmrc
 /.prettierignore
@@ -10,6 +9,7 @@
 /.mcp.json
 /tsconfig.json
 /CHANGELOG.md
+.github
 .cursor
 .claude
 CLAUDE.md

@@ -14,6 +14,7 @@ export default function createESLintConfig(...configs) {
         "**/*.jsx",
         "**/*.[cm]js",
         "**/.nx",
+        "**/.conductor",
         "**/dist",
         "**/.source",
         "**/next-env.d.ts",
