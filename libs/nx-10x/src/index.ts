@@ -279,6 +279,7 @@ export const createNodesV2: CreateNodesV2 = [
             targets[binName] = {
               command: `node ${binPath}`,
               options: { cwd: "{projectRoot}" },
+              continuous: true,
               dependsOn: ["build", "^build"],
             };
           }

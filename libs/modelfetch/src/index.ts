@@ -5,23 +5,16 @@ import packageJson from "../package.json" with { type: "json" };
 const program = new Command();
 
 program
-  .name("modelfetch")
-  .description("CLI for building MCP servers with ModelFetch")
+  .name(packageJson.name)
+  .description(packageJson.description)
   .version(packageJson.version);
 
 program
   .command("dev")
-  .description("Start development server")
+  .description("start development server")
   .action(async () => {
-    console.log("TBD");
-
-    // Wait for Ctrl+C to terminate
-    await new Promise<void>((resolve) => {
-      process.on("SIGINT", () => {
-        console.log("\nShutting down...");
-        resolve();
-      });
-    });
+    console.log("Loading…");
+    await new Promise<void>((resolve) => setTimeout(resolve, 2000));
   });
 
 await program.parseAsync(process.argv);

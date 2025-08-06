@@ -1,7 +1,7 @@
 {
   "name": "modelfetch",
   "version": "1.0.0",
-  "description": "CLI for building and running MCP servers with ModelFetch",
+  "description": "CLI for MCP servers built with ModelFetch",
   "keywords": [
     "model-context-protocol",
     "mcp",
