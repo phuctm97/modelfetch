@@ -23,23 +23,23 @@ import server from "./server.ts"; // Import your McpServer
 handle(server);
 ```
 
-### Log The Endpoint
+### Get Listening Address
 
 ```typescript title="src/index.ts"
-import handle, { getEndpoint } from "@modelfetch/bun";
+import handle, { getListeningAddress } from "@modelfetch/bun";
 import server from "./server.ts"; // Import your McpServer
 
 // Run as a Bun HTTP server
 const bunServer = handle(server);
 
-// Log the endpoint when the server starts listening
-console.log(`MCP server is available at ${getEndpoint(bunServer)}`);
+// Print listening address
+console.log(`The MCP server is listening at ${getListeningAddress(bunServer)}`);
 ```
 
 ### Specify Custom Port
 
 ```typescript title="src/index.ts"
-import handle, { getEndpoint } from "@modelfetch/bun";
+import handle, { getListeningAddress } from "@modelfetch/bun";
 import server from "./server.ts"; // Import your McpServer
 
 // Run as a Bun HTTP server
@@ -48,7 +48,8 @@ const bunServer = handle(server, {
   port: 8080,
 });
 
-console.log(`MCP server is available at ${getEndpoint(bunServer)}`);
+// Print listening address
+console.log(`The MCP server is listening at ${getListeningAddress(bunServer)}`);
 ```
 
 ## API Reference
@@ -60,8 +61,8 @@ Starts the MCP server
 - **server**: Required [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance from [`@modelcontextprotocol/sdk`](https://github.com/modelcontextprotocol/typescript-sdk)
 - **options**: Optional [`Bun.ServeOptions`](https://bun.sh/reference/bun/ServeOptions)
 
-### `getEndpoint(server)`
+### `getListeningAddress(server)`
 
-Gets the MCP server endpoint from the [`Bun.Server`](https://bun.sh/reference/bun/Server) instance
+Gets listening address from the [`Bun.Server`](https://bun.sh/reference/bun/Server) instance
 
 - **server**: Required [`Bun.Server`](https://bun.sh/reference/bun/Server) instance returned by the `handle()` function

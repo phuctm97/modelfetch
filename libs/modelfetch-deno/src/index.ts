@@ -12,15 +12,15 @@
  *
  * @example Advanced Example
  * ```ts
- * import handle, { getEndpoint } from "@modelfetch/deno";
+ * import handle, { getListeningAddress } from "@modelfetch/deno";
  * import server from "./server.ts"; // Import your McpServer
  *
  * // Run as a Deno HTTP server
  * handle(server, {
  *   // Customize server options
  *   port: 8080, // Customize server port
- *   onListen: (address) => { // Log the endpoint when the server starts listening
- *     console.log(`MCP server is available at ${getEndpoint(address)}`);
+ *   onListen: (addr) => { // Print listening address
+ *     console.log(`The MCP server is listening at ${getListeningAddress(addr)}`);
  *   },
  * });
  * ```
@@ -33,21 +33,21 @@ import type { ServerOrConfig } from "@modelfetch/core";
 import { createApp } from "@modelfetch/core";
 
 /**
- * Gets the MCP server endpoint from the server Deno.Addr.
+ * Gets listening address from the server Deno.Addr.
  */
-export function getEndpoint(address: Deno.Addr): string {
-  if (address.transport === "tcp" || address.transport === "udp") {
+export function getListeningAddress(addr: Deno.Addr): string {
+  if (addr.transport === "tcp" || addr.transport === "udp") {
     const hostname =
-      address.hostname === "[::]" ||
-      address.hostname === "[::1]" ||
-      address.hostname === "0.0.0.0" ||
-      address.hostname === "127.0.0.1"
+      addr.hostname === "[::]" ||
+      addr.hostname === "[::1]" ||
+      addr.hostname === "0.0.0.0" ||
+      addr.hostname === "127.0.0.1"
         ? "localhost"
-        : address.hostname;
-    return `http://${hostname}:${address.port}`;
+        : addr.hostname;
+    return `http://${hostname}:${addr.port}`;
   }
   throw new Error(
-    `'${address.transport}' transport is not supported (only TCP and UDP transports are supported)`,
+    `'${addr.transport}' transport is not supported (only TCP and UDP transports are supported)`,
   );
 }
 

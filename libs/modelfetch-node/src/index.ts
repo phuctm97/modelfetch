@@ -7,21 +7,21 @@ import { createApp } from "@modelfetch/core";
 
 type Args = Parameters<typeof serve>;
 
-export function getEndpoint(address: AddressInfo): string {
-  let hostname = address.address;
-  if (address.family === "IPv6") {
+export function getListeningAddress(addressInfo: AddressInfo): string {
+  let hostname = addressInfo.address;
+  if (addressInfo.family === "IPv6") {
     hostname =
-      address.address === "::" || address.address === "::1"
+      addressInfo.address === "::" || addressInfo.address === "::1"
         ? "localhost"
-        : `[${address.address}]`;
+        : `[${addressInfo.address}]`;
   }
-  if (address.family === "IPv4") {
+  if (addressInfo.family === "IPv4") {
     hostname =
-      address.address === "0.0.0.0" || address.address === "127.0.0.1"
+      addressInfo.address === "0.0.0.0" || addressInfo.address === "127.0.0.1"
         ? "localhost"
-        : address.address;
+        : addressInfo.address;
   }
-  return `http://${hostname}:${address.port}`;
+  return `http://${hostname}:${addressInfo.port}`;
 }
 
 export type Callback = Args[1];
