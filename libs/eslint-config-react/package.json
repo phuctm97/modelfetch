@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-react",
-  "version": "0.19.2",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "main": "./src/index.js",

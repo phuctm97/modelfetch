@@ -1,6 +1,6 @@
 {
   "name": "example-aws-lambda-js",
-  "version": "0.19.2",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "dependencies": {

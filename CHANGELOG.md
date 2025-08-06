@@ -1,3 +1,21 @@
+# 1.0.0 (2025-08-06)
+
+### 🚀 Features
+
+- ⚠️  Rename getEndpoint to getListeningAddress with improved implementation and documentation ([#83](https://github.com/phuctm97/modelfetch/pull/83))
+
+### 🩹 Fixes
+
+- Support dynamic base and MCP paths with improved documentation consistency across all runtime environments ([#83](https://github.com/phuctm97/modelfetch/pull/83))
+
+### ⚠️  Breaking Changes
+
+- ⚠️  Rename getEndpoint to getListeningAddress with improved implementation and documentation ([#83](https://github.com/phuctm97/modelfetch/pull/83))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 0.19.2 (2025-08-05)
 
 ### 🩹 Fixes
