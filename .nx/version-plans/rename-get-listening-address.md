@@ -1,5 +1,5 @@
 ---
-__default__: minor
+__default__: major
 ---
 
-Rename getEndpoint to getListeningAddress with improved parameter naming and documentation
+Rename getEndpoint to getListeningAddress with improved implementation and documentation
