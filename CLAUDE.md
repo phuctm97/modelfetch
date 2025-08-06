@@ -204,14 +204,6 @@ loadConfig()
 })();
 ```
 
-Top-level await is supported in all target environments of this workspace:
-
-- Node.js (v14.8+)
-- Deno
-- Bun
-- Modern browsers with ESM
-- All TypeScript configurations in this workspace
-
 ### Nx Sync Generators
 
 When writing Nx sync generators, follow this important principle:
