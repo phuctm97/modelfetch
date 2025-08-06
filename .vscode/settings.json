@@ -32,6 +32,7 @@
     ".husky/_": true,
     ".github/instructions/nx.instructions.md": true,
     ".cursor/rules/nx-rules.mdc": true,
+    "**/.conductor": true,
     "**/*.tsbuildinfo": true,
     "**/node_modules": true,
     "**/dist": true,
