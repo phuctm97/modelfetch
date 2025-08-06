@@ -174,6 +174,44 @@ function Component({ text, delay = 50 }: ComponentProps) {
 }
 ```
 
+### Async/Await Patterns
+
+Always use top-level awaits for cleaner and more readable asynchronous code. This workspace targets modern environments that support this feature:
+
+```typescript
+// ✅ Good - Use top-level await in module scope
+const config = await loadConfig();
+const server = await createServer(config);
+
+// ❌ Bad - Unnecessary wrapper function
+async function main() {
+  const config = await loadConfig();
+  const server = await createServer(config);
+}
+main();
+
+// ❌ Bad - Promise chains at top level
+loadConfig()
+  .then((config) => createServer(config))
+  .then((server) => {
+    // ...
+  });
+
+// ❌ Bad - IIFE wrapper (not needed in this workspace)
+(async () => {
+  const config = await loadConfig();
+  const server = await createServer(config);
+})();
+```
+
+Top-level await is supported in all target environments of this workspace:
+
+- Node.js (v14.8+)
+- Deno
+- Bun
+- Modern browsers with ESM
+- All TypeScript configurations in this workspace
+
 ### Nx Sync Generators
 
 When writing Nx sync generators, follow this important principle:
