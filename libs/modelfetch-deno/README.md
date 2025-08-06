@@ -25,17 +25,17 @@ import server from "./server.ts"; // Import your McpServer
 handle(server);
 ```
 
-### Log The Endpoint
+### Get Listening Address
 
 ```typescript
-import handle, { getEndpoint } from "@modelfetch/deno";
+import handle, { getListeningAddress } from "@modelfetch/deno";
 import server from "./server.ts"; // Import your McpServer
 
 // Run as a Deno HTTP server
 handle(server, {
-  onListen: (address) => {
-    // Log the endpoint when the server starts listening
-    console.log(`MCP server is available at ${getEndpoint(address)}`);
+  onListen: (addr) => {
+    // Print listening address
+    console.log(`The MCP server is listening at ${getListeningAddress(addr)}`);
   },
 });
 ```
@@ -43,15 +43,16 @@ handle(server, {
 ### Specify Custom Port
 
 ```typescript
-import handle, { getEndpoint } from "@modelfetch/deno";
+import handle, { getListeningAddress } from "@modelfetch/deno";
 import server from "./server.ts"; // Import your McpServer
 
 // Run as a Deno HTTP server
 handle(server, {
   // Customize server options
-  port: 8080,
-  onListen: (address) => {
-    console.log(`MCP server is available at ${getEndpoint(address)}`);
+  port: 8080, // Customize server port
+  onListen: (addr) => {
+    // Print listening address
+    console.log(`The MCP server is listening at ${getListeningAddress(addr)}`);
   },
 });
 ```
@@ -65,8 +66,8 @@ Starts the MCP server
 - **server**: Required [`McpServer`](https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#server) instance from [`@modelcontextprotocol/sdk`](https://github.com/modelcontextprotocol/typescript-sdk)
 - **options**: Optional [`Deno.ServeOptions`](https://docs.deno.com/api/deno/~/Deno.ServeOptions)
 
-### `getEndpoint(address)`
+### `getListeningAddress(addr)`
 
-Gets the MCP server endpoint from the server [`Deno.Addr`](https://docs.deno.com/api/deno/~/Deno.Addr)
+Gets listening address from the server [`Deno.Addr`](https://docs.deno.com/api/deno/~/Deno.Addr)
 
-- **address**: Required server [`Deno.Addr`](https://docs.deno.com/api/deno/~/Deno.Addr) from the `onListen` callback
+- **addr**: Required server [`Deno.Addr`](https://docs.deno.com/api/deno/~/Deno.Addr) from the `onListen` callback

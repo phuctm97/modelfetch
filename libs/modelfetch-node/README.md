@@ -24,30 +24,35 @@ import server from "./server"; // Import your McpServer
 handle(server);
 ```
 
-### Log The Endpoint
+### Get Listening Address
 
 ```typescript
-import handle, { getEndpoint } from "@modelfetch/node";
+import handle, { getListeningAddress } from "@modelfetch/node";
 import server from "./server"; // Import your McpServer
 
 // Run as a Node.js HTTP server
-handle(server, (address) => {
-  // Log the endpoint when the server starts listening
-  console.log(`MCP server is available at ${getEndpoint(address)}`);
+handle(server, (addressInfo) => {
+  // Print listening address
+  console.log(
+    `The MCP server is listening at ${getListeningAddress(addressInfo)}`,
+  );
 });
 ```
 
 ### Specify Custom Port
 
 ```typescript
-import handle, { getEndpoint } from "@modelfetch/node";
+import handle, { getListeningAddress } from "@modelfetch/node";
 import server from "./server"; // Import your McpServer
 
 // Run as a Node.js HTTP server
 handle(
   server,
-  (address) => {
-    console.log(`MCP server is available at ${getEndpoint(address)}`);
+  // Print listening address
+  (addressInfo) => {
+    console.log(
+      `The MCP server is listening at ${getListeningAddress(addressInfo)}`,
+    );
   },
   // Customize server options
   { port: 8080 },
@@ -68,8 +73,8 @@ Starts the MCP server
   - **createServer**: Custom server factory from `node:http`, `node:https`, or `node:http2`
   - **serverOptions**: Custom server options from `node:http`, `node:https`, or `node:http2`
 
-### `getEndpoint(address)`
+### `getListeningAddress(addressInfo)`
 
-Gets the MCP server endpoint from the server [`AddressInfo`](https://nodejs.org/api/net.html#serveraddress)
+Gets listening address from the server [`AddressInfo`](https://nodejs.org/api/net.html#serveraddress)
 
-- **address**: Required server [`AddressInfo`](https://nodejs.org/api/net.html#serveraddress) from the listening callback
+- **addressInfo**: Required server [`AddressInfo`](https://nodejs.org/api/net.html#serveraddress) from the listening callback

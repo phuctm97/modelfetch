@@ -3,7 +3,7 @@ import type { Except } from "type-fest";
 
 import { createApp } from "@modelfetch/core";
 
-export function getEndpoint(server: Bun.Server): string {
+export function getListeningAddress(server: Bun.Server): string {
   const hostname =
     server.hostname === "[::]" ||
     server.hostname === "[::1]" ||

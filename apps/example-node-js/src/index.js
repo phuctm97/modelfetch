@@ -1,7 +1,9 @@
-import handle, { getEndpoint } from "@modelfetch/node";
+import handle, { getListeningAddress } from "@modelfetch/node";
 
 import server from "./server.js";
 
-handle(server, (address) => {
-  console.log(`MCP server is available at ${getEndpoint(address)}`);
+handle(server, (addressInfo) => {
+  console.log(
+    `The MCP server is listening at ${getListeningAddress(addressInfo)}`,
+  );
 });
