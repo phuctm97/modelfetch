@@ -43,6 +43,9 @@
     "bin",
     "dist"
   ],
+  "dependencies": {
+    "commander": "^14.0.0"
+  },
   "devDependencies": {
     "create-eslint-config": "workspace:^"
   }
