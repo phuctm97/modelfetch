@@ -7,7 +7,7 @@
 
 ### Running the MCP server
 
-Start the MCP server:
+Run your MCP server locally:
 
 ```bash
 pnpm exec nx dev example-fastly-js
@@ -15,23 +15,21 @@ pnpm exec nx dev example-fastly-js
 
 ### Deploying the MCP server
 
-Deploy the MCP server to Fastly:
+Deploy your MCP server to Fastly:
 
 ```bash
 pnpm exec nx deploy example-fastly-js
 ```
 
-After deployment, the output will show your MCP server URL.
-
 ### Testing with the MCP Inspector
 
-In a separate terminal, run the MCP Inspector to test your server:
+Run the MCP Inspector locally:
 
 ```bash
 npx -y @modelcontextprotocol/inspector@latest
 ```
 
-Then, connect to your server at `http://localhost:7676/mcp` (or the URL shown in the output).
+Then, connect to your MCP server using Streamable HTTP transport (default URL: `http://localhost:7676/mcp`).
 
 ## Project Structure
 

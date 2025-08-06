@@ -17,23 +17,25 @@ import { bearerAuth } from "hono/bearer-auth";
 import { logger } from "hono/logger";
 
 handle({
-  server: myMcpServer,
+  server: mcpServer,
   middleware: [logger(), bearerAuth({ token: "secret-token" })],
 });
 ```
 
 ### Using Pre/Post Hooks
 
-For more control, use the synchronous `pre` and `post` hooks to configure the Hono app:
+For more control, use the `pre` and `post` hooks to configure the Hono app:
 
 ```typescript
+const mcpPath = "/mcp";
+
 handle({
-  server: myMcpServer,
+  server: mcpServer,
+  path: mcpPath,
   pre: (app) => {
     // Configure middleware before MCP routes
     app.use("*", logger());
-    app.use("/mcp/*", bearerAuth({ token: "secret" }));
-
+    app.use(`${mcpPath}/*`, bearerAuth({ token: "secret" }));
     // Add error handling
     app.onError((err, c) => {
       console.error("Error:", err);
@@ -57,16 +59,14 @@ import { createMiddleware } from "hono/factory";
 
 const apiKeyAuth = createMiddleware(async (c, next) => {
   const apiKey = c.req.header("X-API-Key");
-
   if (!apiKey || apiKey !== process.env.API_KEY) {
     return c.json({ error: "Invalid API key" }, 401);
   }
-
   await next();
 });
 
 handle({
-  server: myMcpServer,
+  server: mcpServer,
   middleware: [apiKeyAuth],
 });
 ```
@@ -74,12 +74,18 @@ handle({
 ### Request Logging
 
 ```typescript
+import { createMiddleware } from "hono/factory";
+
 const requestLogger = createMiddleware(async (c, next) => {
   const start = Date.now();
   await next();
   const ms = Date.now() - start;
-
   console.log(`${c.req.method} ${c.req.path} - ${c.res.status} ${ms}ms`);
+});
+
+handle({
+  server: mcpServer,
+  middleware: [requestLogger],
 });
 ```
 
@@ -88,11 +94,14 @@ const requestLogger = createMiddleware(async (c, next) => {
 ```typescript
 import { cors } from "hono/cors";
 
+const mcpPath = "/mcp";
+
 handle({
-  server: myMcpServer,
+  server: mcpServer,
+  path: mcpPath,
   pre: (app) => {
     app.use(
-      "/mcp/*",
+      `${mcpPath}/*`,
       cors({
         origin: ["https://app.example.com"],
         allowHeaders: ["X-API-Key", "Content-Type"],
@@ -109,11 +118,14 @@ handle({
 ```typescript
 import { rateLimiter } from "hono/rate-limiter";
 
+const mcpPath = "/mcp";
+
 handle({
-  server: myMcpServer,
+  server: mcpServer,
+  path: mcpPath,
   pre: (app) => {
     app.use(
-      "/mcp/*",
+      `${mcpPath}/*`,
       rateLimiter({
         windowMs: 15 * 60 * 1000, // 15 minutes
         limit: 100, // 100 requests per window

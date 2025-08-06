@@ -7,23 +7,21 @@
 
 ### Deploying the MCP server
 
-Deploy the MCP server to Gcore:
+Deploy your MCP server to Gcore:
 
 ```bash
 pnpm exec nx deploy example-gcore-js
 ```
 
-After deployment, the output will show your MCP server URL.
-
 ### Testing with the MCP Inspector
 
-In a separate terminal, run the MCP Inspector to test your server:
+Run the MCP Inspector locally:
 
 ```bash
 npx -y @modelcontextprotocol/inspector@latest
 ```
 
-Then, connect to your server at the URL shown in the output (ends with `/mcp`).
+Then, connect to your MCP server using Streamable HTTP transport (default URL: `<mcp-server-url>/mcp`).
 
 ## Project Structure
 

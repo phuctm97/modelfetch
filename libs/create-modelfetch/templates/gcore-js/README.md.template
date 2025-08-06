@@ -6,23 +6,21 @@ An MCP server built with [ModelFetch](https://www.modelfetch.com)
 
 ### Deploying the MCP server
 
-Deploy the MCP server to Gcore:
+Deploy your MCP server to Gcore:
 
 ```bash
 <%= packageManager %> run deploy
 ```
 
-After deployment, the output will show your MCP server URL.
-
 ### Testing with the MCP Inspector
 
-In a separate terminal, run the MCP Inspector to test your server:
+Run the MCP Inspector locally:
 
 ```bash
 npx -y @modelcontextprotocol/inspector@latest
 ```
 
-Then, connect to your server at the URL shown in the output (ends with `/mcp`).
+Then, connect to your MCP server using Streamable HTTP transport (default URL: `<mcp-server-url>/mcp`).
 
 ## Project Structure
 

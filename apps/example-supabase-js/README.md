@@ -7,7 +7,7 @@
 
 ### Running the MCP server
 
-Start the MCP server:
+Run your MCP server locally:
 
 ```bash
 pnpm exec nx start example-supabase-js
@@ -23,13 +23,13 @@ pnpm exec nx stop example-supabase-js
 
 ### Testing with the MCP Inspector
 
-In a separate terminal, run the MCP Inspector to test your server:
+Run the MCP Inspector locally:
 
 ```bash
 npx -y @modelcontextprotocol/inspector@latest
 ```
 
-Then, connect to your server at `http://localhost:54321/functions/v1/mcp-server/mcp` (or the URL shown in the output).
+Then, connect to your MCP server using Streamable HTTP transport (default URL: `http://localhost:54321/functions/v1/mcp-server/mcp`).
 
 ## Project Structure
 
