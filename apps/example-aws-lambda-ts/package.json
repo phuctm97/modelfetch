@@ -11,7 +11,7 @@
   "devDependencies": {
     "@types/aws-lambda": "^8.10.152",
     "aws-cdk": "^2.1024.0",
-    "aws-cdk-lib": "^2.209.1",
+    "aws-cdk-lib": "^2.210.0",
     "constructs": "^10.4.2",
     "create-eslint-config": "workspace:^",
     "esbuild": "^0.25.8",

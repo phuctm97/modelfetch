@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "aws-cdk": "^2.1024.0",
-    "aws-cdk-lib": "^2.209.1",
+    "aws-cdk-lib": "^2.210.0",
     "constructs": "^10.4.2",
     "esbuild": "^0.25.8",
     "modelfetch": "workspace:^"
