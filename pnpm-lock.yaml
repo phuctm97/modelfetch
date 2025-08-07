@@ -786,6 +786,9 @@ importers:
       create-eslint-config:
         specifier: workspace:^
         version: link:../create-eslint-config
+      type-fest:
+        specifier: ^4.41.0
+        version: 4.41.0
 
   libs/modelfetch-aws-lambda:
     dependencies:

@@ -58,6 +58,7 @@
     "tsx": "^4.20.3"
   },
   "devDependencies": {
-    "create-eslint-config": "workspace:^"
+    "create-eslint-config": "workspace:^",
+    "type-fest": "^4.41.0"
   }
 }

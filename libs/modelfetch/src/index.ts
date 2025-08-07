@@ -6,6 +6,7 @@ import { loadConfig } from "c12";
 import { watch } from "chokidar";
 import { Command } from "commander";
 import { spawn } from "node:child_process";
+import { access } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { tsImport } from "tsx/esm/api";
@@ -25,6 +26,28 @@ function isMcpServer(server: unknown): server is McpServer {
   );
 }
 
+async function detectDefaultServerFile(): Promise<string> {
+  const serverFiles = [
+    "src/server.ts",
+    "src/server.js",
+    "netlify/server.ts",
+    "netlify/server.js",
+    "app/[[...path]]/server.ts",
+    "app/[[...path]]/server.js",
+    "supabase/functions/mcp-server/server.ts",
+    "supabase/functions/mcp-server/server.js",
+  ];
+  for (const serverFile of serverFiles) {
+    try {
+      await access(path.join(process.cwd(), serverFile));
+      return serverFile;
+    } catch {
+      // Ignore
+    }
+  }
+  return "";
+}
+
 const killSignals = ["SIGINT", "SIGTERM"] as const;
 
 const program = new Command();
@@ -40,7 +63,7 @@ program
   .action(async () => {
     const { config } = await loadConfig<Config>({
       name: "modelfetch",
-      defaults: { server: "./src/server.ts" },
+      defaults: { server: await detectDefaultServerFile() },
     });
     const transport = new Transport();
     const watcher = watch(config.server, { cwd: process.cwd() });
