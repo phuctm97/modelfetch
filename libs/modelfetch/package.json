@@ -1,7 +1,7 @@
 {
   "name": "modelfetch",
   "version": "1.0.0",
-  "description": "CLI for building and running MCP servers with ModelFetch",
+  "description": "CLI for MCP servers built with ModelFetch",
   "keywords": [
     "model-context-protocol",
     "mcp",
@@ -43,6 +43,13 @@
     "bin",
     "dist"
   ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.1",
+    "c12": "^3.2.0",
+    "chokidar": "^4.0.3",
+    "commander": "^14.0.0",
+    "tsx": "^4.20.3"
+  },
   "devDependencies": {
     "create-eslint-config": "workspace:^"
   }

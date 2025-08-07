@@ -279,9 +279,27 @@ export const createNodesV2: CreateNodesV2 = [
             targets[binName] = {
               command: `node ${binPath}`,
               options: { cwd: "{projectRoot}" },
+              continuous: true,
               dependsOn: ["build", "^build"],
             };
           }
+        }
+        if (
+          packageJson.dependencies?.modelfetch ||
+          packageJson.devDependencies?.modelfetch
+        ) {
+          targets["modelfetch-serve"] = {
+            command: "modelfetch serve",
+            options: { cwd: "{projectRoot}" },
+            continuous: true,
+            dependsOn: ["build", "^build"],
+          };
+          targets["modelfetch-dev"] = {
+            command: "modelfetch dev",
+            options: { cwd: "{projectRoot}" },
+            continuous: true,
+            dependsOn: ["build", "^build"],
+          };
         }
         if (!packageJson.private) {
           targets["prepare-release-publish"] = {

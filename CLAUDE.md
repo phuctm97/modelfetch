@@ -204,6 +204,19 @@ loadConfig()
 })();
 ```
 
+### JSON Imports
+
+When importing JSON files in TypeScript/JavaScript, use the ES module import syntax with the `with { type: "json" }` assertion:
+
+```typescript
+// ✅ Good - Direct JSON import
+import packageJson from "../package.json" with { type: "json" };
+
+// ❌ Bad - Using fs.readFileSync
+import { readFileSync } from "node:fs";
+const packageJson = JSON.parse(readFileSync("../package.json", "utf-8"));
+```
+
 ### Nx Sync Generators
 
 When writing Nx sync generators, follow this important principle:
@@ -245,6 +258,28 @@ export default async function mySyncGenerator(
 
 This approach is more efficient, simpler, and reliable since Nx's tree comparison is battle-tested.
 
+### Error Handling
+
+Avoid using try-catch blocks unless absolutely necessary. Let errors fail naturally so they're visible and can be properly debugged:
+
+```typescript
+// ✅ Good - Let errors fail naturally
+const serverModule = (await import(serverUrl)) as { connect?: unknown };
+if (!serverModule.connect) {
+  console.error("error: missing connect export");
+  process.exit(1);
+}
+
+// ❌ Bad - Unnecessary try-catch
+try {
+  const serverModule = await import(serverUrl);
+  // ...
+} catch (error) {
+  console.error("error loading server");
+  process.exit(1);
+}
+```
+
 ## Development Commands
 
 ### Building Projects
@@ -255,6 +290,33 @@ pnpm exec nx build modelfetch
 
 # Build all projects
 pnpm exec nx run-many -t build
+```
+
+### Adding Dependencies
+
+When adding new dependencies to a project, always use `pnpm add` instead of manually editing package.json:
+
+```bash
+# ✅ Good - Use pnpm add for adding dependencies
+pnpm add commander
+pnpm add -D some-dev-package
+
+# ❌ Bad - Manually editing package.json
+# Don't manually add dependencies to package.json then run pnpm install
+```
+
+### Running `modelfetch` CLI
+
+When testing the `modelfetch` CLI, use the Nx run command instead of executing the binary directly:
+
+```bash
+# ✅ Good - Use Nx run command
+pnpm exec nx run modelfetch:modelfetch -- dev
+pnpm exec nx run modelfetch:modelfetch -- --help
+pnpm exec nx run modelfetch:modelfetch -- --version
+
+# ❌ Bad - Running the binary directly
+node libs/modelfetch/bin/index.js dev
 ```
 
 ### Code Quality
