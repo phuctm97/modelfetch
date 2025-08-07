@@ -1,5 +1,5 @@
 ---
-__default__: minor
+__default__: patch
 ---
 
-Add modelfetch CLI with serve and dev commands for running MCP servers with hot reload support
+Add initial modelfetch CLI with serve and dev commands for running MCP servers
