@@ -284,6 +284,16 @@ export const createNodesV2: CreateNodesV2 = [
             };
           }
         }
+        if (
+          packageJson.dependencies?.modelfetch ||
+          packageJson.devDependencies?.modelfetch
+        ) {
+          targets["modelfetch-dev"] = {
+            command: "modelfetch dev",
+            options: { cwd: "{projectRoot}" },
+            continuous: true,
+          };
+        }
         if (!packageJson.private) {
           targets["prepare-release-publish"] = {
             executor: "nx-10x:prepare-release-publish",

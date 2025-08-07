@@ -44,6 +44,7 @@
     "dist"
   ],
   "dependencies": {
+    "c12": "^3.2.0",
     "commander": "^14.0.0"
   },
   "devDependencies": {
