@@ -3,10 +3,10 @@ import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { loadConfig } from "c12";
 import { Command } from "commander";
-import { createJiti } from "jiti";
 import { spawn } from "node:child_process";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
+import { tsImport } from "tsx/esm/api";
 
 import packageJson from "../package.json" with { type: "json" };
 
@@ -27,8 +27,6 @@ function isMcpServer(server: unknown): server is McpServer {
 
 const killSignals = ["SIGINT", "SIGTERM"] as const;
 
-const jiti = createJiti(import.meta.url, { tryNative: true });
-
 const program = new Command();
 
 program
@@ -42,12 +40,13 @@ program
   .action(async () => {
     const { config } = await loadConfig<Config>({
       name: "modelfetch",
-      defaults: { server: "./src/server" },
+      defaults: { server: "./src/server.ts" },
     });
-    const server = await jiti.import(
-      path.resolve(process.cwd(), config.server),
-      { default: true },
-    );
+    const { default: server } = (await tsImport(config.server, {
+      parentURL: pathToFileURL(
+        path.resolve(process.cwd(), `index${path.extname(config.server)}`),
+      ).toString(),
+    })) as { default?: unknown };
     if (!isMcpServer(server)) {
       throw new Error(
         `${config.server} must export a default McpServer instance`,
