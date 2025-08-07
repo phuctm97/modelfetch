@@ -43,22 +43,29 @@ program
       name: "modelfetch",
       defaults: { server: "./src/server.ts" },
     });
-    const transport = new StdioServerTransport();
     const watcher = watch(config.server, { cwd: process.cwd() });
+    let server: McpServer | undefined;
     for (const killSignal of killSignals) {
       process.once(killSignal, () => {
-        void transport.close();
         void watcher.close();
+        if (server) {
+          const {
+            server: { transport },
+          } = server;
+          server = undefined;
+          void transport?.close();
+        }
       });
     }
-    let server: McpServer | undefined;
     const reload = async () => {
-      if (server) {
-        const ref = server;
-        server = undefined;
-        await ref.close();
-      }
       watcher.unwatch("*");
+      if (server) {
+        const {
+          server: { transport },
+        } = server;
+        server = undefined;
+        await transport?.close();
+      }
       const { default: loadedServer } = (await tsImport(config.server, {
         parentURL: pathToFileURL(
           path.resolve(process.cwd(), `index${path.extname(config.server)}`),
@@ -73,9 +80,11 @@ program
         );
       }
       server = loadedServer;
-      await server.connect(transport);
+      await server.connect(new StdioServerTransport());
     };
-    watcher.on("change", () => void reload());
+    watcher.on("change", () => {
+      void reload();
+    });
     await reload();
   });
 
