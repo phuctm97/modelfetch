@@ -2,6 +2,7 @@ import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { loadConfig } from "c12";
+import { watch } from "chokidar";
 import { Command } from "commander";
 import { spawn } from "node:child_process";
 import path from "node:path";
@@ -42,25 +43,40 @@ program
       name: "modelfetch",
       defaults: { server: "./src/server.ts" },
     });
-    const { default: server } = (await tsImport(config.server, {
-      parentURL: pathToFileURL(
-        path.resolve(process.cwd(), `index${path.extname(config.server)}`),
-      ).toString(),
-    })) as { default?: unknown };
-    if (!isMcpServer(server)) {
-      throw new Error(
-        `${config.server} must export a default McpServer instance`,
-      );
-    }
     const transport = new StdioServerTransport();
-    await server.connect(transport);
-    const close = transport.onclose;
-    transport.onclose = () => {
-      close?.();
-      process.exit();
+    const watcher = watch(config.server, { cwd: process.cwd() });
+    for (const killSignal of killSignals) {
+      process.once(killSignal, () => {
+        void transport.close();
+        void watcher.close();
+      });
+    }
+    let server: McpServer | undefined;
+    const reload = async () => {
+      if (server) {
+        const ref = server;
+        server = undefined;
+        await ref.close();
+      }
+      watcher.unwatch("*");
+      const { default: loadedServer } = (await tsImport(config.server, {
+        parentURL: pathToFileURL(
+          path.resolve(process.cwd(), `index${path.extname(config.server)}`),
+        ).toString(),
+        onImport: (url) => {
+          watcher.add(fileURLToPath(url));
+        },
+      })) as { default?: unknown };
+      if (!isMcpServer(loadedServer)) {
+        throw new Error(
+          `${config.server} must export a default McpServer instance`,
+        );
+      }
+      server = loadedServer;
+      await server.connect(transport);
     };
-    for (const killSignal of killSignals)
-      process.once(killSignal, () => void transport.close());
+    watcher.on("change", () => void reload());
+    await reload();
   });
 
 program
