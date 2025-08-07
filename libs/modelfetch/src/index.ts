@@ -50,6 +50,7 @@ program
         transport.__modelfetch_closed__ = true;
         void watcher.close();
         if (server) void server.close();
+        else void transport.close();
       });
     }
     const reload = async () => {
