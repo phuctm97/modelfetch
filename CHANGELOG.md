@@ -1,3 +1,14 @@
+## 1.0.1 (2025-08-07)
+
+### 🩹 Fixes
+
+- Add best practices documentation for using top-level await in async/await patterns ([#87](https://github.com/phuctm97/modelfetch/pull/87))
+- Add initial modelfetch CLI with serve and dev commands for running MCP servers ([#87](https://github.com/phuctm97/modelfetch/pull/87))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 # 1.0.0 (2025-08-06)
 
 ### 🚀 Features
