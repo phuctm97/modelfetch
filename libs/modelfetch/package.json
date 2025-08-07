@@ -34,6 +34,11 @@
       "development": "./src/index.ts",
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
+    },
+    "./config": {
+      "development": "./src/config.ts",
+      "types": "./dist/config.d.ts",
+      "import": "./dist/config.js"
     }
   },
   "bin": {
@@ -44,10 +49,12 @@
     "dist"
   ],
   "dependencies": {
+    "@modelcontextprotocol/inspector": "^0.16.2",
     "@modelcontextprotocol/sdk": "^1.17.1",
     "c12": "^3.2.0",
     "chokidar": "^4.0.3",
     "commander": "^14.0.0",
+    "tailwindcss": "^4.1.11",
     "tsx": "^4.20.3"
   },
   "devDependencies": {

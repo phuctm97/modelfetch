@@ -1,6 +1,7 @@
 import type { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import type { Config } from "./config.js";
+
 import { loadConfig } from "c12";
 import { watch } from "chokidar";
 import { Command } from "commander";
@@ -11,9 +12,7 @@ import { tsImport } from "tsx/esm/api";
 
 import packageJson from "../package.json" with { type: "json" };
 
-interface Config {
-  server: string;
-}
+import { Transport } from "./transport.js";
 
 function isMcpServer(server: unknown): server is McpServer {
   return (
@@ -43,30 +42,25 @@ program
       name: "modelfetch",
       defaults: { server: "./src/server.ts" },
     });
+    const transport = new Transport();
     const watcher = watch(config.server, { cwd: process.cwd() });
     let server: McpServer | undefined;
     for (const killSignal of killSignals) {
       process.once(killSignal, () => {
+        transport.__modelfetch_closed__ = true;
         void watcher.close();
-        if (server) {
-          const {
-            server: { transport },
-          } = server;
-          server = undefined;
-          void transport?.close();
-        }
+        if (server) void server.close();
+        else void transport.close();
       });
     }
     const reload = async () => {
       watcher.unwatch("*");
       if (server) {
-        const {
-          server: { transport },
-        } = server;
+        const oldServer = server;
         server = undefined;
-        await transport?.close();
+        await oldServer.close();
       }
-      const { default: loadedServer } = (await tsImport(config.server, {
+      const { default: newServer } = (await tsImport(config.server, {
         parentURL: pathToFileURL(
           path.resolve(process.cwd(), `index${path.extname(config.server)}`),
         ).toString(),
@@ -74,13 +68,13 @@ program
           watcher.add(fileURLToPath(url));
         },
       })) as { default?: unknown };
-      if (!isMcpServer(loadedServer)) {
+      if (!isMcpServer(newServer)) {
         throw new Error(
           `${config.server} must export a default McpServer instance`,
         );
       }
-      server = loadedServer;
-      await server.connect(new StdioServerTransport());
+      server = newServer;
+      await newServer.connect(transport);
     };
     watcher.on("change", () => {
       void reload();
@@ -93,10 +87,13 @@ program
   .description("start the MCP Inspector")
   .action(() => {
     const inspector = spawn(
-      "npx",
+      "node",
       [
-        "-y",
-        "@modelcontextprotocol/inspector@latest",
+        fileURLToPath(
+          import.meta.resolve(
+            "@modelcontextprotocol/inspector/cli/build/cli.js",
+          ),
+        ),
         "--",
         "node",
         fileURLToPath(import.meta.url),
