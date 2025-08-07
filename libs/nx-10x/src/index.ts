@@ -292,11 +292,13 @@ export const createNodesV2: CreateNodesV2 = [
             command: "modelfetch serve",
             options: { cwd: "{projectRoot}" },
             continuous: true,
+            dependsOn: ["build", "^build"],
           };
           targets["modelfetch-dev"] = {
             command: "modelfetch dev",
             options: { cwd: "{projectRoot}" },
             continuous: true,
+            dependsOn: ["build", "^build"],
           };
         }
         if (!packageJson.private) {

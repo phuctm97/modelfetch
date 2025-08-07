@@ -92,14 +92,18 @@ program
   .command("dev")
   .description("start the MCP Inspector")
   .action(() => {
-    const inspector = spawn("npx", [
-      "-y",
-      "@modelcontextprotocol/inspector@latest",
-      "--",
-      "node",
-      fileURLToPath(import.meta.url),
-      "serve",
-    ]);
+    const inspector = spawn(
+      "npx",
+      [
+        "-y",
+        "@modelcontextprotocol/inspector@latest",
+        "--",
+        "node",
+        fileURLToPath(import.meta.url),
+        "serve",
+      ],
+      { stdio: "inherit" },
+    );
     inspector.once("exit", (code) => {
       process.exit(code);
     });
