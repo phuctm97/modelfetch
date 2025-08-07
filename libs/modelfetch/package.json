@@ -44,8 +44,10 @@
     "dist"
   ],
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.1",
     "c12": "^3.2.0",
-    "commander": "^14.0.0"
+    "commander": "^14.0.0",
+    "jiti": "^2.5.1"
   },
   "devDependencies": {
     "create-eslint-config": "workspace:^"

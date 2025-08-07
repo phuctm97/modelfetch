@@ -761,12 +761,18 @@ importers:
 
   libs/modelfetch:
     dependencies:
+      '@modelcontextprotocol/sdk':
+        specifier: ^1.17.1
+        version: 1.17.1
       c12:
         specifier: ^3.2.0
         version: 3.2.0
       commander:
         specifier: ^14.0.0
         version: 14.0.0
+      jiti:
+        specifier: ^2.5.1
+        version: 2.5.1
     devDependencies:
       create-eslint-config:
         specifier: workspace:^

@@ -258,6 +258,28 @@ export default async function mySyncGenerator(
 
 This approach is more efficient, simpler, and reliable since Nx's tree comparison is battle-tested.
 
+### Error Handling
+
+Avoid using try-catch blocks unless absolutely necessary. Let errors fail naturally so they're visible and can be properly debugged:
+
+```typescript
+// ✅ Good - Let errors fail naturally
+const serverModule = (await import(serverUrl)) as { connect?: unknown };
+if (!serverModule.connect) {
+  console.error("error: missing connect export");
+  process.exit(1);
+}
+
+// ❌ Bad - Unnecessary try-catch
+try {
+  const serverModule = await import(serverUrl);
+  // ...
+} catch (error) {
+  console.error("error loading server");
+  process.exit(1);
+}
+```
+
 ## Development Commands
 
 ### Building Projects
