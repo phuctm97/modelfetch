@@ -50,7 +50,7 @@
   ],
   "dependencies": {
     "@modelcontextprotocol/inspector": "^0.16.2",
-    "@modelcontextprotocol/sdk": "^1.17.1",
+    "@modelcontextprotocol/sdk": "^1.17.2",
     "c12": "^3.2.0",
     "chokidar": "^4.0.3",
     "commander": "^14.0.0",

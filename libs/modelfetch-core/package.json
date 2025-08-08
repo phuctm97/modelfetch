@@ -41,7 +41,7 @@
   ],
   "dependencies": {
     "@hono/mcp": "^0.1.1",
-    "hono": "^4.8.12"
+    "hono": "^4.9.0"
   },
   "devDependencies": {
     "create-eslint-config": "workspace:^"
