@@ -26,7 +26,7 @@ function isMcpServer(server: unknown): server is McpServer {
   );
 }
 
-async function detectDefaultServerFile(): Promise<string> {
+async function detectDefaultServer(): Promise<string> {
   const serverFiles = [
     "src/server.ts",
     "src/server.js",
@@ -40,7 +40,7 @@ async function detectDefaultServerFile(): Promise<string> {
   for (const serverFile of serverFiles) {
     try {
       await access(path.join(process.cwd(), serverFile));
-      return serverFile;
+      return `./${serverFile}`;
     } catch {
       // Ignore
     }
@@ -63,7 +63,7 @@ program
   .action(async () => {
     const { config } = await loadConfig<Config>({
       name: "modelfetch",
-      defaults: { server: await detectDefaultServerFile() },
+      defaults: { server: await detectDefaultServer() },
     });
     if (!config.server) throw new Error("config.server is required");
     const transport = new Transport();
