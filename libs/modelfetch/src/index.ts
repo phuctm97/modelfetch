@@ -6,7 +6,7 @@ import { loadConfig } from "c12";
 import { watch } from "chokidar";
 import { Command } from "commander";
 import { spawn } from "node:child_process";
-import { access } from "node:fs/promises";
+import { access, readdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { tsImport } from "tsx/esm/api";
@@ -27,23 +27,58 @@ function isMcpServer(server: unknown): server is McpServer {
 }
 
 async function detectDefaultServer(): Promise<string> {
-  const serverFiles = [
+  // Check static files
+  const staticFiles = [
     "src/server.ts",
     "src/server.js",
     "netlify/server.ts",
     "netlify/server.js",
-    "app/[[...path]]/server.ts",
-    "app/[[...path]]/server.js",
-    "supabase/functions/mcp-server/server.ts",
-    "supabase/functions/mcp-server/server.js",
   ];
-  for (const serverFile of serverFiles) {
+  for (const staticFile of staticFiles) {
     try {
-      await access(path.join(process.cwd(), serverFile));
-      return `./${serverFile}`;
+      await access(path.join(process.cwd(), staticFile));
+      return `./${staticFile}`;
     } catch {
       // Ignore
     }
+  }
+  // Check for Next.js dynamic routes
+  try {
+    const dirs = await readdir(path.join(process.cwd(), "app"));
+    for (const dir of dirs) {
+      if (dir.startsWith("[[...") && dir.endsWith("]]")) {
+        for (const ext of ["ts", "js"]) {
+          const serverPath = `app/${dir}/server.${ext}`;
+          try {
+            await access(path.join(process.cwd(), serverPath));
+            return `./${serverPath}`;
+          } catch {
+            // Ignore
+          }
+        }
+      }
+    }
+  } catch {
+    // Ignore
+  }
+  // Check for Supabase functions
+  try {
+    const dirs = await readdir(
+      path.join(process.cwd(), "supabase", "functions"),
+    );
+    for (const dir of dirs) {
+      for (const ext of ["ts", "js"]) {
+        const serverPath = `supabase/functions/${dir}/server.${ext}`;
+        try {
+          await access(path.join(process.cwd(), serverPath));
+          return `./${serverPath}`;
+        } catch {
+          // Ignore
+        }
+      }
+    }
+  } catch {
+    // Ignore
   }
   return "";
 }
