@@ -217,6 +217,22 @@ import { readFileSync } from "node:fs";
 const packageJson = JSON.parse(readFileSync("../package.json", "utf-8"));
 ```
 
+### Path Construction
+
+When using `path.join()` to construct file paths, pass each path segment as a separate argument without unnecessary prefixes:
+
+```typescript
+// ✅ Good - Clean path segments
+path.join(process.cwd(), "src", "server.ts");
+path.join(__dirname, "lib", "utils", "index.js");
+
+// ❌ Bad - Unnecessary ./ prefix
+path.join(process.cwd(), "./src/server.ts");
+path.join(__dirname, "./lib/utils/index.js");
+```
+
+This approach is cleaner, more readable, and properly handles path separators across different operating systems.
+
 ### Nx Sync Generators
 
 When writing Nx sync generators, follow this important principle:
@@ -294,12 +310,15 @@ pnpm exec nx run-many -t build
 
 ### Adding Dependencies
 
-When adding new dependencies to a project, always use `pnpm add` instead of manually editing package.json:
+When adding new dependencies to a project, always use `pnpm add` with the `-F` flag to specify the project instead of changing directories:
 
 ```bash
-# ✅ Good - Use pnpm add for adding dependencies
-pnpm add commander
-pnpm add -D some-dev-package
+# ✅ Good - Use pnpm add with -F flag to specify the project
+pnpm add some-package -F modelfetch
+pnpm add -D some-dev-package -F @modelfetch/node
+
+# ❌ Bad - Changing directories to add dependencies
+cd libs/modelfetch && pnpm add some-package
 
 # ❌ Bad - Manually editing package.json
 # Don't manually add dependencies to package.json then run pnpm install

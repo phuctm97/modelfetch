@@ -5,7 +5,7 @@
   "type": "module",
   "main": "./src/index.js",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.17.1",
+    "@modelcontextprotocol/sdk": "^1.17.2",
     "@modelfetch/bun": "workspace:^",
     "zod": "^3.25.76"
   },

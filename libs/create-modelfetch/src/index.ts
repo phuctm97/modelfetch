@@ -22,7 +22,7 @@ const asciiLogo = `   __  __           _      _ _____    _       _
 
 // Package versions
 const packageVersions = {
-  "@modelcontextprotocol/sdk": "1.17.1",
+  "@modelcontextprotocol/sdk": "1.17.2",
   zod: "3.25.76",
   tslib: "2.8.1",
   typescript: "5.9.2",
@@ -45,7 +45,7 @@ const packageVersions = {
   "react-dom": "19.1.1",
   "@types/react-dom": "19.1.7",
   "@modelfetch/cloudflare": packageJson.version,
-  wrangler: "4.28.0",
+  wrangler: "4.28.1",
   "@modelfetch/netlify": packageJson.version,
   "@modelfetch/fastly": packageJson.version,
   "@fastly/js-compute": "3.34.0",
