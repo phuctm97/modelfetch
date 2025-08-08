@@ -1,3 +1,14 @@
+## 1.0.2 (2025-08-08)
+
+### 🩹 Fixes
+
+- Add automatic server file detection to modelfetch CLI dev command ([772c172](https://github.com/phuctm97/modelfetch/commit/772c172))
+- Add serve command with hot reload and configuration support to modelfetch CLI ([772c172](https://github.com/phuctm97/modelfetch/commit/772c172))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 1.0.1 (2025-08-07)
 
 ### 🩹 Fixes

@@ -1,6 +1,6 @@
 {
   "name": "@modelfetch/vercel",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Vercel runtime adapter for MCP servers built with ModelFetch",
   "keywords": [
     "model-context-protocol",
