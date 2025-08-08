@@ -65,6 +65,7 @@ program
       name: "modelfetch",
       defaults: { server: await detectDefaultServerFile() },
     });
+    if (!config.server) throw new Error("config.server is required");
     const transport = new Transport();
     const watcher = watch(config.server, { cwd: process.cwd() });
     let server: McpServer | undefined;
