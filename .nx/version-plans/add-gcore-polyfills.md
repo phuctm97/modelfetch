@@ -1,5 +1,5 @@
 ---
-__default__: minor
+__default__: patch
 ---
 
 Add Response.json() and AbortController polyfills to Gcore runtime for improved API compatibility
