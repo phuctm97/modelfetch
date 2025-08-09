@@ -25,7 +25,7 @@ Each package acts as a thin wrapper around the equivalent Hono package, ensuring
 
 The `modelfetch` CLI provides an exceptional developer experience with:
 
-- `dev` command for running MCP servers in development mode with live reload
+- `dev` command for running MCP servers in development mode with hot reload
 - Integration with the MCP inspector for a seamless testing and debugging experience
 
 **Goal**: To become the world's most popular TypeScript/JavaScript SDK for building MCP servers.

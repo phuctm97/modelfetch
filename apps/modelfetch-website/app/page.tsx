@@ -168,7 +168,7 @@ export default function Page() {
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400">
                     Build your MCP server with tools designed for building MCP
-                    servers: live reload, debugger, MCP Inspector, etc.
+                    servers: hot reload, debugger, MCP Inspector, etc.
                   </p>
                 </div>
               </div>

@@ -20,7 +20,7 @@
 
 - **Multi-Runtime**: Write once, run anywhere: Node.js, Next.js, Bun, Deno, Vercel, Cloudflare, Netlify, Fastly, Supabase, Gcore, AWS Lambda, and Azure Functions
 - **Official SDK**: Built on top of the [official MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) to avoid lock-in, guarantee long-term support, and ensure up-to-date implementation
-- **Live Reload**: Development server with automatic reloading
+- **Hot Reload**: Development server with automatic reloading
 - **MCP Inspector**: Built-in integration for testing and debugging
 - **Modular Design**: Platform-specific package for optimal performance
 
@@ -209,7 +209,7 @@ ModelFetch provides runtime-specific packages that handle tedious platform diffe
 | ---------------------------------------------------------------- | --------------------------------------- | -------- |
 | [`@modelfetch/node`](libs/modelfetch-node)                       | Run simple MCP servers with Node.js     | ✅ Ready |
 | [`@modelfetch/next`](libs/modelfetch-next)                       | Run flexible MCP servers with Next.js   | ✅ Ready |
-| [`@modelfetch/bun`](libs/modelfetch-bun)                         | Run lightning-fast MCP servers with Bun | ✅ Ready |
+| [`@modelfetch/bun`](libs/modelfetch-bun)                         | Run fast MCP servers with Bun | ✅ Ready |
 | [`@modelfetch/deno`](libs/modelfetch-deno)                       | Run secure MCP servers with Deno        | ✅ Ready |
 | [`@modelfetch/vercel`](libs/modelfetch-vercel)                   | Deploy MCP servers to Vercel            | ✅ Ready |
 | [`@modelfetch/cloudflare`](libs/modelfetch-cloudflare)           | Deploy MCP servers to Cloudflare        | ✅ Ready |
