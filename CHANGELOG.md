@@ -1,3 +1,15 @@
+## 1.0.3 (2025-08-09)
+
+### 🩹 Fixes
+
+- Update Bun documentation to use "fast" instead of "lightning-fast" and replace "live reload" with "hot reload" terminology ([652ce63](https://github.com/phuctm97/modelfetch/commit/652ce63))
+- Add automatic runtime detection for Bun and Deno in modelfetch CLI serve command ([652ce63](https://github.com/phuctm97/modelfetch/commit/652ce63))
+- Add Response.json() and AbortController polyfills to Gcore runtime for improved API compatibility ([652ce63](https://github.com/phuctm97/modelfetch/commit/652ce63))
+
+### ❤️ Thank You
+
+- phuctm97
+
 ## 1.0.2 (2025-08-08)
 
 ### 🩹 Fixes
