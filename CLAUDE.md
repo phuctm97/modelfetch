@@ -274,6 +274,20 @@ export default async function mySyncGenerator(
 
 This approach is more efficient, simpler, and reliable since Nx's tree comparison is battle-tested.
 
+### HTTP Headers
+
+Always use lowercase for HTTP header names for consistency and compatibility:
+
+```typescript
+// ✅ Good - Use lowercase HTTP headers
+headers.set("content-type", "application/json");
+headers.get("authorization");
+
+// ❌ Bad - Mixed case headers
+headers.set("Content-Type", "application/json");
+headers.get("Authorization");
+```
+
 ### Error Handling
 
 Avoid using try-catch blocks unless absolutely necessary. Let errors fail naturally so they're visible and can be properly debugged:

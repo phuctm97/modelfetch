@@ -41,6 +41,7 @@
   ],
   "dependencies": {
     "@modelfetch/core": "workspace:^",
+    "abortcontroller-polyfill": "^1.7.8",
     "hono": "^4.9.0"
   },
   "devDependencies": {
