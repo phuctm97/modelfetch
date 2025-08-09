@@ -85,13 +85,9 @@ async function detectDefaultServer(): Promise<string> {
 
 function detectRuntimeArgs(): string[] {
   // @ts-expect-error Bun global may not exist
-  if (typeof Bun !== "undefined") {
-    return ["bun", "run"];
-  }
+  if (typeof Bun !== "undefined") return ["bun", "run"];
   // @ts-expect-error Deno global may not exist
-  if (typeof Deno !== "undefined") {
-    return ["deno", "run", "-A"];
-  }
+  if (typeof Deno !== "undefined") return ["deno", "run", "-A"];
   return ["node"];
 }
 
