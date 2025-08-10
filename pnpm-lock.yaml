@@ -776,6 +776,9 @@ importers:
       commander:
         specifier: ^14.0.0
         version: 14.0.0
+      js-runtime:
+        specifier: ^0.0.8
+        version: 0.0.8
       tailwindcss:
         specifier: ^4.1.11
         version: 4.1.11
@@ -5674,6 +5677,10 @@ packages:
 
   js-image-generator@1.0.4:
     resolution: {integrity: sha512-ckb7kyVojGAnArouVR+5lBIuwU1fcrn7E/YYSd0FK7oIngAkMmRvHASLro9Zt5SQdWToaI66NybG+OGxPw/HlQ==}
+
+  js-runtime@0.0.8:
+    resolution: {integrity: sha512-/nxfuHRkzajgNgGP/7j2A9y8k54XtTWizq+vEGrWh3eBWlSqFhwgToXHAGZeHX3wRMTC3VFBw1iVeemlX4qxZw==}
+    engines: {node: '>=18', pnpm: '>=8.3.0'}
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -12786,6 +12793,8 @@ snapshots:
   js-image-generator@1.0.4:
     dependencies:
       jpeg-js: 0.4.4
+
+  js-runtime@0.0.8: {}
 
   js-tokens@4.0.0: {}
 

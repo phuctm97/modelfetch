@@ -54,6 +54,7 @@
     "c12": "^3.2.0",
     "chokidar": "^4.0.3",
     "commander": "^14.0.0",
+    "js-runtime": "^0.0.8",
     "tailwindcss": "^4.1.11",
     "tsx": "^4.20.3"
   },
