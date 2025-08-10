@@ -5,6 +5,7 @@ import type { Config } from "./config.js";
 import { loadConfig } from "c12";
 import { watch } from "chokidar";
 import { Command } from "commander";
+import { get as getRuntime } from "js-runtime";
 import { spawn } from "node:child_process";
 import { access, readdir } from "node:fs/promises";
 import path from "node:path";
@@ -84,11 +85,18 @@ async function detectDefaultServer(): Promise<string> {
 }
 
 function detectRuntimeArgs(): string[] {
-  // @ts-expect-error Bun global may not exist
-  if (typeof Bun !== "undefined") return ["bun", "run"];
-  // @ts-expect-error Deno global may not exist
-  if (typeof Deno !== "undefined") return ["deno", "run", "-A"];
-  return ["node"];
+  const runtime = getRuntime();
+  switch (runtime) {
+    case "bun": {
+      return ["bun", "run"];
+    }
+    case "deno": {
+      return ["deno", "run", "-A"];
+    }
+    default: {
+      return ["node"];
+    }
+  }
 }
 
 const killSignals = ["SIGINT", "SIGTERM"] as const;
@@ -153,16 +161,19 @@ program
   .command("dev")
   .description("start the MCP Inspector")
   .action(() => {
+    const [command, ...args] = detectRuntimeArgs();
     const inspector = spawn(
-      "node",
+      command,
       [
+        ...args,
         fileURLToPath(
           import.meta.resolve(
             "@modelcontextprotocol/inspector/cli/build/cli.js",
           ),
         ),
         "--",
-        ...detectRuntimeArgs(),
+        command,
+        ...args,
         fileURLToPath(import.meta.url),
         "serve",
       ],
