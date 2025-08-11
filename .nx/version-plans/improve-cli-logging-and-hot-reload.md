@@ -1,5 +1,5 @@
 ---
-__default__: minor
+__default__: patch
 ---
 
-Improve modelfetch CLI with cleaner logging and native hot reload support for Bun runtime
+Remove CLI logs, use native hot reload support for Bun runtime, and surpress buggy stdio messages
