@@ -1,3 +1,13 @@
+## 1.0.7 (2025-08-11)
+
+### 🩹 Fixes
+
+- Remove CLI logs, use native hot reload support for Bun runtime, and surpress buggy stdio messages ([#99](https://github.com/phuctm97/modelfetch/pull/99))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 1.0.6 (2025-08-11)
 
 ### 🩹 Fixes
