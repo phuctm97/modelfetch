@@ -8,9 +8,9 @@ import { Command } from "commander";
 import { get as getRuntime } from "js-runtime";
 import { spawn } from "node:child_process";
 import { randomUUID } from "node:crypto";
-import { unlinkSync } from "node:fs";
-import { access, readdir, writeFile } from "node:fs/promises";
-import { tmpdir } from "node:os";
+import { appendFileSync, unlinkSync } from "node:fs";
+import { access, mkdir, readdir, writeFile } from "node:fs/promises";
+import { homedir, tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { tsImport } from "tsx/esm/api";
@@ -18,6 +18,25 @@ import { tsImport } from "tsx/esm/api";
 import packageJson from "../package.json" with { type: "json" };
 
 import { Transport } from "./transport.js";
+
+const logDir = path.join(homedir(), ".modelfetch", "logs");
+
+await mkdir(logDir, { recursive: true });
+
+const logFile = path.join(logDir, `session-${randomUUID()}.log`);
+
+function LOG(level: string, message: string): void {
+  const timestamp = new Date().toISOString();
+  appendFileSync(logFile, `[${timestamp}] [${level}] ${message}\n`, "utf8");
+}
+
+function INFO(message: string): void {
+  LOG("INFO", message);
+}
+
+function ERROR(message: string): void {
+  LOG("ERROR", message);
+}
 
 function isMcpServer(server: unknown): server is McpServer {
   return (
@@ -109,7 +128,14 @@ const program = new Command();
 program
   .name(packageJson.name)
   .description(packageJson.description)
-  .version(packageJson.version);
+  .version(packageJson.version)
+  .hook("preAction", (thisCommand, actionCommand) => {
+    INFO("COMMAND");
+    INFO(`Working Directory: ${process.cwd()}`);
+    INFO(`Environment Variables: ${Object.keys(process.env).sort().join(" ")}`);
+    INFO(`This Command: ${thisCommand.name()}`);
+    INFO(`Action Command: ${actionCommand.name()}`);
+  });
 
 program
   .command("serve")
@@ -122,7 +148,7 @@ program
     if (!config.server) throw new Error("config.server is required");
     const runtime = getRuntime();
     if (runtime === "deno") {
-      const serverPath = path.resolve(process.cwd(), config.server);
+      const serverPath = path.join(process.cwd(), config.server);
       const mainPath = path.join(tmpdir(), `modelfetch-${randomUUID()}.ts`);
       const mainContent = `
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
@@ -167,7 +193,7 @@ await server.connect(transport);
         }
         const { default: newServer } = (await tsImport(config.server, {
           parentURL: pathToFileURL(
-            path.resolve(process.cwd(), `index${path.extname(config.server)}`),
+            path.join(process.cwd(), `index${path.extname(config.server)}`),
           ).toString(),
           onImport: (url) => {
             watcher.add(fileURLToPath(url));
@@ -219,5 +245,20 @@ program
       });
     }
   });
+
+INFO("SESSION");
+INFO(`Program Version: ${packageJson.version}`);
+INFO(`Working Directory: ${process.cwd()}`);
+INFO(`Environment Variables: ${Object.keys(process.env).sort().join(" ")}`);
+
+process.on("uncaughtException", (error) => {
+  ERROR(`Uncaught exception: ${error.message}`);
+  ERROR(error.stack ?? "No stack trace");
+});
+
+process.on("unhandledRejection", (reason) => {
+  ERROR(`Unhandled rejection: ${String(reason)}`);
+  if (reason instanceof Error) ERROR(reason.stack ?? "No stack trace");
+});
 
 await program.parseAsync(process.argv);
