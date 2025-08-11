@@ -1,3 +1,13 @@
+## 1.0.6 (2025-08-11)
+
+### 🩹 Fixes
+
+- Improve modelfetch CLI logging and Deno support with better runtime info and cleaner entry point ([#98](https://github.com/phuctm97/modelfetch/pull/98))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 1.0.5 (2025-08-11)
 
 ### 🩹 Fixes
