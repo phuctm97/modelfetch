@@ -8,9 +8,9 @@ import { Command } from "commander";
 import { get as getRuntime } from "js-runtime";
 import { spawn } from "node:child_process";
 import { randomUUID } from "node:crypto";
-import { appendFileSync, unlinkSync } from "node:fs";
+import { appendFileSync } from "node:fs";
 import { access, mkdir, readdir, writeFile } from "node:fs/promises";
-import { homedir, tmpdir } from "node:os";
+import { homedir } from "node:os";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { tsImport } from "tsx/esm/api";
@@ -28,6 +28,10 @@ const logFile = path.join(logDir, `session-${randomUUID()}.log`);
 function LOG(level: string, message: string): void {
   const timestamp = new Date().toISOString();
   appendFileSync(logFile, `[${timestamp}] [${level}] ${message}\n`, "utf8");
+}
+
+function SEP(): void {
+  appendFileSync(logFile, "------------------------------------\n", "utf8");
 }
 
 function INFO(message: string): void {
@@ -130,11 +134,12 @@ program
   .description(packageJson.description)
   .version(packageJson.version)
   .hook("preAction", (thisCommand, actionCommand) => {
-    INFO("COMMAND");
+    SEP();
+    INFO(`Command: ${actionCommand.name()} ${actionCommand.args.join(" ")}`);
+    INFO(`Runtime: ${getRuntime()}`);
     INFO(`Working Directory: ${process.cwd()}`);
     INFO(`Environment Variables: ${Object.keys(process.env).sort().join(" ")}`);
-    INFO(`This Command: ${thisCommand.name()}`);
-    INFO(`Action Command: ${actionCommand.name()}`);
+    SEP();
   });
 
 program
@@ -148,8 +153,10 @@ program
     if (!config.server) throw new Error("config.server is required");
     const runtime = getRuntime();
     if (runtime === "deno") {
+      const dotDir = path.join(process.cwd(), ".modelfetch");
+      await mkdir(dotDir, { recursive: true });
       const serverPath = path.join(process.cwd(), config.server);
-      const mainPath = path.join(tmpdir(), `modelfetch-${randomUUID()}.ts`);
+      const mainPath = path.join(dotDir, `main${path.extname(config.server)}`);
       const mainContent = `
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import server from "${pathToFileURL(serverPath).toString()}";
@@ -158,9 +165,6 @@ const transport = new StdioServerTransport();
 await server.connect(transport);
 `;
       await writeFile(mainPath, mainContent, "utf8");
-      process.once("exit", () => {
-        unlinkSync(mainPath);
-      });
       const deno = spawn("deno", ["run", "-A", "--watch-hmr", mainPath], {
         stdio: "inherit",
       });
@@ -245,11 +249,6 @@ program
       });
     }
   });
-
-INFO("SESSION");
-INFO(`Program Version: ${packageJson.version}`);
-INFO(`Working Directory: ${process.cwd()}`);
-INFO(`Environment Variables: ${Object.keys(process.env).sort().join(" ")}`);
 
 process.on("uncaughtException", (error) => {
   ERROR(`Uncaught exception: ${error.message}`);
