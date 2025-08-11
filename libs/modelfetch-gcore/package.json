@@ -1,6 +1,6 @@
 {
   "name": "@modelfetch/gcore",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Gcore runtime adapter for MCP servers built with ModelFetch",
   "keywords": [
     "model-context-protocol",

@@ -1,3 +1,13 @@
+## 1.0.5 (2025-08-11)
+
+### 🩹 Fixes
+
+- Add file-based logging to modelfetch CLI for debugging and monitoring sessions ([#97](https://github.com/phuctm97/modelfetch/pull/97))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 1.0.4 (2025-08-11)
 
 ### 🩹 Fixes
