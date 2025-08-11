@@ -7,7 +7,10 @@ import { watch } from "chokidar";
 import { Command } from "commander";
 import { get as getRuntime } from "js-runtime";
 import { spawn } from "node:child_process";
-import { access, readdir } from "node:fs/promises";
+import { randomUUID } from "node:crypto";
+import { unlinkSync } from "node:fs";
+import { access, readdir, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { tsImport } from "tsx/esm/api";
@@ -117,44 +120,72 @@ program
       defaults: { server: await detectDefaultServer() },
     });
     if (!config.server) throw new Error("config.server is required");
-    const transport = new Transport();
-    const watcher = watch(config.server, { cwd: process.cwd() });
-    let server: McpServer | undefined;
-    for (const killSignal of killSignals) {
-      process.once(killSignal, () => {
-        transport.__modelfetch_closed__ = true;
-        void watcher.close();
-        if (server) void server.close();
-        else void transport.close();
+    const runtime = getRuntime();
+    if (runtime === "deno") {
+      const serverPath = path.resolve(process.cwd(), config.server);
+      const mainPath = path.join(tmpdir(), `modelfetch-${randomUUID()}.ts`);
+      const mainContent = `
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import server from "${pathToFileURL(serverPath).toString()}";
+
+const transport = new StdioServerTransport();
+await server.connect(transport);
+`;
+      await writeFile(mainPath, mainContent, "utf8");
+      process.once("exit", () => {
+        unlinkSync(mainPath);
       });
+      const deno = spawn("deno", ["run", "-A", "--watch-hmr", mainPath], {
+        stdio: "inherit",
+      });
+      deno.once("exit", (code) => {
+        process.exit(code);
+      });
+      for (const killSignal of killSignals) {
+        process.once(killSignal, () => {
+          deno.kill(killSignal);
+        });
+      }
+    } else {
+      const transport = new Transport();
+      const watcher = watch(config.server, { cwd: process.cwd() });
+      let server: McpServer | undefined;
+      for (const killSignal of killSignals) {
+        process.once(killSignal, () => {
+          transport.__modelfetch_closed__ = true;
+          void watcher.close();
+          if (server) void server.close();
+          else void transport.close();
+        });
+      }
+      const reload = async () => {
+        watcher.unwatch("*");
+        if (server) {
+          const oldServer = server;
+          server = undefined;
+          await oldServer.close();
+        }
+        const { default: newServer } = (await tsImport(config.server, {
+          parentURL: pathToFileURL(
+            path.resolve(process.cwd(), `index${path.extname(config.server)}`),
+          ).toString(),
+          onImport: (url) => {
+            watcher.add(fileURLToPath(url));
+          },
+        })) as { default?: unknown };
+        if (!isMcpServer(newServer)) {
+          throw new Error(
+            `${config.server} must export a default McpServer instance`,
+          );
+        }
+        server = newServer;
+        await newServer.connect(transport);
+      };
+      watcher.on("change", () => {
+        void reload();
+      });
+      await reload();
     }
-    const reload = async () => {
-      watcher.unwatch("*");
-      if (server) {
-        const oldServer = server;
-        server = undefined;
-        await oldServer.close();
-      }
-      const { default: newServer } = (await tsImport(config.server, {
-        parentURL: pathToFileURL(
-          path.resolve(process.cwd(), `index${path.extname(config.server)}`),
-        ).toString(),
-        onImport: (url) => {
-          watcher.add(fileURLToPath(url));
-        },
-      })) as { default?: unknown };
-      if (!isMcpServer(newServer)) {
-        throw new Error(
-          `${config.server} must export a default McpServer instance`,
-        );
-      }
-      server = newServer;
-      await newServer.connect(transport);
-    };
-    watcher.on("change", () => {
-      void reload();
-    });
-    await reload();
   });
 
 program
