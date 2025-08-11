@@ -1,3 +1,14 @@
+## 1.0.4 (2025-08-11)
+
+### 🩹 Fixes
+
+- Fix runtime detection in modelfetch CLI by using js-runtime package for accurate Bun/Deno/Node detection ([#96](https://github.com/phuctm97/modelfetch/pull/96))
+- Fix Deno runtime support in modelfetch serve command by using native Deno watch-hmr instead of tsx ([#96](https://github.com/phuctm97/modelfetch/pull/96))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 1.0.3 (2025-08-09)
 
 ### 🩹 Fixes
