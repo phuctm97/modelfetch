@@ -7,10 +7,7 @@ import { watch } from "chokidar";
 import { Command } from "commander";
 import { get as getRuntime } from "js-runtime";
 import { spawn } from "node:child_process";
-import { randomUUID } from "node:crypto";
-import { appendFileSync } from "node:fs";
 import { access, mkdir, readdir, writeFile } from "node:fs/promises";
-import { homedir } from "node:os";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { tsImport } from "tsx/esm/api";
@@ -18,29 +15,6 @@ import { tsImport } from "tsx/esm/api";
 import packageJson from "../package.json" with { type: "json" };
 
 import { Transport } from "./transport.js";
-
-const logDir = path.join(homedir(), ".modelfetch", "logs");
-
-await mkdir(logDir, { recursive: true });
-
-const logFile = path.join(logDir, `session-${randomUUID()}.log`);
-
-function LOG(level: string, message: string): void {
-  const timestamp = new Date().toISOString();
-  appendFileSync(logFile, `[${timestamp}] [${level}] ${message}\n`, "utf8");
-}
-
-function SEP(): void {
-  appendFileSync(logFile, "------------------------------------\n", "utf8");
-}
-
-function INFO(message: string): void {
-  LOG("INFO", message);
-}
-
-function ERROR(message: string): void {
-  LOG("ERROR", message);
-}
 
 function isMcpServer(server: unknown): server is McpServer {
   return (
@@ -110,17 +84,33 @@ async function detectDefaultServer(): Promise<string> {
   return "";
 }
 
-function detectRuntimeArgs(): string[] {
+const bunRunArgs = ["bun", "run", "--silent", "--no-deprecation"];
+
+const denoRunArgs = ["deno", "run", "-Aq"];
+
+function detectRunArgs(): string[] {
   const runtime = getRuntime();
   switch (runtime) {
     case "bun": {
-      return ["bun", "run"];
+      return bunRunArgs;
     }
     case "deno": {
-      return ["deno", "run", "-A"];
+      return denoRunArgs;
     }
     default: {
       return ["node"];
+    }
+  }
+}
+
+function detectHotReloadArgs(): string[] | undefined {
+  const runtime = getRuntime();
+  switch (runtime) {
+    case "bun": {
+      return [...bunRunArgs, "--hot", "--no-clear-screen"];
+    }
+    case "deno": {
+      return [...denoRunArgs, "--watch-hmr", "--no-clear-screen"];
     }
   }
 }
@@ -132,15 +122,7 @@ const program = new Command();
 program
   .name(packageJson.name)
   .description(packageJson.description)
-  .version(packageJson.version)
-  .hook("preAction", (thisCommand, actionCommand) => {
-    SEP();
-    INFO(`Command: ${actionCommand.name()} ${actionCommand.args.join(" ")}`);
-    INFO(`Runtime: ${getRuntime()}`);
-    INFO(`Working Directory: ${process.cwd()}`);
-    INFO(`Environment Variables: ${Object.keys(process.env).sort().join(" ")}`);
-    SEP();
-  });
+  .version(packageJson.version);
 
 program
   .command("serve")
@@ -151,8 +133,8 @@ program
       defaults: { server: await detectDefaultServer() },
     });
     if (!config.server) throw new Error("config.server is required");
-    const runtime = getRuntime();
-    if (runtime === "deno") {
+    const hotReloadArgs = detectHotReloadArgs();
+    if (hotReloadArgs) {
       const dotDir = path.join(process.cwd(), ".modelfetch");
       await mkdir(dotDir, { recursive: true });
       const serverPath = path.join(process.cwd(), config.server);
@@ -165,15 +147,14 @@ const transport = new StdioServerTransport();
 await server.connect(transport);
 `;
       await writeFile(mainPath, mainContent, "utf8");
-      const deno = spawn("deno", ["run", "-A", "--watch-hmr", mainPath], {
-        stdio: "inherit",
-      });
-      deno.once("exit", (code) => {
+      const [command, ...args] = hotReloadArgs;
+      const child = spawn(command, [...args, mainPath], { stdio: "inherit" });
+      child.once("exit", (code) => {
         process.exit(code);
       });
       for (const killSignal of killSignals) {
         process.once(killSignal, () => {
-          deno.kill(killSignal);
+          child.kill(killSignal);
         });
       }
     } else {
@@ -222,7 +203,7 @@ program
   .command("dev")
   .description("start the MCP Inspector")
   .action(() => {
-    const [command, ...args] = detectRuntimeArgs();
+    const [command, ...args] = detectRunArgs();
     const inspector = spawn(
       command,
       [
@@ -249,15 +230,5 @@ program
       });
     }
   });
-
-process.on("uncaughtException", (error) => {
-  ERROR(`Uncaught exception: ${error.message}`);
-  ERROR(error.stack ?? "No stack trace");
-});
-
-process.on("unhandledRejection", (reason) => {
-  ERROR(`Unhandled rejection: ${String(reason)}`);
-  if (reason instanceof Error) ERROR(reason.stack ?? "No stack trace");
-});
 
 await program.parseAsync(process.argv);
