@@ -1,5 +1,6 @@
 .DS_Store
 node_modules
+.modelfetch
 local.settings.json
 __blobstorage__
 __queuestorage__
