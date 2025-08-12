@@ -125,8 +125,40 @@ program
   .version(packageJson.version);
 
 program
+  .command("dev")
+  .description("start the MCP Inspector")
+  .action(() => {
+    const [command, ...args] = detectRunArgs();
+    const inspector = spawn(
+      command,
+      [
+        ...args,
+        fileURLToPath(
+          import.meta.resolve(
+            "@modelcontextprotocol/inspector/cli/build/cli.js",
+          ),
+        ),
+        "--",
+        command,
+        ...args,
+        fileURLToPath(import.meta.url),
+        "serve",
+      ],
+      { stdio: "inherit" },
+    );
+    inspector.once("exit", (code) => {
+      process.exit(code);
+    });
+    for (const killSignal of killSignals) {
+      process.once(killSignal, () => {
+        inspector.kill(killSignal);
+      });
+    }
+  });
+
+program
   .command("serve")
-  .description("start the MCP server")
+  .description("start the MCP Server")
   .action(async () => {
     const { config } = await loadConfig<Config>({
       name: "modelfetch",
@@ -196,38 +228,6 @@ await server.connect(transport);
         void reload();
       });
       await reload();
-    }
-  });
-
-program
-  .command("dev")
-  .description("start the MCP Inspector")
-  .action(() => {
-    const [command, ...args] = detectRunArgs();
-    const inspector = spawn(
-      command,
-      [
-        ...args,
-        fileURLToPath(
-          import.meta.resolve(
-            "@modelcontextprotocol/inspector/cli/build/cli.js",
-          ),
-        ),
-        "--",
-        command,
-        ...args,
-        fileURLToPath(import.meta.url),
-        "serve",
-      ],
-      { stdio: "inherit" },
-    );
-    inspector.once("exit", (code) => {
-      process.exit(code);
-    });
-    for (const killSignal of killSignals) {
-      process.once(killSignal, () => {
-        inspector.kill(killSignal);
-      });
     }
   });
 

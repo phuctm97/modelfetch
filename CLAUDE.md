@@ -344,9 +344,8 @@ When testing the `modelfetch` CLI, use the Nx run command instead of executing t
 
 ```bash
 # ✅ Good - Use Nx run command
-pnpm exec nx run modelfetch:modelfetch -- dev
-pnpm exec nx run modelfetch:modelfetch -- --help
-pnpm exec nx run modelfetch:modelfetch -- --version
+pnpm exec nx run modelfetch:bin:modelfetch -- dev
+pnpm exec nx run modelfetch:bin:modelfetch -- --help
 
 # ❌ Bad - Running the binary directly
 node libs/modelfetch/bin/index.js dev
