@@ -28,7 +28,7 @@ const packageVersions = {
   typescript: "5.9.2",
   "@modelfetch/node": packageJson.version,
   "@types/node": "22.17.1",
-  tsx: "4.20.3",
+  tsx: "4.20.4",
   "@modelfetch/next": packageJson.version,
   "@modelfetch/bun": packageJson.version,
   "@types/bun": "1.2.20",

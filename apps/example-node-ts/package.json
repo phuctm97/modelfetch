@@ -12,6 +12,6 @@
   "devDependencies": {
     "create-eslint-config": "workspace:^",
     "modelfetch": "workspace:^",
-    "tsx": "^4.20.3"
+    "tsx": "^4.20.4"
   }
 }

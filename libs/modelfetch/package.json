@@ -56,7 +56,7 @@
     "commander": "^14.0.0",
     "js-runtime": "^0.0.8",
     "tailwindcss": "^4.1.11",
-    "tsx": "^4.20.3"
+    "tsx": "^4.20.4"
   },
   "devDependencies": {
     "create-eslint-config": "workspace:^",
