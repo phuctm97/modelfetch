@@ -1,3 +1,14 @@
+## 1.0.8 (2025-08-12)
+
+### 🩹 Fixes
+
+- Update Nx target naming conventions for improved clarity and organization ([362710e](https://github.com/phuctm97/modelfetch/commit/362710e))
+- Add .modelfetch directory to gitignore patterns across the workspace ([362710e](https://github.com/phuctm97/modelfetch/commit/362710e))
+
+### ❤️ Thank You
+
+- phuctm97
+
 ## 1.0.7 (2025-08-11)
 
 ### 🩹 Fixes
