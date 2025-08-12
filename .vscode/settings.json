@@ -35,6 +35,7 @@
     ".cursor/rules/nx-rules.mdc": true,
     "**/*.tsbuildinfo": true,
     "**/node_modules": true,
+    "**/.modelfetch": true,
     "**/dist": true,
     "**/.source": true,
     "**/next-env.d.ts": true,

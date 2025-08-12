@@ -4,6 +4,7 @@
 .DS_Store
 *.tsbuildinfo
 node_modules
+.modelfetch
 dist
 .source
 .next
