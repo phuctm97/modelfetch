@@ -2,7 +2,6 @@
   "imports": {
     "@modelcontextprotocol/sdk/": "https://esm.sh/@modelcontextprotocol/sdk@<%= versions['@modelcontextprotocol/sdk'] %>/",
     "@modelfetch/netlify": "https://esm.sh/@modelfetch/netlify@<%= versions['@modelfetch/netlify'] %>",
-    "modelfetch": "https://esm.sh/modelfetch@<%= versions['modelfetch'] %>",
     "tslib": "https://esm.sh/tslib@<%= versions['tslib'] %>",
     "zod": "https://esm.sh/zod@<%= versions['zod'] %>"
   }
