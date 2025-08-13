@@ -764,28 +764,31 @@ importers:
       '@modelcontextprotocol/inspector':
         specifier: ^0.16.3
         version: 0.16.3(@swc/core@1.13.3(@swc/helpers@0.5.17))(@types/node@22.17.1)(@types/react-dom@19.1.7(@types/react@19.1.10))(@types/react@19.1.10)(tailwindcss@4.1.11)(typescript@5.9.2)
-      '@modelcontextprotocol/sdk':
-        specifier: ^1.17.2
-        version: 1.17.2
+      '@modelfetch/core':
+        specifier: workspace:^
+        version: link:../modelfetch-core
       c12:
         specifier: ^3.2.0
         version: 3.2.0
-      chokidar:
-        specifier: ^4.0.3
-        version: 4.0.3
       commander:
         specifier: ^14.0.0
         version: 14.0.0
+      get-port:
+        specifier: ^7.1.0
+        version: 7.1.0
       js-runtime:
         specifier: ^0.0.8
         version: 0.0.8
       tailwindcss:
         specifier: ^4.1.11
         version: 4.1.11
-      tsx:
-        specifier: ^4.20.4
-        version: 4.20.4
     devDependencies:
+      '@types/bun':
+        specifier: ^1.2.20
+        version: 1.2.20(@types/react@19.1.10)
+      '@types/deno':
+        specifier: ^2.3.0
+        version: 2.3.0
       create-eslint-config:
         specifier: workspace:^
         version: link:../create-eslint-config

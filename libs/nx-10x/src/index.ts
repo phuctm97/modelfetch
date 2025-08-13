@@ -288,14 +288,8 @@ export const createNodesV2: CreateNodesV2 = [
           packageJson.dependencies?.modelfetch ||
           packageJson.devDependencies?.modelfetch
         ) {
-          targets["mcp:dev"] = {
+          targets.inspect = {
             command: "modelfetch dev",
-            options: { cwd: "{projectRoot}" },
-            continuous: true,
-            dependsOn: ["build", "^build"],
-          };
-          targets["mcp:serve"] = {
-            command: "modelfetch serve",
             options: { cwd: "{projectRoot}" },
             continuous: true,
             dependsOn: ["build", "^build"],

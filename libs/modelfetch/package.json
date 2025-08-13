@@ -35,6 +35,11 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
+    "./cli": {
+      "development": "./src/cli.ts",
+      "types": "./dist/cli.d.ts",
+      "import": "./dist/cli.js"
+    },
     "./config": {
       "development": "./src/config.ts",
       "types": "./dist/config.d.ts",
@@ -50,15 +55,16 @@
   ],
   "dependencies": {
     "@modelcontextprotocol/inspector": "^0.16.3",
-    "@modelcontextprotocol/sdk": "^1.17.2",
+    "@modelfetch/core": "workspace:^",
     "c12": "^3.2.0",
-    "chokidar": "^4.0.3",
     "commander": "^14.0.0",
+    "get-port": "^7.1.0",
     "js-runtime": "^0.0.8",
-    "tailwindcss": "^4.1.11",
-    "tsx": "^4.20.4"
+    "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
+    "@types/bun": "^1.2.20",
+    "@types/deno": "^2.3.0",
     "create-eslint-config": "workspace:^",
     "type-fest": "^4.41.0"
   }

@@ -3,6 +3,9 @@
   "references": [
     {
       "path": "./tsconfig.lib.json"
+    },
+    {
+      "path": "../modelfetch-core"
     }
   ],
   "extends": "../../tsconfig.base.json"
