@@ -5,8 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "mcp:dev": "modelfetch dev",
-    "mcp:serve": "modelfetch serve",
+    "dev": "modelfetch dev",
     "start": "fastly compute serve",
     "deploy": "fastly compute publish"
   },

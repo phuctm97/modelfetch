@@ -6,8 +6,6 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "mcp:dev": "modelfetch dev",
-    "mcp:serve": "modelfetch serve",
     "build": "next build",
     "start": "next start"
   },
