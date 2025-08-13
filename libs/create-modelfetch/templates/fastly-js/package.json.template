@@ -5,6 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "modelfetch dev",
     "start": "fastly compute serve",
     "deploy": "fastly compute publish"
   },
@@ -14,5 +15,8 @@
     "@modelfetch/fastly": "<%= versions['@modelfetch/fastly'] %>",
     "tslib": "<%= versions['tslib'] %>",
     "zod": "<%= versions['zod'] %>"
+  },
+  "devDependencies": {
+    "modelfetch": "<%= versions['modelfetch'] %>"
   }
 }

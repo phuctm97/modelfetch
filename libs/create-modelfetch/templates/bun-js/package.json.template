@@ -6,6 +6,7 @@
   "type": "module",
   "main": "./src/index.js",
   "scripts": {
+    "dev": "modelfetch dev",
     "start": "bun ."
   },
   "dependencies": {
@@ -13,5 +14,8 @@
     "@modelfetch/bun": "<%= versions['@modelfetch/bun'] %>",
     "tslib": "<%= versions['tslib'] %>",
     "zod": "<%= versions['zod'] %>"
+  },
+  "devDependencies": {
+    "modelfetch": "<%= versions['modelfetch'] %>"
   }
 }

@@ -6,6 +6,7 @@
   "type": "module",
   "main": "./src/index.js",
   "scripts": {
+    "dev": "modelfetch dev",
     "start": "func start"
   },
   "dependencies": {
@@ -14,5 +15,8 @@
     "@modelfetch/azure-functions": "<%= versions['@modelfetch/azure-functions'] %>",
     "tslib": "<%= versions['tslib'] %>",
     "zod": "<%= versions['zod'] %>"
+  },
+  "devDependencies": {
+    "modelfetch": "<%= versions['modelfetch'] %>"
   }
 }

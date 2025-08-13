@@ -6,6 +6,7 @@
   "type": "module",
   "main": "./dist/index.js",
   "scripts": {
+    "dev": "modelfetch dev",
     "start": "tsc -b && func start"
   },
   "dependencies": {
@@ -17,6 +18,7 @@
   },
   "devDependencies": {
     "@types/node": "<%= versions['@types/node'] %>",
+    "modelfetch": "<%= versions['modelfetch'] %>",
     "typescript": "<%= versions['typescript'] %>"
   }
 }

@@ -5,6 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "modelfetch dev",
     "deploy": "tsc -b && fastedge-build ./dist/index.js ./dist/index.wasm && node deploy.js"
   },
   "dependencies": {
@@ -15,6 +16,7 @@
   },
   "devDependencies": {
     "@gcoredev/fastedge-sdk-js": "<%= versions['@gcoredev/fastedge-sdk-js'] %>",
+    "modelfetch": "<%= versions['modelfetch'] %>",
     "typescript": "<%= versions['typescript'] %>"
   }
 }

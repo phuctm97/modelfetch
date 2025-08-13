@@ -6,6 +6,7 @@
   "type": "module",
   "main": "./src/index.ts",
   "scripts": {
+    "dev": "modelfetch dev",
     "start": "bun ."
   },
   "dependencies": {
@@ -15,6 +16,7 @@
     "zod": "<%= versions['zod'] %>"
   },
   "devDependencies": {
-    "@types/bun": "<%= versions['@types/bun'] %>"
+    "@types/bun": "<%= versions['@types/bun'] %>",
+    "modelfetch": "<%= versions['modelfetch'] %>"
   }
 }

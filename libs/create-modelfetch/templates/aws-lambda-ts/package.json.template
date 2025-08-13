@@ -5,6 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "modelfetch dev",
     "deploy": "cdk deploy",
     "destroy": "cdk destroy"
   },
@@ -20,6 +21,7 @@
     "aws-cdk": "<%= versions['aws-cdk'] %>",
     "aws-cdk-lib": "<%= versions['aws-cdk-lib'] %>",
     "esbuild": "<%= versions['esbuild'] %>",
+    "modelfetch": "<%= versions['modelfetch'] %>",
     "typescript": "<%= versions['typescript'] %>"
   }
 }
