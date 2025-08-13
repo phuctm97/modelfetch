@@ -26,6 +26,7 @@ const packageVersions = {
   zod: "3.25.76",
   tslib: "2.8.1",
   typescript: "5.9.2",
+  modelfetch: packageJson.version,
   "@modelfetch/node": packageJson.version,
   "@types/node": "22.17.1",
   tsx: "4.20.4",
