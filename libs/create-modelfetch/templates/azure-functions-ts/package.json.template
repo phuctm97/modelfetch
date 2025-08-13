@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@types/node": "<%= versions['@types/node'] %>",
+    "modelfetch": "<%= versions['modelfetch'] %>",
     "typescript": "<%= versions['typescript'] %>"
   }
 }

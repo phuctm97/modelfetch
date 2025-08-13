@@ -14,5 +14,8 @@
     "@modelfetch/fastly": "<%= versions['@modelfetch/fastly'] %>",
     "tslib": "<%= versions['tslib'] %>",
     "zod": "<%= versions['zod'] %>"
+  },
+  "devDependencies": {
+    "modelfetch": "<%= versions['modelfetch'] %>"
   }
 }

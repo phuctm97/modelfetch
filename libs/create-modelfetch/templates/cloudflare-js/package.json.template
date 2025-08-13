@@ -16,6 +16,7 @@
     "zod": "<%= versions['zod'] %>"
   },
   "devDependencies": {
+    "modelfetch": "<%= versions['modelfetch'] %>",
     "wrangler": "<%= versions['wrangler'] %>"
   }
 }

@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@gcoredev/fastedge-sdk-js": "<%= versions['@gcoredev/fastedge-sdk-js'] %>",
+    "modelfetch": "<%= versions['modelfetch'] %>",
     "typescript": "<%= versions['typescript'] %>"
   }
 }

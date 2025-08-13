@@ -14,6 +14,7 @@
     "zod": "<%= versions['zod'] %>"
   },
   "devDependencies": {
-    "@gcoredev/fastedge-sdk-js": "<%= versions['@gcoredev/fastedge-sdk-js'] %>"
+    "@gcoredev/fastedge-sdk-js": "<%= versions['@gcoredev/fastedge-sdk-js'] %>",
+    "modelfetch": "<%= versions['modelfetch'] %>"
   }
 }

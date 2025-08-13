@@ -15,6 +15,7 @@
     "zod": "<%= versions['zod'] %>"
   },
   "devDependencies": {
-    "@types/bun": "<%= versions['@types/bun'] %>"
+    "@types/bun": "<%= versions['@types/bun'] %>",
+    "modelfetch": "<%= versions['modelfetch'] %>"
   }
 }

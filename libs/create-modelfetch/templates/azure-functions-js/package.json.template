@@ -14,5 +14,8 @@
     "@modelfetch/azure-functions": "<%= versions['@modelfetch/azure-functions'] %>",
     "tslib": "<%= versions['tslib'] %>",
     "zod": "<%= versions['zod'] %>"
+  },
+  "devDependencies": {
+    "modelfetch": "<%= versions['modelfetch'] %>"
   }
 }

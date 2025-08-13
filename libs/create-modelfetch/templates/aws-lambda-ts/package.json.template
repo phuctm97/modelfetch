@@ -20,6 +20,7 @@
     "aws-cdk": "<%= versions['aws-cdk'] %>",
     "aws-cdk-lib": "<%= versions['aws-cdk-lib'] %>",
     "esbuild": "<%= versions['esbuild'] %>",
+    "modelfetch": "<%= versions['modelfetch'] %>",
     "typescript": "<%= versions['typescript'] %>"
   }
 }

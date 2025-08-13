@@ -13,5 +13,8 @@
     "@modelfetch/bun": "<%= versions['@modelfetch/bun'] %>",
     "tslib": "<%= versions['tslib'] %>",
     "zod": "<%= versions['zod'] %>"
+  },
+  "devDependencies": {
+    "modelfetch": "<%= versions['modelfetch'] %>"
   }
 }

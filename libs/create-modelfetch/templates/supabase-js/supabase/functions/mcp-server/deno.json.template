@@ -2,6 +2,7 @@
   "imports": {
     "@modelcontextprotocol/sdk/": "npm:/@modelcontextprotocol/sdk@<%= versions['@modelcontextprotocol/sdk'] %>/",
     "@modelfetch/supabase": "npm:@modelfetch/supabase@<%= versions['@modelfetch/supabase'] %>",
+    "modelfetch": "npm:modelfetch@<%= versions['modelfetch'] %>",
     "tslib": "npm:tslib@<%= versions['tslib'] %>",
     "zod": "npm:zod@<%= versions['zod'] %>"
   }
