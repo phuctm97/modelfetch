@@ -2,4 +2,4 @@
 __default__: patch
 ---
 
-Add modelfetch CLI as a development dependency to all create-modelfetch templates
+Add modelfetch dev script to create-modelfetch templates that need local MCP development
