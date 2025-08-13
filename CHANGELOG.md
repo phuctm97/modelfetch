@@ -1,3 +1,13 @@
+## 1.0.10 (2025-08-13)
+
+### 🩹 Fixes
+
+- Add missing modelfetch package version to create-modelfetch CLI templates ([#103](https://github.com/phuctm97/modelfetch/pull/103))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 1.0.9 (2025-08-13)
 
 ### 🩹 Fixes
