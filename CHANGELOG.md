@@ -1,3 +1,13 @@
+## 1.0.9 (2025-08-13)
+
+### 🩹 Fixes
+
+- Add modelfetch dev script to create-modelfetch templates that need local MCP development ([#102](https://github.com/phuctm97/modelfetch/pull/102))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 1.0.8 (2025-08-12)
 
 ### 🩹 Fixes
