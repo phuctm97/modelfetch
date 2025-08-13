@@ -1,6 +1,10 @@
 {
   "include": ["src"],
-  "references": [],
+  "references": [
+    {
+      "path": "../modelfetch-core/tsconfig.lib.json"
+    }
+  ],
   "extends": "../../tsconfig.node.json",
   "compilerOptions": {
     "sourceRoot": "/libs/modelfetch/src",
