@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "wrangler dev",
-    "dev:mcp": "modelfetch dev",
+    "mcp:dev": "modelfetch dev",
+    "mcp:serve": "modelfetch serve",
     "deploy": "wrangler deploy",
     "delete": "wrangler delete"
   },

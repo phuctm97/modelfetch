@@ -6,7 +6,8 @@
   "type": "module",
   "main": "./src/index.ts",
   "scripts": {
-    "dev:mcp": "modelfetch dev",
+    "mcp:dev": "modelfetch dev",
+    "mcp:serve": "modelfetch serve",
     "start": "tsx ."
   },
   "dependencies": {
