@@ -6,6 +6,7 @@
   "type": "module",
   "main": "./src/index.js",
   "scripts": {
+    "dev:mcp": "modelfetch dev",
     "start": "node ."
   },
   "dependencies": {

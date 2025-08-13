@@ -6,6 +6,7 @@
   "type": "module",
   "main": "./dist/index.js",
   "scripts": {
+    "dev:mcp": "modelfetch dev",
     "start": "tsc -b && func start"
   },
   "dependencies": {
