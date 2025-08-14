@@ -1,3 +1,14 @@
+## 1.0.11 (2025-08-14)
+
+### 🩹 Fixes
+
+- Standardize MCP server script naming to use mcp-server across all create-modelfetch templates ([#105](https://github.com/phuctm97/modelfetch/pull/105))
+- Refactor modelfetch CLI to use HTTP server with hot reload support instead of stdio transport ([#105](https://github.com/phuctm97/modelfetch/pull/105))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 1.0.10 (2025-08-13)
 
 ### 🩹 Fixes

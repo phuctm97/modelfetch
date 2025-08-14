@@ -1,6 +1,6 @@
 {
   "name": "@modelfetch/bun",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Bun runtime adapter for MCP servers built with ModelFetch",
   "keywords": [
     "model-context-protocol",
