@@ -5,6 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "mcp-server": "modelfetch dev",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
@@ -17,5 +18,8 @@
     "react-dom": "<%= versions['react-dom'] %>",
     "tslib": "<%= versions['tslib'] %>",
     "zod": "<%= versions['zod'] %>"
+  },
+  "devDependencies": {
+    "modelfetch": "<%= versions['modelfetch'] %>"
   }
 }

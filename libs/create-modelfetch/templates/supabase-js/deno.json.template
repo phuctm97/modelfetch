@@ -1,0 +1,5 @@
+{
+  "tasks": {
+    "mcp-server": "deno run -A npm:modelfetch@<%= versions['modelfetch'] %> dev"
+  }
+}

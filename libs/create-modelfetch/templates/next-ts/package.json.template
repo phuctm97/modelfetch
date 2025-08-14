@@ -5,6 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "mcp-server": "modelfetch dev",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
@@ -22,6 +23,7 @@
     "@types/node": "<%= versions['@types/node'] %>",
     "@types/react": "<%= versions['@types/react'] %>",
     "@types/react-dom": "<%= versions['@types/react-dom'] %>",
+    "modelfetch": "<%= versions['modelfetch'] %>",
     "typescript": "<%= versions['typescript'] %>"
   }
 }

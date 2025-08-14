@@ -5,6 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "mcp-server": "modelfetch dev",
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
     "delete": "wrangler delete"
@@ -16,6 +17,7 @@
     "zod": "<%= versions['zod'] %>"
   },
   "devDependencies": {
+    "modelfetch": "<%= versions['modelfetch'] %>",
     "typescript": "<%= versions['typescript'] %>",
     "wrangler": "<%= versions['wrangler'] %>"
   }
