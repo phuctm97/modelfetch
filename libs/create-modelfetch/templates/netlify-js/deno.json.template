@@ -1,6 +1,7 @@
 {
   "importMap": "./import_map.json",
   "tasks": {
+    "mcp-server": "deno run -A npm:modelfetch@<%= versions['modelfetch'] %> dev",
     "dev": "netlify dev",
     "deploy": "netlify deploy --prod"
   }

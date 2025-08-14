@@ -276,7 +276,7 @@ export const createNodesV2: CreateNodesV2 = [
               ? { [packageJson.name]: packageJson.bin }
               : packageJson.bin;
           for (const [binName, binPath] of Object.entries(binEntries)) {
-            targets[`bin:${binName}`] = {
+            targets[binName] = {
               command: `node ${binPath}`,
               options: { cwd: "{projectRoot}" },
               continuous: true,
@@ -288,7 +288,7 @@ export const createNodesV2: CreateNodesV2 = [
           packageJson.dependencies?.modelfetch ||
           packageJson.devDependencies?.modelfetch
         ) {
-          targets.inspect = {
+          targets["mcp-server"] = {
             command: "modelfetch dev",
             options: { cwd: "{projectRoot}" },
             continuous: true,

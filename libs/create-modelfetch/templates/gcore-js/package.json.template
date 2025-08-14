@@ -5,7 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "modelfetch dev",
+    "mcp-server": "modelfetch dev",
     "deploy": "fastedge-build ./src/index.js ./dist/index.wasm && node deploy.js"
   },
   "dependencies": {

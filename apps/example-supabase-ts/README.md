@@ -36,12 +36,12 @@ Then, connect to your MCP server using Streamable HTTP transport (default URL: `
 ```
 example-supabase-ts/
 ├── supabase/
-│   ├── config.toml              # Supabase configuration
-│   └── functions/
-│       └── mcp-server/
-│           ├── deno.json        # Deno configuration
-│           ├── index.ts         # Supabase Edge Function entry point
-│           └── server.ts        # MCP server implementation
+│   ├── functions/
+│   │   └── mcp-server/
+│   │       ├── deno.json        # Supabase Edge Function Deno configuration
+│   │       ├── index.ts         # Supabase Edge Function entry point
+│   │       └── server.ts        # MCP server implementation
+│   └── config.toml              # Supabase configuration
 ├── tsconfig.json
 ├── tsconfig.lib.json
 ├── package.json
