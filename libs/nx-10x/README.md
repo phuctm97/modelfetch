@@ -12,9 +12,11 @@
   "plugins": ["nx-10x"],
   "sync": {
     "globalGenerators": [
-      "nx-10x:format-typescript-configs",
+      "nx-10x:update-cloudflare-worker-types",
       "nx-10x:update-package-manifests",
-      "nx-10x:update-supabase-imports"
+      "nx-10x:update-supabase-imports",
+      "nx-10x:update-template-files",
+      "nx-10x:update-ts-configs"
     ]
   }
 }
@@ -31,11 +33,11 @@ pnpm exec nx g nx-10x:create-library
 ```json
 {
   "targets": {
-    "prepare-release-publish": {
-      "executor": "nx-10x:prepare-release-publish"
-    },
     "deploy-gcore-fastedge": {
       "executor": "nx-10x:deploy-gcore-fastedge"
+    },
+    "prepare-release-publish": {
+      "executor": "nx-10x:prepare-release-publish"
     }
   }
 }
