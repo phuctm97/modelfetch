@@ -54,13 +54,13 @@
     "dist"
   ],
   "dependencies": {
-    "@modelcontextprotocol/inspector": "^0.16.3",
+    "@modelcontextprotocol/inspector": "^0.16.5",
     "@modelfetch/core": "workspace:^",
     "c12": "^3.2.0",
     "commander": "^14.0.0",
     "get-port": "^7.1.0",
     "js-runtime": "^0.0.8",
-    "tailwindcss": "^4.1.11"
+    "tailwindcss": "^4.1.12"
   },
   "devDependencies": {
     "@types/bun": "^1.2.20",

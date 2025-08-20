@@ -251,7 +251,7 @@ ModelFetch provides runtime-specific packages that handle tedious platform diffe
 
 ```bash
 # Run development server for a project
-pnpm exec nx dev @modelfetch/website
+pnpm exec nx dev modelfetch-website
 
 # Type check all projects
 pnpm exec nx run-many -t typecheck
