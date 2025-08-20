@@ -19,8 +19,8 @@ Execute the following steps in order:
    - Read the relevant package.json files
    - Update the exact versions to the latest available versions
    - Apply the following exceptions:
-     - `zod`: Keep at latest version 3.x.x (do not upgrade to version 4 or higher)
-     - `typescript`: Keep at latest version 5.9.x (do not upgrade to 5.9 or higher)
+     - `zod`: Keep at latest version 3.x.x (do not upgrade to 4 or higher)
+     - `typescript`: Keep at latest version 5.9.x (do not upgrade to 5.10 or higher)
      - `@types/node`: Keep at latest version 22.x.x (do not upgrade to 23 or higher)
 
 5. **Update packageVersions in create-modelfetch**:
