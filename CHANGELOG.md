@@ -1,3 +1,13 @@
+## 1.0.12 (2025-08-20)
+
+### 🩹 Fixes
+
+- Update Nx to 21.4.0 and various dependencies including @modelcontextprotocol/sdk, aws-cdk, and @types/node ([#106](https://github.com/phuctm97/modelfetch/pull/106))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 1.0.11 (2025-08-14)
 
 ### 🩹 Fixes
