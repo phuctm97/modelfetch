@@ -5,7 +5,7 @@
   "type": "module",
   "dependencies": {
     "@fastly/js-compute": "^3.34.0",
-    "@modelcontextprotocol/sdk": "^1.17.2",
+    "@modelcontextprotocol/sdk": "^1.17.3",
     "@modelfetch/fastly": "workspace:^",
     "zod": "^3.25.76"
   },

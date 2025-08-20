@@ -6,6 +6,7 @@ onlyBuiltDependencies:
   - "@tailwindcss/oxide"
   - esbuild
   - nx
+  - oxc-resolver
   - sharp
   - unrs-resolver
   - workerd

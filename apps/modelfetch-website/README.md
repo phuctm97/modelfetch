@@ -1,4 +1,4 @@
-# `@modelfetch/website`
+# `modelfetch-website`
 
 > [!NOTE]
 > This is the [ModelFetch](https://www.modelfetch.com) website and documentation.

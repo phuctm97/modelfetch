@@ -1,6 +1,6 @@
 {
   "imports": {
-    "@modelcontextprotocol/sdk/": "npm:/@modelcontextprotocol/sdk@^1.17.2/",
+    "@modelcontextprotocol/sdk/": "npm:/@modelcontextprotocol/sdk@^1.17.3/",
     "zod": "npm:zod@^3.25.76",
     "@hono/mcp": "npm:@hono/mcp@^0.1.1",
     "hono": "npm:hono@^4.8.12",
