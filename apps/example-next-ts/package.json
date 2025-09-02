@@ -4,18 +4,18 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.17.3",
+    "@modelcontextprotocol/sdk": "^1.17.4",
     "@modelfetch/next": "workspace:^",
-    "next": "^15.5.0",
+    "next": "^15.5.2",
     "next-config": "workspace:^",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "zod": "^3.25.76"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^15.5.0",
-    "@types/react": "^19.1.10",
-    "@types/react-dom": "^19.1.7",
+    "@next/eslint-plugin-next": "^15.5.2",
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
     "create-eslint-config": "workspace:^",
     "eslint-config-import-paths": "workspace:^",
     "eslint-config-react": "workspace:^",

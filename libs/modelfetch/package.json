@@ -60,10 +60,12 @@
     "commander": "^14.0.0",
     "get-port": "^7.1.0",
     "js-runtime": "^0.0.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "tailwindcss": "^4.1.12"
   },
   "devDependencies": {
-    "@types/bun": "^1.2.20",
+    "@types/bun": "^1.2.21",
     "@types/deno": "^2.3.0",
     "create-eslint-config": "workspace:^",
     "type-fest": "^4.41.0"

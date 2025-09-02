@@ -43,7 +43,7 @@
     "@azure/functions": "4.7.2-preview",
     "@marplex/hono-azurefunc-adapter": "^1.0.1",
     "@modelfetch/core": "workspace:^",
-    "hono": "^4.9.2"
+    "hono": "^4.9.5"
   },
   "devDependencies": {
     "create-eslint-config": "workspace:^"
