@@ -5,13 +5,13 @@
   "type": "module",
   "main": "./src/index.ts",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.17.3",
+    "@modelcontextprotocol/sdk": "^1.17.4",
     "@modelfetch/node": "workspace:^",
     "zod": "^3.25.76"
   },
   "devDependencies": {
     "create-eslint-config": "workspace:^",
     "modelfetch": "workspace:^",
-    "tsx": "^4.20.4"
+    "tsx": "^4.20.5"
   }
 }

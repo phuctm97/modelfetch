@@ -41,7 +41,7 @@
   ],
   "dependencies": {
     "@modelfetch/core": "workspace:^",
-    "hono": "^4.9.2"
+    "hono": "^4.9.5"
   },
   "devDependencies": {
     "create-eslint-config": "workspace:^"

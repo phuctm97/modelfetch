@@ -1,25 +1,16 @@
 import type { Tree } from "@nx/devkit";
 import type { SyncGeneratorResult } from "nx/src/utils/sync-generators";
 
-import { formatFiles } from "@nx/devkit";
-
-function getAllTemplateFiles(tree: Tree, path = "."): string[] {
-  const templateFiles: string[] = [];
-  for (const child of tree.children(path)) {
-    const childPath = path === "." ? child : `${path}/${child}`;
-    if (tree.isFile(childPath) && childPath.endsWith(".template"))
-      templateFiles.push(childPath);
-    else if (!tree.isFile(childPath))
-      templateFiles.push(...getAllTemplateFiles(tree, childPath));
-  }
-  return templateFiles;
-}
+import { formatFiles, visitNotIgnoredFiles } from "@nx/devkit";
 
 export default async function updateTemplateFiles(
   tree: Tree,
 ): Promise<SyncGeneratorResult> {
-  const templateFiles = getAllTemplateFiles(tree);
-  for (const filePath of templateFiles) {
+  const filePaths = new Set<string>();
+  visitNotIgnoredFiles(tree, ".", (filePath) => {
+    if (filePath.endsWith(".template")) filePaths.add(filePath);
+  });
+  for (const filePath of filePaths) {
     const content = tree.read(filePath, "utf8") ?? "";
     tree.write(filePath, content.replace(/\n*$/, "\n"));
   }
