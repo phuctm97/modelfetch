@@ -1,6 +1,6 @@
 {
   "name": "@modelfetch/core",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Core utilities for MCP servers built with ModelFetch",
   "keywords": [
     "model-context-protocol",

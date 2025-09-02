@@ -1,3 +1,13 @@
+## 1.0.13 (2025-09-02)
+
+### 🩹 Fixes
+
+- Update Nx to 21.4.1, Node.js to 22.18, and various other dependencies ([#107](https://github.com/phuctm97/modelfetch/pull/107))
+
+### ❤️ Thank You
+
+- Minh-Phuc Tran
+
 ## 1.0.12 (2025-08-20)
 
 ### 🩹 Fixes
